@@ -11,3 +11,4 @@ api.setApi(app)
 
 server.listen(port);
 console.log(`server running at http://localhost:${port}`)
+console.log(`api configurado at http://localhost:${port}/api`)
