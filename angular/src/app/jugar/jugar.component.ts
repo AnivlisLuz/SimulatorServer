@@ -35,13 +35,14 @@ export class JugarComponent implements OnInit {
 
   get f() { return this.registerForm.controls; }
   onClickMe() {
-    let body = { player_name: this.nombre_empresa, codigo: this.codigo }
-    this.http.post('/joinGame', body).subscribe(
+    let body_send = { player_name: this.nombre_empresa, codigo: this.codigo }
+    this.http.post('/joinGame', body_send).subscribe(
       (response: any) => {
         if (response.status == 200) {
           let body = JSON.parse(response._body)
           if (body.message == "ok") {
             alert("Tu nombre de empresa sera:" + this.nombre_empresa);
+            this.router.navigate(['/tabla',body_send]);
           } else {
             alert("error con el cogigo o la sala ya esta llena");
           }

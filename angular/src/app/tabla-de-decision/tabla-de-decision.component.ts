@@ -91,6 +91,7 @@ export class TablaDeDecisionComponent implements OnInit {
 
   ngOnInit() {
     this.route.params.subscribe(params=>{
+      console.log(params,"parametros")
       if(params['nombreEmpresa']!=null && params['codigo']!=null){
           this.nombreEmpresa=params['nombreEmpresa'];
           this.codigo=params['codigo'];

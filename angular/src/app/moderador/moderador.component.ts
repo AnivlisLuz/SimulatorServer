@@ -9,7 +9,6 @@ import { Http } from '@angular/http';
   styleUrls: ['./moderador.component.css']
 })
 export class ModeradorComponent implements OnInit {
-  Mickey: String = "hola"
   moderador: Moderador;
   constructor(private http: HttpService, ) {
     this.moderador = new Moderador();
