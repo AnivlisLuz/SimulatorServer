@@ -18,47 +18,42 @@ export class JugarComponent implements OnInit {
   registerForm: FormGroup;
   submitted = false;
 
-  constructor(private router: Router,private formBuilder: FormBuilder,     private http:HttpService  ) {
+  nombre_empresa: String;
+  codigo: String;
+
+  constructor(private router: Router, private formBuilder: FormBuilder, private http: HttpService) {
     this.jugador = new Jugador();
     this.empresa = new Empresa();
   }
 
-  ngOnInit()  {
+  ngOnInit() {
     this.registerForm = this.formBuilder.group({
-            nombreE: ['', Validators.required],
-            codigo: ['', Validators.required]
-        });
+      nombreE: ['', Validators.required],
+      codigo: ['', Validators.required]
+    });
   }
 
-get f() { return this.registerForm.controls; }
-  tabla() {{}
-   this.submitted = true;
-
-        // stop here if form is invalid
-        if (this.registerForm.invalid) {return;}
-
-
-
-    this.jugador.nombreEmpresa=this.registerForm.value.nombreE;
-    this.jugador.codigo=this.registerForm.value.codigo;
-
-
-    this.empresa.nombre=this.jugador.nombreEmpresa;
-    let json = JSON.stringify(this.empresa);
-    let params =  'json'+json;
-    this.http.post('/joinGame',json).subscribe(
-      (response:any) => {
-          if(response.status == 200){
-            console.log('ok');
-            alert("Tu nombre de empresa sera: "+this.jugador.nombreEmpresa);
-    this.router.navigate(['/tabla',this.jugador.nombreEmpresa,this.jugador.codigo]);
-
+  get f() { return this.registerForm.controls; }
+  onClickMe() {
+    let body = { player_name: this.nombre_empresa, codigo: this.codigo }
+    this.http.post('/joinGame', body).subscribe(
+      (response: any) => {
+        if (response.status == 200) {
+          let body = JSON.parse(response._body)
+          if (body.message == "ok") {
+            alert("Tu nombre de empresa sera:" + this.nombre_empresa);
+          } else {
+            alert("error con el cogigo o la sala ya esta llena");
           }
-          else{
-            console.log(response);
-          }
-     });
-//    alert("Tu nombre de empresa sera: "+this.jugador.nombreEmpresa);
+          console.log('ok ' + response._body);
+          // this.router.navigate(['/tabla',this.jugador.nombreEmpresa,this.jugador.codigo]);
+
+        }
+        else {
+          console.log(response);
+        }
+      });
+    //    alert("Tu nombre de empresa sera: "+this.jugador.nombreEmpresa);
 
   }
 }

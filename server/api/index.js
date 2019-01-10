@@ -49,20 +49,16 @@ exports.setApi = app => {
     app.post('/createGame', (req, client) => {
         let body = req.body
         console.log("createGame =>", req.body)
-        let _mercado = mercados[body.nombreMercado]
-        if (_mercado) {
-            client.json({ message: "duplicate", token: _mercado.token })
-        } else {
-            let token = randtoken.generate(5);
-            mercados[body.nombreMercado] = new Mercado(body.nombreMercado, body.cantidadJugadores, token)
-            client.json({ message: "ok", token: token })
-        }
+        let token = randtoken.generate(5);
+        mercados[token] = new Mercado(body.nombreMercado, body.cantidadJugadores, token)
+        client.json({ message: "ok", token: token })
+
     })
     app.post('/joinGame', (req, client) => {
         let body = req.body
         console.log("joinGame =>", req.body)
-        let _mercado = mercados[body.nombreMercado]
-        if (_mercado&&_mercado.token==body.codigo&&!_mercado.isFull) {
+        let _mercado = mercados[body.codigo]
+        if (_mercado && !_mercado.isFull()) {
             _mercado.addPlayer(body.player_name)
             client.json({ message: "ok" })
         } else {
@@ -75,17 +71,17 @@ function algunag(nombre) {
     return true
 }
 class Mercado {
-    
+
     constructor(nombre, cantidad_judagores, token) {
         this.nombre = nombre
         this.cantidad_judagores = cantidad_judagores
         this.token = token
-        this.players=[]
+        this.players = []
     }
-    addPlayer(name){
+    addPlayer(name) {
         this.players.push(name)
     }
-    isFull(){
-        return this.players.lenght>=this.cantidad_judagores
+    isFull() {
+        return this.players.length >= this.cantidad_judagores
     }
 }

@@ -18,7 +18,6 @@ export class ModeradorComponent implements OnInit {
   ngOnInit() {
   }
   onClickMe() {
-    console.log("hol", this.moderador)
     this.http.post('/createGame', this.moderador).subscribe(
       (response: any) => {
         if (response.status == 200) {
