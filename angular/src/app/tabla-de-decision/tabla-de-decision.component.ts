@@ -99,8 +99,8 @@ export class TablaDeDecisionComponent implements OnInit {
 
   ngOnInit() {
     this.route.params.subscribe(params => {
-      if (params['nombreEmpresa'] != null && params['codigo'] != null) {
-        this.nombreEmpresa = params['nombreEmpresa'];
+      if (params['player_name'] != null && params['codigo'] != null) {
+        this.nombreEmpresa = params['player_name'];
         this.codigo = params['codigo'];
       }
     });
