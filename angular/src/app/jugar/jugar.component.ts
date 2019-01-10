@@ -46,7 +46,7 @@ get f() { return this.registerForm.controls; }
     this.empresa.nombre=this.jugador.nombreEmpresa;
     let json = JSON.stringify(this.empresa);
     let params =  'json'+json;
-    this.http.post('http://localhost:8080/empresa/'+ this.jugador.codigo+'',json).subscribe(
+    this.http.post('/joinGame',json).subscribe(
       (response:any) => {
           if(response.status == 200){
             console.log('ok');

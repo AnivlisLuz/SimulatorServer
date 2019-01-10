@@ -58,15 +58,34 @@ exports.setApi = app => {
             client.json({ message: "ok", token: token })
         }
     })
+    app.post('/joinGame', (req, client) => {
+        let body = req.body
+        console.log("joinGame =>", req.body)
+        let _mercado = mercados[body.nombreMercado]
+        if (_mercado&&_mercado.token==body.codigo&&!_mercado.isFull) {
+            _mercado.addPlayer(body.player_name)
+            client.json({ message: "ok" })
+        } else {
+            client.json({ message: "error con el mercado" })
+        }
+    })
 }
 function algunag(nombre) {
     console.log(nombre + " otro nombre")
     return true
 }
 class Mercado {
+    
     constructor(nombre, cantidad_judagores, token) {
         this.nombre = nombre
         this.cantidad_judagores = cantidad_judagores
         this.token = token
+        this.players=[]
+    }
+    addPlayer(name){
+        this.players.push(name)
+    }
+    isFull(){
+        return this.players.lenght>=this.cantidad_judagores
     }
 }
