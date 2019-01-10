@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
 import { Http, Headers, RequestOptions } from "@angular/http";
-import { Observable } from 'rxjs';
+import { Observable, throwError } from 'rxjs';
 import { map, catchError } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
 export class HttpService {
-  baseUrl: string = '';
+  baseUrl: string = 'http://localhost:8080';
   constructor(private http: Http) {
 
   }
@@ -16,21 +16,21 @@ export class HttpService {
     return this.http.get(encodeURI(this.baseUrl + url)).pipe(map(
       (response) => {
       return response.json();
-    }),catchError(handleError));
+    }),catchError(this.handleError));
   }
 
   public post(url: string, params: any) {
     let cpHeaders = new Headers({ 'Content-Type': 'application/json' });
     let options = new RequestOptions({ headers: cpHeaders });
-    return this.http.post(encodeURI(this.baseUrl + url), params,options).pipe(catchError(handleError));
+    return this.http.post(encodeURI(this.baseUrl + url), params,options).pipe(catchError(this.handleError));
   }
-
+  private handleError(error: any) {
+    // return an observable with a user-facing error message
+    return throwError(
+      'Error al hacer la peticion');
+  };
 }
 
-function handleError(error: any) {
-  // alert('An error occurred:\n' + error);
-  // console.error('An error occurred: ', error);
-  return Observable.throw(error.message || error);
-}
+
 
 

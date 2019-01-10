@@ -1,5 +1,7 @@
-
+const randtoken = require('rand-token');
 const db = require("./database")
+
+var mercados = {}
 
 exports.setApi = app => {
     app.get('/api', (req, client) => {
@@ -44,8 +46,27 @@ exports.setApi = app => {
         console.log("inversion en marqkerin =>" + req.body)
         client.send("bimestre ")
     })
+    app.post('/createGame', (req, client) => {
+        let body = req.body
+        console.log("createGame =>", req.body)
+        let _mercado = mercados[body.nombreMercado]
+        if (_mercado) {
+            client.json({ message: "duplicate", token: _mercado.token })
+        } else {
+            let token = randtoken.generate(5);
+            mercados[body.nombreMercado] = new Mercado(body.nombreMercado, body.cantidadJugadores, token)
+            client.json({ message: "ok", token: token })
+        }
+    })
 }
 function algunag(nombre) {
     console.log(nombre + " otro nombre")
     return true
+}
+class Mercado {
+    constructor(nombre, cantidad_judagores, token) {
+        this.nombre = nombre
+        this.cantidad_judagores = cantidad_judagores
+        this.token = token
+    }
 }
