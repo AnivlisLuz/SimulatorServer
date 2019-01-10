@@ -1,5 +1,7 @@
-
+const randtoken = require('rand-token');
 const db = require("./database")
+
+var mercados = {}
 
 exports.setApi = app => {
     app.get('/api', (req, client) => {
@@ -44,8 +46,42 @@ exports.setApi = app => {
         console.log("inversion en marqkerin =>" + req.body)
         client.send("bimestre ")
     })
+    app.post('/createGame', (req, client) => {
+        let body = req.body
+        console.log("createGame =>", req.body)
+        let token = randtoken.generate(5);
+        mercados[token] = new Mercado(body.nombreMercado, body.cantidadJugadores, token)
+        client.json({ message: "ok", token: token })
+
+    })
+    app.post('/joinGame', (req, client) => {
+        let body = req.body
+        console.log("joinGame =>", req.body)
+        let _mercado = mercados[body.codigo]
+        if (_mercado && !_mercado.isFull()) {
+            _mercado.addPlayer(body.player_name)
+            client.json({ message: "ok" })
+        } else {
+            client.json({ message: "error con el mercado" })
+        }
+    })
 }
 function algunag(nombre) {
     console.log(nombre + " otro nombre")
     return true
+}
+class Mercado {
+
+    constructor(nombre, cantidad_judagores, token) {
+        this.nombre = nombre
+        this.cantidad_judagores = cantidad_judagores
+        this.token = token
+        this.players = []
+    }
+    addPlayer(name) {
+        this.players.push(name)
+    }
+    isFull() {
+        return this.players.length >= this.cantidad_judagores
+    }
 }

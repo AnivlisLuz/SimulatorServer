@@ -1,0 +1,500 @@
+<div id="main_container">
+  <aside>
+    <div id="logo_container">
+      <img id="logo_image" src="/imagenes/LOGO SIMULADOR FINAL.png">
+      <div id="nombre_empresa">{{nombreEmpresa}}</div>
+    </div>
+    <div class="button_tab_container" style="background-color: #092B3A;">
+      <button (click)="informacion()" class="boton-infomacion-compania tab_menu_button" style="background-color: #092B3A;">
+        INFORMACI&#211;N SOBRE LA COMPA&#209;&#205;A
+      </button>
+
+      <div class="{{tap_position==0 ? '' : 'tap_menu_hidden'}} tab_menu_description">
+        Como nuevo gerente general es necesario que conozcas a detalle todo acerca de la compañ&#237;a que ahora
+        diriges.
+        En esta secci&#243;n te brindamos toda la informaci&#243;n necesaria para que conozcas el negocio.
+      </div>
+    </div>
+    <div class="button_tab_container" style="background-color: #135A82;">
+      <button (click)="decision()" class="boton-decision tab_menu_button" style="background-color: #135A82;">
+        MIS DECISIONES
+      </button>
+      <div class="{{tap_position==1 ? '' : 'tap_menu_hidden'}}  tab_menu_description">
+        En esta secci&#243;n puedo tomar las decisiones que afectaran el desenvolvimiento de mi empresa en los
+        siguientes
+        2
+        meses.
+      </div>
+    </div>
+    <div class="button_tab_container" style="background-color: #0D8EC8;">
+      <button (click)="tanalisis()" class="boton-t-analisi tab_menu_button" style="background-color: #0D8EC8;">
+        AN&#193;LISIS DE LA INDUSTRIA
+      </button>
+      <div class="{{tap_position==2? '' : 'tap_menu_hidden'}}  tab_menu_description">
+        En esta secci&#243;n puedes ver y analizar las decisiones y resultados de tu competencia y la industria.
+      </div>
+    </div>
+    <div class="button_tab_container" style="background-color: #2EC3EC;">
+      <button (click)="informe()" class="boton-informe tab_menu_button" style="background-color: #2EC3EC;">
+        INFORMES DE LA COMPA&#209;&#205;A
+      </button>
+      <div class="{{tap_position==3 ? '' : 'tap_menu_hidden'}} tab_menu_description">
+        En esta secci&#243;n puedes ver y analizar las decisiones y resultados de tus decisiones as&#237; como el
+        estado de tu
+        compañ&#237;a.
+      </div>
+    </div>
+    <div class="button_tab_container" style="background-color: #36A9E1;">
+      <button (click)="analisis()" class="boton-analisis tab_menu_button" style="background-color: #36A9E1;">
+        AN&#193;LISIS
+      </button>
+      <div class="{{tap_position==4 ? '' : 'tap_menu_hidden'}} tab_menu_description">
+        En esta secci&#243;n puedes comparar variables para tener un panorama más claro de tus decisiones.
+      </div>
+    </div>
+  </aside>
+  <div id="body_container">
+    <div class="section_container {{tap_position==0 ? '' : 'tap_menu_hidden'}}" style="background-color: #092B3A;">
+      <div class="section_container_body">
+        <div class="section_title">
+          <div class="material-icons section_title_icon" style="background-color: #092B3A;">help_outline</div>
+          <div class="section_title_desc"> INFORMACI&#211;N SOBRE LA COMPA&#209;&#205;A</div>
+        </div>
+        <div class="section_body">
+
+          <div class="section_body_main">
+            <div class="section_body_tab">
+              <button (click)="historia()" class="section_body_tab_button  {{section_tap_1==0 ? '' : 'tap_selected'}}"
+                id="">
+                HISTORIA
+              </button>
+              <button (click)="misionVision()" class="section_body_tab_button  {{section_tap_1==1 ? '' : 'tap_selected'}}"
+                id="">
+                MISIÓN - VISIÓN
+              </button>
+              <button (click)="nuestroProducto()" class="section_body_tab_button   {{section_tap_1==2 ? '' : 'tap_selected'}}"
+                id="">
+                NUESTRO PRODUCTO
+              </button>
+              <button (click)="organigrama()" class="section_body_tab_button  {{section_tap_1==3 ? '' : 'tap_selected'}}"
+                id="">
+                ORGANIGRAMA
+              </button>
+              <button (click)="objetivos()" class="section_body_tab_button  {{section_tap_1==4 ? '' : 'tap_selected'}}"
+                id="D">
+                OBJETIVOS
+              </button>
+            </div>
+            <div class="section_body_container">
+              <div class="section_body_content  {{section_tap_1==0 ? '' : 'tap_menu_hidden'}}">
+                <div style="padding: 20px;"><br /><br /><br />
+                  <img src="/imagenes/LOGO SIMULADOR FINAL.png" style="float: right; width: 250px; ">
+                  UNA BREVE HISTORIA SOBRE NOSOTROS
+                  <br /><br /><br /><br />
+                  La empresa {{nombreEmpresa}}, inicio sus actividades en el año 2005.
+                  <br /><br />Desde el comienzo de nuestras actividades, nos especializamos en la venta de poleras de
+                  alta
+                  calidad con diseños innovadores y que están en constante actualización según las tendencias del
+                  mercado.
+                  <br /><br />Con el transcurso de los años hemos incorporado nuevas líneas de productos con el
+                  objetivo de
+                  proveer a nuestros clientes una solución integral a sus necesidades. Contamos con un excelente
+                  grupo humano el cual se capacita en forma permanente a fin de estar actualizado en los cambios e
+                  innovaciones
+                  tecnológicas que se presentan en nuestro ámbito.
+                  <br /><br />La calidad de nuestros productos y la excelencia en nuestro servicio nos han permitido
+                  posicionarnos en el mercado en muy poco tiempo, llegando a alcanzar a nuestros principales
+                  competidores.
+                  <br /><br />Pretendemos convertirnos en la empresa líder en nuestro sector a través de decisiones que
+                  nos
+                  permitan aprovechar nuestras ventajas competitivas.
+                </div>
+              </div>
+              <div class="section_body_content  {{section_tap_1==1 ? '' : 'tap_menu_hidden'}}">
+                <div style="display: flex; width: 100%;">
+                  <div style="width: calc(100% - 200px);">
+                    <br /><br />
+                    <div class="section_body_content_title"> MISIÓN</div><br /><br />
+                    <div style="text-align: center; font-size: 25px;">“Somos una empresa rentable que ofrece poleras
+                      exclusivas de alta calidad con diseños
+                      innovadores para personas que aprecian el buen vestir.”
+                    </div><br /><br />
+                  </div>
+                  <img src="/imagenes/LOGO SIMULADOR FINAL.png" style=" width: 200px;height: 200px;; ">
+                </div>
+                <div>
+                  <div class="section_body_content_title" style=" float: right; ">VISIÓN
+                  </div><br /><br /><br /><br /><br />
+                  <div style="text-align: center; font-size: 25px;">“Ser una empresa referente en nuestro sector,
+                    reconocida por su excelente trato al
+                    cliente
+                    y productos de alta calidad”
+                  </div>
+                </div>
+
+              </div>
+              <div class="section_body_content  {{section_tap_1==2 ? '' : 'tap_menu_hidden'}}">
+                <img src="/imagenes/LOGO SIMULADOR FINAL.png" style="float: right; width: 250px;height: 200px; ">
+                <br /><br />
+                <div style="padding: 20px;">Ofrecemos poleras exclusivasde alta calidad con diseños innovadores para
+                  personas que aprecian el
+                  buen
+                  vestir.
+                  <br /><br />
+                  Contamos con un equipo de diseñadores gráficos que se encarga del arte que nosotros
+                  ponemos en
+                  cada uno de nuestros productos. <br /><br />
+                </div>
+
+                <div>
+                  <div class="" style="display: flex;height: 250px;justify-content: center;width: 100%;">
+
+                    <img class="img-poleras" src="/imagenes/polera 3.jpg" style="width: 200px;">
+                    <img class="img-poleras" src="/imagenes/polera 2.jpg" style="width: 200px;">
+                    <img class="img-poleras" src="/imagenes/POLERA 1.jpg" style="width: 200px;">
+                  </div>
+                </div>
+              </div>
+              <div class="section_body_content  {{section_tap_1==3 ? '' : 'tap_menu_hidden'}}" style="position: relative;">
+                <div style="background: url('/imagenes/Organigrama.JPG') no-repeat center; background-size: contain;width: calc(100% - 100px);height: calc(100% - 100px);position: absolute;top: 50px;"></div>
+                <img src="/imagenes/LOGO SIMULADOR FINAL.png" style="float: right; width: 200px;height: 200px;position: absolute;right: 0; ">
+              </div>
+              <div class="section_body_content  {{section_tap_1==4 ? '' : 'tap_menu_hidden'}}"><img src="/imagenes/LOGO SIMULADOR FINAL.png"
+                  style="float: right; width: 250px; ">
+                <br /> <br /> <br />
+                <div class="section_body_content_title"> BIENVENIDO A LA EMPRESA
+                </div><br /> <br />
+                <div style="padding-left:50px;">
+                  Hoy la empresa se encuentra en las mismas condiciones que la competencia y no ha crecido en el
+                  último año.
+                  Es por eso que decidimos NOMBRARTE A TI como el nuevo gerente de {{nombreEmpresa}}.
+                  <br /><br />
+                  Esperamos que mediante tus decisiones puedas llevar a la empresa a obtener el MAYOR
+                  PORCENTAJE de
+                  mercado y la mejor rentabilidad en los siguientes bimestres. ¡Confiamos en ti!
+                  <br /><br />
+                  Muchos éxitos.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="section_container {{tap_position==1 ? '' : 'tap_menu_hidden'}}" style="background-color: #135A82;">
+      <div class="section_container_body">
+        <div class="section_title">
+          <div class="material-icons section_title_icon" style="background-color: #135A82;">person</div>
+          <div class="section_title_desc"> MIS DECISIONES</div>
+        </div>
+
+        <div class="section_body">
+          <div style="display: flex; justify-content: center;">
+            <div class="tabla-decision">
+              <table id="t01">
+                <tr>
+                  <th class="th1" rowspan=2>DETALLE</th>
+                  <th class="th1" colspan=5>BIMESTRES</th>
+                </tr>
+                <tr>
+                  <th class="tr1">INICIAL</th>
+                  <th class="tr1" id="numero-bimestre1"> </th>
+                  <th class="tr1" id="numero-bimestre2"> </th>
+                  <th class="tr1" id="numero-bimestre3"> </th>
+                  <th class="tr1" id="numero-bimestre-siguiente">B-1</th>
+                </tr>
+                <tr>
+                  <td>PRECIO UNITARIO</td>
+                  <td>{{bimestreInicial.precioUnitario}}</td>
+                  <td id="precio-unitario1"></td>
+                  <td id="precio-unitario2"></td>
+                  <td id="precio-unitario3"></td>
+                  <td id="precioUnitarioTD"><input type="number" id="precioUnitario" name="precioUnitario" [(ngModel)]="bimestreActual.precioUnitario"
+                      min="0" max="bimestreActual.produccion" value="bimestreActual.produccion">
+                  </td>
+                </tr>
+                <tr>
+                  <td>PRODUCCIÓN</td>
+                  <td>{{bimestreInicial.produccion}}</td>
+                  <td id="produccion1"></td>
+                  <td id="produccion2"></td>
+                  <td id="produccion3"></td>
+                  <td id="produccionTD"><input type="number" id="produccion" name="produccion" [(ngModel)]="bimestreActual.produccion"
+                      min="0" max="850*{{ numeroBimestre }}" value=500></td>
+                </tr>
+                <tr>
+                  <td>INVERSION EN MARKETING</td>
+                  <td>{{bimestreInicial.inversionEnMarketing}}</td>
+                  <td id="inversion-marketing1"></td>
+                  <td id="inversion-marketing2"></td>
+                  <td id="inversion-marketing3"></td>
+                  <td id="inversionEnMarketingTD">
+                    <!--  <input type="number" id="inversionEnMarketing"  name="inversionEnMarketing" [(ngModel)]="bimestreActual.inversionEnMarketing" min="0" value=3500> -->
+                    <select type="number" id="inversionEnMarketing" name="inversionEnMarketing" [(ngModel)]="bimestreActual.inversionEnMarketing">
+                      <option [ngValue]=0>0</option>
+                      <option [ngValue]=1500>1500</option>
+                      <option [ngValue]=3000>3000</option>
+                      <option [ngValue]=4500>4500</option>
+                      <option [ngValue]=6000>6000</option>
+                    </select>
+                  </td>
+
+                </tr>
+                <tr>
+                  <td>INVERSION EN INVESTIGACIÓN</td>
+                  <td>{{bimestreInicial.inversionEnInvestigacion}}</td>
+                  <td id="inversion-investigacion1"></td>
+                  <td id="inversion-investigacion2"></td>
+                  <td id="inversion-investigacion3"></td>
+                  <td id="inversionEnInvestigacionTD">
+                    <!-- <input type="number" id="inversionEnInvestigacion" name="inversionEnInvestigacion"[(ngModel)]="bimestreActual.inversionEnInvestigacion" min="0" value=1500> -->
+                    <select type="number" id="inversionEnInvestigacion" name="inversionEnInvestigacion" [(ngModel)]="bimestreActual.inversionEnInvestigacion">
+                      <option [ngValue]=0>0</option>
+                      <option [ngValue]=1500>1500</option>
+                      <option [ngValue]=3000>3000</option>
+                      <option [ngValue]=4500>4500</option>
+                      <option [ngValue]=6000>6000</option>
+                    </select>
+                  </td>
+
+                </tr>
+                <tr>
+                  <td>INVERSION EN ACTIVOS</td>
+                  <td>{{bimestreInicial.inversionEnActivos}}</td>
+                  <td id="inversion-activos1"></td>
+                  <td id="inversion-activos2"></td>
+                  <td id="inversion-activos3"></td>
+                  <td id="inversionEnActivosTD">
+                    <!-- <input type="number" id="inversionEnActivos" name="inversionEnActivos" [(ngModel)]="bimestreActual.inversionEnActivos" min="0" value=3500> -->
+                    <select type="number" id="inversionEnActivos" name="inversionEnActivos" [(ngModel)]="bimestreActual.inversionEnActivos">
+                      <option [ngValue]=0>0</option>
+                      <option [ngValue]=1500>1500</option>
+                      <option [ngValue]=3000>3000</option>
+                      <option [ngValue]=4500>4500</option>
+                      <option [ngValue]=6000>6000</option>
+                    </select>
+                  </td>
+                </tr>
+              </table>
+
+            </div>
+            <div class="tabla-proyecciones" id="tabla-proyeccionesID">
+              <div class="proyecciones">
+                <div class="header-proyecciones">PROYECCIONES</div>
+
+                <ul style="list-style-type:none">
+                  <li> <span> <i class="material-icons" (click)="general()" style="font-size:18px; color:blue;cursor: pointer">
+                        arrow_right</i></span> CAPITAL PERIODO
+                    ANTERIOR&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{capitalPeriodoAnterior}}</li>
+                  <li><span> <i class="material-icons" (click)="ingresoDiv()" style="font-size:18px; color:blue;cursor: pointer">arrow_drop_down</i></span>
+                    INGRESOS&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    {{bimestreActual.precioUnitario*bimestreActual.produccion+10000}}</li>
+                  <div id="div-ingresos" style="padding-left: 20%">
+                    <pre>VENTAS                            {{bimestreActual.precioUnitario*bimestreActual.produccion}} </pre>
+                    <pre>OTROS INGRESOS          10000</pre>
+                  </div>
+                  <li><span> <i class="material-icons" (click)="gastosDiv()" style="font-size:18px; color:blue ;cursor: pointer">arrow_drop_down</i></span>GASTOS&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    {{bimestreActual.inversionEnMarketing +
+                    bimestreActual.inversionEnActivos+bimestreActual.inversionEnInvestigacion+bimestreActual.produccion*35
+                    +30770}}</li>
+                  <div id="div-gastos" style="padding-left: 20%">
+                    <pre>PRODUCCIÓN                  {{bimestreActual.produccion*35 +30770}}</pre>
+                    <pre>MARKETING                       {{bimestreActual.inversionEnMarketing}}</pre>
+                    <pre>INV. ACTIVOS                     {{bimestreActual.inversionEnActivos}}</pre>
+                    <pre>INV. INVESTIGACIÓN         {{bimestreActual.inversionEnInvestigacion}}</pre>
+                  </div>
+                  <li><span> <i class="material-icons" (click)="resultadosDiv()" style="font-size:18px; color:blue;cursor: pointer">arrow_drop_down</i></span>RESULTADO
+                  </li>
+                  <div id="div-resultados" style="padding-left: 20%">
+                    <pre>EFECTIVO DISPONIBLE   {{capitalPeriodoAnterior+10000+bimestreActual.precioUnitario*bimestreActual.produccion+10000-(bimestreActual.inversionEnMarketing + bimestreActual.inversionEnActivos+bimestreActual.inversionEnInvestigacion)}} </pre>
+                    <pre>UTILIDAD ESPERADA      {{(bimestreActual.precioUnitario*bimestreActual.produccion+10000)-(bimestreActual.inversionEnMarketing + bimestreActual.inversionEnActivos+bimestreActual.inversionEnInvestigacion+bimestreActual.produccion*35 +30770)}}</pre>
+                  </div>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div style="display: flex; justify-content: center;padding-top: 50px;">
+            <button (click)="iniciar()" style="width:300px">
+              ENVIAR MIS DECISIONES
+            </button></div>
+        </div>
+      </div>
+    </div>
+    <div class="section_container {{tap_position==2 ? '' : 'tap_menu_hidden'}}" style="background-color: #0D8EC8;">
+      <div class="section_container_body">
+        <div class="section_title">
+          <div class="material-icons section_title_icon" style="background-color: #0D8EC8;">attach_money</div>
+          <div class="section_title_desc"> AN&#193;LISIS DE LA INDUSTRIA</div>
+        </div>
+        <div class="section_body">
+          <div class="section_body_main">
+            <div class="section_body_tab">
+
+              <button (click)="VisionGeneral()" class="section_body_tab_button  {{section_tap_2==0 ? '' : 'tap_selected'}}">
+                VISION GENERAL
+              </button>
+              <button (click)="ProduccionTablaAnalisis()" class="section_body_tab_button  {{section_tap_2==1 ? '' : 'tap_selected'}}">
+                PRODUCCION
+              </button>
+              <button (click)="VentasTablaAnalisis()" class="section_body_tab_button  {{section_tap_2==2 ? '' : 'tap_selected'}}">
+                VENTAS
+              </button>
+              <button (click)="PorcentajeMercado()" class="section_body_tab_button  {{section_tap_2==3 ? '' : 'tap_selected'}}">
+                % MERCADO
+              </button>
+            </div>
+            <div class="section_body_container">
+              <div class="section_body_content  {{section_tap_2==0 ? '' : 'tap_menu_hidden'}}">
+                <div id="VisionGeneralID">
+                  <app-tabla-vision-general [visionGeneral]="visionGeneral"></app-tabla-vision-general>
+                </div>
+              </div>
+              <div class="section_body_content  {{section_tap_2==1 ? '' : 'tap_menu_hidden'}}">
+                <div id="ProduccionTablaAnalisisID">
+                  <app-tabla-produccion [produccion]="produccion"></app-tabla-produccion>
+                </div>
+
+              </div>
+              <div class="section_body_content  {{section_tap_2==2 ? '' : 'tap_menu_hidden'}}">
+                <div id="VentasTablaAnalisisID">
+                  <app-tabla-ventas [ventasIndustria]="ventasIndustria"></app-tabla-ventas>
+
+                </div>
+              </div>
+              <div class="section_body_content  {{section_tap_2==3 ? '' : 'tap_menu_hidden'}}">
+                <div id="PorcentajeMercado">
+                  <table>
+                    <tr>
+                      <td style="width: 700px;height:50%"><canvas id="pieI"></canvas></td>
+                    </tr>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="section_container {{tap_position==3 ? '' : 'tap_menu_hidden'}}" style="background-color: #2EC3EC;">
+      <div class="section_container_body">
+        <div class="section_title">
+          <div class="material-icons section_title_icon" style="background-color: #2EC3EC;">business_center</div>
+          <div class="section_title_desc">INFORMES DE LA COMPA&#209;&#205;A</div>
+        </div>
+        <div class="section_body">
+          <div class="section_body_main">
+            <div class="section_body_tab">
+
+              <button (click)="EstadoDeResultados()" class="section_body_tab_button  {{section_tap_3==0 ? '' : 'tap_selected'}}">
+                ESTADO DE RESULTADOS</button>
+              <button (click)="BalanceGeneral()" class="section_body_tab_button  {{section_tap_3==1 ? '' : 'tap_selected'}}">BALANCE
+                GENERAL</button>
+              <button (click)="Ventas()" class="section_body_tab_button  {{section_tap_3==2 ? '' : 'tap_selected'}}">VENTAS</button>
+              <button (click)="Produccion()" class="section_body_tab_button  {{section_tap_3==3 ? '' : 'tap_selected'}}">COSTOS
+                DE PRODUCCIÓN</button>
+              <button (click)="Compania()" class="section_body_tab_button  {{section_tap_3==4 ? '' : 'tap_selected'}}">COMPAÑIA</button>
+
+            </div>
+            <div class="section_body_container">
+              <div class="section_body_content  {{section_tap_3==0 ? '' : 'tap_menu_hidden'}}">
+                <div id="EstadoDeResultadosID">
+                  <app-tabl-resultados [estadoResultados]="estadoResultados"></app-tabl-resultados>
+                </div>
+              </div>
+              <div class="section_body_content  {{section_tap_3==1 ? '' : 'tap_menu_hidden'}}">
+                <div id="BalanceGeneralID">
+                  <app-tabl-balance-general [balanceGeneral]="balanceGeneral"></app-tabl-balance-general>
+
+                </div>
+
+              </div>
+              <div class="section_body_content  {{section_tap_3==2 ? '' : 'tap_menu_hidden'}}">
+                <div id="VentasID">
+                  <app-tabl-ventas [ventas]="ventas"></app-tabl-ventas>
+
+                </div>
+              </div>
+              <div class="section_body_content  {{section_tap_3==3 ? '' : 'tap_menu_hidden'}}">
+                <div id="ProduccionID">
+                  <app-tabl-costos [costosProduccion]="costoProduccion"></app-tabl-costos>
+                </div>
+              </div>
+              <div class="section_body_content  {{section_tap_3==4 ? '' : 'tap_menu_hidden'}}" style="overflow: scroll;">
+                <canvas id="lineChart"></canvas>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <div class="section_container {{tap_position==4 ? '' : 'tap_menu_hidden'}}" style="background-color: #36A9E1;">
+      <div class="section_container_body">
+        <div class="section_title">
+          <div class="material-icons section_title_icon" style="background-color: #36A9E1;">search</div>
+          <div class="section_title_desc"> AN&#193;LISIS</div>
+        </div>
+        <div class="section_body">
+          <div class="section_body_main">
+            <div class="section_body_tab">
+
+              <button (click)="produccionvsventas()" class="section_body_tab_button  {{section_tap_4==0 ? '' : 'tap_selected'}}">PRODUCCIÓN
+                VS
+                VENTAS</button>
+              <button (click)="costovsprecio()" class="section_body_tab_button  {{section_tap_4==1 ? '' : 'tap_selected'}}">COSTO
+                VS PRECIO</button>
+              <button (click)="capacidadvsproduccion()" class="section_body_tab_button  {{section_tap_4==2 ? '' : 'tap_selected'}}">CAPACIDAD
+                vs PRODUCCION</button>
+              <button (click)="companiavscompetencia()" class="section_body_tab_button  {{section_tap_4==3 ? '' : 'tap_selected'}}">COMPAÑIA
+                vs COMPETENCIA</button>
+              <button (click)="consejos()" class="section_body_tab_button  {{section_tap_4==4 ? '' : 'tap_selected'}}">CONSEJOS</button>
+
+
+
+            </div>
+            <div class="section_body_container">
+              <div class="section_body_content  {{section_tap_4==0 ? '' : 'tap_menu_hidden'}}" style="overflow: scroll;">
+                <canvas id="lineChart2"></canvas>
+              </div>
+              <div class="section_body_content  {{section_tap_4==1 ? '' : 'tap_menu_hidden'}}" style="overflow: scroll;">
+                <canvas id="lineChart3"></canvas>
+
+
+              </div>
+              <div class="section_body_content  {{section_tap_4==2 ? '' : 'tap_menu_hidden'}}" style="overflow: scroll;">
+                <canvas id="lineChart4"></canvas>
+
+              </div>
+              <div class="section_body_content  {{section_tap_4==3 ? '' : 'tap_menu_hidden'}}" style="overflow: scroll;">
+                <canvas id="lineChart5"></canvas>
+
+              </div>
+              <div class="section_body_content  {{section_tap_4==4 ? '' : 'tap_menu_hidden'}}" style="overflow: scroll;">
+                <div id="consejosID">
+
+                  <!-- <div *ngIf="ventas.inventarioUnidades > 50">  -->
+                  <p *ngIf="generarConsejo1()">Tus niveles de inventario estas creciendo. Te recomendamos idear
+                    estrategias para
+                    aumentar las ventas o disminuir sla producción.</p>
+                  <p *ngIf="generarConsejo2()">Tu utilidad es muy baja. Te recomendamos idear estrategias para aumentar
+                    las ventas,
+                    aumentar ingresos o reducir los costos y gastos.</p>
+                  <p *ngIf="generarConsejo3()">Tu % de mercado es muy bajo. Te recomendamos idear estrategias para
+                    aumentar las
+                    ventas y gasnar clientes.</p>
+                  <p *ngIf="generarConsejo4()">Existe un gran porcentaje del mercado que no ha sido atendido. Te
+                    recomendamos idear
+                    estrategias para ganar clientes.</p>
+                  <!-- <p>Una empresa en el mercado cerró. Te aconsejamos idear estrategias para aumentar tu competitividad.</p>
+                <p *ngIf="generarConsejo1()==false&&generarConsejo2()==false&&generarConsejo3()==false&&generarConsejo4()==false">Tus decisiones nos están llevando por buen camino, sigue así.</p> -->
+
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

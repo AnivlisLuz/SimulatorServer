@@ -1,0 +1,12 @@
+<form class="formularioJugar">
+    <header> Unirse a un juego</header>
+    <br><br>
+    <label>Nombre empresa</label>
+    <input type="text" name="nombre_empresa" [(ngModel)]="nombre_empresa">
+
+
+    <label>Codigo</label>
+    <input type="text" name="codigo" [(ngModel)]="codigo">
+
+    <button type="submit" (click)="onClickMe()">JUGAR</button>
+</form>

@@ -1,0 +1,15 @@
+<form class="formularioModerador">
+  <header>MODERADOR </header>
+  <br>
+  <br>
+  <label>Nombre del Mercado</label>
+  <input type="text" name="nombreMercado" [(ngModel)]="moderador.nombreMercado">
+
+
+  <label>Cantidad de Jugadores</label>
+  <input type="text" name="cantidadJugadores" [(ngModel)]="moderador.cantidadJugadores">
+
+
+  <button type="submit"  (click)="onClickMe()">Hecho</button>
+
+</form>

@@ -1,0 +1,463 @@
+<div id="main_container">
+  <aside>
+    <div class="div-aside">
+      <img class="card-img-top" src="/imagenes/LOGO SIMULADOR FINAL.png" alt="Card image cap">
+  
+      <h3 class="letter">{{nombreEmpresa}}</h3>
+    </div>
+    <div style=" background-color: rgb(8, 25, 43);">
+      <button (click)="informacion()" class="boton-infomacion-compania">
+        INFORMACIÓN SOBRE LA COMPAÑIA
+      </button>
+      <div id="info-informacionCompañia" style="padding: 0.5rem;margin-top: -10%;">
+        <p style="color:white; font-size:13px;">
+          Como nuevo gerente general es necesario que conozcas a detalle todo acerca de la compañía que ahora diriges. En
+          esta sección te brindamos toda la información necesaria para que conozcas el negocio.
+        </p>
+      </div>
+    </div>
+    <div style="background-color: rgb(24, 76, 208);">
+      <button (click)="decision()" class="boton-decision">
+        MIS DECISIONESs
+      </button>
+      <div id="info-decisiones" style="padding: 0.5rem;margin-top: -10%;">
+        <p style="color:white; font-size:13px;">
+          En esta sección puedo tomar las decisiones que afectaran el desenvolvimiento de mi empresa en los siguientes 2
+          meses.
+        </p>
+      </div>
+    </div>
+    <div style="background-color: rgb(0, 139, 208);">
+      <button (click)="tanalisis()" class="boton-t-analisis">
+        ANALISIS DE LA INDUSTRIA
+      </button>
+      <div id="info-analisisIndustria" style="padding: 0.5rem;margin-top: -10%;">
+        <p style="color:white; font-size:13px;">
+          En esta sección puedes ver y analizar las decisiones y resultados de tu competencia y la industria.
+        </p>
+      </div>
+    </div>
+    <div style="background-color: rgb(0, 197, 245)">
+      <button (click)="informe()" class="boton-informe">
+        INFORMES DE LA COMPAÑIA
+      </button>
+      <div id="info-informeCompañia" style="padding: 0.5rem;margin-top: -10%;">
+        <p style="color:white; font-size:13px;">
+          En esta sección puedes ver y analizar las decisiones y resultados de tus decisiones así como el estado de tu
+          compañía.
+        </p>
+      </div>
+    </div>
+    <div style="background-color: rgb(0, 168, 233)">
+      <button (click)="analisis()" class="boton-analisis">
+        ANALISIS
+      </button>
+      <div id="info-analisis" style="padding: 0.5rem;margin-top: -10%;">
+        <p style="color:white; font-size:13px;">
+          En esta sección puedes comparar variables para tener un panorama más claro de tus decisiones.
+        </p>
+      </div>
+    </div>
+  </aside>
+  <div id="body_container"></div>
+</div>
+
+<header id="header">
+  <h1 id="titulo">MIS DECISIONES</h1>
+</header>
+<div id="icono" class="div-header">
+  <br>
+  <i class="material-icons" style="font-size:40px;">account_circle </i>
+</div>
+
+<div id="informacion-compania" class="vistasGenerales">
+  <div class="sub-tabla-informacion-compania">
+    <button (click)="historia()" class="boton-historia" id="boton-historiaID">
+      HISTORIA
+    </button>
+    <button (click)="misionVision()" class="boton-mision-vision" id="boton-misionvisionID">
+      MISIÓN - VISIÓN
+    </button>
+    <button (click)="nuestroProducto()" class="boton-nuestro-producto" id="boton-nuestroproductoID">
+      NUESTRO PRODUCTO
+    </button>
+    <button (click)="organigrama()" class="boton-organigrama" id="boton-organigramaID">
+      ORGANIGRAMA
+    </button>
+    <button (click)="objetivos()" class="boton-objetivos" id="boton-objetivosID">
+      OBJETIVOS
+    </button>
+  </div>
+
+  <div id="sub-vistas-informacion-compania">
+    <div id="historiaID">
+      <img class="logo_bs" src="/imagenes/LOGO SIMULADOR FINAL.jpg" alt="Card image cap">
+      <!--ver el logo el relative o abs-->
+      <p>UNA BREVE HISTORIA SOBRE NOSOTROS<br /><br />
+        La empresa {{nombreEmpresa}}, inicio sus actividades en el año 2005.
+        <br /><br />Desde el comienzo de nuestras actividades, nos especializamos en la venta de poleras de alta
+        calidad con diseños innovadores y que están en constante actualización según las tendencias del
+        mercado.
+        <br /><br />Con el transcurso de los años hemos incorporado nuevas líneas de productos con el objetivo de
+        proveer a nuestros clientes una solución integral a sus necesidades. Contamos con un excelente
+        grupo humano el cual se capacita en forma permanente a fin de estar actualizado en los cambios e innovaciones
+        tecnológicas que se presentan en nuestro ámbito.
+        <br /><br />La calidad de nuestros productos y la excelencia en nuestro servicio nos han permitido
+        posicionarnos en el mercado en muy poco tiempo, llegando a alcanzar a nuestros principales competidores.
+        <br /><br />Pretendemos convertirnos en la empresa líder en nuestro sector a través de decisiones que nos
+        permitan aprovechar nuestras ventajas competitivas.
+      </p>
+    </div>
+
+    <div id="mision-visionID">
+      <p></p>
+      <div id="sub-Objetivo-logos">
+        <!--por el momento-->
+        <img class="logo_bss" src="/imagenes/LOGO SIMULADOR FINAL.jpg" alt="Card image cap">
+      </div>
+      <div id="sub-Mision">
+        <div id="sub-Mision-Titulo" class="letter-12"> MISIÓN</div>
+
+        <p class="letter-12">“Somos una empresa rentable que ofrece poleras exclusivas de alta calidad con diseños
+          innovadores para personas que aprecian el buen vestir.”
+        </p>
+
+      </div>
+      <br>
+      <br>
+      <div id="sub-Vision">
+        <div id="sub-Vision-Titulo" class="letter-12">VISIÓN </div>
+
+        <p class="letter-12">“Ser una empresa referente en nuestro sector, reconocida por su excelente trato al cliente
+          y productos de alta calidad”
+        </p>
+      </div>
+    </div>
+
+    <div id="nuestro-productoID">
+      <div id="sub-Objetivo-logos">
+        <img class="logo_bs" src="/imagenes/LOGO SIMULADOR FINAL.jpg" alt="Card image cap">
+      </div>
+      <div id="sub-NuestroProducto-texto">
+        <p>Ofrecemos poleras exclusivasde alta calidad con diseños innovadores para personas que aprecian el buen
+          vestir.
+          <br /><br />Contamos con un equipo de diseñadores gráficos que se encarga del arte que nosotros ponemos en
+          cada uno de nuestros productos.
+        </p>
+      </div>
+      <div id="sub-NuestroProducto-fotoPolerass">
+        <div class="card-group">
+
+          <img class="img-poleras" src="/imagenes/polera 3.jpg" alt="Card image cap">
+          <img class="img-poleras" src="/imagenes/polera 2.jpg" alt="Card image cap">
+          <img class="img-poleras" src="/imagenes/POLERA 1.jpg" alt="Card image cap">
+        </div>
+      </div>
+
+
+    </div>
+
+    <div id="organigramaID">
+      <div id="sub-Organigrama-logos">
+        <img class="logo_bs" src="/imagenes/LOGO SIMULADOR FINAL.jpg" alt="Card image cap">
+        <br>
+        <br>
+        <br>
+      </div>
+      <div id="grafico-organigramaID">
+        <img class="organi" src="/imagenes/Organigrama.JPG" alt="OrganigramaImg">
+
+      </div>
+
+    </div>
+
+    <div id="objetivosID">
+      <div id="sub-Objetivo-logos">
+        <img class="logo_bs" src="/imagenes/LOGO SIMULADOR FINAL.jpg" alt="Card image cap">
+
+      </div>
+      <div id="sub-ObjetivosID-bienvenido">
+        <div id="sub-ObjetivosID-Titulo"> BIENVENIDO A LA EMPRESA</div>
+        <p>Hoy la empresa se encuentra en las mismas condiciones que la competencia y no ha crecido en el último año.
+          Es por eso que decidimos NOMBRARTE A TI como el nuevo gerente de {{nombreEmpresa}}.
+          <br /><br />Esperamos que mediante tus decisiones puedas llevar a la empresa a obtener el MAYOR PORCENTAJE de
+          mercado y la mejor rentabilidad en los siguientes bimestres. ¡Confiamos en ti!
+          <br /><br />Muchos éxitos.
+        </p>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<div id="decisiones">
+  <div class="tabla-decision">
+    <table id="t01">
+      <tr>
+        <th class="th1" rowspan=2>DETALLE</th>
+        <th class="th1" colspan=5>BIMESTRES</th>
+      </tr>
+      <tr>
+        <th class="tr1">INICIAL</th>
+        <th class="tr1" id="numero-bimestre1"> </th>
+        <th class="tr1" id="numero-bimestre2"> </th>
+        <th class="tr1" id="numero-bimestre3"> </th>
+        <th class="tr1" id="numero-bimestre-siguiente">B-1</th>
+      </tr>
+      <tr>
+        <td>PRECIO UNITARIO</td>
+        <td>{{bimestreInicial.precioUnitario}}</td>
+        <td id="precio-unitario1"></td>
+        <td id="precio-unitario2"></td>
+        <td id="precio-unitario3"></td>
+        <td id="precioUnitarioTD"><input type="number" id="precioUnitario" name="precioUnitario" [(ngModel)]="bimestreActual.precioUnitario"
+            min="0" max="bimestreActual.produccion" value="bimestreActual.produccion">
+        </td>
+      </tr>
+      <tr>
+        <td>PRODUCCIÓN</td>
+        <td>{{bimestreInicial.produccion}}</td>
+        <td id="produccion1"></td>
+        <td id="produccion2"></td>
+        <td id="produccion3"></td>
+        <td id="produccionTD"><input type="number" id="produccion" name="produccion" [(ngModel)]="bimestreActual.produccion"
+            min="0" max="850*{{ numeroBimestre }}" value=500></td>
+      </tr>
+      <tr>
+        <td>INVERSION EN MARKETING</td>
+        <td>{{bimestreInicial.inversionEnMarketing}}</td>
+        <td id="inversion-marketing1"></td>
+        <td id="inversion-marketing2"></td>
+        <td id="inversion-marketing3"></td>
+        <td id="inversionEnMarketingTD">
+          <!--  <input type="number" id="inversionEnMarketing"  name="inversionEnMarketing" [(ngModel)]="bimestreActual.inversionEnMarketing" min="0" value=3500> -->
+          <select type="number" id="inversionEnMarketing" name="inversionEnMarketing" [(ngModel)]="bimestreActual.inversionEnMarketing">
+            <option [ngValue]=0>0</option>
+            <option [ngValue]=1500>1500</option>
+            <option [ngValue]=3000>3000</option>
+            <option [ngValue]=4500>4500</option>
+            <option [ngValue]=6000>6000</option>
+          </select>
+        </td>
+
+      </tr>
+      <tr>
+        <td>INVERSION EN INVESTIGACIÓN</td>
+        <td>{{bimestreInicial.inversionEnInvestigacion}}</td>
+        <td id="inversion-investigacion1"></td>
+        <td id="inversion-investigacion2"></td>
+        <td id="inversion-investigacion3"></td>
+        <td id="inversionEnInvestigacionTD">
+          <!-- <input type="number" id="inversionEnInvestigacion" name="inversionEnInvestigacion"[(ngModel)]="bimestreActual.inversionEnInvestigacion" min="0" value=1500> -->
+          <select type="number" id="inversionEnInvestigacion" name="inversionEnInvestigacion" [(ngModel)]="bimestreActual.inversionEnInvestigacion">
+            <option [ngValue]=0>0</option>
+            <option [ngValue]=1500>1500</option>
+            <option [ngValue]=3000>3000</option>
+            <option [ngValue]=4500>4500</option>
+            <option [ngValue]=6000>6000</option>
+          </select>
+        </td>
+
+      </tr>
+      <tr>
+        <td>INVERSION EN ACTIVOS</td>
+        <td>{{bimestreInicial.inversionEnActivos}}</td>
+        <td id="inversion-activos1"></td>
+        <td id="inversion-activos2"></td>
+        <td id="inversion-activos3"></td>
+        <td id="inversionEnActivosTD">
+          <!-- <input type="number" id="inversionEnActivos" name="inversionEnActivos" [(ngModel)]="bimestreActual.inversionEnActivos" min="0" value=3500> -->
+          <select type="number" id="inversionEnActivos" name="inversionEnActivos" [(ngModel)]="bimestreActual.inversionEnActivos">
+            <option [ngValue]=0>0</option>
+            <option [ngValue]=1500>1500</option>
+            <option [ngValue]=3000>3000</option>
+            <option [ngValue]=4500>4500</option>
+            <option [ngValue]=6000>6000</option>
+          </select>
+        </td>
+      </tr>
+    </table>
+
+  </div>
+  <div class="tabla-proyecciones" id="tabla-proyeccionesID">
+    <div class="proyecciones">
+      <div class="header-proyecciones">PROYECCIONES</div>
+
+      <ul style="list-style-type:none">
+        <li> <span> <i class="material-icons" (click)="general()" style="font-size:18px; color:blue;cursor: pointer">
+              arrow_right</i></span> CAPITAL PERIODO
+          ANTERIOR&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{capitalPeriodoAnterior}}</li>
+        <li><span> <i class="material-icons" (click)="ingresoDiv()" style="font-size:18px; color:blue;cursor: pointer">arrow_drop_down</i></span>
+          INGRESOS&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          {{bimestreActual.precioUnitario*bimestreActual.produccion+10000}}</li>
+        <div id="div-ingresos" style="padding-left: 20%">
+          <pre>VENTAS                            {{bimestreActual.precioUnitario*bimestreActual.produccion}} </pre>
+          <pre>OTROS INGRESOS          10000</pre>
+        </div>
+        <li><span> <i class="material-icons" (click)="gastosDiv()" style="font-size:18px; color:blue ;cursor: pointer">arrow_drop_down</i></span>GASTOS&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          {{bimestreActual.inversionEnMarketing +
+          bimestreActual.inversionEnActivos+bimestreActual.inversionEnInvestigacion+bimestreActual.produccion*35
+          +30770}}</li>
+        <div id="div-gastos" style="padding-left: 20%">
+          <pre>PRODUCCIÓN                  {{bimestreActual.produccion*35 +30770}}</pre>
+          <pre>MARKETING                       {{bimestreActual.inversionEnMarketing}}</pre>
+          <pre>INV. ACTIVOS                     {{bimestreActual.inversionEnActivos}}</pre>
+          <pre>INV. INVESTIGACIÓN         {{bimestreActual.inversionEnInvestigacion}}</pre>
+        </div>
+        <li><span> <i class="material-icons" (click)="resultadosDiv()" style="font-size:18px; color:blue;cursor: pointer">arrow_drop_down</i></span>RESULTADO
+        </li>
+        <div id="div-resultados" style="padding-left: 20%">
+          <pre>EFECTIVO DISPONIBLE   {{capitalPeriodoAnterior+10000+bimestreActual.precioUnitario*bimestreActual.produccion+10000-(bimestreActual.inversionEnMarketing + bimestreActual.inversionEnActivos+bimestreActual.inversionEnInvestigacion)}} </pre>
+          <pre>UTILIDAD ESPERADA      {{(bimestreActual.precioUnitario*bimestreActual.produccion+10000)-(bimestreActual.inversionEnMarketing + bimestreActual.inversionEnActivos+bimestreActual.inversionEnInvestigacion+bimestreActual.produccion*35 +30770)}}</pre>
+        </div>
+      </ul>
+    </div>
+  </div>
+  <button (click)="iniciar()" class="boton1" id="decisionID">
+    ENVIAR MIS DECISIONES
+  </button>
+</div>
+<div id="tabla-analisis-industria" class="vistasGenerales">
+
+  <div class="sub-tabla-analisis-industria">
+    <button (click)="VisionGeneral()" class="boton-vision-general" id="boton-VisionGeneralID">
+      VISION GENERAL
+    </button>
+    <button (click)="ProduccionTablaAnalisis()" class="boton-produccion-tabla-analisis" id="boton-ProduccionTablaAnalisisID">
+      PRODUCCION
+    </button>
+    <button (click)="VentasTablaAnalisis()" class="boton-ventas-tabla-analisis" id="boton-VentasTablaAnalisisID">
+      VENTAS
+    </button>
+    <button (click)="PorcentajeMercado()" class="boton-porcentaje-mercado" id="boton-PorcentajeMercadoID">
+      % MERCADO
+    </button>
+  </div>
+
+  <div id="sub-vistas-analisis-industria">
+    <div id="VisionGeneralID">
+      <app-tabla-vision-general [visionGeneral]="visionGeneral"></app-tabla-vision-general>
+    </div>
+
+    <div id="ProduccionTablaAnalisisID">
+      <app-tabla-produccion [produccion]="produccion"></app-tabla-produccion>
+    </div>
+
+    <div id="VentasTablaAnalisisID">
+      <app-tabla-ventas [ventasIndustria]="ventasIndustria"></app-tabla-ventas>
+
+    </div>
+
+    <div id="PorcentajeMercado">
+      <table>
+        <tr>
+          <td style="width: 700px;height:50%"><canvas id="pieI"></canvas></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
+
+<div id="informe" class="vistasGenerales">
+  <div class="sub-tabla-informe">
+    <button (click)="EstadoDeResultados()" class="boton-estado-resultados" id="boton-EstadoDeResultadosID">ESTADO DE
+      RESULTADOS</button>
+    <button (click)="BalanceGeneral()" class="boton-balance-general" id="boton-BalanceGeneralID">BALANCE GENERAL</button>
+    <button (click)="Ventas()" class="boton-ventas" id="boton-VentasID">VENTAS</button>
+    <button (click)="Produccion()" class="boton-produccion" id="boton-ProduccionID">COSTOS DE PRODUCCIÓN</button>
+    <button (click)="Compania()" class="boton-compania" id="boton-CompaniaID">COMPAÑIA</button>
+  </div>
+
+
+  <div id="sub-vistas-informe">
+    <div id="EstadoDeResultadosID">
+      <app-tabl-resultados [estadoResultados]="estadoResultados"></app-tabl-resultados>
+    </div>
+
+    <div id="BalanceGeneralID">
+      <app-tabl-balance-general [balanceGeneral]="balanceGeneral"></app-tabl-balance-general>
+
+    </div>
+
+    <div id="VentasID">
+      <app-tabl-ventas [ventas]="ventas"></app-tabl-ventas>
+
+    </div>
+
+    <div id="ProduccionID">
+      <app-tabl-costos [costosProduccion]="costoProduccion"></app-tabl-costos>
+    </div>
+
+    <div id="CompaniaID">
+      <table>
+        <tr>
+          <td style="width: 700px;height:50%"><canvas id="lineChart"></canvas></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
+
+<div id="analisis" class="vistasGenerales">
+  <div class="sub-tabla-analisis">
+    <button (click)="produccionvsventas()" class="boton-prod-ventas" id="boton-produccionvsventasID">PRODUCCIÓN VS
+      VENTAS</button>
+    <button (click)="costovsprecio()" class="boton-costo-precio" id="boton-costovsprecioID">COSTO VS PRECIO</button>
+    <button (click)="capacidadvsproduccion()" class="boton-capacidad-produccion" id="boton-capacidadvsproduccionID">CAPACIDAD
+      vs PRODUCCION</button>
+    <button (click)="companiavscompetencia()" class="boton-compania-competencia" id="boton-companiavscompetenciaID">COMPAÑIA
+      vs COMPETENCIA</button>
+    <button (click)="consejos()" class="boton-consejos" id="boton-consejosID">CONSEJOS</button>
+  </div>
+
+  <div id="sub-vistas-analisis">
+    <div id="produccionvsventasID">
+      <table>
+        <tr>
+          <td style="width: 700px;height:50%"><canvas id="lineChart2"></canvas></td>
+        </tr>
+      </table>
+    </div>
+
+    <div id="costovsprecioID">
+      <table>
+        <tr>
+          <td style="width: 700px;height:50%"><canvas id="lineChart3"></canvas></td>
+        </tr>
+      </table>
+    </div>
+
+    <div id="capacidadvsproduccionID">
+      <table>
+        <tr>
+          <td style="width: 700px;height:50%"><canvas id="lineChart4"></canvas></td>
+        </tr>
+      </table>
+    </div>
+
+    <div id="companiavscompetenciaID">
+      <table>
+        <tr>
+          <td style="width: 700px;height:50%"><canvas id="lineChart5"></canvas></td>
+        </tr>
+      </table>
+    </div>
+
+    <div id="consejosID">
+
+      <!-- <div *ngIf="ventas.inventarioUnidades > 50">  -->
+      <p *ngIf="generarConsejo1()">Tus niveles de inventario estas creciendo. Te recomendamos idear estrategias para
+        aumentar las ventas o disminuir sla producción.</p>
+      <p *ngIf="generarConsejo2()">Tu utilidad es muy baja. Te recomendamos idear estrategias para aumentar las ventas,
+        aumentar ingresos o reducir los costos y gastos.</p>
+      <p *ngIf="generarConsejo3()">Tu % de mercado es muy bajo. Te recomendamos idear estrategias para aumentar las
+        ventas y gasnar clientes.</p>
+      <p *ngIf="generarConsejo4()">Existe un gran porcentaje del mercado que no ha sido atendido. Te recomendamos idear
+        estrategias para ganar clientes.</p>
+      <!-- <p>Una empresa en el mercado cerró. Te aconsejamos idear estrategias para aumentar tu competitividad.</p>
+    <p *ngIf="generarConsejo1()==false&&generarConsejo2()==false&&generarConsejo3()==false&&generarConsejo4()==false">Tus decisiones nos están llevando por buen camino, sigue así.</p> -->
+
+    </div>
+  </div>
+</div>
