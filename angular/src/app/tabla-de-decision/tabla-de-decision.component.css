@@ -1,376 +1,243 @@
-aside {
-  position: fixed;
-  left: 0;
-  top: 0%;
-  height: 100%;
-  width: 25%;
-  color: white;
-  text-align: center;
-  background-color: rgb(24, 76, 133);
-}
-.div-aside{
-  position: relative;
-  top: 0%;
-  width: 100%;
-  background-color:rgb(113,110,111);
-}
-.card-img-top{
-  position: sticky;
-  background-color: #fff;
-  border-radius: 80%;
-  margin: 7%;
-  width: 60%;
-}
-header{
-  width: 100%;
-  margin-top:-2%;
-  padding: 1rem;
-  background-color: rgb(24, 76, 133);
-  color: white;
-  text-align: center;
-  font-family: "arial";
-}
-.div-header{
+#main_container {
   position: absolute;
-  width: 3%;
-  margin-left: 25%;
-  color: white;
-  text-align: center;
-  top: 5%;
-  padding: 2rem;
-  border-radius: 10%;
-  background-color:  rgb(24, 76, 133);
-  padding: 20px;
-}
-.header-proyecciones{
-  background-color:  rgb(24, 76, 133);
-  text-align-last:center;
-  height:  30%;
-  color:white;
-  font-size: 20px;
-  padding: 3%;
-}
-.tabla-decision{
-  width: 40%;
-  height: 26em;
-  margin-left: 25%;
-  margin-top: 2%;
-  padding: 1rem;
-  border-radius: 5px;
-  text-align: center;
-  color: white;
-  font-family: "arial";
-  background-color: rgb(255, 255, 255);
-  padding: 20px;
-  float:left;
+  height: 100vh;
+  width: 100vw;
+  background-color: #36A9E1;
+  display: flex;
 }
 
-.tabla-proyecciones{
-  width: 28%;
-  height: 26em;
-  margin-top: 2%;
-  margin-left: 1%;
-  padding: 2rem;
-  border-radius: 5px;
-  text-align: center;
+aside {
+  height: 100%;
+  width: 270px;
   color: white;
-  font-family: "arial";
-  background-color: rgb(255, 255, 255);
-  padding: 20px;
-  float:left;
-  font-size: 14px;
-
+  text-align: center;
+  overflow-y: hidden;
 }
-.proyecciones{
-  color: black;
-  text-align: left;
+
+#logo_container {
+  background-color: rgb(111, 110, 110);
+}
+
+#logo_image {
+  margin-top: 20px;
+  height: 200px;
+  width: 200px;
   background-color: white;
-  width: 100%;
-  border:1px solid black;
-
+  border-radius: 100%;
 }
 
-.vistasGenerales{
-  width: 70%;
-  height: auto;/*26em*/
-  margin-left: 25%;
-  margin-top: 2%;
-  /*padding: 1rem;*/
-  border-radius: 5px;
+#nombre_empresa {
+  padding-top: 20px;
+  padding-bottom: 30px;
+  font-size: 20px;
+}
+
+#body_container {
+  width: calc(100% - 270px);
+  height: 100%;
+  background-color: red;
+}
+
+.tap_menu_hidden {
+  display: none;
+}
+
+.tab_menu_description {
+  font-size: 15px;
+  margin-top: -65px;
+  padding: 0 15px;
+  padding-top: 50px;
+  padding-bottom: 30px;
+}
+
+.tab_menu_button {
+  margin-top: -31px;
+  height: 50px;
+  width: 210px;
+  border-radius: 15px;
+  margin-bottom: 30px;
+  font-size: 16px;
+}
+
+.tab_menu_button:focus {
+  outline: none;
+}
+
+.tab_menu_button:hover {
+  opacity: 1;
+}
+
+.section_container {
+  position: relative;
+  height: 100%;
+  width: calc(100% - 20px);
+  padding-left: 20px;
+}
+
+.section_container_body {
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+
+.section_title {
+  display: flex;
+  height: 100px;
+}
+
+.section_title_icon {
+  font-size: 100px;
+  color: white;
+  height: 130px;
+  line-height: 130px;
+  padding: 0 60px;
+  border-radius: 0 0 30px 0;
+}
+
+.section_title_desc {
+  position: relative;
+  font-size: 40px;
+  color: white;
+  line-height: 100px;
+  text-align: center;
+  width: 100%;
+}
+
+.section_body {
+  padding-top: 60px;
+  height: calc(100% - 160px);
+  width: 100%;
+  background-color: white;
+}
+
+.section_body_main {
+  margin: 0 50px;
+  background-color: rgb(90, 116, 165);
+  height: calc(100% - 100px);
+}
+
+.section_body_tab {
+  display: flex;
+}
+
+.section_body_tab_button:focus {
+  outline: none;
+}
+
+.section_body_tab_button {
+  padding: 0;
+  margin: 0;
+  height: 50px;
+  background-color: #092B3A;
+}
+
+.tap_selected {
+  background-color: #135A82;
+}
+
+.section_body_container {
+  height: calc(100% - 20px);
+  width: calc(100% - 20px);
+  padding: 10px;
+  background-color: #092B3A;
+}
+
+.section_body_content {
+  width: 100%;
+  height: 100%;
+  background-color: white;
+}
+
+.section_body_content_title {
+  width: 500px;
+  background-color: #092B3A;
+  line-height: 50px;
+  text-align: center;
+  color: white;
+}
+
+.tabla-decision {
   text-align: center;
   color: white;
   font-family: "arial";
-  padding: 20px;
-  float:left;
-
+  background-color: rgb(255, 255, 255);
 }
 
-
-p{
-  text-align:justify;
-  color:black;
-}
 table {
-  width:100%;
+  width: 100%;
   color: black;
 
 }
-table, th, td {
+
+table,
+th,
+td {
   border: 1px solid black;
   border-collapse: collapse;
 }
-.th1{
-  width:10%;
-  border: 1px solid  white;
+
+.th1 {
+  width: 10%;
+  border: 1px solid white;
 
 }
-.th2{
+
+.th2 {
   width: 200%;
 
 }
-.tr1{
+
+.tr1 {
   width: 10%;
-  border: 1px solid  white;
+  border: 1px solid white;
 
 }
+
 table#t01 tr {
   height: 60px;
 }
+
 table#t01 tr:nth-child(odd) {
   background-color: #fff;
 
 }
+
 table#t01 tr:nth-child(even) {
- background-color: rgb(116, 197, 233);
+  background-color: rgb(116, 197, 233);
 
 }
+
 table#t01 th {
   background-color: rgb(24, 76, 133);
   color: white;
 }
 
-.boton1{
-  width: 30%;
-  margin-left: 40%;
-}
-
-.boton-infomacion-compania{
-  background-color: rgb(8, 25, 43);
-  font-weight: bold;
-}
-.boton-decision{
-  background-color: rgb(24, 76, 208);
-  font-weight: bold;
-
-}
-.boton-t-analisis{
-  background-color: rgb(0, 139, 208);
-  font-weight: bold;
-
-}
-.boton-informe{
-  background-color: rgb(0, 197, 245);
-  font-weight: bold;
-
-
-}
-.boton-analisis{
-  background-color: rgb(0, 168, 233);
-  font-weight: bold;
+.tabla-proyecciones {
+  width: 500px;
+  border-radius: 5px;
+  text-align: center;
+  color: white;
+  font-family: "arial";
+  background-color: rgb(255, 255, 255);
+  margin-left: 20px;
+  font-size: 14px;
 
 }
 
-pre{
-font-family: "arial";
-color: black;
+.header-proyecciones {
+  background-color: rgb(24, 76, 133);
+  text-align-last: center;
+  height: 30px;
+  line-height: 30px;
+  color: white;
+  font-size: 20px;
+  padding: 3%;
 }
 
-/*formato botones INFORMACION DE LA EMPRESA*/
+.proyecciones {
+  color: black;
+  text-align: left;
+  background-color: white;
+  border: 1px solid black;
 
-.boton-historia,.boton-mision-vision,.boton-nuestro-producto,.boton-organigrama,.boton-objetivos{
-  width: 20%;
-  border: 1px white solid;
-  border-style: solid solid hidden solid;
-  padding-bottom: 2rem;
-}
-.boton-nuestro-producto
-{
- font-size: 13px;
-}
-/*formato botones ANALISIS DE LA INDUSTRIA*/
-
-.boton-vision-general, .boton-produccion-tabla-analisis, .boton-ventas-tabla-analisis, .boton-porcentaje-mercado{
-  width: 25%;
-  border: 1px white solid;
-  border-style: solid solid hidden solid;
-  padding-bottom: 2rem;
-}
-
-/*formato botones INFORMES DE LA COMPAÑIA*/
-.boton-estado-resultados, .boton-balance-general, .boton-ventas,.boton-produccion, .boton-compania{
-  width: 20%;
-  border: 1px white solid;
-  border-style: solid solid hidden solid;
-}
-.boton-estado-resultados, .boton-produccion{
-  padding-bottom: 1rem;
-  /* font-size: 12px; */
-}
-.boton-balance-general, .boton-ventas, .boton-compania
-{
-  padding-bottom: 2rem;
-  /* font-size: 12px; */
-}
-
-/*formato botones ANALISIS*/
-
-.boton-prod-ventas, .boton-costo-precio,.boton-capacidad-produccion, .boton-compania-competencia, .boton-consejos{
-  width: 20%;
-  /* height: 10%; */
-  border: 1px white solid;
-  border-style: solid solid hidden solid;
-}
-.boton-prod-ventas,.boton-capacidad-produccion, .boton-compania-competencia{
-  padding-bottom: 1rem;
-  /* font-size: 11px; */
-}
-.boton-costo-precio,.boton-consejos{
-  padding-bottom: 2rem;
-  /* font-size: 11px; */
-}
-
-
- /*DIV VISTAS*/
-#sub-vistas-analisis-industria,#sub-vistas-informe,#sub-vistas-analisis,#sub-vistas-informacion-compania{
-  background-color:white;
-  padding:2%;
-  margin-top: -1%;
-}
-
-#sub-vistas-analisis-industria{
-  border: 10px rgb(0, 139, 208) solid;
-}
-
-#sub-vistas-informe{
-  border: 10px rgb(0, 197, 245) solid;
-}
-
-#sub-vistas-analisis{
-  border: 10px rgb(0, 168, 233) solid;
-}
-
-#sub-vistas-informacion-compania{
-  border: 10px rgb(8, 25, 43) solid;/*24,76,133*/
-}
-
-/*sub vistas INFORMACION DE LA COMPA;IA*/
-/*Mision - Vision*/
-#sub-Mision{
-  height: 100%;
-  width: 70%;
-    margin-top:0%;/*ver como afecta el tama;o de la imagen*/
-
-}
-
-#sub-Mision-Titulo{
-  color:white;
-  background-color:rgb(8, 25, 43);
-  margin-left:-4%;
-  width: 70%;
-  padding:4px;
-}
-
-#sub-Vision-Titulo{
-  color:white;
-  background-color:rgb(8, 25, 43);
-  margin-left:37%;
-  width: 65%;
-  padding:4px;
-}
-
-#sub-Mision> p{
-  text-align:center;
-}
-#sub-Vision>p{
-  text-align:center;
-}
-  /*Nuestro producto*/
-#sub-NuestroProducto-texto{
-  width:75%;
-  margin-top:0%;/*ver como afecta el tama;o de la imagen*/
-}
-
-#sub-NuestroProducto-fotoPoleras
-{
-  background-color:green;
-  width: 100%;
-}
-  /*organigrama*/
-#grafico-organigramaID{
-  height: 100%;
-  width: 25%;
-}
-#sub-Organigrama-logo{
-  /*buscar si es relativo o absoluto*/
-}
-  /*objetivos*/
-#sub-ObjetivosID-bienvenido{
-  height: 100%;
-  width: 75%;
-    margin-top:0%;/*ver como afecta el tama;o de la imagen*/
-
-}
-#sub-ObjetivosID-Titulo{
-  color:white;
-  background-color:rgb(8, 25, 43);
-  margin-left:-4%;
-  width: 60%;
-  padding:4px;
-
-}
-
-#sub-Objetivo-logo{
-    background-color:yellow;
-    color:white;
-    margin-left:80%;
-}
-  /*
-  #sub-Objetivos-logito{
-    height: 100%;
-    width: 25%;
-    background-color:purple;
-  }*/
-
-  /* .letter-12{
-    font-size: 24px;
-
-  } */
-  .picture{
-    width: auto;
-    height: auto;
-  }
-
-  .logo_bs{
-    position: relative;
-    float: right;
-    margin: 0 0 1em 1em;
-    width: 16%;
-    margin: 0%;
-  }
-  .img-poleras{
-    width: 25%;
-
-   }
-   .organi{
-     width: 850px;
-     height: 370px;
-   }
-.letter{
-  color: #000000;
-  font-size: 22px;
-}
-.logo_bss{
- position: static; 
- width: 11%;
- float: right;
 }
