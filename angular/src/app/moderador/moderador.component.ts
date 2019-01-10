@@ -34,7 +34,7 @@ export class ModeradorComponent implements OnInit {
         }
       }, (error: any) => {
         console.log(error)
-        // alert("error")
+        alert("error con el servidor")
       }
     );
   }
