@@ -1,0 +1,34 @@
+<div id="main-container">
+    <table id="success">
+            <thead>
+              <tr>
+                <th >COMPAÑIA</th>
+                <th >VENTAS</th>
+                <th >BENEFICIO</th>
+                <th>PRECIO U.</th>
+                <th>% MERCADO</th>
+              </tr>
+            </thead>
+
+            <tbody >
+              <td><tr *ngFor="let visionG of visionGeneral">{{visionG.nombreEmpresa}}</tr></td>
+              <td><tr *ngFor="let visionG of visionGeneral">{{visionG.ventas}}</tr></td>
+              <td><tr *ngFor="let visionG of visionGeneral">{{visionG.beneficio}}</tr></td>
+              <td><tr *ngFor="let visionG of visionGeneral">{{visionG.precioUnitario}}</tr></td>
+              <td><tr *ngFor="let visionG of visionGeneral">{{visionG.porcentajeDeMercado}} %</tr></td>
+              <tr>
+                <td colspan="4">MERCADO DESATENDIDO</td>
+                <td>{{sumatoriasTotales()}}{{mercadoDesatendido}} %</td>
+              </tr>
+              <tr>
+                <td>{{sumatoriasTotales()}}TOTALES</td>
+                <td>{{totalesVentas}}</td>
+                <td>{{totalesBeneficio}}</td>
+                <td>PROM. {{totalesPrecioUnitario}}</td>
+                <td>{{totalesPorcentajeMercado}} %</td>
+              </tr>
+            </tbody>
+      </table>
+
+  </div>
+

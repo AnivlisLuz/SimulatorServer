@@ -1,0 +1,376 @@
+aside {
+  position: fixed;
+  left: 0;
+  top: 0%;
+  height: 100%;
+  width: 25%;
+  color: white;
+  text-align: center;
+  background-color: rgb(24, 76, 133);
+}
+.div-aside{
+  position: relative;
+  top: 0%;
+  width: 100%;
+  background-color:rgb(113,110,111);
+}
+.card-img-top{
+  position: sticky;
+  background-color: #fff;
+  border-radius: 80%;
+  margin: 7%;
+  width: 60%;
+}
+header{
+  width: 100%;
+  margin-top:-2%;
+  padding: 1rem;
+  background-color: rgb(24, 76, 133);
+  color: white;
+  text-align: center;
+  font-family: "arial";
+}
+.div-header{
+  position: absolute;
+  width: 3%;
+  margin-left: 25%;
+  color: white;
+  text-align: center;
+  top: 5%;
+  padding: 2rem;
+  border-radius: 10%;
+  background-color:  rgb(24, 76, 133);
+  padding: 20px;
+}
+.header-proyecciones{
+  background-color:  rgb(24, 76, 133);
+  text-align-last:center;
+  height:  30%;
+  color:white;
+  font-size: 20px;
+  padding: 3%;
+}
+.tabla-decision{
+  width: 40%;
+  height: 26em;
+  margin-left: 25%;
+  margin-top: 2%;
+  padding: 1rem;
+  border-radius: 5px;
+  text-align: center;
+  color: white;
+  font-family: "arial";
+  background-color: rgb(255, 255, 255);
+  padding: 20px;
+  float:left;
+}
+
+.tabla-proyecciones{
+  width: 28%;
+  height: 26em;
+  margin-top: 2%;
+  margin-left: 1%;
+  padding: 2rem;
+  border-radius: 5px;
+  text-align: center;
+  color: white;
+  font-family: "arial";
+  background-color: rgb(255, 255, 255);
+  padding: 20px;
+  float:left;
+  font-size: 14px;
+
+}
+.proyecciones{
+  color: black;
+  text-align: left;
+  background-color: white;
+  width: 100%;
+  border:1px solid black;
+
+}
+
+.vistasGenerales{
+  width: 70%;
+  height: auto;/*26em*/
+  margin-left: 25%;
+  margin-top: 2%;
+  /*padding: 1rem;*/
+  border-radius: 5px;
+  text-align: center;
+  color: white;
+  font-family: "arial";
+  padding: 20px;
+  float:left;
+
+}
+
+
+p{
+  text-align:justify;
+  color:black;
+}
+table {
+  width:100%;
+  color: black;
+
+}
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+.th1{
+  width:10%;
+  border: 1px solid  white;
+
+}
+.th2{
+  width: 200%;
+
+}
+.tr1{
+  width: 10%;
+  border: 1px solid  white;
+
+}
+table#t01 tr {
+  height: 60px;
+}
+table#t01 tr:nth-child(odd) {
+  background-color: #fff;
+
+}
+table#t01 tr:nth-child(even) {
+ background-color: rgb(116, 197, 233);
+
+}
+table#t01 th {
+  background-color: rgb(24, 76, 133);
+  color: white;
+}
+
+.boton1{
+  width: 30%;
+  margin-left: 40%;
+}
+
+.boton-infomacion-compania{
+  background-color: rgb(8, 25, 43);
+  font-weight: bold;
+}
+.boton-decision{
+  background-color: rgb(24, 76, 208);
+  font-weight: bold;
+
+}
+.boton-t-analisis{
+  background-color: rgb(0, 139, 208);
+  font-weight: bold;
+
+}
+.boton-informe{
+  background-color: rgb(0, 197, 245);
+  font-weight: bold;
+
+
+}
+.boton-analisis{
+  background-color: rgb(0, 168, 233);
+  font-weight: bold;
+
+}
+
+pre{
+font-family: "arial";
+color: black;
+}
+
+/*formato botones INFORMACION DE LA EMPRESA*/
+
+.boton-historia,.boton-mision-vision,.boton-nuestro-producto,.boton-organigrama,.boton-objetivos{
+  width: 20%;
+  border: 1px white solid;
+  border-style: solid solid hidden solid;
+  padding-bottom: 2rem;
+}
+.boton-nuestro-producto
+{
+ font-size: 13px;
+}
+/*formato botones ANALISIS DE LA INDUSTRIA*/
+
+.boton-vision-general, .boton-produccion-tabla-analisis, .boton-ventas-tabla-analisis, .boton-porcentaje-mercado{
+  width: 25%;
+  border: 1px white solid;
+  border-style: solid solid hidden solid;
+  padding-bottom: 2rem;
+}
+
+/*formato botones INFORMES DE LA COMPAÑIA*/
+.boton-estado-resultados, .boton-balance-general, .boton-ventas,.boton-produccion, .boton-compania{
+  width: 20%;
+  border: 1px white solid;
+  border-style: solid solid hidden solid;
+}
+.boton-estado-resultados, .boton-produccion{
+  padding-bottom: 1rem;
+  /* font-size: 12px; */
+}
+.boton-balance-general, .boton-ventas, .boton-compania
+{
+  padding-bottom: 2rem;
+  /* font-size: 12px; */
+}
+
+/*formato botones ANALISIS*/
+
+.boton-prod-ventas, .boton-costo-precio,.boton-capacidad-produccion, .boton-compania-competencia, .boton-consejos{
+  width: 20%;
+  /* height: 10%; */
+  border: 1px white solid;
+  border-style: solid solid hidden solid;
+}
+.boton-prod-ventas,.boton-capacidad-produccion, .boton-compania-competencia{
+  padding-bottom: 1rem;
+  /* font-size: 11px; */
+}
+.boton-costo-precio,.boton-consejos{
+  padding-bottom: 2rem;
+  /* font-size: 11px; */
+}
+
+
+ /*DIV VISTAS*/
+#sub-vistas-analisis-industria,#sub-vistas-informe,#sub-vistas-analisis,#sub-vistas-informacion-compania{
+  background-color:white;
+  padding:2%;
+  margin-top: -1%;
+}
+
+#sub-vistas-analisis-industria{
+  border: 10px rgb(0, 139, 208) solid;
+}
+
+#sub-vistas-informe{
+  border: 10px rgb(0, 197, 245) solid;
+}
+
+#sub-vistas-analisis{
+  border: 10px rgb(0, 168, 233) solid;
+}
+
+#sub-vistas-informacion-compania{
+  border: 10px rgb(8, 25, 43) solid;/*24,76,133*/
+}
+
+/*sub vistas INFORMACION DE LA COMPA;IA*/
+/*Mision - Vision*/
+#sub-Mision{
+  height: 100%;
+  width: 70%;
+    margin-top:0%;/*ver como afecta el tama;o de la imagen*/
+
+}
+
+#sub-Mision-Titulo{
+  color:white;
+  background-color:rgb(8, 25, 43);
+  margin-left:-4%;
+  width: 70%;
+  padding:4px;
+}
+
+#sub-Vision-Titulo{
+  color:white;
+  background-color:rgb(8, 25, 43);
+  margin-left:37%;
+  width: 65%;
+  padding:4px;
+}
+
+#sub-Mision> p{
+  text-align:center;
+}
+#sub-Vision>p{
+  text-align:center;
+}
+  /*Nuestro producto*/
+#sub-NuestroProducto-texto{
+  width:75%;
+  margin-top:0%;/*ver como afecta el tama;o de la imagen*/
+}
+
+#sub-NuestroProducto-fotoPoleras
+{
+  background-color:green;
+  width: 100%;
+}
+  /*organigrama*/
+#grafico-organigramaID{
+  height: 100%;
+  width: 25%;
+}
+#sub-Organigrama-logo{
+  /*buscar si es relativo o absoluto*/
+}
+  /*objetivos*/
+#sub-ObjetivosID-bienvenido{
+  height: 100%;
+  width: 75%;
+    margin-top:0%;/*ver como afecta el tama;o de la imagen*/
+
+}
+#sub-ObjetivosID-Titulo{
+  color:white;
+  background-color:rgb(8, 25, 43);
+  margin-left:-4%;
+  width: 60%;
+  padding:4px;
+
+}
+
+#sub-Objetivo-logo{
+    background-color:yellow;
+    color:white;
+    margin-left:80%;
+}
+  /*
+  #sub-Objetivos-logito{
+    height: 100%;
+    width: 25%;
+    background-color:purple;
+  }*/
+
+  /* .letter-12{
+    font-size: 24px;
+
+  } */
+  .picture{
+    width: auto;
+    height: auto;
+  }
+
+  .logo_bs{
+    position: relative;
+    float: right;
+    margin: 0 0 1em 1em;
+    width: 16%;
+    margin: 0%;
+  }
+  .img-poleras{
+    width: 25%;
+
+   }
+   .organi{
+     width: 850px;
+     height: 370px;
+   }
+.letter{
+  color: #000000;
+  font-size: 22px;
+}
+.logo_bss{
+ position: static; 
+ width: 11%;
+ float: right;
+}
