@@ -4,7 +4,7 @@ const server = require('http').Server(app);
 const port = 8080
 const api = require('./api')
 app.use(express.json())
-app.use('/', express.static(__dirname + "/client/static"));
+app.use('/', express.static(__dirname + "/client/test-login"));
 
 api.setApi(app)
 
