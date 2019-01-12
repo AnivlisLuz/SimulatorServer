@@ -120,7 +120,7 @@ export class TablaDeDecisionComponent implements OnInit {
     //   (response: any) => {
     //     if (response.status == 201) {
     //       console.log('ok');
-    //       this.cargarDatos();
+    this.cargarDatosSocket();
     //     }
     //     else {
     //       console.log(response);
@@ -298,7 +298,7 @@ export class TablaDeDecisionComponent implements OnInit {
       (response: any) => {
         if (response.status == 201) {
           console.log('ok');
-          this.cargarDatos();
+          this.cargarDatosSocket();
 
 
         }
@@ -309,7 +309,21 @@ export class TablaDeDecisionComponent implements OnInit {
 
     this.actualizaProduccionIndustriaBimestres();
   }
-
+  cargarDatosSocket() {
+    console.log("cargarDatosSocket")
+    this.http.emit("visionGeneral", { codigo: this.codigo }, (response) => {
+      console.log(response);
+      if (response.players) {
+        this.visionGeneral = []
+        for (let player of response.players) {
+          let tmp_player = new VisionGeneral();
+          tmp_player.nombreEmpresa = player
+          this.visionGeneral.push(tmp_player);
+        }
+      }
+      console.log(this.visionGeneral)
+    })
+  }
   cargarDatos() {
     this.http.get('http://localhost:8080/estadoResultadosEmpresa/' + this.nombreEmpresa).subscribe(
       (response: any) => {
@@ -561,7 +575,7 @@ export class TablaDeDecisionComponent implements OnInit {
   }
 
   produccionvsventas() {
-    this.section_tap_4=0;
+    this.section_tap_4 = 0;
     // document.getElementById("produccionvsventasID").style.display = "block";
     // document.getElementById("costovsprecioID").style.display = "none";
     // document.getElementById("capacidadvsproduccionID").style.display = "none";
@@ -639,7 +653,7 @@ export class TablaDeDecisionComponent implements OnInit {
   }
   costovsprecio() {
 
-    this.section_tap_4=1;
+    this.section_tap_4 = 1;
     this.http.get('http://localhost:8080/precioUnitarioBimestres/' + this.codigo).subscribe(
       (response: any) => {
         console.log(this.codigo);
@@ -720,8 +734,8 @@ export class TablaDeDecisionComponent implements OnInit {
 
   }
   capacidadvsproduccion() {
-    
-    this.section_tap_4=2;
+
+    this.section_tap_4 = 2;
     this.http.get('http://localhost:8080/produccionBimestres/' + this.codigo).subscribe(
       (response: any) => {
         console.log(this.codigo);
@@ -797,7 +811,7 @@ export class TablaDeDecisionComponent implements OnInit {
   companiavscompetencia() {
 
 
-    this.section_tap_4=3;
+    this.section_tap_4 = 3;
     this.http.get('http://localhost:8080/utilidadNetaBimestres/' + this.codigo + '/' + this.nombreEmpresa).subscribe(
       (response: any) => {
         console.log(this.codigo);
@@ -871,7 +885,7 @@ export class TablaDeDecisionComponent implements OnInit {
 
   consejos() {
 
-    this.section_tap_4=4;
+    this.section_tap_4 = 4;
     this.http.get('http://localhost:8080/visionGeneral/' + this.codigo + '/' + this.numeroBimestre).subscribe(
       (response: any) => {
         console.log(response);
@@ -1017,12 +1031,24 @@ export class TablaDeDecisionComponent implements OnInit {
 
   VisionGeneral() {
     this.section_tap_2 = 0;
+    this.http.emit("visionGeneral", { codigo: this.codigo }, (response) => {
+      console.log(response);
+      if (response.players) {
+        this.visionGeneral = []
+        for (let player of response.players) {
+          let tmp_player = new VisionGeneral();
+          tmp_player.nombreEmpresa = player
+          this.visionGeneral.push(tmp_player);
+        }
+      }
+      console.log(this.visionGeneral)
+    })
     //cargar visionGeneral
-    this.http.get('http://localhost:8080/visionGeneral/' + this.codigo + '/' + this.numeroBimestre).subscribe(
-      (response: any) => {
-        console.log(response);
-        this.visionGeneral = response;
-      });
+    // this.http.get('http://localhost:8080/visionGeneral/' + this.codigo + '/' + this.numeroBimestre).subscribe(
+    //   (response: any) => {
+    //     console.log(response);
+    //     this.visionGeneral = response;
+    //   });
 
     // document.getElementById("VisionGeneralID").style.display = "block";
     // document.getElementById("ProduccionTablaAnalisisID").style.display = "none";

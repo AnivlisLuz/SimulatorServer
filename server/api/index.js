@@ -85,3 +85,45 @@ class Mercado {
         return this.players.length >= this.cantidad_judagores
     }
 }
+exports.setSocket = io => {
+    io.on('connection', (socket) => {
+        console.log('user connected'); load_mercados(socket)
+        socket.on('createGame', (data, client) => {
+            console.log("createGame =>", data)
+            let token = randtoken.generate(5);
+            mercados[token] = new Mercado(data.nombreMercado, data.cantidadJugadores, token)
+            load_mercados(socket)
+            client({ token: token, message: "ok" })
+        })
+        socket.on('joinGame', (data, client) => {
+            console.log("socket joinGame =>", data)
+            let _mercado = mercados[data.codigo]
+            if (_mercado && !_mercado.isFull()) {
+                _mercado.addPlayer(data.player_name)
+                client({ message: "ok" })
+            } else {
+                console.log("error con el mercado")
+                client("error con el mercado")
+            }
+        })
+        socket.on('visionGeneral', (data, client) => {
+            console.log("socket joinGame =>", data)
+            let _mercado = mercados[data.codigo]
+            if (_mercado) {
+                client({ message: "ok", players: _mercado.players })
+            } else {
+                console.log("error con el visionGeneral")
+                client("error con el visionGeneral")
+            }
+        })
+    });
+
+
+}
+function load_mercados(socket) {
+    socket.emit("load_mercados", mercados)
+}
+function update_players(socket, _mercado) {
+    console.log("update_players")
+    socket.emit("update_players", _mercado.players)
+}

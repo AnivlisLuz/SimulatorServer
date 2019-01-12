@@ -17,13 +17,13 @@ export class TablaVisionGeneralComponent implements OnInit {
   }
 
   ngOnInit() {
-     /*for(let i=0; i<this.visionGeneral.length; i++)
+     for(let i=0; i<this.visionGeneral.length; i++)
     {
     	this.totalesVentas+=this.visionGeneral[i].ventas;
     	this.totalesBeneficio+=this.visionGeneral[i].beneficio;
     	this.totalesPrecioUnitario+=this.visionGeneral[i].precioUnitario;
     	this.totalesPorcentajeMercado+=this.visionGeneral[i].porcentajeDeMercado;
-    }*/
+    }
   }
 
   sumatoriasTotales(){

@@ -17,23 +17,29 @@ export class ModeradorComponent implements OnInit {
   ngOnInit() {
   }
   onClickMe() {
-    this.http.post('/createGame', this.moderador).subscribe(
-      (response: any) => {
-        if (response.status == 200) {
-          let body = JSON.parse(response._body)
-          console.log(body)
-          if (body.message == "ok") {
-            alert(`Creado correctamente, Codigo: ${body.token}`)
-          } else {
-            alert(`Ya exite el mercado: ${this.moderador.nombreMercado}  Con el codigo: ${body.token}`)
-          }
-        } else {
-          alert(response._body);
-        }
-      }, (error: any) => {
-        console.log(error)
-        alert("error con el servidor")
-      }
-    );
+    this.http.emit("createGame", this.moderador, (response) => {
+      if (response.message && response.message == "ok")
+        alert(`Creado correctamente, Codigo: ${response.token}`)
+      else
+        alert(`Error: ${response}`)
+    })
+    // this.http.post('/createGame', this.moderador).subscribe(
+    //   (response: any) => {
+    //     if (response.status == 200) {
+    //       let body = JSON.parse(response._body)
+    //       console.log(body)
+    //       if (body.message == "ok") {
+    //         alert(`Creado correctamente, Codigo: ${body.token}`)
+    //       } else {
+    //         alert(`Ya exite el mercado: ${this.moderador.nombreMercado}  Con el codigo: ${body.token}`)
+    //       }
+    //     } else {
+    //       alert(response._body);
+    //     }
+    //   }, (error: any) => {
+    //     console.log(error)
+    //     alert("error con el servidor")
+    //   }
+    // );
   }
 }
