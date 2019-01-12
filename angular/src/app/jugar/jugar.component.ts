@@ -18,8 +18,8 @@ export class JugarComponent implements OnInit {
   registerForm: FormGroup;
   submitted = false;
 
-  nombre_empresa: String;
-  codigo: String;
+  nombre_empresa: string;
+  codigo: string;
 
   constructor(private router: Router, private formBuilder: FormBuilder, private http: HttpService) {
     this.jugador = new Jugador();
@@ -36,10 +36,11 @@ export class JugarComponent implements OnInit {
   get f() { return this.registerForm.controls; }
   onClickMe() {
     let body_send = { player_name: this.nombre_empresa, codigo: this.codigo }
-    this.http.emit("joinGame", body_send, (response) => {
+    this.http.joinGame( body_send, (response) => {
       if (response.message && response.message == "ok") {
         alert("Tu nombre de empresa sera:" + this.nombre_empresa);
-        this.router.navigate(['/tabla', body_send]);
+        this.http.createGame( this.nombre_empresa,  this.codigo)
+        this.router.navigate(['/tabla']);
       }
       else
         alert(`Error: ${response}`)

@@ -294,35 +294,49 @@ export class TablaDeDecisionComponent implements OnInit {
     let json = JSON.stringify(this.bimestreActual);
     let params = 'json' + json;
     console.log(json);
-    this.http.post('http://localhost:8080/bimestre', json).subscribe(
-      (response: any) => {
-        if (response.status == 201) {
-          console.log('ok');
-          this.cargarDatosSocket();
+    this.http.emit("bimestre", this.bimestreActual, (response) => {
+      if (response.message && response.message == "ok")
+        this.cargarDatosSocket();
+      else {
+        alert("error")
+      }
+    })
+    // this.http.post('http://localhost:8080/bimestre', json).subscribe(
+    //   (response: any) => {
+    //     if (response.status == 201) {
+    //       console.log('ok');
+    //       this.cargarDatosSocket();
 
 
-        }
-        else {
-          console.log(response);
-        }
-      });
+    //     }
+    //     else {
+    //       console.log(response);
+    //     }
+    //   });
 
     this.actualizaProduccionIndustriaBimestres();
   }
   cargarDatosSocket() {
     console.log("cargarDatosSocket")
-    this.http.emit("visionGeneral", { codigo: this.codigo }, (response) => {
-      console.log(response);
-      if (response.players) {
-        this.visionGeneral = []
-        for (let player of response.players) {
-          let tmp_player = new VisionGeneral();
-          tmp_player.nombreEmpresa = player
-          this.visionGeneral.push(tmp_player);
-        }
+    let players = this.http.getPlayers()
+    if (players)
+      for (let player of players) {
+        let tmp_player = new VisionGeneral();
+        tmp_player.nombreEmpresa = player
+        this.visionGeneral.push(tmp_player);
       }
-      console.log(this.visionGeneral)
-    })
+    // .emit("visionGeneral", { codigo: this.codigo }, (response) => {
+    //   console.log(response);
+    //   if (response.players) {
+    //     this.visionGeneral = []
+    //     for (let player of response.players) {
+    //       let tmp_player = new VisionGeneral();
+    //       tmp_player.nombreEmpresa = player
+    //       this.visionGeneral.push(tmp_player);
+    //     }
+    //   }
+    //   console.log(this.visionGeneral)
+    // })
   }
   cargarDatos() {
     this.http.get('http://localhost:8080/estadoResultadosEmpresa/' + this.nombreEmpresa).subscribe(
@@ -1031,18 +1045,25 @@ export class TablaDeDecisionComponent implements OnInit {
 
   VisionGeneral() {
     this.section_tap_2 = 0;
-    this.http.emit("visionGeneral", { codigo: this.codigo }, (response) => {
-      console.log(response);
-      if (response.players) {
-        this.visionGeneral = []
-        for (let player of response.players) {
-          let tmp_player = new VisionGeneral();
-          tmp_player.nombreEmpresa = player
-          this.visionGeneral.push(tmp_player);
-        }
+    let players_tmp = this.http.getPlayers()
+    if (players_tmp)
+      for (let player of players_tmp) {
+        let tmp_player = new VisionGeneral();
+        tmp_player.nombreEmpresa = player
+        this.visionGeneral.push(tmp_player);
       }
-      console.log(this.visionGeneral)
-    })
+    // this.http.emit("visionGeneral", { codigo: this.codigo }, (response) => {
+    //   console.log(response);
+    //   if (response.players) {
+    //     this.visionGeneral = []
+    //     for (let player of response.players) {
+    //       let tmp_player = new VisionGeneral();
+    //       tmp_player.nombreEmpresa = player
+    //       this.visionGeneral.push(tmp_player);
+    //     }
+    //   }
+    //   console.log(this.visionGeneral)
+    // })
     //cargar visionGeneral
     // this.http.get('http://localhost:8080/visionGeneral/' + this.codigo + '/' + this.numeroBimestre).subscribe(
     //   (response: any) => {

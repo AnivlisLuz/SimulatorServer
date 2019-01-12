@@ -10,7 +10,7 @@ app.use(express.json())
 app.use(cors())
 app.use('/', express.static(__dirname + "/client/static"));
 
-api.setApi(app)
+// api.setApi(app)
 api.setSocket(io)
 
 server.listen(port);
