@@ -1,5 +1,7 @@
 import { VisionGeneral } from '../../../models/visionGeneral';
 import { Component, OnInit, Input } from '@angular/core';
+
+import { HttpService } from './../../../services/http.service';
 @Component({
   selector: 'app-tabla-vision-general',
   templateUrl: './tabla-vision-general.component.html',
@@ -13,7 +15,7 @@ export class TablaVisionGeneralComponent implements OnInit {
 	mercadoDesatendido:number=0;
   @Input() public visionGeneral:Array<VisionGeneral>;
 
-  constructor() {
+  constructor(private http: HttpService, ) {
   }
 
   ngOnInit() {

@@ -17,7 +17,7 @@ export class ModeradorComponent implements OnInit {
   ngOnInit() {
   }
   onClickMe() {
-    this.http.emit("createGame", this.moderador, (response) => {
+    this.http.game.createGame( this.moderador, (response) => {
       if (response.message && response.message == "ok")
         alert(`Creado correctamente, Codigo: ${response.token}`)
       else

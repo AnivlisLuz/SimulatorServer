@@ -11,7 +11,7 @@
             </thead>
 
             <tbody >
-              <td><tr *ngFor="let visionG of visionGeneral">{{visionG.nombreEmpresa}}</tr></td>
+              <td><tr *ngFor="let visionG of http.game.players">{{visionG}}</tr></td>
               <td><tr *ngFor="let visionG of visionGeneral">{{visionG.ventas}}</tr></td>
               <td><tr *ngFor="let visionG of visionGeneral">{{visionG.beneficio}}</tr></td>
               <td><tr *ngFor="let visionG of visionGeneral">{{visionG.precioUnitario}}</tr></td>

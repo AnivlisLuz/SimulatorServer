@@ -21,6 +21,7 @@ exports.setSocket = io => {
             let _mercado = mercados[data.codigo]
             if (_mercado) {
                 client(_mercado.addPlayer(data.player_name, socket))
+                io.sockets.emit("get_players", _mercado.getPlayers())
             } else {
                 client("error con el codigo")
             }
@@ -30,7 +31,7 @@ exports.setSocket = io => {
             console.log("get_players =>", data)
             let _mercado = mercados[data.codigo]
             if (_mercado) {
-                socket.emit("get_players", _mercado.getPlayers())
+                io.sockets.emit("get_players", _mercado.getPlayers())
             }
 
         })

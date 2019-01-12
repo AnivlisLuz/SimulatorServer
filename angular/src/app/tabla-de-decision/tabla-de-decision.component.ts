@@ -294,13 +294,13 @@ export class TablaDeDecisionComponent implements OnInit {
     let json = JSON.stringify(this.bimestreActual);
     let params = 'json' + json;
     console.log(json);
-    this.http.emit("bimestre", this.bimestreActual, (response) => {
-      if (response.message && response.message == "ok")
-        this.cargarDatosSocket();
-      else {
-        alert("error")
-      }
-    })
+    // this.http.emit("bimestre", this.bimestreActual, (response) => {
+    //   if (response.message && response.message == "ok")
+    //     this.cargarDatosSocket();
+    //   else {
+    //     alert("error")
+    //   }
+    // })
     // this.http.post('http://localhost:8080/bimestre', json).subscribe(
     //   (response: any) => {
     //     if (response.status == 201) {
