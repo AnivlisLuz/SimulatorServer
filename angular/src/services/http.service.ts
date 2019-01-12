@@ -74,7 +74,6 @@ class Game {
         let tmp_player = new Player(i)
         if (tmp_player.name == this.name) {
           this.player = tmp_player
-          console.log("my name is sssiiii", this.name,this.player)
         }
         this.players.push(tmp_player)
       }

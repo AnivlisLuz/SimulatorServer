@@ -34,6 +34,14 @@ export class TablaDeDecisionComponent implements OnInit {
   section_tap_3: number = 0;
   section_tap_4: number = 0;
 
+  precioUnitario: number = 151
+  produccion: number = 500
+  inversionEnMarketings: number[] = [0, 1500, 3000, 4500, 6000]
+  inversionEnMarketing: number = this.inversionEnMarketings[0]
+  inversionEnInvestigacions: number[] = [0, 1500, 3000, 4500, 6000]
+  inversionEnInvestigacion: number = this.inversionEnInvestigacions[0]
+  inversionEnActivoss: number[] = [0, 1500, 3000, 4500, 6000]
+  inversionEnActivos: number = this.inversionEnActivoss[0]
 
   nombreEmpresa: string;
   bimestreInicial: Bimestre;
@@ -51,7 +59,7 @@ export class TablaDeDecisionComponent implements OnInit {
 
   //a partir de aqui
   visionGeneral: VisionGeneral[];
-  produccion: Produccion;
+  // produccion: Produccion;
   ventasIndustria: VentasIndustria;
   codigo: string;
 
@@ -77,7 +85,7 @@ export class TablaDeDecisionComponent implements OnInit {
   porcentajeDeMercadoTotal: number;
 
 
-  constructor(private http: HttpService, private route: ActivatedRoute) {
+  constructor(private http: HttpService, private route: ActivatedRoute, private router: Router) {
     this.bimestreInicial = new Bimestre();
     this.bimestreActual = new Bimestre();
     this.bimestres = [];
@@ -86,7 +94,7 @@ export class TablaDeDecisionComponent implements OnInit {
     this.estadoResultados = [];
     this.balanceGeneral = new BalanceGeneral();
     this.numeroBimestre = 0;
-    this.produccion = new Produccion();
+    // this.produccion = new Produccion();
     this.ventasIndustria = new VentasIndustria();
     this.visionGeneral = [];
     this.capacidadProduccionIndustriaBimestres = [];
@@ -95,17 +103,31 @@ export class TablaDeDecisionComponent implements OnInit {
     this.sumatoriaCapacidadProduccion = [];
     this.promedioPrecioUnitarios = [];
     this.promedioERUtilidadNeta = [];
+    if (!this.http.game)
+      this.router.navigateByUrl('/jugar');
   }
-
+  onChangeinversionEnMarketings(data) {
+    console.log("changed onChangeinversionEnMarketings", data)
+    this.inversionEnMarketing = data
+  }
+  onChangeinversionEnInvestigacions(data) {
+    console.log("changed onChangeinversionEnInvestigacions", data)
+    this.inversionEnInvestigacion = data
+  }
+  onChangeinversionEnActivoss(data) {
+    console.log("changed onChangeinversionEnActivoss", data)
+    this.inversionEnActivos = data
+  }
   ngOnInit() {
-    this.route.params.subscribe(params => {
-      if (params['player_name'] != null && params['codigo'] != null) {
-        this.nombreEmpresa = params['player_name'];
-        this.codigo = params['codigo'];
-      }
-    });
-    console.log(this.nombreEmpresa);
-    console.log(this.codigo);
+
+    // this.route.params.subscribe(params => {
+    //   if (params['player_name'] != null && params['codigo'] != null) {
+    //     this.nombreEmpresa = params['player_name'];
+    //     this.codigo = params['codigo'];
+    //   }
+    // });
+    // console.log(this.nombreEmpresa);
+    // console.log(this.codigo);
     // this.bimestreInicial.codigo = this.codigo;
     // this.bimestreInicial.nombreEmpresa = this.nombreEmpresa;
 
@@ -120,7 +142,7 @@ export class TablaDeDecisionComponent implements OnInit {
     //   (response: any) => {
     //     if (response.status == 201) {
     //       console.log('ok');
-    this.cargarDatosSocket();
+    // this.cargarDatosSocket();
     //     }
     //     else {
     //       console.log(response);
@@ -130,26 +152,26 @@ export class TablaDeDecisionComponent implements OnInit {
 
   }
 
-  actualizaProduccionIndustriaBimestres() {
-    this.http.get('http://localhost:8080/produccion/PR' + this.nombreEmpresa + '' + this.codigo).subscribe(
-      (response: any) => {
-        console.log(response);
-        this.produccion = response;
-      });
-    if (this.produccion !== null && this.produccion !== undefined) {
-      if (this.capacidadProduccionIndustriaBimestres.length > 0) {
-        if (this.capacidadProduccionIndustriaBimestres[this.capacidadProduccionIndustriaBimestres.length - 1].numero != this.produccion.numero) {
-          this.capacidadProduccionIndustriaBimestres.push(this.produccion);
-        }
-      }
-      else {
-        this.capacidadProduccionIndustriaBimestres.push(this.produccion);
+  // actualizaProduccionIndustriaBimestres() {
+  //   this.http.get('http://localhost:8080/produccion/PR' + this.nombreEmpresa + '' + this.codigo).subscribe(
+  //     (response: any) => {
+  //       console.log(response);
+  //       this.produccion = response;
+  //     });
+  //   if (this.produccion !== null && this.produccion !== undefined) {
+  //     if (this.capacidadProduccionIndustriaBimestres.length > 0) {
+  //       if (this.capacidadProduccionIndustriaBimestres[this.capacidadProduccionIndustriaBimestres.length - 1].numero != this.produccion.numero) {
+  //         this.capacidadProduccionIndustriaBimestres.push(this.produccion);
+  //       }
+  //     }
+  //     else {
+  //       this.capacidadProduccionIndustriaBimestres.push(this.produccion);
 
-      }
+  //     }
 
-    }
+  //   }
 
-  }
+  // }
 
   actualizarVentasIndustriasBimestre() {
     this.http.get('http://localhost:8080/ventasIndustria/VI' + this.nombreEmpresa + '' + this.codigo).subscribe(
@@ -171,8 +193,16 @@ export class TablaDeDecisionComponent implements OnInit {
     }
   }
   iniciar() {
-    if (this.http.game.faltantes == 0)
-      this.iniciarAfter()
+    if (this.http.game.faltantes == 0) {
+      let data_bimestre = {
+        precioUnitario: this.precioUnitario,
+        produccion: this.produccion,
+        inversionEnMarketing: this.inversionEnMarketing,
+        inversionEnInvestigacion: this.inversionEnInvestigacion,
+        inversionEnActivos: this.inversionEnActivos
+      }
+      console.log(data_bimestre)
+    }
     else
       alert("aun faltan " + this.http.game.faltantes + " jugadores")
   }
@@ -320,7 +350,7 @@ export class TablaDeDecisionComponent implements OnInit {
     //     }
     //   });
 
-    this.actualizaProduccionIndustriaBimestres();
+    // this.actualizaProduccionIndustriaBimestres();
   }
   cargarDatosSocket() {
     console.log("cargarDatosSocket")
@@ -656,7 +686,7 @@ export class TablaDeDecisionComponent implements OnInit {
         this.LineChart2.update();
       }
     }
-    this.actualizaProduccionIndustriaBimestres();
+    // this.actualizaProduccionIndustriaBimestres();
 
     for (let i = 0; i < this.capacidadProduccionIndustriaBimestres.length; i++) {
       //this.LineChart2.data.labels.push("Bimestre "+this.capacidadProduccionIndustriaBimestres[i].numero);
@@ -739,7 +769,7 @@ export class TablaDeDecisionComponent implements OnInit {
       //this.LineChart3.data.labels.push("Bimestre "+(i+1));
       this.LineChart3.update();
     }
-    this.actualizaProduccionIndustriaBimestres();
+    // this.actualizaProduccionIndustriaBimestres();
 
     for (let i = 0; i < this.capacidadProduccionIndustriaBimestres.length; i++) {
       //this.LineChart3.data.labels.push("Bimestre "+this.capacidadProduccionIndustriaBimestres[i].numero);
@@ -817,7 +847,7 @@ export class TablaDeDecisionComponent implements OnInit {
       //this.LineChart4.data.labels.push("Bimestre "+ (i+1));
       this.LineChart4.update();
     }
-    this.actualizaProduccionIndustriaBimestres();
+    // this.actualizaProduccionIndustriaBimestres();
 
     for (let i = 0; i < this.capacidadProduccionIndustriaBimestres.length; i++) {
       //this.LineChart4.data.labels.push("Bimestre "+this.capacidadProduccionIndustriaBimestres[i].numero);
