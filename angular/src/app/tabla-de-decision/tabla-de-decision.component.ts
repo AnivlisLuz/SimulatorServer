@@ -28,7 +28,7 @@ import { Chart } from 'chart.js';
 export class TablaDeDecisionComponent implements OnInit {
 
   //tab manager
-  tap_position: number = 0;
+  tap_position: number = 1;
   section_tap_1: number = 0;
   section_tap_2: number = 0;
   section_tap_3: number = 0;
@@ -171,6 +171,12 @@ export class TablaDeDecisionComponent implements OnInit {
     }
   }
   iniciar() {
+    if (this.http.game.faltantes == 0)
+      this.iniciarAfter()
+    else
+      alert("aun faltan " + this.http.game.faltantes + " jugadores")
+  }
+  iniciarAfter() {
     alert("Iniciando inversion, preparando bimestre");
     let precioUnitario = document.getElementById("precioUnitario") as HTMLInputElement;
     if (document.getElementById("precio-unitario1").innerText === "") {
@@ -318,13 +324,13 @@ export class TablaDeDecisionComponent implements OnInit {
   }
   cargarDatosSocket() {
     console.log("cargarDatosSocket")
-    let players = this.http.getPlayers()
-    if (players)
-      for (let player of players) {
-        let tmp_player = new VisionGeneral();
-        tmp_player.nombreEmpresa = player
-        this.visionGeneral.push(tmp_player);
-      }
+    // let players = this.http.getPlayers()
+    // if (players)
+    //   for (let player of players) {
+    //     let tmp_player = new VisionGeneral();
+    //     tmp_player.nombreEmpresa = player
+    //     this.visionGeneral.push(tmp_player);
+    //   }
     // .emit("visionGeneral", { codigo: this.codigo }, (response) => {
     //   console.log(response);
     //   if (response.players) {
@@ -1045,13 +1051,13 @@ export class TablaDeDecisionComponent implements OnInit {
 
   VisionGeneral() {
     this.section_tap_2 = 0;
-    let players_tmp = this.http.getPlayers()
-    if (players_tmp)
-      for (let player of players_tmp) {
-        let tmp_player = new VisionGeneral();
-        tmp_player.nombreEmpresa = player
-        this.visionGeneral.push(tmp_player);
-      }
+    // let players_tmp = this.http.getPlayers()
+    // if (players_tmp)
+    //   for (let player of players_tmp) {
+    //     let tmp_player = new VisionGeneral();
+    //     tmp_player.nombreEmpresa = player
+    //     this.visionGeneral.push(tmp_player);
+    //   }
     // this.http.emit("visionGeneral", { codigo: this.codigo }, (response) => {
     //   console.log(response);
     //   if (response.players) {

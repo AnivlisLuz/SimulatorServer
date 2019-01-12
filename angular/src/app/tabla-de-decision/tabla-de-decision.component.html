@@ -2,7 +2,7 @@
   <aside>
     <div id="logo_container">
       <img id="logo_image" src="/imagenes/LOGO SIMULADOR FINAL.png">
-      <div id="nombre_empresa">{{nombreEmpresa}}{{http.game.players}}</div>
+      <div id="nombre_empresa">{{http.game.name}}</div>
     </div>
     <div class="button_tab_container" style="background-color: #092B3A;">
       <button (click)="informacion()" class="boton-infomacion-compania tab_menu_button" style="background-color: #092B3A;">
@@ -198,14 +198,14 @@
                 </tr>
                 <tr>
                   <th class="tr1">INICIAL</th>
-                  <th class="tr1" id="numero-bimestre1"> </th>
-                  <th class="tr1" id="numero-bimestre2"> </th>
-                  <th class="tr1" id="numero-bimestre3"> </th>
-                  <th class="tr1" id="numero-bimestre-siguiente">B-1</th>
+                  <th class="tr1" id="numero-bimestre1">B-1</th>
+                  <th class="tr1" id="numero-bimestre2"> B-2</th>
+                  <th class="tr1" id="numero-bimestre3"> B-3</th>
+                  <th class="tr1" id="numero-bimestre-siguiente"> => </th>
                 </tr>
                 <tr>
                   <td>PRECIO UNITARIO</td>
-                  <td>{{bimestreInicial.precioUnitario}}</td>
+                  <td>{{(http.game.player.bimestre_inicial)?http.game.player.bimestre_inicial.precioUnitario:""}}</td>
                   <td id="precio-unitario1"></td>
                   <td id="precio-unitario2"></td>
                   <td id="precio-unitario3"></td>
@@ -215,7 +215,7 @@
                 </tr>
                 <tr>
                   <td>PRODUCCIÓN</td>
-                  <td>{{bimestreInicial.produccion}}</td>
+                  <td>{{(http.game.player.bimestre_inicial)?http.game.player.bimestre_inicial.produccion:""}}</td>
                   <td id="produccion1"></td>
                   <td id="produccion2"></td>
                   <td id="produccion3"></td>
@@ -224,7 +224,7 @@
                 </tr>
                 <tr>
                   <td>INVERSION EN MARKETING</td>
-                  <td>{{bimestreInicial.inversionEnMarketing}}</td>
+                  <td>{{(http.game.player.bimestre_inicial)?http.game.player.bimestre_inicial.inversionEnMarketing:""}}</td>
                   <td id="inversion-marketing1"></td>
                   <td id="inversion-marketing2"></td>
                   <td id="inversion-marketing3"></td>
@@ -242,7 +242,7 @@
                 </tr>
                 <tr>
                   <td>INVERSION EN INVESTIGACIÓN</td>
-                  <td>{{bimestreInicial.inversionEnInvestigacion}}</td>
+                  <td>{{(http.game.player.bimestre_inicial)?http.game.player.bimestre_inicial.inversionEnInvestigacion:""}}</td>
                   <td id="inversion-investigacion1"></td>
                   <td id="inversion-investigacion2"></td>
                   <td id="inversion-investigacion3"></td>
@@ -260,7 +260,7 @@
                 </tr>
                 <tr>
                   <td>INVERSION EN ACTIVOS</td>
-                  <td>{{bimestreInicial.inversionEnActivos}}</td>
+                  <td>{{(http.game.player.bimestre_inicial)?http.game.player.bimestre_inicial.inversionEnActivos:""}}</td>
                   <td id="inversion-activos1"></td>
                   <td id="inversion-activos2"></td>
                   <td id="inversion-activos3"></td>
@@ -315,7 +315,7 @@
           </div>
           <div style="display: flex; justify-content: center;padding-top: 50px;">
             <button (click)="iniciar()" style="width:300px">
-              ENVIAR MIS DECISIONES
+              {{http.game.faltantes==0?"ENVIAR MIS DECISIONES":"aun "+http.game.faltantes+" falta jugadores"}}
             </button></div>
         </div>
       </div>

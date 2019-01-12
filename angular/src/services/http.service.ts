@@ -15,6 +15,7 @@ export class HttpService {
   constructor(private http: Http, private socket: Socket) {
     console.log("servicio generado")
     socket.on("connect", data => {
+      console.log("servicio generado socket")
       this.game = new Game(socket)
     })
   }
@@ -24,22 +25,22 @@ export class HttpService {
   //   this.contador++
   //   this.socket.emit(url, data, callback);
   // }
-  public joinGame(data, callback) {
-    console.log("join game" + this.contador)
-    this.socket.emit("joinGame", data, callback);
-  }
+  // public joinGame(data, callback) {
+  //   console.log("join game" + this.contador)
+  //   this.socket.emit("joinGame", data, callback);
+  // }
   public get(url: string) {
     return this.http.get(encodeURI(this.baseUrl + url)).pipe(map(
       (response) => {
         return response.json();
       }), catchError(this.handleError));
   }
-  public getPlayers() {
-    if (this.game)
-      return this.game.players
-    else
-      return []
-  }
+  // public getPlayers() {
+  //   if (this.game)
+  //     return this.game.players
+  //   else
+  //     return []
+  // }
   public post(url: string, params: any) {
     let cpHeaders = new Headers({ 'Content-Type': 'application/json' });
     let options = new RequestOptions({ headers: cpHeaders });
@@ -57,22 +58,36 @@ class Game {
   codigo: string
   name: string
   status: string
-  players: string[]
+  player: Player
+  players: Player[]
+  faltantes: number
   constructor(socket: Socket) {
     this.socket = socket
-    // socket.emit("get_players", { codigo: codigo })
     socket.on("update_state", (data) => {
       console.log("update 2", data)
     })
-    socket.removeListener("get_players")
-    socket.on("get_players", (data) => {
-      console.log("get_players 2", data)
-      this.players = data
+    socket.removeListener("getPlayers")
+    socket.on("getPlayers", (data) => {
+      console.log("getPlayers", data)
+      this.players = []
+      for (let i of data.players) {
+        let tmp_player = new Player(i)
+        if (tmp_player.name == this.name) {
+          this.player = tmp_player
+          console.log("my name is sssiiii", this.name,this.player)
+        }
+        this.players.push(tmp_player)
+      }
+      this.faltantes = data.size - this.players.length
+      console.log(this.players.length, data.size, "faltantes", this.faltantes)
     })
   }
   public joinGame(data, callback) {
     console.log("join game", data)
-    this.socket.emit("joinGame", data, callback);
+    this.socket.emit("joinGame", data, (response) => {
+      this.name = data.player_name
+      callback(response)
+    });
 
   }
   public createGame(data, callback) {
@@ -81,12 +96,21 @@ class Game {
   }
 }
 class Player {
+  name: string
   bimestre_inicial: Bimestre
   bimestre_uno: Bimestre
   bimestre_dos: Bimestre
   bimestre_tres: Bimestre
-  constructor() {
-    this.bimestre_inicial = new Bimestre(150, 500, 3000, 1500, 300)
+  constructor(data) {
+    this.name = data.name
+    if (data.bimestre_inicial)
+      this.bimestre_inicial = new Bimestre(data.bimestre_inicial)
+    if (data.bimestre_uno)
+      this.bimestre_uno = new Bimestre(data.bimestre_uno)
+    if (data.bimestre_dos)
+      this.bimestre_dos = new Bimestre(data.bimestre_dos)
+    if (data.bimestre_tres)
+      this.bimestre_tres = new Bimestre(data.bimestre_tres)
   }
 }
 class Bimestre {
@@ -96,12 +120,12 @@ class Bimestre {
   public inversionEnInvestigacion: number
   public inversionEnActivos: number
 
-  constructor(precioUnitario, produccion, inversionEnMarketing, inversionEnInvestigacion, inversionEnActivos) {
-    this.precioUnitario = precioUnitario
-    this.produccion = produccion
-    this.inversionEnMarketing = inversionEnMarketing
-    this.inversionEnInvestigacion = inversionEnInvestigacion
-    this.inversionEnActivos = inversionEnActivos
+  constructor(data) {
+    this.precioUnitario = data.precioUnitario
+    this.produccion = data.produccion
+    this.inversionEnMarketing = data.inversionEnMarketing
+    this.inversionEnInvestigacion = data.inversionEnInvestigacion
+    this.inversionEnActivos = data.inversionEnActivos
   }
 }
 
