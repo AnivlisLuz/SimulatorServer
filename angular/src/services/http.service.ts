@@ -71,29 +71,33 @@ class Game {
     })
     socket.removeListener("getPlayers")
     socket.on("getPlayers", (data) => {
-      console.log("getPlayers", data)
-      this.players = []
-      let bimestre_uno_count = 0
-      let bimestre_dos_count = 0
-      let bimestre_tres_count = 0
-      for (let i of data.players) {
-        let tmp_player = new Player(i)
-        if (tmp_player.name == this.name)
-          this.player = tmp_player
+      console.log("getPlayers", data,this.codigo)
+      if (data.codigo == this.codigo) {
+        this.players = []
+        let bimestre_uno_count = 0
+        let bimestre_dos_count = 0
+        let bimestre_tres_count = 0
+        for (let i of data.players) {
+          let tmp_player = new Player(i)
+          if (tmp_player.name == this.name)
+            this.player = tmp_player
 
-        this.players.push(tmp_player)
-        if (tmp_player.bimestre_uno)
-          bimestre_uno_count++
-        if (tmp_player.bimestre_dos)
-          bimestre_dos_count++
-        if (tmp_player.bimestre_tres)
-          bimestre_tres_count++
+          this.players.push(tmp_player)
+          if (tmp_player.bimestre_uno)
+            bimestre_uno_count++
+          if (tmp_player.bimestre_dos)
+            bimestre_dos_count++
+          if (tmp_player.bimestre_tres)
+            bimestre_tres_count++
+        }
+        this.bimestre_inicial_c = data.size - this.players.length
+        this.bimestre_uno_c = data.size - bimestre_uno_count
+        this.bimestre_dos_c = data.size - bimestre_dos_count
+        this.bimestre_tres_c = data.size - bimestre_tres_count
+        console.log(this.bimestre_inicial_c, this.bimestre_uno_c, this.bimestre_dos_c, this.bimestre_tres_c)
+      } else {
+        console.log("no es de este mercado")
       }
-      this.bimestre_inicial_c = data.size - this.players.length
-      this.bimestre_uno_c = data.size - bimestre_uno_count
-      this.bimestre_dos_c = data.size - bimestre_dos_count
-      this.bimestre_tres_c = data.size - bimestre_tres_count
-      console.log(this.bimestre_inicial_c, this.bimestre_uno_c, this.bimestre_dos_c, this.bimestre_tres_c)
     })
   }
   public addBimestreUno(data, callback) {

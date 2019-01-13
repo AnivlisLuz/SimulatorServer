@@ -220,8 +220,8 @@
                   <td>{{(http.game.player&&http.game.player.bimestre_dos)?http.game.player.bimestre_dos.produccion:""}}</td>
                   <td>{{(http.game.player&&http.game.player.bimestre_tres)?http.game.player.bimestre_tres.produccion:""}}</td>
                   <td id="produccionTD">
-                    <input type="number" id="produccion" name="produccion" [(ngModel)]="produccion"
-                      min="0" max="850*{{ numeroBimestre }}" value=500></td>
+                    <input type="number" id="produccion" name="produccion" [(ngModel)]="produccion" min="0" max="850*{{ numeroBimestre }}"
+                      value=500></td>
                 </tr>
                 <tr>
                   <td>INVERSION EN MARKETING</td>
@@ -231,7 +231,7 @@
                   <td>{{(http.game.player&&http.game.player.bimestre_tres)?http.game.player.bimestre_tres.inversionEnMarketing:""}}</td>
                   <td id="inversionEnMarketingTD">
                     <!--  <input type="number" id="inversionEnMarketing"  name="inversionEnMarketing" [(ngModel)]="bimestreActual.inversionEnMarketing" min="0" value=3500> -->
-                    <select type="number"  (change)="onChangeinversionEnMarketings($event.target.value)">
+                    <select type="number" (change)="onChangeinversionEnMarketings($event.target.value)">
                       <option *ngFor="let inversion of inversionEnMarketings">{{inversion}}</option>
                     </select>
                   </td>
@@ -245,7 +245,7 @@
                   <td>{{(http.game.player&&http.game.player.bimestre_tres)?http.game.player.bimestre_tres.inversionEnInvestigacion:""}}</td>
                   <td id="inversionEnInvestigacionTD">
                     <!-- <input type="number" id="inversionEnInvestigacion" name="inversionEnInvestigacion"[(ngModel)]="bimestreActual.inversionEnInvestigacion" min="0" value=1500> -->
-                    <select (change)="onChangeinversionEnInvestigacions($event.target.value)" type="number" >
+                    <select (change)="onChangeinversionEnInvestigacions($event.target.value)" type="number">
                       <option *ngFor="let inversion of inversionEnInvestigacions">{{inversion}}</option>
                     </select>
                   </td>
@@ -259,7 +259,7 @@
                   <td>{{(http.game.player&&http.game.player.bimestre_tres)?http.game.player.bimestre_tres.inversionEnActivos:""}}</td>
                   <td id="inversionEnActivosTD">
                     <!-- <input type="number" id="inversionEnActivos" name="inversionEnActivos" [(ngModel)]="bimestreActual.inversionEnActivos" min="0" value=3500> -->
-                    <select type="number"  (change)="onChangeinversionEnActivoss($event.target.value)" >
+                    <select type="number" (change)="onChangeinversionEnActivoss($event.target.value)">
                       <option *ngFor="let inversion of inversionEnActivoss">{{inversion}}</option>
                     </select>
                   </td>
@@ -304,7 +304,9 @@
           </div>
           <div style="display: flex; justify-content: center;padding-top: 50px;">
             <button (click)="iniciar()" style="width:300px">
-              {{http.game.bimestre_inicial_c==0?"ENVIAR MIS DECISIONES":"aun "+http.game.bimestre_inicial_c+" falta jugadores"}}
+              {{http.game.bimestre_inicial_c==0?
+              "ENVIAR MIS DECISIONES":
+              "aun "+http.game.bimestre_inicial_c+" falta jugadores"}}
             </button></div>
         </div>
       </div>

@@ -108,7 +108,7 @@ class Mercado {
         for (let player in this.players) {
             res.push(this.players[player].toString())
         }
-        return { size: this.cantidad_judagores, players: res }
+        return { size: this.cantidad_judagores, players: res, codigo: this.token }
     }
 }
 

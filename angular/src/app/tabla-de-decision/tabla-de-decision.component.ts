@@ -16,6 +16,7 @@ import { Observable } from 'rxjs';
 import { delay } from 'rxjs/operators';
 
 import { Chart } from 'chart.js';
+import { Alert } from 'selenium-webdriver';
 
 
 
@@ -206,39 +207,27 @@ export class TablaDeDecisionComponent implements OnInit {
           if (this.http.game.player.bimestre_dos) {
             if (this.http.game.bimestre_dos_c == 0) {
               if (this.http.game.player.bimestre_tres) {
-                console.log("completo")
+                alert("Terminado")
               } else {
-                // if (this.http.game.bimestre_tres_c == 0) {
                 this.http.game.addBimestreTres(data_bimestre, (response) => {
                   console.log("addBimestreTres", response)
                 })
-                // } else {
-                //   console.log("faltan completar 3")
-                // }
               }
             } else {
-              console.log("faltan los dos")
+              alert("faltan completar el bimestre dos")
             }
           } else {
-            // if (this.http.game.bimestre_dos_c == 0) {
             this.http.game.addBimestreDos(data_bimestre, (response) => {
               console.log("addBimestreDos", response)
             })
-            // } else {
-            //   console.log("faltan completar 2")
-            // }
           }
         } else {
-          console.log("faltan los unos")
+          alert("faltan completar el bimestre uno")
         }
       } else {
-        // if (this.http.game.bimestre_uno_c == 0) {
         this.http.game.addBimestreUno(data_bimestre, (response) => {
           console.log("addBimestreUno", response)
         })
-        // } else {
-        //   console.log("faltan completar 1")
-        // }
       }
     }
     else {
