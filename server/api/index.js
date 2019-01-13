@@ -15,12 +15,41 @@ exports.setSocket = io => {
             console.log("socket joinGame =>", data)
             let _mercado = mercados[data.codigo]
             if (_mercado) {
-                client(_mercado.addPlayer(socket, data.player_name))
+                client(_mercado.addPlayer(data.player_name))
                 io.sockets.emit("getPlayers", _mercado.getPlayers())
             } else {
                 client("error con el codigo")
             }
-
+        })
+        socket.on('addBimestreUno', (data, client) => {
+            console.log("addBimestreUno joinGame =>", data)
+            let _mercado = mercados[data.codigo]
+            if (_mercado) {
+                client(_mercado.addBimestreUno(data))
+                io.sockets.emit("getPlayers", _mercado.getPlayers())
+            } else {
+                client("error con el codigo")
+            }
+        })
+        socket.on('addBimestreDos', (data, client) => {
+            console.log("addBimestreDos joinGame =>", data)
+            let _mercado = mercados[data.codigo]
+            if (_mercado) {
+                client(_mercado.addBimestreDos(data))
+                io.sockets.emit("getPlayers", _mercado.getPlayers())
+            } else {
+                client("error con el codigo")
+            }
+        })
+        socket.on('addBimestreTres', (data, client) => {
+            console.log("addBimestreTres joinGame =>", data)
+            let _mercado = mercados[data.codigo]
+            if (_mercado) {
+                client(_mercado.addBimestreTres(data))
+                io.sockets.emit("getPlayers", _mercado.getPlayers())
+            } else {
+                client("error con el codigo")
+            }
         })
     });
 }
@@ -33,18 +62,43 @@ class Mercado {
         this.token = token
         this.players = {}
     }
-    addPlayer(socket, name) {
+    addPlayer(name) {
         let player_tmp = this.players[name]
         if (player_tmp) {
-            player_tmp.update_socket(socket)
             return { message: "ok" }
         } else if (!this.isFull()) {
-            this.players[name] = new Player(socket, name)
+            this.players[name] = new Player(name)
             return { message: "ok" }
         } else {
             return "ya esta lleno"
         }
-
+    }
+    addBimestreUno(data) {
+        let player_tmp = this.players[data.player_name]
+        if (player_tmp) {
+            player_tmp.addBimestreUno(data.data)
+            return { message: "ok" }
+        } else {
+            return "no hay player uno"
+        }
+    }
+    addBimestreDos(data) {
+        let player_tmp = this.players[data.player_name]
+        if (player_tmp) {
+            player_tmp.addBimestreDos(data.data)
+            return { message: "ok" }
+        } else {
+            return "no hay player uno"
+        }
+    }
+    addBimestreTres(data) {
+        let player_tmp = this.players[data.player_name]
+        if (player_tmp) {
+            player_tmp.addBimestreTres(data.data)
+            return { message: "ok" }
+        } else {
+            return "no hay player uno"
+        }
     }
     isFull() {
         return Object.keys(this.players).length >= this.cantidad_judagores
@@ -54,20 +108,39 @@ class Mercado {
         for (let player in this.players) {
             res.push(this.players[player].toString())
         }
-        console.log(res)
         return { size: this.cantidad_judagores, players: res }
     }
 }
 
 mercados["a"] = new Mercado("nombre mercardo", 2, "a")
 class Player {
-    constructor(socket, name) {
-        this.update_socket(socket)
+    constructor(name) {
         this.name = name
         this.bimestre_inicial = new Bimestre(150, 500, 3000, 1500, 300)
     }
-    update_socket(socket) {
-        this.socket = socket
+    addBimestreUno(data) {
+        this.bimestre_uno = new Bimestre(
+            data.precioUnitario,
+            data.produccion,
+            data.inversionEnMarketing,
+            data.inversionEnInvestigacion,
+            data.inversionEnActivos)
+    }
+    addBimestreDos(data) {
+        this.bimestre_dos = new Bimestre(
+            data.precioUnitario,
+            data.produccion,
+            data.inversionEnMarketing,
+            data.inversionEnInvestigacion,
+            data.inversionEnActivos)
+    }
+    addBimestreTres(data) {
+        this.bimestre_tres = new Bimestre(
+            data.precioUnitario,
+            data.produccion,
+            data.inversionEnMarketing,
+            data.inversionEnInvestigacion,
+            data.inversionEnActivos)
     }
     toString() {
         let res = {}

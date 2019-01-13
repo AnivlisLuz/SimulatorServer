@@ -34,7 +34,7 @@ export class TablaDeDecisionComponent implements OnInit {
   section_tap_3: number = 0;
   section_tap_4: number = 0;
 
-  precioUnitario: number = 151
+  precioUnitario: number = 150
   produccion: number = 500
   inversionEnMarketings: number[] = [0, 1500, 3000, 4500, 6000]
   inversionEnMarketing: number = this.inversionEnMarketings[0]
@@ -193,18 +193,57 @@ export class TablaDeDecisionComponent implements OnInit {
     }
   }
   iniciar() {
-    if (this.http.game.faltantes == 0) {
-      let data_bimestre = {
-        precioUnitario: this.precioUnitario,
-        produccion: this.produccion,
-        inversionEnMarketing: this.inversionEnMarketing,
-        inversionEnInvestigacion: this.inversionEnInvestigacion,
-        inversionEnActivos: this.inversionEnActivos
-      }
-      console.log(data_bimestre)
+    let data_bimestre = {
+      precioUnitario: this.precioUnitario,
+      produccion: this.produccion,
+      inversionEnMarketing: this.inversionEnMarketing,
+      inversionEnInvestigacion: this.inversionEnInvestigacion,
+      inversionEnActivos: this.inversionEnActivos
     }
-    else
-      alert("aun faltan " + this.http.game.faltantes + " jugadores")
+    if (this.http.game.bimestre_inicial_c == 0) {
+      if (this.http.game.player.bimestre_uno) {
+        if (this.http.game.bimestre_uno_c == 0) {
+          if (this.http.game.player.bimestre_dos) {
+            if (this.http.game.bimestre_dos_c == 0) {
+              if (this.http.game.player.bimestre_tres) {
+                console.log("completo")
+              } else {
+                // if (this.http.game.bimestre_tres_c == 0) {
+                this.http.game.addBimestreTres(data_bimestre, (response) => {
+                  console.log("addBimestreTres", response)
+                })
+                // } else {
+                //   console.log("faltan completar 3")
+                // }
+              }
+            } else {
+              console.log("faltan los dos")
+            }
+          } else {
+            // if (this.http.game.bimestre_dos_c == 0) {
+            this.http.game.addBimestreDos(data_bimestre, (response) => {
+              console.log("addBimestreDos", response)
+            })
+            // } else {
+            //   console.log("faltan completar 2")
+            // }
+          }
+        } else {
+          console.log("faltan los unos")
+        }
+      } else {
+        // if (this.http.game.bimestre_uno_c == 0) {
+        this.http.game.addBimestreUno(data_bimestre, (response) => {
+          console.log("addBimestreUno", response)
+        })
+        // } else {
+        //   console.log("faltan completar 1")
+        // }
+      }
+    }
+    else {
+      alert("aun faltan " + this.http.game.bimestre_inicial_c + " jugadores")
+    }
   }
   iniciarAfter() {
     alert("Iniciando inversion, preparando bimestre");
