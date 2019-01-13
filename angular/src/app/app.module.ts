@@ -27,7 +27,9 @@ import { TablaProduccionComponent } from './tablas-AI/tabla-produccion/tabla-pro
 import { TablaVentasComponent } from './tablas-AI/tabla-ventas/tabla-ventas.component';
 import { TablaVisionGeneralComponent } from './tablas-AI/tabla-vision-general/tabla-vision-general.component';
 import { FinJuegoComponent } from './fin-juego/fin-juego.component';
+import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
 
+const config: SocketIoConfig = { url: 'http://localhost:8080', options: {} };
 @NgModule({
    declarations: [
       AppComponent,
@@ -53,7 +55,8 @@ import { FinJuegoComponent } from './fin-juego/fin-juego.component';
     FormsModule,
     APP_ROUTER,
     HttpModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    SocketIoModule.forRoot(config)
 
   ],
   providers: [AuthService],

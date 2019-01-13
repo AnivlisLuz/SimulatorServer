@@ -1,5 +1,7 @@
 import { VisionGeneral } from '../../../models/visionGeneral';
 import { Component, OnInit, Input } from '@angular/core';
+
+import { HttpService } from './../../../services/http.service';
 @Component({
   selector: 'app-tabla-vision-general',
   templateUrl: './tabla-vision-general.component.html',
@@ -13,17 +15,17 @@ export class TablaVisionGeneralComponent implements OnInit {
 	mercadoDesatendido:number=0;
   @Input() public visionGeneral:Array<VisionGeneral>;
 
-  constructor() {
+  constructor(private http: HttpService, ) {
   }
 
   ngOnInit() {
-     /*for(let i=0; i<this.visionGeneral.length; i++)
+     for(let i=0; i<this.visionGeneral.length; i++)
     {
     	this.totalesVentas+=this.visionGeneral[i].ventas;
     	this.totalesBeneficio+=this.visionGeneral[i].beneficio;
     	this.totalesPrecioUnitario+=this.visionGeneral[i].precioUnitario;
     	this.totalesPorcentajeMercado+=this.visionGeneral[i].porcentajeDeMercado;
-    }*/
+    }
   }
 
   sumatoriasTotales(){

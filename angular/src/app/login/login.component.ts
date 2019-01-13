@@ -26,9 +26,9 @@ export class LoginComponent implements OnInit {
 
   login() {
 
-    if(this.authService.login(this.email, this.password)) {
-    }
-    this.email = this.password = '';
+    // if(this.authService.login(this.email, this.password)) {
+    // }
+    // this.email = this.password = '';
   }
   signInWithGoogle() {
     return this._firebaseAuth.auth.signInWithPopup(
@@ -37,8 +37,8 @@ export class LoginComponent implements OnInit {
   }
 
   logout() {
-    this.authService.logout();
-    this._firebaseAuth.auth.signOut();
+    // this.authService.logout();
+    // this._firebaseAuth.auth.signOut();
 
   }
 
