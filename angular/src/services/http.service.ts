@@ -71,7 +71,7 @@ class Game {
     })
     socket.removeListener("getPlayers")
     socket.on("getPlayers", (data) => {
-      console.log("getPlayers", data,this.codigo)
+      console.log("getPlayers", data, this.codigo)
       if (data.codigo == this.codigo) {
         this.players = []
         let bimestre_uno_count = 0
@@ -118,10 +118,8 @@ class Game {
   public joinGame(data, callback) {
     console.log("join game", data)
     this.codigo = data.codigo
-    this.socket.emit("joinGame", data, (response) => {
-      this.name = data.player_name
-      callback(response)
-    });
+    this.name = data.player_name
+    this.socket.emit("joinGame", data, callback);
 
   }
   public createGame(data, callback) {
