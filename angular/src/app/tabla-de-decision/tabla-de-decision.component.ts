@@ -201,6 +201,10 @@ export class TablaDeDecisionComponent implements OnInit {
       inversionEnInvestigacion: this.inversionEnInvestigacion,
       inversionEnActivos: this.inversionEnActivos
     }
+    let propuesta_Actual: number = parseInt(data_bimestre.inversionEnActivos + "")
+      + parseInt(data_bimestre.inversionEnInvestigacion + "") +
+      parseInt(data_bimestre.inversionEnMarketing + "")
+    alert("presupuesto actual " + propuesta_Actual + " => capital anterior " + this.capitalPeriodoAnterior)
     if (this.http.game.bimestre_inicial_c == 0) {
       if (this.http.game.player.bimestre_uno) {
         if (this.http.game.bimestre_uno_c == 0) {
