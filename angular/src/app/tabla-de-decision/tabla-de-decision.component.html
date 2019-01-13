@@ -2,7 +2,7 @@
   <aside>
     <div id="logo_container">
       <img id="logo_image" src="/imagenes/LOGO SIMULADOR FINAL.png">
-      <div id="nombre_empresa">{{nombreEmpresa}}</div>
+      <div id="nombre_empresa">{{(http.game)?http.game.name:""}}</div>
     </div>
     <div class="button_tab_container" style="background-color: #092B3A;">
       <button (click)="informacion()" class="boton-infomacion-compania tab_menu_button" style="background-color: #092B3A;">
@@ -198,80 +198,69 @@
                 </tr>
                 <tr>
                   <th class="tr1">INICIAL</th>
-                  <th class="tr1" id="numero-bimestre1"> </th>
-                  <th class="tr1" id="numero-bimestre2"> </th>
-                  <th class="tr1" id="numero-bimestre3"> </th>
-                  <th class="tr1" id="numero-bimestre-siguiente">B-1</th>
+                  <th class="tr1" id="numero-bimestre1">B-1</th>
+                  <th class="tr1" id="numero-bimestre2"> B-2</th>
+                  <th class="tr1" id="numero-bimestre3"> B-3</th>
+                  <th class="tr1" id="numero-bimestre-siguiente"> => </th>
                 </tr>
                 <tr>
                   <td>PRECIO UNITARIO</td>
-                  <td>{{bimestreInicial.precioUnitario}}</td>
-                  <td id="precio-unitario1"></td>
-                  <td id="precio-unitario2"></td>
-                  <td id="precio-unitario3"></td>
-                  <td id="precioUnitarioTD"><input type="number" id="precioUnitario" name="precioUnitario" [(ngModel)]="bimestreActual.precioUnitario"
+                  <td>{{(http.game.player&&http.game.player.bimestre_inicial)?http.game.player.bimestre_inicial.precioUnitario:""}}</td>
+                  <td>{{(http.game.player&&http.game.player.bimestre_uno)?http.game.player.bimestre_uno.precioUnitario:""}}</td>
+                  <td>{{(http.game.player&&http.game.player.bimestre_dos)?http.game.player.bimestre_dos.precioUnitario:""}}</td>
+                  <td>{{(http.game.player&&http.game.player.bimestre_tres)?http.game.player.bimestre_tres.precioUnitario:""}}</td>
+                  <td id="precioUnitarioTD"><input type="number" id="precioUnitario" name="precioUnitario" [(ngModel)]="precioUnitario"
                       min="0" max="bimestreActual.produccion" value="bimestreActual.produccion">
                   </td>
                 </tr>
                 <tr>
                   <td>PRODUCCIÓN</td>
-                  <td>{{bimestreInicial.produccion}}</td>
-                  <td id="produccion1"></td>
-                  <td id="produccion2"></td>
-                  <td id="produccion3"></td>
-                  <td id="produccionTD"><input type="number" id="produccion" name="produccion" [(ngModel)]="bimestreActual.produccion"
-                      min="0" max="850*{{ numeroBimestre }}" value=500></td>
+                  <td>{{(http.game.player&&http.game.player.bimestre_inicial)?http.game.player.bimestre_inicial.produccion:""}}</td>
+                  <td>{{(http.game.player&&http.game.player.bimestre_uno)?http.game.player.bimestre_uno.produccion:""}}</td>
+                  <td>{{(http.game.player&&http.game.player.bimestre_dos)?http.game.player.bimestre_dos.produccion:""}}</td>
+                  <td>{{(http.game.player&&http.game.player.bimestre_tres)?http.game.player.bimestre_tres.produccion:""}}</td>
+                  <td id="produccionTD">
+                    <input type="number" id="produccion" name="produccion" [(ngModel)]="produccion" min="0" max="850*{{ numeroBimestre }}"
+                      value=500></td>
                 </tr>
                 <tr>
                   <td>INVERSION EN MARKETING</td>
-                  <td>{{bimestreInicial.inversionEnMarketing}}</td>
-                  <td id="inversion-marketing1"></td>
-                  <td id="inversion-marketing2"></td>
-                  <td id="inversion-marketing3"></td>
+                  <td>{{(http.game.player&&http.game.player.bimestre_inicial)?http.game.player.bimestre_inicial.inversionEnMarketing:""}}</td>
+                  <td>{{(http.game.player&&http.game.player.bimestre_uno)?http.game.player.bimestre_uno.inversionEnMarketing:""}}</td>
+                  <td>{{(http.game.player&&http.game.player.bimestre_dos)?http.game.player.bimestre_dos.inversionEnMarketing:""}}</td>
+                  <td>{{(http.game.player&&http.game.player.bimestre_tres)?http.game.player.bimestre_tres.inversionEnMarketing:""}}</td>
                   <td id="inversionEnMarketingTD">
                     <!--  <input type="number" id="inversionEnMarketing"  name="inversionEnMarketing" [(ngModel)]="bimestreActual.inversionEnMarketing" min="0" value=3500> -->
-                    <select type="number" id="inversionEnMarketing" name="inversionEnMarketing" [(ngModel)]="bimestreActual.inversionEnMarketing">
-                      <option [ngValue]=0>0</option>
-                      <option [ngValue]=1500>1500</option>
-                      <option [ngValue]=3000>3000</option>
-                      <option [ngValue]=4500>4500</option>
-                      <option [ngValue]=6000>6000</option>
+                    <select type="number" (change)="onChangeinversionEnMarketings($event.target.value)">
+                      <option *ngFor="let inversion of inversionEnMarketings">{{inversion}}</option>
                     </select>
                   </td>
 
                 </tr>
                 <tr>
                   <td>INVERSION EN INVESTIGACIÓN</td>
-                  <td>{{bimestreInicial.inversionEnInvestigacion}}</td>
-                  <td id="inversion-investigacion1"></td>
-                  <td id="inversion-investigacion2"></td>
-                  <td id="inversion-investigacion3"></td>
+                  <td>{{(http.game.player&&http.game.player.bimestre_inicial)?http.game.player.bimestre_inicial.inversionEnInvestigacion:""}}</td>
+                  <td>{{(http.game.player&&http.game.player.bimestre_uno)?http.game.player.bimestre_uno.inversionEnInvestigacion:""}}</td>
+                  <td>{{(http.game.player&&http.game.player.bimestre_dos)?http.game.player.bimestre_dos.inversionEnInvestigacion:""}}</td>
+                  <td>{{(http.game.player&&http.game.player.bimestre_tres)?http.game.player.bimestre_tres.inversionEnInvestigacion:""}}</td>
                   <td id="inversionEnInvestigacionTD">
                     <!-- <input type="number" id="inversionEnInvestigacion" name="inversionEnInvestigacion"[(ngModel)]="bimestreActual.inversionEnInvestigacion" min="0" value=1500> -->
-                    <select type="number" id="inversionEnInvestigacion" name="inversionEnInvestigacion" [(ngModel)]="bimestreActual.inversionEnInvestigacion">
-                      <option [ngValue]=0>0</option>
-                      <option [ngValue]=1500>1500</option>
-                      <option [ngValue]=3000>3000</option>
-                      <option [ngValue]=4500>4500</option>
-                      <option [ngValue]=6000>6000</option>
+                    <select (change)="onChangeinversionEnInvestigacions($event.target.value)" type="number">
+                      <option *ngFor="let inversion of inversionEnInvestigacions">{{inversion}}</option>
                     </select>
                   </td>
 
                 </tr>
                 <tr>
                   <td>INVERSION EN ACTIVOS</td>
-                  <td>{{bimestreInicial.inversionEnActivos}}</td>
-                  <td id="inversion-activos1"></td>
-                  <td id="inversion-activos2"></td>
-                  <td id="inversion-activos3"></td>
+                  <td>{{(http.game.player&&http.game.player.bimestre_inicial)?http.game.player.bimestre_inicial.inversionEnActivos:""}}</td>
+                  <td>{{(http.game.player&&http.game.player.bimestre_uno)?http.game.player.bimestre_uno.inversionEnActivos:""}}</td>
+                  <td>{{(http.game.player&&http.game.player.bimestre_dos)?http.game.player.bimestre_dos.inversionEnActivos:""}}</td>
+                  <td>{{(http.game.player&&http.game.player.bimestre_tres)?http.game.player.bimestre_tres.inversionEnActivos:""}}</td>
                   <td id="inversionEnActivosTD">
                     <!-- <input type="number" id="inversionEnActivos" name="inversionEnActivos" [(ngModel)]="bimestreActual.inversionEnActivos" min="0" value=3500> -->
-                    <select type="number" id="inversionEnActivos" name="inversionEnActivos" [(ngModel)]="bimestreActual.inversionEnActivos">
-                      <option [ngValue]=0>0</option>
-                      <option [ngValue]=1500>1500</option>
-                      <option [ngValue]=3000>3000</option>
-                      <option [ngValue]=4500>4500</option>
-                      <option [ngValue]=6000>6000</option>
+                    <select type="number" (change)="onChangeinversionEnActivoss($event.target.value)">
+                      <option *ngFor="let inversion of inversionEnActivoss">{{inversion}}</option>
                     </select>
                   </td>
                 </tr>
@@ -288,26 +277,26 @@
                     ANTERIOR&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{capitalPeriodoAnterior}}</li>
                   <li><span> <i class="material-icons" (click)="ingresoDiv()" style="font-size:18px; color:blue;cursor: pointer">arrow_drop_down</i></span>
                     INGRESOS&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    {{bimestreActual.precioUnitario*bimestreActual.produccion+10000}}</li>
+                    {{precioUnitario*produccion+10000}}</li>
                   <div id="div-ingresos" style="padding-left: 20%">
-                    <pre>VENTAS                            {{bimestreActual.precioUnitario*bimestreActual.produccion}} </pre>
+                    <pre>VENTAS                            {{precioUnitario*produccion}} </pre>
                     <pre>OTROS INGRESOS          10000</pre>
                   </div>
                   <li><span> <i class="material-icons" (click)="gastosDiv()" style="font-size:18px; color:blue ;cursor: pointer">arrow_drop_down</i></span>GASTOS&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    {{bimestreActual.inversionEnMarketing +
-                    bimestreActual.inversionEnActivos+bimestreActual.inversionEnInvestigacion+bimestreActual.produccion*35
+                    {{inversionEnMarketing +
+                    inversionEnActivos+inversionEnInvestigacion+produccion*35
                     +30770}}</li>
                   <div id="div-gastos" style="padding-left: 20%">
-                    <pre>PRODUCCIÓN                  {{bimestreActual.produccion*35 +30770}}</pre>
-                    <pre>MARKETING                       {{bimestreActual.inversionEnMarketing}}</pre>
-                    <pre>INV. ACTIVOS                     {{bimestreActual.inversionEnActivos}}</pre>
-                    <pre>INV. INVESTIGACIÓN         {{bimestreActual.inversionEnInvestigacion}}</pre>
+                    <pre>PRODUCCIÓN                  {{produccion*35 +30770}}</pre>
+                    <pre>MARKETING                       {{inversionEnMarketing}}</pre>
+                    <pre>INV. ACTIVOS                     {{inversionEnActivos}}</pre>
+                    <pre>INV. INVESTIGACIÓN         {{inversionEnInvestigacion}}</pre>
                   </div>
                   <li><span> <i class="material-icons" (click)="resultadosDiv()" style="font-size:18px; color:blue;cursor: pointer">arrow_drop_down</i></span>RESULTADO
                   </li>
                   <div id="div-resultados" style="padding-left: 20%">
-                    <pre>EFECTIVO DISPONIBLE   {{capitalPeriodoAnterior+10000+bimestreActual.precioUnitario*bimestreActual.produccion+10000-(bimestreActual.inversionEnMarketing + bimestreActual.inversionEnActivos+bimestreActual.inversionEnInvestigacion)}} </pre>
-                    <pre>UTILIDAD ESPERADA      {{(bimestreActual.precioUnitario*bimestreActual.produccion+10000)-(bimestreActual.inversionEnMarketing + bimestreActual.inversionEnActivos+bimestreActual.inversionEnInvestigacion+bimestreActual.produccion*35 +30770)}}</pre>
+                    <pre>EFECTIVO DISPONIBLE   {{capitalPeriodoAnterior+10000+precioUnitario*produccion+10000-(inversionEnMarketing + inversionEnActivos+inversionEnInvestigacion)}} </pre>
+                    <pre>UTILIDAD ESPERADA      {{(precioUnitario*produccion+10000)-(inversionEnMarketing + inversionEnActivos+inversionEnInvestigacion+produccion*35 +30770)}}</pre>
                   </div>
                 </ul>
               </div>
@@ -315,7 +304,9 @@
           </div>
           <div style="display: flex; justify-content: center;padding-top: 50px;">
             <button (click)="iniciar()" style="width:300px">
-              ENVIAR MIS DECISIONES
+              {{http.game.bimestre_inicial_c==0?
+              "ENVIAR MIS DECISIONES":
+              "aun "+http.game.bimestre_inicial_c+" falta jugadores"}}
             </button></div>
         </div>
       </div>

@@ -13,6 +13,7 @@ export class TablaProduccionComponent implements OnInit {
   }
 
   ngOnInit() {
+    
   }
 
 }
