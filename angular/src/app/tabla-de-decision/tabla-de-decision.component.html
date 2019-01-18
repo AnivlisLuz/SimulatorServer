@@ -186,8 +186,18 @@
         <div class="section_title">
           <div class="material-icons section_title_icon" style="background-color: #135A82;">person</div>
           <div class="section_title_desc"> MIS DECISIONES</div>
+          <nav id="colorNav">
+            <ul>
+                <li class="material-icons">apps
+                    <a class="icon-home"></a>
+                    <ul>
+                        <li><a (click)="fin()">Resultados</a></li>
+                        <li><a (click)="fin()">Retirarse del juego</a></li>
+                    </ul>
+                </li>
+            </ul>
+          </nav>
         </div>
-
         <div class="section_body">
           <div style="display: flex; justify-content: center;">
             <div class="tabla-decision">
@@ -232,7 +242,7 @@
                   <td id="inversionEnMarketingTD">
                     <!--  <input type="number" id="inversionEnMarketing"  name="inversionEnMarketing" [(ngModel)]="bimestreActual.inversionEnMarketing" min="0" value=3500> -->
                     <select type="number" (change)="onChangeinversionEnMarketings($event.target.value)">
-                      <option *ngFor="let inversion of inversionEnMarketings">{{inversion}}</option>
+                      <option *ngFor="let inversion of inversionEnMarketings" [ngValue]="inversion">{{inversion}}</option>
                     </select>
                   </td>
 
@@ -246,7 +256,7 @@
                   <td id="inversionEnInvestigacionTD">
                     <!-- <input type="number" id="inversionEnInvestigacion" name="inversionEnInvestigacion"[(ngModel)]="bimestreActual.inversionEnInvestigacion" min="0" value=1500> -->
                     <select (change)="onChangeinversionEnInvestigacions($event.target.value)" type="number">
-                      <option *ngFor="let inversion of inversionEnInvestigacions">{{inversion}}</option>
+                      <option *ngFor="let inversion of inversionEnInvestigacions" [ngValue]="inversion">{{inversion}}</option>
                     </select>
                   </td>
 
@@ -259,9 +269,24 @@
                   <td>{{(http.game.player&&http.game.player.bimestre_tres)?http.game.player.bimestre_tres.inversionEnActivos:""}}</td>
                   <td id="inversionEnActivosTD">
                     <!-- <input type="number" id="inversionEnActivos" name="inversionEnActivos" [(ngModel)]="bimestreActual.inversionEnActivos" min="0" value=3500> -->
+<!-- 
+                    <select type="number" (change)="onChangeinversionEnActivoss($event.target.value)"
+                    ng-options="inversion for inversion in inversionEnActivoss">
+                    </select> -->
+
+ <!-- | filter: {inversion: ''} -->
+
                     <select type="number" (change)="onChangeinversionEnActivoss($event.target.value)">
-                      <option *ngFor="let inversion of inversionEnActivoss">{{inversion}}</option>
+                      <option *ngFor="let inversion of inversionEnActivoss" [ngValue]="inversion" >{{inversion}}</option>
                     </select>
+
+                 <!-- <ng-container *ngFor="let inversion of inversionEnActivoss">
+  <option *ngIf="inversion>=3000" [ngValue]="inversion" >
+    {{inversion}}
+  </option>
+</ng-container> -->
+
+
                   </td>
                 </tr>
               </table>
@@ -274,29 +299,29 @@
                 <ul style="list-style-type:none">
                   <li> <span> <i class="material-icons" (click)="general()" style="font-size:18px; color:blue;cursor: pointer">
                         arrow_right</i></span> CAPITAL PERIODO
-                    ANTERIOR&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{capitalPeriodoAnterior}}</li>
+                    ANTERIOR&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{capitalPeriodoAnterior}}</li>
                   <li><span> <i class="material-icons" (click)="ingresoDiv()" style="font-size:18px; color:blue;cursor: pointer">arrow_drop_down</i></span>
-                    INGRESOS&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    INGRESOS&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     {{precioUnitario*produccion+10000}}</li>
                   <div id="div-ingresos" style="padding-left: 20%">
-                    <pre>VENTAS                            {{precioUnitario*produccion}} </pre>
-                    <pre>OTROS INGRESOS          10000</pre>
+                    <pre>VENTAS                     {{precioUnitario*produccion}} </pre>
+                    <pre>OTROS INGRESOS             10000</pre>
                   </div>
-                  <li><span> <i class="material-icons" (click)="gastosDiv()" style="font-size:18px; color:blue ;cursor: pointer">arrow_drop_down</i></span>GASTOS&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    {{inversionEnMarketing +
-                    inversionEnActivos+inversionEnInvestigacion+produccion*35
+                  <li><span> <i class="material-icons" (click)="gastosDiv()" style="font-size:18px; color:blue ;cursor: pointer">arrow_drop_down</i></span>GASTOS&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    {{inversionEnMarketing +inversionEnInvestigacion+
+                    inversionEnActivos+produccion*35
                     +30770}}</li>
                   <div id="div-gastos" style="padding-left: 20%">
-                    <pre>PRODUCCIÓN                  {{produccion*35 +30770}}</pre>
-                    <pre>MARKETING                       {{inversionEnMarketing}}</pre>
-                    <pre>INV. ACTIVOS                     {{inversionEnActivos}}</pre>
+                    <pre>PRODUCCIÓN                 {{produccion*35 +30770}}</pre>
+                    <pre>MARKETING                  {{inversionEnMarketing}}</pre>
+                    <pre>INV. ACTIVOS               {{inversionEnActivos}}</pre>
                     <pre>INV. INVESTIGACIÓN         {{inversionEnInvestigacion}}</pre>
                   </div>
                   <li><span> <i class="material-icons" (click)="resultadosDiv()" style="font-size:18px; color:blue;cursor: pointer">arrow_drop_down</i></span>RESULTADO
                   </li>
                   <div id="div-resultados" style="padding-left: 20%">
-                    <pre>EFECTIVO DISPONIBLE   {{capitalPeriodoAnterior+10000+precioUnitario*produccion+10000-(inversionEnMarketing + inversionEnActivos+inversionEnInvestigacion)}} </pre>
-                    <pre>UTILIDAD ESPERADA      {{(precioUnitario*produccion+10000)-(inversionEnMarketing + inversionEnActivos+inversionEnInvestigacion+produccion*35 +30770)}}</pre>
+                    <pre>EFECTIVO DISPONIBLE        {{capitalPeriodoAnterior+10000+precioUnitario*produccion+10000-(inversionEnMarketing + inversionEnActivos+inversionEnInvestigacion)}} </pre>
+                    <pre>UTILIDAD ESPERADA          {{(precioUnitario*produccion+10000)-(inversionEnMarketing + inversionEnActivos+inversionEnInvestigacion+produccion*35 +30770)}}</pre>
                   </div>
                 </ul>
               </div>

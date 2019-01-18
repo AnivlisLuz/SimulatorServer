@@ -1,0 +1,210 @@
+#main_container {
+  position: absolute;
+  height: 100vh;
+  width: 100vw;
+  background-color: #135A82;
+  display: flex;
+}
+
+aside {
+  height: 100%;
+  width: 270px;
+  color: white;
+  text-align: center;
+  overflow-y: hidden;
+}
+
+#logo_container {
+  background-color: rgb(111, 110, 110);
+}
+
+#logo_image {
+  margin-top: 20px;
+  height: 200px;
+  width: 200px;
+  background-color: white;
+  border-radius: 100%;
+}
+
+#nombre_empresa {
+  padding-top: 20px;
+  padding-bottom: 30px;
+  font-size: 20px;
+}
+
+#body_container {
+  width: calc(100% - 270px);
+  height: 100%;
+}
+
+/*.tap_menu_hidden {
+  display: none;
+}*/
+
+.tab_menu_description {
+  font-size: 15px;
+  margin-top: -65px;
+  padding: 0 15px;
+  padding-top: 50px;
+  padding-bottom: 30px;
+}
+
+.tab_menu_button {
+  margin-top: -31px;
+  height: 50px;
+  width: 210px;
+  border-radius: 15px;
+  margin-bottom: 30px;
+  font-size: 16px;
+}
+
+.tab_menu_button:focus {
+  outline: none;
+}
+
+.tab_menu_button:hover {
+  opacity: 1;
+}
+
+.section_container {
+  position: relative;
+  height: 100%;
+  width: calc(100% - 20px);
+  padding-left: 20px;
+}
+
+.section_container_body {
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+
+.section_title {
+  display: flex;
+  height: 100px;
+}
+
+.section_title_icon {
+  font-size: 100px;
+  color: white;
+  height: 130px;
+  line-height: 130px;
+  padding: 0 60px;
+  border-radius: 0 0 30px 0;
+}
+
+.section_title_desc {
+  position: relative;
+  font-size: 40px;
+  color: white;
+  line-height: 100px;
+  text-align: center;
+  width: 100%;
+}
+
+.section_body {
+  padding-top: 60px;
+  height: calc(100% - 160px);
+  width: 100%;
+  background-color: white;
+}
+
+.section_body_main {
+  margin: 0 50px;
+  background-color: rgb(90, 116, 165);
+  height: calc(100% - 100px);
+}
+
+.section_body_tab {
+  display: flex;
+}
+
+.section_body_tab_button:focus {
+  outline: none;
+}
+
+.section_body_tab_button {
+  padding: 0;
+  margin: 0;
+  height: 50px;
+  background-color: #092B3A;
+}
+
+.tap_selected {
+  background-color: #135A82;
+}
+
+.section_body_container {
+  height: calc(100% - 20px);
+  width: calc(100% - 20px);
+  padding: 10px;
+  background-color: #092B3A;
+}
+
+.section_body_content {
+  width: 100%;
+  height: 100%;
+  background-color: white;
+}
+
+.section_body_content_title {
+  width: 500px;
+  background-color: #092B3A;
+  line-height: 50px;
+  text-align: center;
+  color: white;
+}
+
+.tabla-decision {
+  text-align: center;
+  color: white;
+  font-family: "arial";
+  background-color: rgb(255, 255, 255);
+}
+
+table {
+  width: 100%;
+  color: black;
+
+}
+
+table,th,td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+
+.th1 {
+  width: 10%;
+  border: 1px solid white;
+
+}
+
+.th2 {
+  width: 200%;
+
+}
+
+.tr1 {
+  width: 10%;
+  border: 1px solid white;
+
+}
+
+table#t01 tr {
+  height: 60px;
+}
+
+table#t01 tr:nth-child(odd) {
+  background-color: #fff;
+
+}
+
+table#t01 tr:nth-child(even) {
+  background-color: rgb(116, 197, 233);
+
+}
+
+table#t01 th {
+  background-color: rgb(24, 76, 133);
+  color: white;
+}
