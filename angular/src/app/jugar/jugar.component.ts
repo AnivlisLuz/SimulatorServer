@@ -35,7 +35,7 @@ export class JugarComponent implements OnInit {
 
   get f() { return this.registerForm.controls; }
   onClickMe() {
-    let body_send = { player_name: this.nombre_empresa, codigo: this.codigo }
+    let body_send = { player_name: this.nombre_empresa.toUpperCase(), codigo: this.codigo }
     this.http.game.joinGame( body_send, (response) => {
       if (response.message && response.message == "ok") {
         alert("Tu nombre de empresa sera:" + this.nombre_empresa);

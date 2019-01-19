@@ -118,7 +118,7 @@ class Game {
   public joinGame(data, callback) {
     console.log("join game", data)
     this.codigo = data.codigo
-    this.name = data.player_name.toUpperCase();
+    this.name = data.player_name
     this.socket.emit("joinGame", data, callback);
 
   }
