@@ -21,4 +21,11 @@ export class HomeComponent implements OnInit {
 
   }
 
+  moderador() {
+    this.router.navigateByUrl('/moderador');
+  }
+
+  jugar() {
+    this.router.navigateByUrl('/jugar');
+  }
 }

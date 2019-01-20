@@ -1,47 +1,74 @@
-<div>
-	<h6>RESULTADOS</h6>
-	 <table>
-          <thead>
-            <tr>
-                <th >EMPRESA</th>
-                <th >BIMESTRE 1 </th>
-                <th >PUNTAJE  </th>
-                <th >BIMESTRE 2 </th>
-                <th >PUNTAJE</th>
-                <th >BIMESTRE 3 </th>
-                <th >PUNTAJE</th>          
-            </tr>
-          </thead>
+<div id="main_container">
+  <aside>
+    <div id="logo_container">
+      <img id="logo_image" src="/imagenes/LOGO SIMULADOR FINAL.png">
+      <div id="nombre_empresa">{{(http.game)?http.game.name:""}}</div>
+    </div>
+    <div class="button_tab_container" style="background-color: #135A82;">
+      <button (click)="decision()" class="boton-decision tab_menu_button" style="background-color: #135A82;">
+        RESULTADOS
+      </button>
+      <div class="{{tap_position==1 ? '' : 'tap_menu_hidden'}}  tab_menu_description">
+        En esta secci&#243;n puede observar los resultados del juego.
+      </div>
+    </div>
+  </aside>
+  <div id="body_container">
+    <div class="section_container {{tap_position==1 ? '' : 'tap_menu_hidden'}}" style="background-color: #135A82;">
+      <div class="section_container_body">
+        <div class="section_title">
+          <div class="material-icons section_title_icon" style="background-color: #135A82;">person</div>
+          <div class="section_title_desc"> RESULTADOS</div>
+        </div>
 
-          <tbody >
-            <tr>
-              <td >EMP1</td>
-              <td >95.000</td>
-              <TD>10</TD>
-              <td >95.000</td>
-              <TD>10</TD>
-              <td >95.000</td>
-              <TD>10</TD>
-            </tr>
-          </tbody>
-    </table>
-</div>
+        <div class="section_body">
+          <div style="display: flex; justify-content: center;">
+            <div class="tabla-decision">
+               <table id="t01">
+                <thead>
+                <tr>
+                  <th class="th1" colspan=5>BENEFICIO</th>
+                </tr>
+                  <tr>
+                  <th >COMPAÑIA</th>
+                  <th >Bimestre 1</th>
+                  <th >Bimestre 2</th>
+                  <th >Bimestre 3</th>
 
-<div>
-	<h6>RESULTADOS</h6>
-	<table>
-          <thead>
-            <tr>
-                <th >EMPRESA</th>
-                <th >PUNTAJE FINAL</th>          
-            </tr>
-          </thead>
+                  <!-- <th *ngFor="let visionG of visionGeneral;let i=index">BIMESTRE {{i+1}}</th> -->
+                  </tr>
+                </thead>
 
-          <tbody >
-            <tr>
-              <td >EMP1</td>
-              <td >95.000</td>
-            </tr>
-          </tbody>
-    </table>
+            <tbody >
+              <td><tr *ngFor="let visionG of http.game.players">{{visionG.name}}</tr></td>
+              <td><tr *ngFor="let visionG of visionGeneral">{{visionG.beneficio}}</tr></td>
+            </tbody>
+              </table>
+
+              <table id="t01">
+                <thead>
+                <tr>
+                  <th class="th1" colspan=5>% DE MERCADO</th>
+                </tr>
+                  <tr>
+                  <th >COMPAÑIA</th>
+                  <th >Bimestre 1</th>
+                  <th >Bimestre 2</th>
+                  <th >Bimestre 3</th>
+
+                  <!-- <th *ngFor="let visionG of visionGeneral;let i=index">BIMESTRE {{i+1}}</th> -->
+                  </tr>
+                </thead>
+
+            <tbody >
+              <td><tr *ngFor="let visionG of http.game.players">{{visionG.name}}</tr></td>
+              <td><tr *ngFor="let visionG of visionGeneral">{{visionG.beneficio}}</tr></td>
+            </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

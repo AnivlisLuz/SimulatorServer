@@ -35,14 +35,14 @@ export class TablaDeDecisionComponent implements OnInit {
   section_tap_3: number = 0;
   section_tap_4: number = 0;
 
-  precioUnitario: number = 150
-  produccion: number = 500
-  inversionEnMarketings: number[] = [0, 1500, 3000, 4500, 6000]
-  inversionEnMarketing: number = this.inversionEnMarketings[0]
-  inversionEnInvestigacions: number[] = [0, 1500, 3000, 4500, 6000]
-  inversionEnInvestigacion: number = this.inversionEnInvestigacions[0]
-  inversionEnActivoss: number[] = [0, 1500, 3000, 4500, 6000]
-  inversionEnActivos: number = this.inversionEnActivoss[0]
+  precioUnitario: number = 150;
+  produccion: number = 500;
+  inversionEnMarketings: number[] = [0, 1500, 3000, 4500, 6000];
+  inversionEnMarketing: number = this.inversionEnMarketings[0];
+  inversionEnInvestigacions: number[] = [0, 1500, 3000, 4500, 6000];
+  inversionEnInvestigacion: number = this.inversionEnInvestigacions[0];
+  inversionEnActivoss: number[] = [0, 1500, 3000, 4500, 6000];
+  inversionEnActivos: number = this.inversionEnActivoss[0];
 
   nombreEmpresa: string;
   bimestreInicial: Bimestre;
@@ -60,7 +60,7 @@ export class TablaDeDecisionComponent implements OnInit {
 
   //a partir de aqui
   visionGeneral: VisionGeneral[];
-  // produccion: Produccion;
+  // produccion: Produccion;s
   ventasIndustria: VentasIndustria;
   codigo: string;
 
@@ -109,15 +109,15 @@ export class TablaDeDecisionComponent implements OnInit {
   }
   onChangeinversionEnMarketings(data) {
     console.log("changed onChangeinversionEnMarketings", data)
-    this.inversionEnMarketing = data
+    this.inversionEnMarketing = parseInt(data);
   }
   onChangeinversionEnInvestigacions(data) {
     console.log("changed onChangeinversionEnInvestigacions", data)
-    this.inversionEnInvestigacion = data
+    this.inversionEnInvestigacion = parseInt(data);
   }
   onChangeinversionEnActivoss(data) {
     console.log("changed onChangeinversionEnActivoss", data)
-    this.inversionEnActivos = data
+    this.inversionEnActivos = parseInt(data);
   }
   ngOnInit() {
 
@@ -1327,5 +1327,8 @@ export class TablaDeDecisionComponent implements OnInit {
       return true;
     else
       return false;
+  }
+   fin() {
+    this.router.navigateByUrl('/fin');
   }
 }
