@@ -5,6 +5,7 @@ import { map, catchError } from 'rxjs/operators';
 
 import { Socket } from 'ngx-socket-io';
 import { Document } from '../models/document';
+import { VentasIndustria } from 'src/models/ventasIndustria';
 @Injectable({
   providedIn: 'root'
 })
@@ -17,6 +18,10 @@ export class HttpService {
     socket.on("connect", data => {
       console.log("servicio generado socket")
       this.game = new Game(socket)
+      // ejemplo
+      let tmp = new VentasIndustria();
+      tmp.nombreEmpresaVentasI="nombreprueba"
+      socket.emit("datosDePrueba", tmp)
     })
   }
   // createGame
