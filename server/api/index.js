@@ -2,6 +2,7 @@ const randtoken = require('rand-token');
 const db = require("./database")
 
 var mercados = {}
+
 exports.setSocket = io => {
     io.on('connection', (socket) => {
         console.log('user connected');
