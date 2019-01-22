@@ -9,5 +9,6 @@ export class BalanceGeneral{
   public utilidadEjercicio:number=38230;
   public totalPatrimonio:number=45448;
   public totalPasivoPatrimonio: number=46748;
+  public nombreEmpresa:String;
 
 }
