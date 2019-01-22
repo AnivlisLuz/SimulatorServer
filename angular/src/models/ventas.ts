@@ -9,4 +9,5 @@ export class Ventas{
   public pedidosNoAtendidosMonetario:number=0;
   public numero:number=0;
   public codigo:string;
+  public nombreEmpresa:String;
 }
