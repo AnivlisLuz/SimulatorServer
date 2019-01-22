@@ -5,16 +5,6 @@ import { map, catchError } from 'rxjs/operators';
 
 import { Socket } from 'ngx-socket-io';
 import { Document } from '../models/document';
-import { VentasIndustria } from 'src/models/ventasIndustria';
-import { EstadoResultados } from 'src/models/estadoResultados';
-import { BalanceGeneral } from 'src/models/balanceGeneral';
-import { Ventas } from 'src/models/ventas';
-import { CostosProduccion } from 'src/models/costosProduccion';
-import { VisionGeneral } from 'src/models/visionGeneral';
-import { Produccion } from 'src/models/produccion';
-
-
-
 @Injectable({
   providedIn: 'root'
 })
@@ -27,40 +17,6 @@ export class HttpService {
     socket.on("connect", data => {
       console.log("servicio generado socket")
       this.game = new Game(socket)
-
-       let tmp = new VentasIndustria();
-      tmp.nombreEmpresaVentasI="nombreprueba"
-      socket.emit("datosDePrueba", tmp)
-
-      let estadoResultados = new EstadoResultados();
-      estadoResultados.empresa="nombreEmpresaEstadoResultados"
-      socket.emit("datosEstadoResultados", estadoResultados)
-
-      let balanceGeneral = new BalanceGeneral();
-      balanceGeneral.nombreEmpresa="nombreEmpresaBalanceGeneral"
-      socket.emit("datosBalanceGeneral", balanceGeneral)
-
-      let ventas = new Ventas();
-      ventas.nombreEmpresa="nombreEmpresaBVentas"
-      socket.emit("datosVentas", ventas)
-
-       let costosProduccion = new CostosProduccion();
-      costosProduccion.nombreEmpresa="nombreEmpresacostosProduccion"
-      socket.emit("datosCostosProduccion", costosProduccion)
-
-      let visionGeneral = new VisionGeneral();
-      visionGeneral.nombreEmpresa="nombreEmpresavisionGeneral"
-      socket.emit("datosvisionGeneral", visionGeneral)
-
-      let produccion = new Produccion();
-      produccion.nombreEmpresaProduccion="nombreEmpresaproduccion"
-      socket.emit("datosProduccion", produccion)
-
-      let ventasIndustria = new VentasIndustria();
-      ventasIndustria.nombreEmpresaVentasI="nombreprueba"
-      socket.emit("datosVentasIndustria", ventasIndustria)
-
-
     })
   }
   // createGame

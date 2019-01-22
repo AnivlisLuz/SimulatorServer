@@ -4,8 +4,4 @@ export class CostosProduccion{
    public costosIndirectos:number=22770;
    public costoTotal:number=48270;
    public costoUnitario:number=94.54;
-   public codigo:string;
-   public nombreEmpresa:String;
-   public numero:number=0;
-
 }
