@@ -51,6 +51,66 @@ exports.setSocket = io => {
                 client("error con el codigo")
             }
         })
+        socket.on('datosDePrueba', (data) => {
+            console.log("objeto VentasIndustria desde cliente =>", data)
+            let tmp_server = new VentasIndustria()
+            tmp_server.nombreEmpresaVentasI = data.nombreEmpresaVentasI
+            console.log("objeto VentasIndustria desde server", tmp_server)
+
+        })
+
+         socket.on('datosEstadoResultados', (data) => {
+            console.log("objeto estadoResultados desde cliente =>", data)
+            let estadoResultados_server = new EstadoResultados()
+            estadoResultados_server.empresa = data.empresa
+            console.log("objeto estadoResultados desde server", estadoResultados_server)
+
+        })
+         socket.on('datosBalanceGeneral', (data) => {
+            console.log("objeto Balance General desde cliente =>", data)
+            let balanceGeneral_server = new BalanceGeneral()
+            balanceGeneral_server.nombreEmpresa = data.nombreEmpresa
+            console.log("objeto Balance General desde server", balanceGeneral_server)
+
+        })
+          socket.on('datosVentas', (data) => {
+            console.log("objeto Ventas desde cliente =>", data)
+            let ventas_server = new Ventas()
+            ventas_server.nombreEmpresa = data.nombreEmpresa
+            console.log("objeto Ventas desde server", ventas_server)
+
+        })
+          socket.on('datosCostosProduccion', (data) => {
+            console.log("objeto CostosProduccion desde cliente =>", data)
+            let visionGeneral_server = new VisionGeneral()
+            visionGeneral_server.nombreEmpresa = data.nombreEmpresa
+            console.log("objeto CostosProduccion desde server", visionGeneral_server)
+
+        })
+
+          socket.on('datosvisionGeneral', (data) => {
+            console.log("objeto visionGeneral desde cliente =>", data)
+            let costosProduccion_server = new VisionGeneral()
+            costosProduccion_server.nombreEmpresa = data.nombreEmpresa
+            console.log("objeto visionGeneral desde server", costosProduccion_server)
+
+        })
+
+           socket.on('datosProduccion', (data) => {
+            console.log("objeto Produccion desde cliente =>", data)
+            let produccion_server = new Produccion()
+            produccion_server.nombreEmpresaProduccion = data.nombreEmpresaProduccion
+            console.log("objeto Produccion desde server",  produccion_server)
+
+        })
+
+            socket.on('datosVentasIndustria', (data) => {
+            console.log("objeto VentasIndustria desde cliente =>", data)
+            let ventasIndustria_server = new VentasIndustria()
+            ventasIndustria_server.nombreEmpresaVentasI = data.nombreEmpresaVentasI
+            console.log("objeto VentasIndustria desde server", ventasIndustria_server)
+
+        })
     });
 }
 
