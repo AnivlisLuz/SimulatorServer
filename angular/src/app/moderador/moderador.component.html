@@ -1,14 +1,28 @@
-<form class="formularioModerador">
+<form  class="formularioModerador" [formGroup]="registerForm"   #form="ngForm" >
   <header>MODERADOR </header>
   <br>
+  <br>          
+  <div class="form-group">
+    <label>Nombre del Mercado</label>
+    <input type="text" formControlName="nombreMercado" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.nombreMercado.errors }" placeholder="Nombre de tu empresa"/>
+    <div *ngIf="submitted && f.nombreMercado.errors" class="invalid-feedback">
+        <div *ngIf="f.nombreMercado.errors.required" style="color: red">Nonbre empresa es requerido</div>
+    </div>
+  </div>
   <br>
-  <label>Nombre del Mercado</label>
-  <input type="text" name="nombreMercado" [(ngModel)]="moderador.nombreMercado">
-
 
   <label>Cantidad de Jugadores</label>
-  <input type="text" name="cantidadJugadores" [(ngModel)]="moderador.cantidadJugadores">
-
+  <br>
+  <div class="form-group">
+    <div class="styled-select jugadores">
+      <select formControlName="cantidadJugadores"  >
+          <option value="2" selected>2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+      </select>
+    </div>
+  </div>
 
   <button type="submit"  (click)="onClickMe()">Hecho</button>
 
