@@ -35,6 +35,13 @@ export class JugarComponent implements OnInit {
 
   get f() { return this.registerForm.controls; }
   onClickMe() {
+    this.submitted = true;
+
+    // stop here if form is invalid
+    if (this.registerForm.invalid) {return;}
+    this.nombre_empresa=this.registerForm.value.nombreE
+    this.codigo=this.registerForm.value.codigo
+
     let body_send = { player_name: this.nombre_empresa.toUpperCase(), codigo: this.codigo }
     this.http.game.joinGame( body_send, (response) => {
       if (response.message && response.message == "ok") {
