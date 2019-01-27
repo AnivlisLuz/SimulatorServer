@@ -172,6 +172,66 @@ class Game {
     console.log("createGame", data)
     this.socket.emit("createGame", data, callback);
   }
+
+  /*public calcularBalanceGeneralP(callback){
+    let send_Data = { codigo: this.codigo, player_name: this.player.name }
+      console.log("calcularBalanceGeneralHttpService", send_Data)
+          return this.socket.emit("calcularBalanceGeneralP", send_Data, callback);
+
+  }*/
+
+  public calcularTodoPrueba(data, callback){
+    let send_Data = { numeroBimestre: data, codigo: this.codigo}
+    console.log("calcularTodoPrueba =>", send_Data)
+    this.socket.emit("calcularTodoPrueba", send_Data, callback);
+  }
+
+  public getBalanceGeneral(data,callback){
+    let send_Data = { numeroBimestre:data, codigo: this.codigo, player_name: this.player.name }
+      console.log("getBalanceGeneral", send_Data)
+          return this.socket.emit("getBalanceGeneral", send_Data, callback);
+
+  }
+
+  public getVentas(data,callback){
+    let send_Data = { numeroBimestre:data, codigo: this.codigo, player_name: this.player.name }
+      console.log("getVentas", send_Data)
+          return this.socket.emit("getVentas", send_Data, callback);
+
+  }
+  public getCostosProduccion(data,callback){
+    let send_Data = { numeroBimestre:data, codigo: this.codigo, player_name: this.player.name }
+      console.log("getCostosProduccion", send_Data)
+          return this.socket.emit("getCostosProduccion", send_Data, callback);
+
+  }
+
+  public getProduccion(data,callback){
+    let send_Data = { numeroBimestre:data, codigo: this.codigo, player_name: this.player.name }
+      console.log("getProduccion", send_Data)
+          return this.socket.emit("getProduccion", send_Data, callback);
+
+  }
+
+  public getVentasIndustria(data,callback){
+    let send_Data = { numeroBimestre:data, codigo: this.codigo, player_name: this.player.name }
+      console.log("getVentasIndustria", send_Data)
+          return this.socket.emit("getVentasIndustria", send_Data, callback);
+
+  }
+
+    public getEstadoResultados(callback){
+    let send_Data = { codigo: this.codigo, player_name: this.player.name }
+      console.log("getEstadoResultados", send_Data)
+          return this.socket.emit("getEstadoResultados", send_Data, callback);
+
+  }
+    public getVisionGeneral(data,callback){
+    let send_Data = { numeroBimestre:data, codigo: this.codigo }
+      console.log("getVisionGeneral", send_Data)
+          return this.socket.emit("getVisionGeneral", send_Data, callback);
+
+  }
 }
 class Player {
   name: string
@@ -215,7 +275,3 @@ class Bimestre {
     this.inversionEnActivos = data.inversionEnActivos
   }
 }
-
-
-
-

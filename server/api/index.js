@@ -111,6 +111,108 @@ exports.setSocket = io => {
             console.log("objeto VentasIndustria desde server", ventasIndustria_server)
 
         })
+            //      socket.on('calcularBalanceGeneralP', (data, client) => {
+        //     console.log("calcularBalanceGeneralP socket =>", data)
+
+        //     let _mercado = mercados[data.codigo]
+        //     if (_mercado) {
+        //         client(_mercado.calcularBalanceGeneralP(data))
+        //         io.sockets.emit("getPlayers", _mercado.getPlayers())
+        //     } else {
+        //         client("error con el codigo")
+        //     }
+        // })
+
+            socket.on('calcularTodoPrueba', (data, client) => {
+            console.log("calcularTodoPrueba cliente =>", data)
+            let _mercado = mercados[data.codigo]
+            if (_mercado) {
+                client(_mercado.calcularTodoPrueba(data))
+                io.sockets.emit("getPlayers", _mercado.getPlayers())
+            } else {
+                client("error con el codigo")
+            }
+        })
+
+            socket.on('getBalanceGeneral', (data, client) => {
+            console.log("getBalanceGeneral socket =>", data)
+
+            let _mercado = mercados[data.codigo]
+            if (_mercado) {
+                client(_mercado.getBalanceGeneral(data))
+                io.sockets.emit("getPlayers", _mercado.getPlayers())
+            } else {
+                client("error con el codigo")
+            }
+        })
+
+            socket.on('getVentas', (data, client) => {
+            console.log("getVentas socket =>", data)
+
+            let _mercado = mercados[data.codigo]
+            if (_mercado) {
+                client(_mercado.getVentas(data))
+                io.sockets.emit("getPlayers", _mercado.getPlayers())
+            } else {
+                client("error con el codigo")
+            }
+        })
+
+            socket.on('getCostosProduccion', (data, client) => {
+            console.log("getCostosProduccion socket =>", data)
+
+            let _mercado = mercados[data.codigo]
+            if (_mercado) {
+                client(_mercado.getCostosProduccion(data))
+                io.sockets.emit("getPlayers", _mercado.getPlayers())
+            } else {
+                client("error con el codigo")
+            }
+        })
+            socket.on('getProduccion', (data, client) => {
+            console.log("getProduccion socket =>", data)
+
+            let _mercado = mercados[data.codigo]
+            if (_mercado) {
+                client(_mercado.getProduccion(data))
+                io.sockets.emit("getPlayers", _mercado.getPlayers())
+            } else {
+                client("error con el codigo")
+            }
+        })
+            socket.on('getVentasIndustria', (data, client) => {
+            console.log("getVentasIndustria socket =>", data)
+
+            let _mercado = mercados[data.codigo]
+            if (_mercado) {
+                client(_mercado.getVentasIndustria(data))
+                io.sockets.emit("getPlayers", _mercado.getPlayers())
+            } else {
+                client("error con el codigo")
+            }
+        })
+            socket.on('getEstadoResultados', (data, client) => {
+            console.log("getEstadoResultados socket =>", data)
+
+            let _mercado = mercados[data.codigo]
+            if (_mercado) {
+                client(_mercado.getEstadoResultados(data))
+                io.sockets.emit("getPlayers", _mercado.getPlayers())
+            } else {
+                client("error con el codigo")
+            }
+        })
+             socket.on('getVisionGeneral', (data, client) => {
+            console.log("getVisionGeneral socket =>", data)
+
+            let _mercado = mercados[data.codigo]
+            if (_mercado) {
+                client(_mercado.getVisionGeneral(data))
+                io.sockets.emit("getPlayers", _mercado.getPlayers())
+            } else {
+                client("error con el codigo")
+            }
+        })
     });
 }
 
@@ -186,6 +288,155 @@ class Mercado {
         this.porcentajeMercadoDesatendido=Math.floor((this.mercadoDesatendido*100)/this.mercado)
 
      } 
+     //  calcularBalanceGeneralP(data)
+    // {
+    //     let player_tmp = this.players[data.player_name]
+    //     // balance=new BalanceGeneral()
+    //     if (player_tmp) {
+    //         let BalanceGeneralPrueba= new BalanceGeneral(1,data.codigo,data.player_name);
+    //         BalanceGeneralPrueba.calcular(10,10,10,10)
+    //         db.saveBalanceGeneral(BalanceGeneralPrueba)
+    //         console.log("calcularBalanceGeneralP socket =>", BalanceGeneralPrueba)
+    //         db.getBalanceGeneralPorCodigoDeJuegoNombreNumero(data.codigo,data.player_name,1, function(error, res) {
+    //             if (error) {
+    //                 console.log("error")
+    //             } else {
+                    
+    //                 BalanceGeneralPrueba=res
+    //             }
+    //         })
+    //         return BalanceGeneralPrueba
+    //     }
+    // }
+    calcularTodoPrueba(data) {
+        calcularTodo(data.codigo,data.numeroBimestre)
+    }
+
+     getBalanceGeneral(data)
+    {
+        let player_tmp = this.players[data.player_name]
+        // balance=new BalanceGeneral()
+        if (player_tmp) {
+            let balanceGeneral =new BalanceGeneral(data.numeroBimestre,data.codigo,data.player_name);
+            console.log("getBalanceGeneral socket =>", balanceGeneral)
+            db.getBalanceGeneralPorCodigoDeJuegoNombreNumero(data.codigo,data.player_name,data.numeroBimestre, function(error, res) {
+                if (error) {
+                    console.log("error")
+                } else {
+                    
+                    balanceGeneral=res
+                }
+            })
+            return balanceGeneral
+        }
+    }
+
+    getVentas(data)
+    {
+        let player_tmp = this.players[data.player_name]
+        if (player_tmp) {
+            let ventas =new Ventas(data.numeroBimestre,data.codigo,data.player_name);
+            console.log("getVentas socket =>", ventas)
+            db.getVentasPorCodigoDeJuegoNombreNumero(data.codigo,data.player_name,data.numeroBimestre, function(error, res) {
+                if (error) {
+                    console.log("error")
+                } else {
+                    
+                    ventas=res
+                }
+            })
+            return ventas
+        }
+    }
+
+    getCostosProduccion(data)
+    {
+        let player_tmp = this.players[data.player_name]
+        if (player_tmp) {
+            let costosProduccion =new CostosProduccion(data.numeroBimestre,data.codigo,data.player_name);
+            console.log("getCostosProduccion socket =>", costosProduccion)
+            db.getCostoProduccionPorCodigoDeJuegoNombreNumero(data.codigo,data.player_name,data.numeroBimestre, function(error, res) {
+                if (error) {
+                    console.log("error")
+                } else {
+                    
+                    costosProduccion=res
+                }
+            })
+            return costosProduccion
+        }
+    }
+    getProduccion(data)
+    {
+        let player_tmp = this.players[data.player_name]
+        if (player_tmp) {
+            let produccion =new Produccion(data.numeroBimestre,data.codigo,data.player_name);
+            console.log("getProduccion socket =>", produccion)
+            db.getProduccionPorCodigoDeJuegoNombreNumero(data.codigo,data.player_name,data.numeroBimestre, function(error, res) {
+                if (error) {
+                    console.log("error")
+                } else {
+                    
+                    produccion=res
+                }
+            })
+            return produccion
+        }
+    }
+    getVentasIndustria(data)
+    {
+        let player_tmp = this.players[data.player_name]
+        if (player_tmp) {
+            let ventasIndustria =new VentasIndustria(data.numeroBimestre,data.codigo,data.player_name);
+            console.log("getVentasIndustria socket =>", ventasIndustria)
+            db.getVentasIndustriaPorCodigoDeJuegoNombreNumero(data.codigo,data.player_name,data.numeroBimestre, function(error, res) {
+                if (error) {
+                    console.log("error")
+                } else {
+                    
+                    ventasIndustria=res
+                }
+            })
+            return ventasIndustria
+        }
+    }
+
+    getEstadoResultados(data)
+    {
+        let player_tmp = this.players[data.player_name]
+        if (player_tmp) {
+            let estadoResultados =[];
+            console.log("getEstadoResultados socket =>", estadoResultados)
+            db.getBalanceGeneralPorCodigoDeJuegoNombreNumero(data.codigo,data.player_name,data.numeroBimestre, function(error, res) {
+                if (error) {
+                    console.log("error")
+                } else {
+                    
+                    estadoResultados=res
+                }
+            })
+            return estadoResultados
+        }
+    }
+
+    getVisionGeneral(data)
+    {
+        let player_tmp = this.players[data.player_name]
+        if (player_tmp) {
+            let visionGeneral =[];
+            console.log("getVisionGeneral socket =>", visionGeneral)
+            db.getAllVisionGeneralByCodigoYNumero(data.codigo,data.numeroBimestre, function(error, res) {
+                if (error) {
+                    console.log("error")
+                } else {
+                    
+                    visionGeneral=res
+                }
+            })
+            return visionGeneral
+        }
+    }
+
 
 }
 
@@ -719,14 +970,4 @@ async function calcularTodo(codigoJuego, numeroBimestre) {
                 calcularVentasIndustria(bimestres,ventasBimestre,ventasIndustria)
             }
         } 
-    
- 
-  
 }
-
-
-
-
-
-  
-  

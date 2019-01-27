@@ -193,6 +193,14 @@ export class TablaDeDecisionComponent implements OnInit {
 
     }
   }
+
+  obtenerTodosLosDatos()
+  {
+    
+    this.http.game.calcularTodoPrueba(this.numeroBimestre,(response) => {
+        console.log("calcularTodoPrueba",response)
+    })
+  }
   iniciar() {
     let data_bimestre = {
       precioUnitario: this.precioUnitario,
@@ -216,6 +224,12 @@ export class TablaDeDecisionComponent implements OnInit {
                 this.http.game.addBimestreTres(data_bimestre, (response) => {
                   console.log("addBimestreTres", response)
                 })
+                if(this.http.game.cantidadTotalJugadores-1==this.http.game.bimestre_tres_c)
+                {
+                  this.obtenerTodosLosDatos();
+                }
+                this.numeroBimestre=3;
+
               }
             } else {
               alert("faltan completar el bimestre dos")
@@ -224,7 +238,12 @@ export class TablaDeDecisionComponent implements OnInit {
             this.http.game.addBimestreDos(data_bimestre, (response) => {
               console.log("addBimestreDos", response)
             })
+            if(this.http.game.cantidadTotalJugadores-1==this.http.game.bimestre_dos_c)
+                {this.obtenerTodosLosDatos();
+                }
           }
+            this.numeroBimestre=2;
+
         } else {
           alert("faltan completar el bimestre uno")
         }
@@ -232,6 +251,11 @@ export class TablaDeDecisionComponent implements OnInit {
         this.http.game.addBimestreUno(data_bimestre, (response) => {
           console.log("addBimestreUno", response)
         })
+         if(this.http.game.cantidadTotalJugadores-1==this.http.game.bimestre_uno_c)
+                {this.obtenerTodosLosDatos();
+                }    
+                              this.numeroBimestre=1;
+
       }
     }
     else {

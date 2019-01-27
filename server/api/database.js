@@ -10,7 +10,7 @@ exports.insertVentas = (valor, callback) => {
         )
 }
 exports.saveEstadoResultados = (estador) => {
-    db.run("insert into estadoResultados(utilidadNeta,ingresos,ventas,otrosIngresos, capitalAnterior, costos, materiaPrima, costosIndirectos, utilidadBruta, gastosOperativos, inversionMarketing, inversionInvestigacion,inversionActivos, numero, codigo,jugador) values(?,?,?,?,?,?,?,?,?, ?, ?, ?,?,?,?,?)", [estador.utilidadNeta,estador.ingresos,estador.ventas,estador.otrosIngresos, estador.capitalAnterior, estador.costos, estador.materiaPrima, estador.costosIndirectos, estador.utilidadBruta, estador.gastosOperativos, estador.inversionMarketing, estador.inversionInvestigacion,estador.inversionActivos, estador.numeroBimestre, estador.codigo,estador.jugador])    
+    db.run("insert into estadoResultados(utilidadNeta,ingresos,ventas,otrosIngresos, capitalAnterior, costos, materiaPrima, costosIndirectos, utilidadBruta, gastosOperativos, inversionMarketing, inversionInvestigacion,inversionActivos, manoObra, numero, codigo,jugador) values(?,?,?,?,?,?,?,?,?, ?, ?, ?,?,?,?,?,?)", [estador.utilidadNeta,estador.ingresos,estador.ventas,estador.otrosIngresos, estador.capitalAnterior, estador.costos, estador.materiaPrima, estador.costosIndirectos, estador.utilidadBruta, estador.gastosOperativos, estador.inversionMarketing, estador.inversionInvestigacion,estador.inversionActivos, estador.manoObra, estador.numeroBimestre, estador.codigo,estador.jugador])    
 }
 exports.saveVentas = (ventas) => {
     db.run("insert into ventas(producidoUnidades,producidoMonetario,ventasRealizadasUnidades,ventasRealizadasMonetario,inventarioUnidades,inventarioMonetario,pedidosNoAtendidosMonetario,pedidosNoAtendidosUnidades, numero, codigo,jugador) values(?,?,?,?,?,?,?,?, ?, ?, ?)", [ventas.producidoUnidades,ventas.producidoMonetario,ventas.ventasRealizadasUnidades,ventas.ventasRealizadasMonetario,ventas.inventarioUnidades,ventas.inventarioMonetario,ventas.pedidosNoAtendidosMonetario,ventas.pedidosNoAtendidosUnidades, ventas.numeroBimestre, ventas.codigo,ventas.jugador])    
@@ -80,4 +80,19 @@ exports.updateProduccion = (empresa) => {
   
 
    
+  
+exports.getBalanceGeneralPorCodigoDeJuegoNombreNumero = (codigo, nombre, numero, callback) => {
+    db.get("select * from balanceGeneral where codigo = ? AND jugador = ? AND numero = ? ",[codigo,nombre,numero], callback)
+}
 
+exports.getCostoProduccionPorCodigoDeJuegoNombreNumero = (codigo, nombre, numero, callback) => {
+    db.get("select * from costosProduccion where codigo = ? AND jugador = ? AND numero = ? ",[codigo,nombre,numero], callback)
+}
+
+exports.getBalanceGeneralPorCodigoDeJuegoNombre = (codigo,nombre,callback) => {
+    db.all("select * from estadoResultados where codigo = ? AND jugador = ?",[codigo,nombre], callback)
+}
+
+exports.getAllVisionGeneralByCodigoYNumero = (codigo, numero,callback) => {
+    db.all("select * from visionGeneral where codigo = ?  AND numero = ? " ,[codigo,numero], callback)
+}
