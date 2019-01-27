@@ -3,7 +3,7 @@
     <tbody>
             <tr>
                 <th colspan="7">MATERIA PRIMA</th>
-                <th>{{costosProduccion.materiaPrima}}</th>
+                <th>{{costosProduccion.materiaPrima | thousandPipe}}</th>
             </tr>
 
 
@@ -11,13 +11,13 @@
               <td></td>
               <td id="subItemTipo1">Poleras basicas (35 la unidad)</td>
               <td colspan="4"></td>
-              <td>{{costosProduccion.materiaPrima}}</td>
+              <td>{{costosProduccion.materiaPrima | thousandPipe}}</td>
               <td></td>
 
             </tr>
             <tr>
                 <th colspan="7">MANO DE OBRA DIRECTA</th>
-                <th>8.000</th>
+                <th>{{8000 | thousandPipe}}</th>
 
             </tr>
 
@@ -25,7 +25,7 @@
               <td></td>
               <td id="subItemTipo1">Sueldos</td>
               <td colspan="4"></td>
-              <td>6000</td>
+              <td>{{6000 | thousandPipe}}</td>
               <td></td>
             </tr>
 
@@ -33,14 +33,14 @@
               <td></td>
               <td id="subItemTipo1">Beneficios sociales</td>
               <td colspan="4"></td>
-              <td>2.000</td>
+              <td>{{2000 | thousandPipe}}</td>
               <td></td>
 
             </tr>
 
               <tr>
               <th colspan="7">COSTOS INDIRECTOS</th>
-              <th>22.770</th>
+              <th>{{22770 | thousandPipe}}</th>
 
             </tr>
 
@@ -48,7 +48,7 @@
   			      <td></td>
               <td id="subItemTipo1">Material indirecto</td>
               <td colspan="4"></td>
-              <td>5.000</td>
+              <td>{{5000 | thousandPipe}}</td>
               <td></td>
 
             </tr>
@@ -59,7 +59,7 @@
               <td colspan="2"></td>
               <td>  Insumos</td>
               <td colspan="2"></td>
-              <td>5.000</td>
+              <td>{{5000 | thousandPipe}}</td>
               <td colspan="2"></td>
 
 
@@ -70,7 +70,7 @@
               <td></td>
               <td id="subItemTipo1">Mano de obra indirecto</td>
               <td colspan="4"></td>
-              <td>16.120</td>
+              <td>{{16120 | thousandPipe}}</td>
               <td></td>
 
             </tr>
@@ -80,7 +80,7 @@
               <td colspan="2"></td>
               <td>Sueldos</td>
               <td colspan="2"></td>
-              <td>12.000</td>
+              <td>{{12000 | thousandPipe}}</td>
               <td colspan="2"></td>
 
             </tr>
@@ -91,7 +91,7 @@
               <td colspan="2"></td>
               <td>Beneficios sociales</td>
               <td colspan="2"></td>
-              <td>4.120</td>
+              <td>{{4120 | thousandPipe}}</td>
               <td colspan="2"></td>
 
             </tr>
@@ -122,18 +122,18 @@
               <td></td>
               <td id="subItemTipo1">Alquiler</td>
               <td colspan="4"></td>
-              <td>1.300</td>
+              <td>{{1300 | thousandPipe}}</td>
               <td></td>
             </tr>
 
             <tr>
                 <th colspan="7">COSTO TOTAL</th>
-                <th>{{costosProduccion.costoTotal}}</th>
+                <th>{{costosProduccion.costoTotal | thousandPipe}}</th>
 
             </tr>
             <tr>
                 <th colspan="7">COSTO UNITARIO</th>
-                <th>{{costosProduccion.costoUnitario}}</th>
+                <th>{{costosProduccion.costoUnitario | thousandPipe}}</th>
 
             </tr>
           </tbody>

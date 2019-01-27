@@ -12,24 +12,24 @@
           <tbody>
             <tr>
               <td>PRODUCIDO</td>
-              <td>{{ventas.producidoUnidades}}</td>
-              <td>{{ventas.producidoMonetario}}</td>
+              <td>{{ventas.producidoUnidades | thousandPipe}}</td>
+              <td>{{ventas.producidoMonetario | thousandPipe}}</td>
 
             </tr>
             <tr>
               <td>VENTAS REALIZADAS</td>
-              <td>{{ventas.ventasRealizadasUnidades}}</td>
-              <td>{{ventas.ventasRealizadasMonetario}}</td>
+              <td>{{ventas.ventasRealizadasUnidades | thousandPipe}}</td>
+              <td>{{ventas.ventasRealizadasMonetario | thousandPipe}}</td>
             </tr>
             <tr>
               <td>INVENTARIO</td>
-              <td>{{ventas.inventarioUnidades}}</td>
-              <td>{{ventas.inventarioMonetario}}</td>
+              <td>{{ventas.inventarioUnidades | thousandPipe}}</td>
+              <td>{{ventas.inventarioMonetario | thousandPipe}}</td>
             </tr>
             <tr>
               <td>PEDIDOS NO ATENDIDOS</td>
-              <td>{{ventas.pedidosNoAtendidosUnidades}}</td>
-              <td>{{ventas.pedidosNoAtendidosMonetario}}</td>
+              <td>{{ventas.pedidosNoAtendidosUnidades | thousandPipe}}</td>
+              <td>{{ventas.pedidosNoAtendidosMonetario | thousandPipe}}</td>
             </tr>
           </tbody>
         </table>
