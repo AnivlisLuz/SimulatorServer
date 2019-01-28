@@ -235,7 +235,7 @@
                 </tr>
                 <tr>
                   <td>INVERSIÓN EN MARKETING</td>
-                  <td>{{(http.game.player&&http.game.player.bimestre_inicial)?http.game.player.bimestre_inicial.inversionEnMarketing:"}}</td>
+                  <td>{{(http.game.player&&http.game.player.bimestre_inicial)?http.game.player.bimestre_inicial.inversionEnMarketing:""}}</td>
                   <td>{{(http.game.player&&http.game.player.bimestre_uno)?http.game.player.bimestre_uno.inversionEnMarketing:""}}</td>
                   <td>{{(http.game.player&&http.game.player.bimestre_dos)?http.game.player.bimestre_dos.inversionEnMarketing:""}}</td>
                   <td>{{(http.game.player&&http.game.player.bimestre_tres)?http.game.player.bimestre_tres.inversionEnMarketing:""}}</td>
@@ -316,7 +316,7 @@
                     +30770 | thousandPipe}}</li>
                   <div id="div-gastos" style="padding-left: 20%">
                     <pre>PRODUCCIÓN                 {{produccion*35 +30770 | thousandPipe}}</pre>
-                    <pre>MARKETING                  {{inversionEnMarketing | thousandPipe}}</pre>
+                    <pre>INV. MARKETING                  {{inversionEnMarketing | thousandPipe}}</pre>
                     <pre>INV. INVESTIGACIÓN         {{inversionEnInvestigacion | thousandPipe}}</pre>
                     <pre>INV. ACTIVOS               {{inversionEnActivos | thousandPipe}}</pre>
                     
