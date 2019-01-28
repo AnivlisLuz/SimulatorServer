@@ -29,35 +29,35 @@ export class HttpService {
       this.game = new Game(socket)
 
        let tmp = new VentasIndustria();
-      tmp.nombreEmpresaVentasI="nombreprueba"
+      tmp.jugador="nombreprueba"
       socket.emit("datosDePrueba", tmp)
 
       let estadoResultados = new EstadoResultados();
-      estadoResultados.empresa="nombreEmpresaEstadoResultados"
+      estadoResultados.jugador="nombreEmpresaEstadoResultados"
       socket.emit("datosEstadoResultados", estadoResultados)
 
       let balanceGeneral = new BalanceGeneral();
-      balanceGeneral.nombreEmpresa="nombreEmpresaBalanceGeneral"
+      balanceGeneral.jugador="nombreEmpresaBalanceGeneral"
       socket.emit("datosBalanceGeneral", balanceGeneral)
 
       let ventas = new Ventas();
-      ventas.nombreEmpresa="nombreEmpresaBVentas"
+      ventas.jugador="nombreEmpresaBVentas"
       socket.emit("datosVentas", ventas)
 
        let costosProduccion = new CostosProduccion();
-      costosProduccion.nombreEmpresa="nombreEmpresacostosProduccion"
+      costosProduccion.jugador="nombreEmpresacostosProduccion"
       socket.emit("datosCostosProduccion", costosProduccion)
 
       let visionGeneral = new VisionGeneral();
-      visionGeneral.nombreEmpresa="nombreEmpresavisionGeneral"
+      visionGeneral.jugador="nombreEmpresavisionGeneral"
       socket.emit("datosvisionGeneral", visionGeneral)
 
       let produccion = new Produccion();
-      produccion.nombreEmpresaProduccion="nombreEmpresaproduccion"
+      produccion.jugador="nombreEmpresaproduccion"
       socket.emit("datosProduccion", produccion)
 
       let ventasIndustria = new VentasIndustria();
-      ventasIndustria.nombreEmpresaVentasI="nombreprueba"
+      ventasIndustria.jugador="nombreprueba"
       socket.emit("datosVentasIndustria", ventasIndustria)
 
 
@@ -176,7 +176,7 @@ class Game {
   /*public calcularBalanceGeneralP(callback){
     let send_Data = { codigo: this.codigo, player_name: this.player.name }
       console.log("calcularBalanceGeneralHttpService", send_Data)
-          return this.socket.emit("calcularBalanceGeneralP", send_Data, callback);
+          this.socket.emit("calcularBalanceGeneralP", send_Data, callback);
 
   }*/
 
@@ -189,47 +189,44 @@ class Game {
   public getBalanceGeneral(data,callback){
     let send_Data = { numeroBimestre:data, codigo: this.codigo, player_name: this.player.name }
       console.log("getBalanceGeneral", send_Data)
-          return this.socket.emit("getBalanceGeneral", send_Data, callback);
+           this.socket.emit("getBalanceGeneral", send_Data, callback);
 
   }
 
   public getVentas(data,callback){
     let send_Data = { numeroBimestre:data, codigo: this.codigo, player_name: this.player.name }
       console.log("getVentas", send_Data)
-          return this.socket.emit("getVentas", send_Data, callback);
+          this.socket.emit("getVentas", send_Data, callback);
 
   }
   public getCostosProduccion(data,callback){
     let send_Data = { numeroBimestre:data, codigo: this.codigo, player_name: this.player.name }
-      console.log("getCostosProduccion", send_Data)
-          return this.socket.emit("getCostosProduccion", send_Data, callback);
+    console.log("getCostosProduccion http.service", send_Data)
+    this.socket.emit("getCostosProduccion", send_Data, callback);
 
   }
 
   public getProduccion(data,callback){
     let send_Data = { numeroBimestre:data, codigo: this.codigo, player_name: this.player.name }
       console.log("getProduccion", send_Data)
-          return this.socket.emit("getProduccion", send_Data, callback);
-
+          this.socket.emit("getProduccion", send_Data, callback);
   }
 
   public getVentasIndustria(data,callback){
     let send_Data = { numeroBimestre:data, codigo: this.codigo, player_name: this.player.name }
       console.log("getVentasIndustria", send_Data)
-          return this.socket.emit("getVentasIndustria", send_Data, callback);
+          this.socket.emit("getVentasIndustria", send_Data, callback);
 
   }
 
     public getEstadoResultados(callback){
     let send_Data = { codigo: this.codigo, player_name: this.player.name }
-      console.log("getEstadoResultados", send_Data)
-          return this.socket.emit("getEstadoResultados", send_Data, callback);
-
+      console.log("getEstadoResultados", send_Data);
   }
     public getVisionGeneral(data,callback){
     let send_Data = { numeroBimestre:data, codigo: this.codigo }
       console.log("getVisionGeneral", send_Data)
-          return this.socket.emit("getVisionGeneral", send_Data, callback);
+           this.socket.emit("getVisionGeneral", send_Data, callback);
 
   }
 }

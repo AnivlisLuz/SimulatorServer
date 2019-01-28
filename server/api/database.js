@@ -29,10 +29,10 @@ exports.saveEmpresa = (empresa) => {
 }
 
 exports.saveProduccion = (produccion) => {
-    db.run("insert into produccion(produccionIndustriaValorActual,produccionIndustriaValorAnterior,costeMedioTotalActual,costeMedioTotalAnterior,costeMedioUnitarioActual,costeMedioUnitarioAnterior,capacidadProduccionActual,capacidadProduccionAnterior,numero,codigo,jugador) values(?,?,?,?,?,?,?,?,?,?,?)", [produccion.produccionIndustriaValorActual,produccion.produccionIndustriaValorAnterior,produccion.costeMedioTotalActual,produccion.costeMedioTotalAnterior,produccion.costeMedioUnitarioActual,produccion.costeMedioUnitarioAnterior,produccion.capacidadProduccionActual,produccion.capacidadProduccionAnterior,produccion.numeroBimestre,produccion.codigo,produccion.jugador])    
+    db.run("insert into produccion(produccionIndustriaValorActual,produccionIndustriaValorAnterior,costeMedioTotalActual,costeMedioTotalAnterior,costeMedioUnitarioActual,costeMedioUnitarioAnterior,capacidadProduccionActual,capacidadProduccionAnterior,numero,codigo,jugador) values(?,?,?,?,?,?,?,?,?,?,?)", [produccion.produccionIndustriaValorActual,produccion.produccionIndustriaValorAnterior,produccion.costeMedioTotalActual,produccion.costeMedioTotalAnterior,produccion.costeMedioUnitarioActual,produccion.costeMedioUnitarioAnterior,produccion.capacidadProduccionActual,produccion.capacidadProduccionAnterior,produccion.numero,produccion.codigo,produccion.jugador])    
 }
 exports.saveVentasIndustria = (ventasi) => {
-    db.run("insert into ventasIndustria(ventasIndustriaUnidadesActual,ventasIndustriaUnidadesAnterior,ventasIndustriaMonetarioActual,ventasIndustriaMonetarioAnterior,precioUnitarioPromedioActual,precioUnitarioPromedioAnterior,inventarioPromediosActual,inventarioPromediosAnterior, numero, codigo,jugador) values(?,?,?,?,?,?,?,?,?,?,?)", [ventasi.ventasIndustriaUnidadesActual,ventasi.ventasIndustriaUnidadesAnterior,ventasi.ventasIndustriaMonetarioActual,ventasi.ventasIndustriaMonetarioAnterior,ventasi.precioUnitarioPromedioActual,ventasi.precioUnitarioPromedioAnterior,ventasi.inventarioPromediosActual,ventasi.inventarioPromediosAnterior, ventasi.numeroBimestre, ventasi.codigo,ventasi.jugador])    
+    db.run("insert into ventasIndustria(ventasIndustriaUnidadesActual,ventasIndustriaUnidadesAnterior,ventasIndustriaMonetarioActual,ventasIndustriaMonetarioAnterior,precioUnitarioPromedioActual,precioUnitarioPromedioAnterior,inventarioPromediosActual,inventarioPromediosAnterior, numero, codigo,jugador) values(?,?,?,?,?,?,?,?,?,?,?)", [ventasi.ventasIndustriaUnidadesActual,ventasi.ventasIndustriaUnidadesAnterior,ventasi.ventasIndustriaMonetarioActual,ventasi.ventasIndustriaMonetarioAnterior,ventasi.precioUnitarioPromedioActual,ventasi.precioUnitarioPromedioAnterior,ventasi.inventarioPromediosActual,ventasi.inventarioPromediosAnterior, ventasi.numero, ventasi.codigo,ventasi.jugador])    
 }
 exports.saveVisionGeneral = (vision) => {
     db.run("insert into visionGeneral(ventas,beneficio,precioUnitario,porcentajeDeMercado,numero,codigo, jugador) values(?,?,?,?,?,?,?)", [vision.ventas,vision.beneficio,vision.precioUnitario,vision.porcentajeDeMercado,vision.numeroBimestre,vision.codigo,vision.jugador])    
@@ -90,9 +90,13 @@ exports.getCostoProduccionPorCodigoDeJuegoNombreNumero = (codigo, nombre, numero
 }
 
 exports.getBalanceGeneralPorCodigoDeJuegoNombre = (codigo,nombre,callback) => {
-    db.all("select * from estadoResultados where codigo = ? AND jugador = ?",[codigo,nombre], callback)
+    db.all("select * from balanceGeneral where codigo = ? AND jugador = ?",[codigo,nombre], callback)
 }
 
 exports.getAllVisionGeneralByCodigoYNumero = (codigo, numero,callback) => {
     db.all("select * from visionGeneral where codigo = ?  AND numero = ? " ,[codigo,numero], callback)
+}
+
+exports.getAllEstadoResultadosPorCodigoDeJuegoNombre = (codigo, nombre, callback) => {
+    db.all("select * from estadoResultados where codigo = ? AND jugador = ? ",[codigo,nombre], callback)
 }

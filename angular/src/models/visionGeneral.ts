@@ -3,7 +3,8 @@ export class VisionGeneral{
   public precioUnitario:number=0;
   public beneficio:number=0;
   public ventas:number=0;
-  public totalVentas:number=0;
-  public nombreEmpresa:string;
-  public codigoVision:string;
+  //public totalVentas:number=0;
+  public jugador:string;
+  public codigo:string;
+  public numeroBimestre:number;
 }

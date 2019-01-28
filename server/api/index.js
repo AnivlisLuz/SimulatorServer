@@ -54,7 +54,7 @@ exports.setSocket = io => {
         socket.on('datosDePrueba', (data) => {
             console.log("objeto VentasIndustria desde cliente =>", data)
             let tmp_server = new VentasIndustria()
-            tmp_server.nombreEmpresaVentasI = data.nombreEmpresaVentasI
+            tmp_server.jugador = data.jugador
             console.log("objeto VentasIndustria desde server", tmp_server)
 
         })
@@ -62,28 +62,28 @@ exports.setSocket = io => {
          socket.on('datosEstadoResultados', (data) => {
             console.log("objeto estadoResultados desde cliente =>", data)
             let estadoResultados_server = new EstadoResultados()
-            estadoResultados_server.empresa = data.empresa
+            estadoResultados_server.jugador = data.jugador
             console.log("objeto estadoResultados desde server", estadoResultados_server)
 
         })
          socket.on('datosBalanceGeneral', (data) => {
             console.log("objeto Balance General desde cliente =>", data)
             let balanceGeneral_server = new BalanceGeneral()
-            balanceGeneral_server.nombreEmpresa = data.nombreEmpresa
+            balanceGeneral_server.jugador = data.jugador
             console.log("objeto Balance General desde server", balanceGeneral_server)
 
         })
           socket.on('datosVentas', (data) => {
             console.log("objeto Ventas desde cliente =>", data)
             let ventas_server = new Ventas()
-            ventas_server.nombreEmpresa = data.nombreEmpresa
+            ventas_server.jugador = data.jugador
             console.log("objeto Ventas desde server", ventas_server)
 
         })
           socket.on('datosCostosProduccion', (data) => {
             console.log("objeto CostosProduccion desde cliente =>", data)
             let visionGeneral_server = new VisionGeneral()
-            visionGeneral_server.nombreEmpresa = data.nombreEmpresa
+            visionGeneral_server.jugador = data.jugador
             console.log("objeto CostosProduccion desde server", visionGeneral_server)
 
         })
@@ -91,7 +91,7 @@ exports.setSocket = io => {
           socket.on('datosvisionGeneral', (data) => {
             console.log("objeto visionGeneral desde cliente =>", data)
             let costosProduccion_server = new VisionGeneral()
-            costosProduccion_server.nombreEmpresa = data.nombreEmpresa
+            costosProduccion_server.jugador = data.jugador
             console.log("objeto visionGeneral desde server", costosProduccion_server)
 
         })
@@ -99,7 +99,7 @@ exports.setSocket = io => {
            socket.on('datosProduccion', (data) => {
             console.log("objeto Produccion desde cliente =>", data)
             let produccion_server = new Produccion()
-            produccion_server.nombreEmpresaProduccion = data.nombreEmpresaProduccion
+            produccion_server.jugador = data.jugador
             console.log("objeto Produccion desde server",  produccion_server)
 
         })
@@ -107,7 +107,7 @@ exports.setSocket = io => {
             socket.on('datosVentasIndustria', (data) => {
             console.log("objeto VentasIndustria desde cliente =>", data)
             let ventasIndustria_server = new VentasIndustria()
-            ventasIndustria_server.nombreEmpresaVentasI = data.nombreEmpresaVentasI
+            ventasIndustria_server.jugador = data.jugador
             console.log("objeto VentasIndustria desde server", ventasIndustria_server)
 
         })
@@ -140,7 +140,7 @@ exports.setSocket = io => {
             let _mercado = mercados[data.codigo]
             if (_mercado) {
                 client(_mercado.getBalanceGeneral(data))
-                io.sockets.emit("getPlayers", _mercado.getPlayers())
+                io.sockets.emit("getBalanceGeneral", _mercado.getBalanceGeneral(data))
             } else {
                 client("error con el codigo")
             }
@@ -152,7 +152,7 @@ exports.setSocket = io => {
             let _mercado = mercados[data.codigo]
             if (_mercado) {
                 client(_mercado.getVentas(data))
-                io.sockets.emit("getPlayers", _mercado.getPlayers())
+                io.sockets.emit("getVentas", _mercado.getVentas(data))
             } else {
                 client("error con el codigo")
             }
@@ -164,7 +164,7 @@ exports.setSocket = io => {
             let _mercado = mercados[data.codigo]
             if (_mercado) {
                 client(_mercado.getCostosProduccion(data))
-                io.sockets.emit("getPlayers", _mercado.getPlayers())
+                io.sockets.emit("getCostosProduccion", _mercado.getCostosProduccion(data))
             } else {
                 client("error con el codigo")
             }
@@ -175,7 +175,7 @@ exports.setSocket = io => {
             let _mercado = mercados[data.codigo]
             if (_mercado) {
                 client(_mercado.getProduccion(data))
-                io.sockets.emit("getPlayers", _mercado.getPlayers())
+                io.sockets.emit("getProduccion", _mercado.getProduccion(data))
             } else {
                 client("error con el codigo")
             }
@@ -186,7 +186,7 @@ exports.setSocket = io => {
             let _mercado = mercados[data.codigo]
             if (_mercado) {
                 client(_mercado.getVentasIndustria(data))
-                io.sockets.emit("getPlayers", _mercado.getPlayers())
+                io.sockets.emit("getVentasIndustria", _mercado.getVentasIndustria(data))
             } else {
                 client("error con el codigo")
             }
@@ -197,7 +197,7 @@ exports.setSocket = io => {
             let _mercado = mercados[data.codigo]
             if (_mercado) {
                 client(_mercado.getEstadoResultados(data))
-                io.sockets.emit("getPlayers", _mercado.getPlayers())
+                io.sockets.emit("getEstadoResultados(data)", _mercado.getEstadoResultados(data))
             } else {
                 client("error con el codigo")
             }
@@ -208,7 +208,7 @@ exports.setSocket = io => {
             let _mercado = mercados[data.codigo]
             if (_mercado) {
                 client(_mercado.getVisionGeneral(data))
-                io.sockets.emit("getPlayers", _mercado.getPlayers())
+                io.sockets.emit("getVisionGeneral", _mercado.getVisionGeneral(data))
             } else {
                 client("error con el codigo")
             }
@@ -325,6 +325,10 @@ class Mercado {
                 } else {
                     
                     balanceGeneral=res
+                                        console.log("eret",res)
+                                                                                console.log("get",balanceGeneral)
+
+g
                 }
             })
             return balanceGeneral
@@ -361,6 +365,8 @@ class Mercado {
                 } else {
                     
                     costosProduccion=res
+                    console.log("getCostosProduccion socket =====>", costosProduccion)
+
                 }
             })
             return costosProduccion
@@ -407,12 +413,14 @@ class Mercado {
         if (player_tmp) {
             let estadoResultados =[];
             console.log("getEstadoResultados socket =>", estadoResultados)
-            db.getBalanceGeneralPorCodigoDeJuegoNombreNumero(data.codigo,data.player_name,data.numeroBimestre, function(error, res) {
+            db.getAllEstadoResultadosPorCodigoDeJuegoNombre(data.codigo,data.player_name, function(error, res) {
                 if (error) {
                     console.log("error")
                 } else {
                     
                     estadoResultados=res
+                                        console.log("esta dando",res)
+
                 }
             })
             return estadoResultados
@@ -699,7 +707,7 @@ class Produccion{
         this.costeMedioUnitarioAnterior=0
         this.capacidadProduccionActual=850
         this.capacidadProduccionAnterior=0
-        this.numeroBimestre=numeroBimestre
+        this.numero=numeroBimestre
         this.codigo=codigo
         this.jugador=jugador
     }
@@ -733,7 +741,7 @@ class VentasIndustria{
         this.precioUnitarioPromedioAnterior
         this.inventarioPromediosActual=25
         this.inventarioPromediosAnterior
-        this.numeroBimestre=numeroBimestre
+        this.numero=numeroBimestre
         this.codigo=codigo
         this.jugador=jugador
     }
@@ -781,7 +789,8 @@ function calcularVentasIndustria(bimestres, ventas,ventasIndustria){
     }
     ventasIndustria.inventarioPromediosActual=ventasIndustria.inventarioPromediosActual/(ventas.length)
     ventasIndustria.numero=ventasIndustria.numero+1
-    db.updateVentasIndustria(ventasIndustria)
+    //db.updateVentasIndustria(ventasIndustria)
+    db.saveVentasIndustria(ventasIndustria)
 }
 function calcularProduccion(bimestres, costosProduccion,produccion){
     produccion.produccionIndustriaValorAnterior=produccion.produccionIndustriaValorActual
@@ -800,9 +809,8 @@ function calcularProduccion(bimestres, costosProduccion,produccion){
         produccion.costeMedioTotalActual=produccion.costeMedioTotalActual /costosProduccion.length
         produccion.costeMedioUnitarioActual=produccion.costeMedioUnitarioActual /costosProduccion.length
         produccion.numero=produccion.numero+1
-    db.updateProduccion(produccion)
-
-
+    //db.updateProduccion(produccion)
+    db.saveProduccion(produccion)
 }
 function  sleep(ms){
     return new Promise(resolve=>{setTimeout(resolve,ms)})

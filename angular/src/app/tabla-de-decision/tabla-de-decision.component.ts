@@ -199,7 +199,7 @@ export class TablaDeDecisionComponent implements OnInit {
     
     this.http.game.calcularTodoPrueba(this.numeroBimestre,(response) => {
         console.log("calcularTodoPrueba",response)
-    })
+    });
   }
   iniciar() {
     let data_bimestre = {
@@ -254,7 +254,7 @@ export class TablaDeDecisionComponent implements OnInit {
          if(this.http.game.cantidadTotalJugadores-1==this.http.game.bimestre_uno_c)
                 {this.obtenerTodosLosDatos();
                 }    
-                              this.numeroBimestre=1;
+          this.numeroBimestre=1;
 
       }
     }
@@ -380,7 +380,7 @@ export class TablaDeDecisionComponent implements OnInit {
     document.getElementById("numero-bimestre-siguiente").innerText = this.nombreBimestre;
     this.numeroBimestre = this.numeroBimestre + 1;
     this.bimestreActual.numero = this.numeroBimestre;
-    this.bimestreActual.nombreEmpresa = this.nombreEmpresa;
+    this.bimestreActual.jugador = this.nombreEmpresa;
     this.bimestreActual.codigo = this.codigo;
 
     let json = JSON.stringify(this.bimestreActual);
@@ -545,7 +545,26 @@ export class TablaDeDecisionComponent implements OnInit {
 
   }
   informe() {
-    this.tap_position = 3
+    this.tap_position = 3;
+
+     this.http.game.getEstadoResultados((response) => {
+              console.log("getEstadoResultados front", response)
+              this.estadoResultados=response
+            });
+  /*
+     this.http.game.getBalanceGeneral((this.numeroBimestre-1), (response) => {
+              console.log("getBalanceGeneral front", response)
+              this.balanceGeneral=response
+            });
+     this.http.game.getVentas((this.numeroBimestre-1), (response) => {
+              console.log("getVentas front", response)
+              this.ventas=response
+            });
+            
+     this.http.game.getCostosProduccion((this.numeroBimestre-1), (response) => {
+          console.log("getCostosProduccion front", response)
+          this.costoProduccion=response
+            });*/
     // document.getElementById("decisiones").style.display = "none";
     // document.getElementById("tabla-analisis-industria").style.display = "none";
     // document.getElementById("informe").style.display = "block";
@@ -1248,7 +1267,7 @@ export class TablaDeDecisionComponent implements OnInit {
 
     this.auxiliarMercadoSinAtender = 0;
     for (let i = 0; i < this.visionGeneral.length; i++) {
-      this.myPieChart.data.labels.push(this.visionGeneral[i].nombreEmpresa);
+      this.myPieChart.data.labels.push(this.visionGeneral[i].jugador);
       this.myPieChart.data.datasets[0].data.push(this.visionGeneral[i].porcentajeDeMercado);
       this.auxiliarMercadoSinAtender += (this.visionGeneral[i].porcentajeDeMercado);
       if (i == 0) {
@@ -1334,7 +1353,7 @@ export class TablaDeDecisionComponent implements OnInit {
   }
   generarConsejo3(): boolean {
     for (let i = 0; i < this.visionGeneral.length; i++) {
-      if (this.visionGeneral[i].nombreEmpresa === this.nombreEmpresa) {
+      if (this.visionGeneral[i].jugador === this.nombreEmpresa) {
         if (this.visionGeneral[i].porcentajeDeMercado < 5)
           return true;
       }

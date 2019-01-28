@@ -14,8 +14,8 @@ export class EstadoResultados{
   public inversionActivos: number=3500;
   public utilidadNeta:number=38230;
 
-  public empresa:String='';
+  public jugador:String='';
   public codigo:String='';
-  public numero:number=0;
+  public numeroBimestre:number=0;
 
 }

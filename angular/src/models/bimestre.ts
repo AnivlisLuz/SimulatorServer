@@ -5,6 +5,6 @@ export class Bimestre{
   public inversionEnInvestigacion:number=1500;
   public inversionEnActivos:number=3000;
   public numero:number=0;
-  public nombreEmpresa:string='';
+  public jugador:string='';
   public codigo:string='';
 }
