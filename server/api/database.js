@@ -97,6 +97,21 @@ exports.getAllVisionGeneralByCodigoYNumero = (codigo, numero,callback) => {
     db.all("select * from visionGeneral where codigo = ?  AND numero = ? " ,[codigo,numero], callback)
 }
 
-exports.getAllEstadoResultadosPorCodigoDeJuegoNombre = (codigo, nombre, callback) => {
-    db.all("select * from estadoResultados where codigo = ? AND jugador = ? ",[codigo,nombre], callback)
+exports.getAllEstadoResultadosPorCodigoDeJuegoNombre = async(codigo, nombre) => {
+    return new Promise((resolve,reject)=>{
+        db.all("select * from estadoResultados where codigo = ? AND jugador = ? ",[codigo,nombre], (error,res)=>{
+            if(error){
+                reject(error)
+            }else{
+                resolve(res)
+            }
+        })
+    }).then(response=>{
+        console.log("esta funcionando getAllEstadoResultadosPorCodigoDeJuegoNombre", response)
+        return response
+    }).catch(error=>{        
+        console.log("error con funcionando getAllEstadoResultadosPorCodigoDeJuegoNombre", response)
+        return []
+    })
+    
 }

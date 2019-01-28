@@ -196,8 +196,12 @@ exports.setSocket = io => {
 
             let _mercado = mercados[data.codigo]
             if (_mercado) {
-                client(_mercado.getEstadoResultados(data))
-                io.sockets.emit("getEstadoResultados(data)", _mercado.getEstadoResultados(data))
+               _mercado.getEstadoResultados(data).then(result=>{
+                client(result)                     
+                io.sockets.emit("getEstadoResultados(data)", result)
+               }) .catch(error=>{        
+                client("error con el socket")
+            })              
             } else {
                 client("error con el codigo")
             }
@@ -407,22 +411,14 @@ g
         }
     }
 
-    getEstadoResultados(data)
+   async getEstadoResultados(data)
     {
         let player_tmp = this.players[data.player_name]
         if (player_tmp) {
             let estadoResultados =[];
             console.log("getEstadoResultados socket =>", estadoResultados)
-            db.getAllEstadoResultadosPorCodigoDeJuegoNombre(data.codigo,data.player_name, function(error, res) {
-                if (error) {
-                    console.log("error")
-                } else {
-                    
-                    estadoResultados=res
-                                        console.log("esta dando",res)
-
-                }
-            })
+            estadoResultados= await  db.getAllEstadoResultadosPorCodigoDeJuegoNombre(data.codigo,data.player_name)
+            console.log("getEstadoResultados socket =>", estadoResultados)
             return estadoResultados
         }
     }

@@ -221,7 +221,8 @@ class Game {
 
     public getEstadoResultados(callback){
     let send_Data = { codigo: this.codigo, player_name: this.player.name }
-      console.log("getEstadoResultados", send_Data);
+      console.log("v", send_Data);
+      this.socket.emit("getEstadoResultados", send_Data, callback);
   }
     public getVisionGeneral(data,callback){
     let send_Data = { numeroBimestre:data, codigo: this.codigo }
