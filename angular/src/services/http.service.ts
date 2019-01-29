@@ -190,7 +190,6 @@ class Game {
     let send_Data = { numeroBimestre:data, codigo: this.codigo, player_name: this.player.name }
       console.log("getBalanceGeneral", send_Data)
            this.socket.emit("getBalanceGeneral", send_Data, callback);
-
   }
 
   public getVentas(data,callback){
@@ -225,10 +224,27 @@ class Game {
       this.socket.emit("getEstadoResultados", send_Data, callback);
   }
     public getVisionGeneral(data,callback){
-    let send_Data = { numeroBimestre:data, codigo: this.codigo }
+    let send_Data = { numeroBimestre:data, codigo: this.codigo, player_name: this.player.name}
       console.log("getVisionGeneral", send_Data)
            this.socket.emit("getVisionGeneral", send_Data, callback);
+  }
 
+  public getAllProduccion(callback){
+    let send_Data = { codigo: this.codigo, player_name: this.player.name }
+      console.log("getAllProduccion", send_Data)
+           this.socket.emit("getAllProduccion", send_Data, callback);
+  }
+
+  public getAllVentasIndustria(callback){
+    let send_Data = { codigo: this.codigo, player_name: this.player.name }
+      console.log("getAllVentasIndustria", send_Data)
+           this.socket.emit("getAllVentasIndustria", send_Data, callback);
+  }
+
+    public getPromedioUtilidadNeta(callback){
+    let send_Data = { codigo: this.codigo, player_name: this.player.name }
+      console.log("getPromedioUtilidadNeta", send_Data)
+           this.socket.emit("getPromedioUtilidadNeta", send_Data, callback);
   }
 }
 class Player {

@@ -85,7 +85,7 @@ exports.getBalanceGeneralPorCodigoDeJuegoNombreNumero = (codigo, nombre, numero,
     db.get("select * from balanceGeneral where codigo = ? AND jugador = ? AND numero = ? ",[codigo,nombre,numero], callback)
 }
 
-exports.getCostoProduccionPorCodigoDeJuegoNombreNumero = (codigo, nombre, numero, callback) => {
+exports.getCostoProduccionPorCodigoDeJuegoNombreNumeroF = (codigo, nombre, numero, callback) => {
     db.get("select * from costosProduccion where codigo = ? AND jugador = ? AND numero = ? ",[codigo,nombre,numero], callback)
 }
 
@@ -93,9 +93,9 @@ exports.getBalanceGeneralPorCodigoDeJuegoNombre = (codigo,nombre,callback) => {
     db.all("select * from balanceGeneral where codigo = ? AND jugador = ?",[codigo,nombre], callback)
 }
 
-exports.getAllVisionGeneralByCodigoYNumero = (codigo, numero,callback) => {
+/*exports.getAllVisionGeneralByCodigoYNumero = async(codigo, numero,callback) => {
     db.all("select * from visionGeneral where codigo = ?  AND numero = ? " ,[codigo,numero], callback)
-}
+}*/
 
 exports.getAllEstadoResultadosPorCodigoDeJuegoNombre = async(codigo, nombre) => {
     return new Promise((resolve,reject)=>{
@@ -114,4 +114,149 @@ exports.getAllEstadoResultadosPorCodigoDeJuegoNombre = async(codigo, nombre) => 
         return []
     })
     
+}
+
+exports.getAllVisionGeneralByCodigoYNumero = async(codigo, numero,callback) => {
+    return new Promise((resolve,reject)=>{
+        db.all("select * from visionGeneral where codigo = ?  AND numero = ? ",[codigo,numero], (error,res)=>{
+            if(error){
+                reject(error)
+            }else{
+                resolve(res)
+            }
+        })
+    }).then(response=>{
+        console.log("esta funcionando getAllVisionGeneralByCodigoYNumero", response)
+        return response
+    }).catch(error=>{        
+        console.log("error con funcionando getAllVisionGeneralByCodigoYNumero", response)
+        return []
+    })
+}
+
+exports.getProduccionPorCodigoDeJuegoNombreNumeroF = async(codigo, nombre, numero, callback) => {
+    return new Promise((resolve,reject)=>{
+        db.get("select * from produccion where codigo = ? AND jugador = ? AND numero = ? ",[codigo,nombre,numero], (error,res)=>{
+            if(error){
+                reject(error)
+            }else{
+                resolve(res)
+            }
+        })
+    }).then(response=>{
+        console.log("esta funcionando getProduccionPorCodigoDeJuegoNombreNumeroF", response)
+        return response
+    }).catch(error=>{        
+        console.log("error con funcionando getProduccionPorCodigoDeJuegoNombreNumeroF", response)
+        return null
+    })
+}
+
+exports.getVentasIndustriaPorCodigoDeJuegoNombreNumeroF = async(codigo, nombre, numero, callback) => {
+    return new Promise((resolve,reject)=>{
+        db.get("select * from ventasIndustria where codigo = ? AND jugador = ? AND numero = ? ",[codigo,nombre,numero], (error,res)=>{
+            if(error){
+                reject(error)
+            }else{
+                resolve(res)
+            }
+        })
+    }).then(response=>{
+        console.log("esta funcionando getVentasIndustriaPorCodigoDeJuegoNombreNumeroF", response)
+        return response
+    }).catch(error=>{        
+        console.log("error con funcionando getVentasIndustriaPorCodigoDeJuegoNombreNumeroF", response)
+        return null
+    })
+}
+
+exports.getCostoProduccionPorCodigoDeJuegoNombreNumeroF = async(codigo, nombre, numero, callback) => {
+    return new Promise((resolve,reject)=>{
+        db.get("select * from costosProduccion where codigo = ? AND jugador = ? AND numero = ? ",[codigo,nombre,numero], (error,res)=>{
+            if(error){
+                reject(error)
+            }else{
+                resolve(res)
+            }
+        })
+    }).then(response=>{
+        console.log("esta funcionando getCostoProduccionPorCodigoDeJuegoNombreNumeroF", response)
+        return response
+    }).catch(error=>{        
+        console.log("error con funcionando getCostoProduccionPorCodigoDeJuegoNombreNumeroF", response)
+        return null
+    })
+}
+
+exports.getVentasPorCodigoDeJuegoNombreNumeroF = async(codigo, nombre, numero, callback) => {
+    return new Promise((resolve,reject)=>{
+        db.get("select * from ventas where codigo = ? AND jugador = ? AND numero = ? ",[codigo,nombre,numero], (error,res)=>{
+            if(error){
+                reject(error)
+            }else{
+                resolve(res)
+            }
+        })
+    }).then(response=>{
+        console.log("esta funcionando getVentasPorCodigoDeJuegoNombreNumeroF", response)
+        return response
+    }).catch(error=>{        
+        console.log("error con funcionando getVentasPorCodigoDeJuegoNombreNumeroF", response)
+        return null
+    })
+}
+
+exports.getBalanceGeneralPorCodigoDeJuegoNombreNumeroF = async(codigo, nombre, numero, callback) => {
+    return new Promise((resolve,reject)=>{
+        db.get("select * from balanceGeneral where codigo = ? AND jugador = ? AND numero = ? ",[codigo,nombre,numero], (error,res)=>{
+            if(error){
+                reject(error)
+            }else{
+                resolve(res)
+            }
+        })
+    }).then(response=>{
+        console.log("esta funcionando getBalanceGeneralPorCodigoDeJuegoNombreNumeroF", response)
+        return response
+    }).catch(error=>{        
+        console.log("error con funcionando getBalanceGeneralPorCodigoDeJuegoNombreNumeroF", response)
+        return null
+    })
+}
+
+exports.getAllProduccionIndustriaPorCodigoDeJuegoNombreF = async(codigo, nombre) => {
+    return new Promise((resolve,reject)=>{
+        db.all("select * from produccion where codigo = ? AND jugador = ? ",[codigo,nombre], (error,res)=>{
+            if(error){
+                reject(error)
+            }else{
+                resolve(res)
+            }
+        })
+    }).then(response=>{
+        console.log("esta funcionando getAllProduccionIndustriaPorCodigoDeJuegoNombreF", response)
+        return response
+    }).catch(error=>{        
+        console.log("error con funcionando getAllProduccionIndustriaPorCodigoDeJuegoNombreF", response)
+        return []
+    })
+    
+}
+
+exports.getAllVentasIndustriaPorCodigoDeJuegoNombreF = async(codigo, nombre) => {
+    return new Promise((resolve,reject)=>{
+        db.all("select * from ventasIndustria where codigo = ? AND jugador = ? ",[codigo,nombre], (error,res)=>{
+            if(error){
+                reject(error)
+            }else{
+                resolve(res)
+            }
+        })
+    }).then(response=>{
+        console.log("esta funcionando getAllVentasIndustriaPorCodigoDeJuegoNombreF", response)
+        return response
+    }).catch(error=>{        
+        console.log("error con funcionando getAllVentasIndustriaPorCodigoDeJuegoNombreF", response)
+        return []
+    })
 }
