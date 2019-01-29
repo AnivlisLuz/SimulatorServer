@@ -605,7 +605,7 @@ export class TablaDeDecisionComponent implements OnInit {
   }
   analisis() {
     this.tap_position = 4;
-    /*this.http.game.getAllProduccion((response) => {
+    this.http.game.getAllProduccion((response) => {
             console.log("getAllProduccion front", response)
             this.produccionIndustriaBimestres=response
           });
@@ -625,7 +625,7 @@ export class TablaDeDecisionComponent implements OnInit {
     this.http.game.getSumatoriaCapacidadProduccion((response) => {
             console.log("getSumatoriaCapacidadProduccion  front", response)
             this.sumatoriaCapacidadProduccion=response
-          });*/
+          });
     this.http.game.getPromedioPrecioUnitarios((response) => {
             console.log("getPromedioPrecioUnitarios  front", response)
             this.promedioPrecioUnitarios=response

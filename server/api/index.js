@@ -535,7 +535,7 @@ class Mercado {
             for (let i=0;i<estadoResultadosListMiEmpresa.length;i++)
             {
                 indice=i;
-                console.log("indice",indice)
+                //console.log("indice",indice)
                 let suma = 0
                 for (let j=0;j<empresas.length;j++)
                 {
@@ -608,7 +608,7 @@ class Mercado {
             console.log("bimestres =>",bimestres)
             for (let i = 1; i < 4; i++) {
                 indice=0
-                console.log("indice==>",indice)
+                //console.log("indice==>",indice)
                 for (let j = 0; j < bimestres.length; j++) {
                     bimestre=bimestres[j]
                     if (bimestre.numero==indice) {
@@ -620,11 +620,11 @@ class Mercado {
 
                 if(cantidad!=0)
                     suma = suma / cantidad;
-                console.log("suma",suma,"  ",indice)
+                //console.log("suma",suma,"  ",indice)
                 promedioPrecioUnitarios.push(suma)
                 suma = 0;
                 cantidad = 0;
-                console.log("fin for")
+                //console.log("fin for")
             }
             return  promedioPrecioUnitarios
         }
