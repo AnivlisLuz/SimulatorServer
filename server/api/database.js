@@ -260,3 +260,26 @@ exports.getAllVentasIndustriaPorCodigoDeJuegoNombreF = async(codigo, nombre) => 
         return []
     })
 }
+
+
+exports.getAllBimestresByCodigo = async(codigo) => {
+    return new Promise((resolve,reject)=>{
+        db.all("select * from bimestre where codigo = ? ",[codigo], (error,res)=>{
+            if(error){
+                reject(error)
+            }else{
+                resolve(res)
+            }
+        })
+    }).then(response=>{
+        console.log("esta funcionando getAllBimestresByCodigo", response)
+        return response
+    }).catch(error=>{        
+        console.log("error con funcionando getAllBimestresByCodigo", response)
+        return []
+    })
+}
+/*
+exports.getAllBimestresByCodigo = (codigo,callback) => {
+    db.all("select * from bimestre where codigo = ?" ,[codigo], callback)
+}*/

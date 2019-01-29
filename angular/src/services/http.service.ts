@@ -246,6 +246,16 @@ class Game {
       console.log("getPromedioUtilidadNeta", send_Data)
            this.socket.emit("getPromedioUtilidadNeta", send_Data, callback);
   }
+    public getSumatoriaCapacidadProduccion(callback){
+    let send_Data = { codigo: this.codigo, player_name: this.player.name }
+      console.log("getSumatoriaCapacidadProduccion", send_Data)
+           this.socket.emit("getSumatoriaCapacidadProduccion", send_Data, callback);
+  }
+    public getPromedioPrecioUnitarios(callback){
+    let send_Data = { codigo: this.codigo, player_name: this.player.name }
+      console.log("getPromedioPrecioUnitarios", send_Data)
+           this.socket.emit("getPromedioPrecioUnitarios", send_Data, callback);
+  }
 }
 class Player {
   name: string

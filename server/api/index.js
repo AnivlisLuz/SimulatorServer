@@ -274,17 +274,48 @@ exports.setSocket = io => {
                 client("error con el codigo")
             }
         })
+
             socket.on('getPromedioUtilidadNeta', (data, client) => {
             console.log("getPromedioUtilidadNeta socket =>", data)
 
             let _mercado = mercados[data.codigo]
             if (_mercado) {
-                _mercado.getPromedioUtilidadNeta(data).then(result=>{
-                    client(result)
+               _mercado.getPromedioUtilidadNeta(data).then(result=>{
+                client(result)                     
                 io.sockets.emit("getPromedioUtilidadNeta(data)", result)
-                }).catch(error=>{
-                    client("error con el socket")                                                            
-                })
+               }) .catch(error=>{        
+                client("error con el socket")
+            })              
+            } else {
+                client("error con el codigo")
+            }
+        })
+            socket.on('getSumatoriaCapacidadProduccion', (data, client) => {
+            console.log("getSumatoriaCapacidadProduccion socket =>", data)
+
+            let _mercado = mercados[data.codigo]
+            if (_mercado) {
+               _mercado.getSumatoriaCapacidadProduccion(data).then(result=>{
+                client(result)                     
+                io.sockets.emit("getSumatoriaCapacidadProduccion(data)", result)
+               }) .catch(error=>{        
+                client("error con el socket")
+            })              
+            } else {
+                client("error con el codigo")
+            }
+        })
+            socket.on('getPromedioPrecioUnitarios', (data, client) => {
+            console.log("getPromedioPrecioUnitarios socket =>", data)
+
+            let _mercado = mercados[data.codigo]
+            if (_mercado) {
+               _mercado.getPromedioPrecioUnitarios(data).then(result=>{
+                client(result)                     
+                io.sockets.emit("getPromedioPrecioUnitarios(data)", result)
+               }) .catch(error=>{        
+                client("error con el socket")
+            })              
             } else {
                 client("error con el codigo")
             }
@@ -485,46 +516,119 @@ class Mercado {
         }
     }
 
-   async getPromedioUtilidadNeta(data)
+    async getPromedioUtilidadNeta(data)
     {
         let player_tmp = this.players[data.player_name]
         if (player_tmp) {
-            let estadoResultados =[];
+            let empresas=[]
             let promedioERUtilidadNeta =[]
-            let resultadosList=[]
-            let estadoResultadosListMiEmpresa=[]
-            let empresas = []
-            cantidad = 0;
-            indice=0;
+            let estadoResultadosListMiEmpresa =[];
+            let empresa = {}
+            let estadoResultadosPersonal={}
             estadoResultadosListMiEmpresa= await  db.getAllEstadoResultadosPorCodigoDeJuegoNombre(data.codigo,data.player_name)
-            console.log("estadoResultadosListMiEmpresa =>",estadoResultadosListMiEmpresa.length)
+            console.log("getPromedioUtilidadNeta socket =>", estadoResultadosListMiEmpresa)
             for (let player in this.players) {
                 empresas.push(this.players[player].toString())
             }
-            console.log("players =>",empresas)
-            console.log("estadoResultadosListMiEmpresa =>",estadoResultadosListMiEmpresa.length)
+            let indice=0
 
-
-            for(let i=0;i<estadoResultadosListMiEmpresa.length;i++)
+            for (let i=0;i<estadoResultadosListMiEmpresa.length;i++)
             {
-                suma = 0;
+                indice=i;
+                console.log("indice",indice)
+                let suma = 0
                 for (let j=0;j<empresas.length;j++)
                 {
                     empresa=empresas[j]
                     if (empresa.name!=data.player_name)
                     {
-                        estadoResultadosPersonal= await  db.getEstadoResultadosPorCodigoDeJuegoNombreNumero(data.codigo,empresa.name,i)
-                        suma = suma+estadoResultadosPersonal.utilidadNeta;        
+                        db.getEstadoResultadosPorCodigoDeJuegoNombreNumero(data.codigo,empresa.name,indice,  function(error, res) {
+                        if (error) {
+                            console.log("error")
+                        } else {
+                            estadoResultadosPersonal=res
+                        }
+                        console.log("estadoResultadosPersonal",estadoResultadosPersonal)
+                        suma+=(estadoResultadosPersonal.utilidadNeta)        
+                    })
                     }
                 }
                 suma=suma/(empresas.length-1)
                 promedioERUtilidadNeta.push(suma)
             }
+
             console.log("promedioERUtilidadNeta =>",promedioERUtilidadNeta)
             return promedioERUtilidadNeta
         }
     }
-    
+
+    async getSumatoriaCapacidadProduccion(data)
+    {
+        let player_tmp = this.players[data.player_name]
+        if (player_tmp) {
+            let sumatoriaCapacidadProduccion =[]
+            let bimestres = []
+            let bimestre ={}
+            console.log("bimestres =>",bimestres)
+             bimestres= await  db.getAllBimestresByCodigo(data.codigo)
+            console.log("bimestres =>",bimestres)
+
+            let suma=0;
+
+            for(let i=1;i<4;i++)
+            {
+                for(let j=0;j<bimestres.length;j++)
+                {
+                    bimestre=bimestres[j]
+                    console.log("bimestre =>",bimestre)
+                    if(bimestre.numero==i)
+                    {
+                        suma=suma+bimestre.numero*50+850
+                    }
+                }
+                sumatoriaCapacidadProduccion.push(suma)
+                suma=0;
+            }
+            console.log("sumatoriaCapacidadProduccion =>",sumatoriaCapacidadProduccion)
+            return  sumatoriaCapacidadProduccion
+        }
+    }
+    async getPromedioPrecioUnitarios(data)
+    {
+        let player_tmp = this.players[data.player_name]
+        if (player_tmp) {
+            let bimestres=[]
+            let suma=0
+            let cantidad=0
+            let promedioPrecioUnitarios=[]
+            let bimestre={}
+            let indice=0
+            console.log("bimestres =>",bimestres)
+             bimestres= await  db.getAllBimestresByCodigo(data.codigo)
+            console.log("bimestres =>",bimestres)
+            for (let i = 1; i < 4; i++) {
+                indice=0
+                console.log("indice==>",indice)
+                for (let j = 0; j < bimestres.length; j++) {
+                    bimestre=bimestres[j]
+                    if (bimestre.numero==indice) {
+
+                        suma = suma + bimestre.precioUnitario
+                        cantidad+=1
+                    }
+                }
+
+                if(cantidad!=0)
+                    suma = suma / cantidad;
+                console.log("suma",suma,"  ",indice)
+                promedioPrecioUnitarios.push(suma)
+                suma = 0;
+                cantidad = 0;
+                console.log("fin for")
+            }
+            return  promedioPrecioUnitarios
+        }
+    }
 }
 
 mercados["a"] = new Mercado("nombre mercardo", 2, "a")
