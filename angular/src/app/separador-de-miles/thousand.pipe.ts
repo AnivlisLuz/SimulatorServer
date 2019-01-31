@@ -8,6 +8,13 @@ import { DecimalPipe } from '@angular/common';
 export class ThousandsPipe implements PipeTransform {
 
     public transform(value: any) {
-        return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+        // console.log(value)
+        let res=value;
+        try {
+            res = value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+        } catch (e) {
+            console.log(e)
+        }
+        return res
     }
 }
