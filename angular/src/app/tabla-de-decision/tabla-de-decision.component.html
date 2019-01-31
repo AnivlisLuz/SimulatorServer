@@ -91,7 +91,7 @@
                   <img src="/imagenes/LOGO SIMULADOR FINAL.png" style="float: right; width: 250px;"><br /><br /><br />
                   UNA BREVE HISTORIA SOBRE NOSOTROS
                   <br /><br /><br /><br />
-                  La empresa {{(http.game)?http.game.name:""}}, inicio sus actividades en el año 2005.
+                  La empresa "{{(http.game)?http.game.name:""}}", inicio sus actividades en el año 2005.
                   <br /><br />Desde el comienzo de nuestras actividades, nos especializamos en la venta de poleras de
                   alta
                   calidad con diseños innovadores y que están en constante actualización según las tendencias del
@@ -114,7 +114,7 @@
                 <div style="display: flex; width: 100%;">
                   <div style="width: calc(100% - 200px);">
                     <br /><br />
-                    <div class="section_body_content_title"> MISIÓN</div><br /><br />
+                    <div class="section_body_content_title" style="font-weight: bold; font-size: 22px;"> MISIÓN</div><br /><br />
                     <div style="text-align: center; font-size: 25px;">“Somos una empresa rentable que ofrece poleras
                       exclusivas de alta calidad con diseños
                       innovadores para personas que aprecian el buen vestir.”
@@ -123,7 +123,7 @@
                   <img src="/imagenes/LOGO SIMULADOR FINAL.png" style=" width: 200px;height: 200px;; ">
                 </div>
                 <div>
-                  <div class="section_body_content_title" style=" float: right; ">VISIÓN
+                  <div class="section_body_content_title" style=" float: right; font-weight: bold; font-size: 22px; ">VISIÓN
                   </div><br /><br /><br /><br /><br />
                   <div style="text-align: center; font-size: 25px;">“Ser una empresa referente en nuestro sector,
                     reconocida por su excelente trato al
@@ -156,13 +156,13 @@
                 </div>
               </div>
               <div class="section_body_content  {{section_tap_1==3 ? '' : 'tap_menu_hidden'}}" style="position: relative;">
-                <div style="background: url('/imagenes/Organigrama.JPG') no-repeat center; background-size: contain;width: calc(100% - 100px);height: calc(100% - 100px);position: absolute;top: 50px;"></div>
+                <div style="background: url('/imagenes/Organigrama.JPG') no-repeat center; background-size: contain;width: calc(110% - 110px);height: calc(110% - 110px);position: absolute;top: 50px;"></div>
                 <img src="/imagenes/LOGO SIMULADOR FINAL.png" style="float: right; width: 200px;height: 200px;position: absolute;right: 0; ">
               </div>
               <div class="section_body_content  {{section_tap_1==4 ? '' : 'tap_menu_hidden'}}"><img src="/imagenes/LOGO SIMULADOR FINAL.png"
                   style="float: right; width: 250px; ">
                 <br /> <br /> <br />
-                <div class="section_body_content_title"> BIENVENIDO A LA EMPRESA
+                <div class="section_body_content_title" style="font-weight: bold;"> BIENVENIDO A LA EMPRESA
                 </div><br /> <br />
                 <div style="padding-left:50px;">
                   Hoy la empresa se encuentra en las mismas condiciones que la competencia y no ha crecido en el
@@ -234,7 +234,7 @@
                       value=500></td>
                 </tr>
                 <tr>
-                  <td>INVERSION EN MARKETING</td>
+                  <td>INVERSIÓN EN MARKETING</td>
                   <td>{{(http.game.player&&http.game.player.bimestre_inicial)?http.game.player.bimestre_inicial.inversionEnMarketing:""}}</td>
                   <td>{{(http.game.player&&http.game.player.bimestre_uno)?http.game.player.bimestre_uno.inversionEnMarketing:""}}</td>
                   <td>{{(http.game.player&&http.game.player.bimestre_dos)?http.game.player.bimestre_dos.inversionEnMarketing:""}}</td>
@@ -249,11 +249,11 @@
 
                 </tr>
                 <tr>
-                  <td>INVERSION EN INVESTIGACIÓN</td>
-                  <td>{{(http.game.player&&http.game.player.bimestre_inicial)?http.game.player.bimestre_inicial.inversionEnInvestigacion:""}}</td>
-                  <td>{{(http.game.player&&http.game.player.bimestre_uno)?http.game.player.bimestre_uno.inversionEnInvestigacion:""}}</td>
-                  <td>{{(http.game.player&&http.game.player.bimestre_dos)?http.game.player.bimestre_dos.inversionEnInvestigacion:""}}</td>
-                  <td>{{(http.game.player&&http.game.player.bimestre_tres)?http.game.player.bimestre_tres.inversionEnInvestigacion:""}}</td>
+                  <td>INVERSIÓN EN INVESTIGACIÓN</td>
+                  <td>{{(http.game.player&&http.game.player.bimestre_inicial)?http.game.player.bimestre_inicial.inversionEnInvestigacion:"" | thousandPipe}}</td>
+                  <td>{{(http.game.player&&http.game.player.bimestre_uno)?http.game.player.bimestre_uno.inversionEnInvestigacion:"" | thousandPipe}}</td>
+                  <td>{{(http.game.player&&http.game.player.bimestre_dos)?http.game.player.bimestre_dos.inversionEnInvestigacion:"" | thousandPipe}}</td>
+                  <td>{{(http.game.player&&http.game.player.bimestre_tres)?http.game.player.bimestre_tres.inversionEnInvestigacion:"" | thousandPipe}}</td>
                   <td id="inversionEnInvestigacionTD">
                     <!-- <input type="number" id="inversionEnInvestigacion" name="inversionEnInvestigacion"[(ngModel)]="bimestreActual.inversionEnInvestigacion" min="0" value=1500> -->
                     <select class="input-width" (change)="onChangeinversionEnInvestigacions($event.target.value)" type="number">
@@ -263,7 +263,7 @@
 
                 </tr>
                 <tr>
-                  <td>INVERSION EN ACTIVOS</td>
+                  <td>INVERSIÓN EN ACTIVOS</td>
                   <td>{{(http.game.player&&http.game.player.bimestre_inicial)?http.game.player.bimestre_inicial.inversionEnActivos:""}}</td>
                   <td>{{(http.game.player&&http.game.player.bimestre_uno)?http.game.player.bimestre_uno.inversionEnActivos:""}}</td>
                   <td>{{(http.game.player&&http.game.player.bimestre_dos)?http.game.player.bimestre_dos.inversionEnActivos:""}}</td>
@@ -302,29 +302,30 @@
                 <ul style="list-style-type:none">
                   <li> <span> <i class="material-icons" (click)="general()" style="font-size:18px; color:blue;cursor: pointer">
                         arrow_right</i></span> CAPITAL PERIODO
-                    ANTERIOR&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{capitalPeriodoAnterior}}</li>
+                    ANTERIOR&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{capitalPeriodoAnterior | thousandPipe}}</li>
                   <li><span> <i class="material-icons" (click)="ingresoDiv()" style="font-size:18px; color:blue;cursor: pointer">arrow_drop_down</i></span>
                     INGRESOS&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    {{precioUnitario*produccion+10000}}</li>
+                    {{precioUnitario*produccion+10000 | thousandPipe}}</li>
                   <div id="div-ingresos" style="padding-left: 20%">
-                    <pre>VENTAS                     {{precioUnitario*produccion}} </pre>
-                    <pre>OTROS INGRESOS             10000</pre>
+                    <pre>VENTAS                     {{precioUnitario*produccion | thousandPipe}} </pre>
+                    <pre>OTROS INGRESOS             {{ 10000 | thousandPipe}}</pre>
                   </div>
                   <li><span> <i class="material-icons" (click)="gastosDiv()" style="font-size:18px; color:blue ;cursor: pointer">arrow_drop_down</i></span>GASTOS&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     {{inversionEnMarketing +inversionEnInvestigacion+
                     inversionEnActivos+produccion*35
-                    +30770}}</li>
+                    +30770 | thousandPipe}}</li>
                   <div id="div-gastos" style="padding-left: 20%">
-                    <pre>PRODUCCIÓN                 {{produccion*35 +30770}}</pre>
-                    <pre>MARKETING                  {{inversionEnMarketing}}</pre>
-                    <pre>INV. ACTIVOS               {{inversionEnActivos}}</pre>
-                    <pre>INV. INVESTIGACIÓN         {{inversionEnInvestigacion}}</pre>
+                    <pre>PRODUCCIÓN                 {{produccion*35 +30770 | thousandPipe}}</pre>
+                    <pre>INV. MARKETING                  {{inversionEnMarketing | thousandPipe}}</pre>
+                    <pre>INV. INVESTIGACIÓN         {{inversionEnInvestigacion | thousandPipe}}</pre>
+                    <pre>INV. ACTIVOS               {{inversionEnActivos | thousandPipe}}</pre>
+                    
                   </div>
                   <li><span> <i class="material-icons" (click)="resultadosDiv()" style="font-size:18px; color:blue;cursor: pointer">arrow_drop_down</i></span>RESULTADO
                   </li>
                   <div id="div-resultados" style="padding-left: 20%">
-                    <pre>EFECTIVO DISPONIBLE        {{capitalPeriodoAnterior+10000+precioUnitario*produccion+10000-(inversionEnMarketing + inversionEnActivos+inversionEnInvestigacion)}} </pre>
-                    <pre>UTILIDAD ESPERADA          {{(precioUnitario*produccion+10000)-(inversionEnMarketing + inversionEnActivos+inversionEnInvestigacion+produccion*35 +30770)}}</pre>
+                    <pre>EFECTIVO DISPONIBLE        {{capitalPeriodoAnterior+10000+precioUnitario*produccion+10000-(inversionEnMarketing + inversionEnActivos+inversionEnInvestigacion) | thousandPipe}} </pre>
+                    <pre>UTILIDAD ESPERADA          {{(precioUnitario*produccion+10000)-(inversionEnMarketing + inversionEnActivos+inversionEnInvestigacion+produccion*35 +30770) | thousandPipe}}</pre>
                   </div>
                 </ul>
               </div>

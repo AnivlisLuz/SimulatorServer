@@ -8,7 +8,7 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./tabl-resultados.component.css']
 })
 export class TablResultadosComponent implements OnInit {
-  @Input() public estadoResultados:Array<EstadoResultados>;
+  @Input() public estadoResultados: Array<EstadoResultados>;
 
   constructor() { }
 

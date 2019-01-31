@@ -76,7 +76,14 @@ text-align: center;
 }
 .backgrounds
 {
-width:  1490px;
-height: 700px; 
+width:  1500px;
+height: 727px; 
 }
-
+.logo-cba
+{
+    width: 67%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto
+        
+}
