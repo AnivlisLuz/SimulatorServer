@@ -977,11 +977,12 @@ function calcularVentasIndustria(bimestres, ventas,ventasIndustria){
 }
 function calcularProduccion(bimestres, costosProduccion,produccion){
     produccion.produccionIndustriaValorAnterior=produccion.produccionIndustriaValorActual
-        produccion.costeMedioTotalAnterior=produccion.costeMedioTotalActual
-        produccion.costeMedioUnitarioAnteriort=produccion.costeMedioUnitarioActual
-        produccion.produccionIndustriaValorActual=0
-        produccion.costeMedioTotalActual=0
-        produccion.costeMedioUnitarioActual=0
+    produccion.costeMedioTotalAnterior=produccion.costeMedioTotalActual
+    produccion.costeMedioUnitarioAnterior=produccion.costeMedioUnitarioActual
+    produccion.capacidadProduccionAnterior=produccion.capacidadProduccionActual
+    produccion.produccionIndustriaValorActual=0
+    produccion.costeMedioTotalActual=0
+    produccion.costeMedioUnitarioActual=0
         for(let i=0;i<bimestres.length;i++){
             produccion.produccionIndustriaValorActual= produccion.produccionIndustriaValorActual+bimestres[i].produccion
         }
@@ -992,6 +993,8 @@ function calcularProduccion(bimestres, costosProduccion,produccion){
         produccion.costeMedioTotalActual=produccion.costeMedioTotalActual /costosProduccion.length
         produccion.costeMedioUnitarioActual=produccion.costeMedioUnitarioActual /costosProduccion.length
         produccion.numero=produccion.numero+1
+        produccion.capacidadProduccionActual=produccion.capacidadProduccionActual+50
+
     //db.updateProduccion(produccion)
     db.saveProduccion(produccion)
 }
@@ -1059,7 +1062,7 @@ async function calcularTodo(codigoJuego, numeroBimestre) {
             }
         })    
         await  sleep(3000)
-        empresa= new Empresa(player.name,player.codigo,player.cantidadIdealTotal,player.produccion,player.cantidadRealVendida,player.cantidadIdeal)
+        empresa= new Empresa(player.name,player.codigo,player.cantidadIdealTotal,bimestre.produccion,player.cantidadRealVendida,player.cantidadIdeal)
         empresa.calcular(empresas,bimestre.precioUnitario,bimestre.inversionEnMarketing,bimestre.inversionEnInvestigacion,bimestre.inversionEnActivos,ventasUnidades)
         db.updateEmpresa(empresa)
         cantidadRealVendida=500
