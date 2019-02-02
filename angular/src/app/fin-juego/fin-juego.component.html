@@ -2,7 +2,7 @@
   <aside>
     <div id="logo_container">
       <img id="logo_image" src="/imagenes/LOGO SIMULADOR FINAL.png">
-      <div id="nombre_empresa">{{(http.game)?http.game.name:""}}</div>
+      <div id="nombre_empresa"> Codigo de Juego: {{(http.game)?http.game.codigo:""}}</div>
     </div>
     <div class="button_tab_container" style="background-color: #135A82;">
       <button (click)="parciales()" class="boton-decision tab_menu_button" style="background-color: #135A82;">
@@ -117,7 +117,7 @@
 
             <tbody >
               <td><tr *ngFor="let visionG of http.game.players">{{visionG.name}}</tr></td>
-              <td><tr *ngFor="let visionG1 of visionGeneralUno,let visionG2 of visionGeneralDos,let visionG3 of visionGeneralTres" >{{visionG1.puntajeBeneficio}} {{visionG2.puntajeBeneficio}} {{visionG3.puntajeBeneficio}} {{visionG1.puntajeMercado}} {{visionG2.puntajeMercado}} {{visionG3.puntajeMercado}}</tr></td>
+              <td><tr *ngFor="let visionG1 of visionGeneralUno;let visionG2 of visionGeneralDos;let visionG3 of visionGeneralTres" >{{visionG1.puntajeBeneficio+visionG2.puntajeBeneficio+visionG3.puntajeBeneficio+visionG1.puntajeMercado+visionG2.puntajeMercado+visionG3.puntajeMercado}}</tr></td>
             </tbody>
               </table>
             </div>

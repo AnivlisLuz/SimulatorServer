@@ -109,6 +109,7 @@ class Game {
   bimestre_dos_c: number
   bimestre_tres_c: number
   cantidadTotalJugadores:number
+  moderator:string
   constructor(socket: Socket) {
     this.socket = socket
     socket.on("update_state", (data) => {
@@ -140,6 +141,7 @@ class Game {
         this.bimestre_dos_c = data.size - bimestre_dos_count
         this.bimestre_tres_c = data.size - bimestre_tres_count
         this.cantidadTotalJugadores=data.size
+        this.moderator=this.codigo
         console.log(this.bimestre_inicial_c, this.bimestre_uno_c, this.bimestre_dos_c, this.bimestre_tres_c)
       } else {
         console.log("no es de este mercado")
@@ -255,6 +257,11 @@ class Game {
     let send_Data = { codigo: this.codigo, player_name: this.player.name }
       console.log("getPromedioPrecioUnitarios", send_Data)
            this.socket.emit("getPromedioPrecioUnitarios", send_Data, callback);
+  }
+  public joinGameModerator(data, callback) {
+    console.log("join game moderator", data)
+    this.socket.emit("joinGameModerator", data, callback);
+
   }
 }
 class Player {

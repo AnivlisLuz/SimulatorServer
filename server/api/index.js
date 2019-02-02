@@ -320,6 +320,16 @@ exports.setSocket = io => {
                 client("error con el codigo")
             }
         })
+            socket.on('joinGameModerator', (data, client) => {
+            console.log("socket joinGameModerator =>", data)
+            let _mercado = mercados[data] 
+            if (_mercado) {
+                client(_mercado.setModerator(data))  
+                io.sockets.emit("getPlayers", _mercado.getPlayers())
+            } else {
+                client("error con el codigo")
+            }
+        })
     });
 }
 
@@ -333,6 +343,7 @@ class Mercado {
         this.mercado=2675
         this.mercadoDesatendido=175
         this.porcentajeMercadoDesatendido=0
+        this.moderador=token
     }
     addPlayer(name,codigo) {
         let player_tmp = this.players[name]
@@ -628,6 +639,14 @@ class Mercado {
             }
             return  promedioPrecioUnitarios
         }
+    }
+    setModerator(codigo) {
+                                            console.log("socket aqui =>",  this.moderador)
+
+        this.moderador=codigo
+                                    console.log("socket aqui =>",  this.moderador)
+
+            return { message: "ok" }
     }
 }
 

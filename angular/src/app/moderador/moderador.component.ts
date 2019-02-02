@@ -1,6 +1,6 @@
 import { Moderador } from '../../models/moderador';
 import { Component, OnInit } from '@angular/core';
-
+import { RouterLink, Router } from '@angular/router';
 import { HttpService } from './../../services/http.service';
 import { Http } from '@angular/http';
 @Component({
@@ -10,7 +10,7 @@ import { Http } from '@angular/http';
 })
 export class ModeradorComponent implements OnInit {
   moderador: Moderador;
-  constructor(private http: HttpService, ) {
+  constructor(private http: HttpService, private router: Router) {
     this.moderador = new Moderador();
   }
 
@@ -19,7 +19,14 @@ export class ModeradorComponent implements OnInit {
   onClickMe() {
     this.http.game.createGame( this.moderador, (response) => {
       if (response.message && response.message == "ok")
+      {
         alert(`Creado correctamente, Codigo: ${response.token}`)
+
+        this.http.game.joinGameModerator( response.token, (response) => {
+          if (response.message && response.message == "ok") {
+            this.router.navigate(['/fin']);
+          }
+      }
       else
         alert(`Error: ${response}`)
     })
