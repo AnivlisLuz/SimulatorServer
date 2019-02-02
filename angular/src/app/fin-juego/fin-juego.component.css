@@ -37,9 +37,9 @@ aside {
   height: 100%;
 }
 
-/*.tap_menu_hidden {
+.tap_menu_hidden {
   display: none;
-}*/
+}
 
 .tab_menu_description {
   font-size: 15px;
@@ -194,7 +194,7 @@ table#t01 tr {
   height: 60px;
 }
 
-table#t01 tr:nth-child(odd) {
+/*table#t01 tr:nth-child(odd) {
   background-color: #fff;
 
 }
@@ -202,7 +202,7 @@ table#t01 tr:nth-child(odd) {
 table#t01 tr:nth-child(even) {
   background-color: rgb(116, 197, 233);
 
-}
+}*/
 
 table#t01 th {
   background-color: rgb(24, 76, 133);

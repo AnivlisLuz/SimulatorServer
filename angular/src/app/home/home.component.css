@@ -56,7 +56,7 @@ text-align: center;
 .box .inputBox input:focus ~ label,
 .box .inputBox input:valid ~ label
 {
-    top: -18px;
+    top: -14px;
     left: 0;
     color: #03a9f4;
     font-size: 12px;
@@ -86,4 +86,12 @@ height: 727px;
     margin-left: auto;
     margin-right: auto
         
+}
+
+.ng-valid[required], .ng-valid.required  {
+  border-left: 3px solid rgb(0, 139, 208);
+}
+
+.ng-invalid:not(form)  {
+  border-left: 3px solid #a94442;
 }

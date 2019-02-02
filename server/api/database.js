@@ -35,7 +35,7 @@ exports.saveVentasIndustria = (ventasi) => {
     db.run("insert into ventasIndustria(ventasIndustriaUnidadesActual,ventasIndustriaUnidadesAnterior,ventasIndustriaMonetarioActual,ventasIndustriaMonetarioAnterior,precioUnitarioPromedioActual,precioUnitarioPromedioAnterior,inventarioPromediosActual,inventarioPromediosAnterior, numero, codigo,jugador) values(?,?,?,?,?,?,?,?,?,?,?)", [ventasi.ventasIndustriaUnidadesActual,ventasi.ventasIndustriaUnidadesAnterior,ventasi.ventasIndustriaMonetarioActual,ventasi.ventasIndustriaMonetarioAnterior,ventasi.precioUnitarioPromedioActual,ventasi.precioUnitarioPromedioAnterior,ventasi.inventarioPromediosActual,ventasi.inventarioPromediosAnterior, ventasi.numero, ventasi.codigo,ventasi.jugador])    
 }
 exports.saveVisionGeneral = (vision) => {
-    db.run("insert into visionGeneral(ventas,beneficio,precioUnitario,porcentajeDeMercado,numero,codigo, jugador) values(?,?,?,?,?,?,?)", [vision.ventas,vision.beneficio,vision.precioUnitario,vision.porcentajeDeMercado,vision.numeroBimestre,vision.codigo,vision.jugador])    
+    db.run("insert into visionGeneral(ventas,beneficio,precioUnitario,porcentajeDeMercado,numero,codigo, jugador,puntajeBeneficio,puntajeMercado) values(?,?,?,?,?,?,?,?,?)", [vision.ventas,vision.beneficio,vision.precioUnitario,vision.porcentajeDeMercado,vision.numeroBimestre,vision.codigo,vision.jugador,vision.puntajeBeneficio,vision.puntajeMercado])    
 }
 
 exports.getAllBimestresByCodigoYNumero = (codigo, numero,callback) => {
@@ -93,9 +93,9 @@ exports.getBalanceGeneralPorCodigoDeJuegoNombre = (codigo,nombre,callback) => {
     db.all("select * from balanceGeneral where codigo = ? AND jugador = ?",[codigo,nombre], callback)
 }
 
-/*exports.getAllVisionGeneralByCodigoYNumero = async(codigo, numero,callback) => {
+exports.getAllVisionGeneralByCodigoYNumeroParaUpdate = async(codigo, numero,callback) => {
     db.all("select * from visionGeneral where codigo = ?  AND numero = ? " ,[codigo,numero], callback)
-}*/
+}
 
 exports.getAllEstadoResultadosPorCodigoDeJuegoNombre = async(codigo, nombre) => {
     return new Promise((resolve,reject)=>{
@@ -283,3 +283,6 @@ exports.getAllBimestresByCodigo = async(codigo) => {
 exports.getAllBimestresByCodigo = (codigo,callback) => {
     db.all("select * from bimestre where codigo = ?" ,[codigo], callback)
 }*/
+exports.updateVisionGeneral = (vision) => {
+    db.run("update  visionGeneral set puntajeBeneficio = ?,puntajeMercado= ? where codigo = ? AND numero = ? AND jugador = ?"  ,[vision.puntajeBeneficio,vision.puntajeMercado,vision.codigo,vision.numero,vision.jugador])
+}

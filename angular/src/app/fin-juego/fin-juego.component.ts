@@ -13,26 +13,65 @@ export class FinJuegoComponent implements OnInit {
   esFinJuego:boolean;
   numeroBimestre:number;
   codigo:string;
-  visionGeneral: VisionGeneral[];
+  visionGeneralUno: VisionGeneral[];
+  visionGeneralDos: VisionGeneral[];
+  visionGeneralTres: VisionGeneral[];
+    //tab manager
+  tap_position: number = 1;
 
   constructor(private http:HttpService,     private route:ActivatedRoute) {
-    this.visionGeneral= [];
+    this.visionGeneralUno= [];
+    this.visionGeneralDos= [];
+    this.visionGeneralTres= [];
+    this.cargar();
+
    }
+ cargar(){
+    if(this.http.game.bimestre_uno_c==0)
+    {
+      this.http.game.getVisionGeneral(0,(response) => {
+              console.log("getVisionGeneral front", response)
+              this.visionGeneralUno=response
+            });
+      this.visionGeneralUno.sort(function(a,b) {return (a.jugador < b.jugador) ? 1 : ((b.jugador > a.jugador) ? -1 : 0)})
 
-  ngOnInit() {
-    this.route.params.subscribe(params=>{
-      if( params['codigo']!=null){
-          this.codigo=params['codigo'];
-      }
-      });
-  }
-  cargar(){
-    this.http.get('http://localhost:8080/visionGeneral/'+this.codigo+'/'+this.numeroBimestre).subscribe(
-      (response:any) => {
-        console.log(response);
-      this.visionGeneral =response;
-  });
+    }
+    if(this.http.game.bimestre_dos_c==0)
+    {
+      this.http.game.getVisionGeneral(1,(response) => {
+              console.log("getVisionGeneral front", response)
+              this.visionGeneralDos=response
+            });
+      this.visionGeneralTres.sort(function(a,b) {return (a.jugador < b.jugador) ? 1 : ((b.jugador > a.jugador) ? -1 : 0)})
 
+    }
+    if(this.http.game.bimestre_tres_c==0)
+    {
+      this.http.game.getVisionGeneral(2,(response) => {
+              console.log("getVisionGeneral front", response)
+              this.visionGeneralTres=response
+            });
+      this.visionGeneralTres.sort(function(a,b) {return (a.jugador < b.jugador) ? 1 : ((b.jugador > a.jugador) ? -1 : 0)})
+
+    }
 }
 
+  ngOnInit() {
+    /*this.route.params.subscribe(params=>{
+      if( params['numeroBimestre']!=null){
+          this.numeroBimestre=params['numeroBimestre'];
+      }
+      this.numeroBimestre=params['numeroBimestre']
+      });*/
+  }
+  
+  parciales() {
+    this.tap_position = 1;
+    this.cargar();
+    
+  }
+  finales() {
+    this.tap_position = 2;
+    this.cargar();
+  }
 }

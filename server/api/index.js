@@ -877,6 +877,8 @@ class VisionGeneral{
         this.numeroBimestre=numeroBimestre
         this.codigo=codigo 
         this.jugador=jugador
+        this.puntajeMercado =2
+        this.puntajeBeneficio =2
     }
 }
 
@@ -1161,4 +1163,57 @@ async function calcularTodo(codigoJuego, numeroBimestre) {
                 calcularVentasIndustria(bimestres,ventasBimestre,ventasIndustria)
             }
         } 
+        
+        let visionGeneralList=[]
+        let visionGeneralElement={}
+        db.getAllVisionGeneralByCodigoYNumeroParaUpdate(codigoJuego,numeroBimestre, function(error, res){
+            if (error) {
+                console.log("error getAllVisionGeneralByCodigoYNumeroParaUpdate")
+            }
+            else{
+                visionGeneralList=res
+                console.log("llego visionGeneralList",visionGeneralList)
+            }
+        })
+        await  sleep(3000) 
+        console.log("visionGeneralList =>",visionGeneralList,"tam ",visionGeneralList.length)
+        if(visionGeneralList.length!=0)
+        {
+            visionGeneralList.sort(function(a,b) {return (a.porcentajeDeMercado > b.porcentajeDeMercado) ? 1 : ((b.porcentajeDeMercado < a.porcentajeDeMercado) ? -1 : 0)})
+            let puntaje=2*visionGeneralList.length
+            for (let i = visionGeneralList.length - 1; i >= 0; i--)
+            {
+                console.log("element",visionGeneralElement)
+
+                visionGeneralElement=visionGeneralList[i]
+                if(i>0 && visionGeneralElement.porcentajeDeMercado!=visionGeneralList[i-1].porcentajeDeMercado)
+                {
+                    visionGeneralElement.puntajeMercado=puntaje
+                    puntaje-=2;
+                }
+                else
+                {
+                    visionGeneralElement.puntajeMercado=puntaje                    
+                }
+                db.updateVisionGeneral(visionGeneralElement)
+            }
+            console.log("ordeno porcentajeDeMercado")
+            visionGeneralList.sort(function(a,b) {return (a.beneficio > b.beneficio) ? 1 : ((b.beneficio < a.beneficio) ? -1 : 0)})
+            puntaje=2*visionGeneralList.length
+            for (let i = visionGeneralList.length - 1; i >= 0; i--)
+            {
+                visionGeneralElement=visionGeneralList[i]
+                if(i>0 && visionGeneralElement.beneficio!=visionGeneralList[i-1].beneficio)
+                {
+                    visionGeneralElement.puntajeBeneficio=puntaje
+                    puntaje-=2;
+                }
+                else
+                {
+                    visionGeneralList[i].puntajeBeneficio=puntaje                    
+                }
+                db.updateVisionGeneral(visionGeneralElement)
+            }
+            console.log("como ordeno final",visionGeneralList)
+        }
 }

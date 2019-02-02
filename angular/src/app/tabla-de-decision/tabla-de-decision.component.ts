@@ -224,7 +224,7 @@ export class TablaDeDecisionComponent implements OnInit {
                 this.http.game.addBimestreTres(data_bimestre, (response) => {
                   console.log("addBimestreTres", response)
                 })
-                if(this.http.game.cantidadTotalJugadores-1==this.http.game.bimestre_tres_c)
+                if(this.http.game.bimestre_tres_c==1)
                 {
                   this.obtenerTodosLosDatos();
                 }
@@ -238,7 +238,7 @@ export class TablaDeDecisionComponent implements OnInit {
             this.http.game.addBimestreDos(data_bimestre, (response) => {
               console.log("addBimestreDos", response)
             })
-            if(this.http.game.cantidadTotalJugadores-1==this.http.game.bimestre_dos_c)
+            if(this.http.game.bimestre_dos_c==1)
                 {this.obtenerTodosLosDatos();
                 }
           }
@@ -251,7 +251,7 @@ export class TablaDeDecisionComponent implements OnInit {
         this.http.game.addBimestreUno(data_bimestre, (response) => {
           console.log("addBimestreUno", response)
         })
-         if(this.http.game.cantidadTotalJugadores-1==this.http.game.bimestre_uno_c)
+         if(this.http.game.bimestre_uno_c==1)
                 {this.obtenerTodosLosDatos();
                 }    
           this.numeroBimestre=1;
@@ -1399,6 +1399,7 @@ export class TablaDeDecisionComponent implements OnInit {
       return false;
   }
    fin() {
+   let numerito=this.numeroBimestre
     this.router.navigateByUrl('/fin');
   }
 }
