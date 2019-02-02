@@ -34,8 +34,8 @@ export class FinJuegoComponent implements OnInit {
       this.http.game.getVisionGeneral(0,(response) => {
               console.log("getVisionGeneral front", response)
               this.visionGeneralUno=response
-    this.visionGeneralUno.sort(a,b)=>(a:{},b:{})=> {if (a.jugador < b.jugador) {return 1;}
-    if(a.jugador > b.jugador) {return -1}return 0;};
+    /*this.visionGeneralUno.sort(a,b)=>(a:{},b:{})=> {if (a.jugador < b.jugador) {return 1;}
+    if(a.jugador > b.jugador) {return -1}return 0;};*/
                   console.log("visionGeneralUno front", this.visionGeneralUno)
 
             });
@@ -46,8 +46,8 @@ export class FinJuegoComponent implements OnInit {
       this.http.game.getVisionGeneral(1,(response) => {
               console.log("getVisionGeneral front", response)
               this.visionGeneralDos=response
-      this.visionGeneralDos.sort(a,b)=>(a:{},b:{})=> {if (a.jugador < b.jugador) {return 1;}
-    if(a.jugador > b.jugador) {return -1}return 0;};
+      /*this.visionGeneralDos.sort(a,b)=>(a:{},b:{})=> {if (a.jugador < b.jugador) {return 1;}
+    if(a.jugador > b.jugador) {return -1}return 0;};*/
               console.log("visionGeneralDos front", this.visionGeneralDos)
 
             });
@@ -57,8 +57,8 @@ export class FinJuegoComponent implements OnInit {
       this.http.game.getVisionGeneral(2,(response) => {
               console.log("getVisionGeneral front", response)
               this.visionGeneralTres=response
-      this.visionGeneralTres.sort(a,b)=>(a:{},b:{})=> {if (a.jugador < b.jugador) {return 1;}
-    if(a.jugador > b.jugador) {return -1}return 0;};
+      /*this.visionGeneralTres.sort(a,b)=>(a:{},b:{})=> {if (a.jugador < b.jugador) {return 1;}
+    if(a.jugador > b.jugador) {return -1}return 0;};*/
               console.log("visionGeneralTres front", this.visionGeneralTres)
 
             });

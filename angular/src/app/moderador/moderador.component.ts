@@ -26,9 +26,9 @@ export class ModeradorComponent implements OnInit {
           if (response.message && response.message == "ok") {
             this.router.navigate(['/fin']);
           }
-      }
+      })
       else
-        alert(`Error: ${response}`)
+      alert(`Error: ${response}`)
     })
     // this.http.post('/createGame', this.moderador).subscribe(
     //   (response: any) => {
