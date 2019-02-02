@@ -21,15 +21,15 @@ export class ModeradorComponent implements OnInit {
       if (response.message && response.message == "ok")
       {
         alert(`Creado correctamente, Codigo: ${response.token}`)
-
-        this.http.game.joinGameModerator( response.token, (response) => {
+        let codigo=response.token;
+        this.http.game.joinGameModerator( codigo, (response) => {
           if (response.message && response.message == "ok") {
             this.router.navigate(['/fin']);
           }
-      })
+      });
+      }
       else
-      alert(`Error: ${response}`)
-    })
+        alert(`Error: ${response}`)
     // this.http.post('/createGame', this.moderador).subscribe(
     //   (response: any) => {
     //     if (response.status == 200) {
@@ -48,5 +48,6 @@ export class ModeradorComponent implements OnInit {
     //     alert("error con el servidor")
     //   }
     // );
+  });
   }
 }

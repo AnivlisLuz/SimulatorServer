@@ -16,7 +16,7 @@ export class FinJuegoComponent implements OnInit {
   visionGeneralUno: VisionGeneral[];
   visionGeneralDos: VisionGeneral[];
   visionGeneralTres: VisionGeneral[];
-  resultadosFinales:[]
+  resultadosFinales:number[]
     //tab manager
   tap_position: number = 1;
 
@@ -24,7 +24,6 @@ export class FinJuegoComponent implements OnInit {
     this.visionGeneralUno= [];
     this.visionGeneralDos= [];
     this.visionGeneralTres= [];
-    this.resultadosFinales=[];
     this.cargar();
 
    }
