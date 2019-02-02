@@ -15,7 +15,7 @@ export class ModeradorComponent implements OnInit {
   submitted = false;
   moderador: Moderador;
 
-  constructor(private http: HttpService,private formBuilder: FormBuilder ) {
+  constructor(private http: HttpService,private formBuilder: FormBuilder, private router: Router) {
     this.moderador = new Moderador();
   }
 
@@ -42,7 +42,7 @@ export class ModeradorComponent implements OnInit {
         let codigo=response.token;
         this.http.game.joinGameModerator( codigo, (response) => {
           if (response.message && response.message == "ok") {
-            // this.router.navigate(['/fin']);
+            this.router.navigate(['/fin']);
           }
       });
       }
