@@ -35,6 +35,13 @@ export class JugarComponent implements OnInit {
 
   get f() { return this.registerForm.controls; }
   onClickMe() {
+    this.submitted = true;
+
+    // stop here if form is invalid
+    if (this.registerForm.invalid) {return;}
+    this.nombre_empresa=this.registerForm.value.nombreE
+    this.codigo=this.registerForm.value.codigo
+
     let body_send = { player_name: this.nombre_empresa.toUpperCase(), codigo: this.codigo }
     this.http.game.joinGame( body_send, (response) => {
       if (response.message && response.message == "ok") {
@@ -44,25 +51,6 @@ export class JugarComponent implements OnInit {
       else
         alert(`Error: ${response}`)
     })
-    // this.http.post('/joinGame', body_send).subscribe(
-    //   (response: any) => {
-    //     if (response.status == 200) {
-    //       let body = JSON.parse(response._body)
-    //       if (body.message == "ok") {
-    //         alert("Tu nombre de empresa sera:" + this.nombre_empresa);
-    //         this.router.navigate(['/tabla',body_send]);
-    //       } else {
-    //         alert("error con el cogigo o la sala ya esta llena");
-    //       }
-    //       console.log('ok ' + response._body);
-    //       // this.router.navigate(['/tabla',this.jugador.nombreEmpresa,this.jugador.codigo]);
-
-    //     }
-    //     else {
-    //       console.log(response);
-    //     }
-    //   });
-    //    alert("Tu nombre de empresa sera: "+this.jugador.nombreEmpresa);
-
+   
   }
 }
