@@ -226,7 +226,7 @@ class Game {
       this.socket.emit("getEstadoResultados", send_Data, callback);
   }
     public getVisionGeneral(data,callback){
-    let send_Data = { numeroBimestre:data, codigo: this.codigo, player_name: this.player.name}
+    let send_Data = { numeroBimestre:data, codigo: this.codigo}
       console.log("getVisionGeneral", send_Data)
            this.socket.emit("getVisionGeneral", send_Data, callback);
   }
@@ -259,9 +259,10 @@ class Game {
            this.socket.emit("getPromedioPrecioUnitarios", send_Data, callback);
   }
   public joinGameModerator(data, callback) {
+    this.codigo = data;
+    this.name=data;
     console.log("join game moderator", data)
     this.socket.emit("joinGameModerator", data, callback);
-
   }
 }
 class Player {

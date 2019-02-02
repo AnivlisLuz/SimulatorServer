@@ -109,11 +109,8 @@
                   <tr>
                   <th >COMPAÑIA</th>
                   <th >Puntaje total</th>
-
-                  <!-- <th *ngFor="let visionG of visionGeneral;let i=index">BIMESTRE {{i+1}}</th> -->
                   </tr>
                 </thead>
-                {{(http.game.player&&http.game.player.bimestre_inicial)?http.game.player.bimestre_inicial.precioUnitario:""}}
 
             <tbody >
               <td><tr *ngFor="let visionG of http.game.players">{{visionG.name}}</tr></td>
