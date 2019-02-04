@@ -35,7 +35,7 @@ export class FinJuegoComponent implements OnInit {
       }
     if(this.http.game.bimestre_uno_c==0)
     {
-      this.http.game.getVisionGeneral(0,(response) => {
+      this.http.game.getVisionGeneral(1,(response) => {
               console.log("getVisionGeneral front", response)
               this.visionGeneralUno=response
               console.log("visionGeneralUno front", this.visionGeneralUno)
@@ -48,7 +48,7 @@ export class FinJuegoComponent implements OnInit {
     }
     if(this.http.game.bimestre_dos_c==0)
     {
-      this.http.game.getVisionGeneral(1,(response) => {
+      this.http.game.getVisionGeneral(2,(response) => {
               console.log("getVisionGeneral front", response)
               this.visionGeneralDos=response
               console.log("visionGeneralDos front", this.visionGeneralDos)
@@ -62,7 +62,7 @@ export class FinJuegoComponent implements OnInit {
     }
     if(this.http.game.bimestre_tres_c==0)
     {
-      this.http.game.getVisionGeneral(2,(response) => {
+      this.http.game.getVisionGeneral(3,(response) => {
               console.log("getVisionGeneral front", response)
               this.visionGeneralTres=response
               console.log("visionGeneralTres front", this.visionGeneralTres)

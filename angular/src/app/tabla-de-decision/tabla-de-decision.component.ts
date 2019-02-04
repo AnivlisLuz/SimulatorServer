@@ -224,11 +224,11 @@ export class TablaDeDecisionComponent implements OnInit {
                 this.http.game.addBimestreTres(data_bimestre, (response) => {
                   console.log("addBimestreTres", response)
                 })
+                this.numeroBimestre=3;
                 if(this.http.game.bimestre_tres_c==1)
                 {
                   this.obtenerTodosLosDatos();
                 }
-                this.numeroBimestre=3;
                 console.log("numero Bimestre front => ",this.numeroBimestre)
                 document.getElementById("numero-bimestre-siguiente").style.display="none";
                 document.getElementById("precioUnitarioTD").style.display="none";
@@ -246,10 +246,10 @@ export class TablaDeDecisionComponent implements OnInit {
             this.http.game.addBimestreDos(data_bimestre, (response) => {
               console.log("addBimestreDos", response)
             })
+            this.numeroBimestre=2;
             if(this.http.game.bimestre_dos_c==1)
                 {this.obtenerTodosLosDatos();
                 }
-            this.numeroBimestre=2;
             console.log("numero Bimestre front => ",this.numeroBimestre)
           }
         } else {
@@ -259,10 +259,10 @@ export class TablaDeDecisionComponent implements OnInit {
         this.http.game.addBimestreUno(data_bimestre, (response) => {
           console.log("addBimestreUno", response)
         })
+          this.numeroBimestre=1;
          if(this.http.game.bimestre_uno_c==1)
                 {this.obtenerTodosLosDatos();
                 }    
-          this.numeroBimestre=1;
           console.log("numero Bimestre front => ",this.numeroBimestre)
       }
     }
@@ -528,7 +528,7 @@ export class TablaDeDecisionComponent implements OnInit {
 
   tanalisis() {
     this.tap_position = 2
-     this.http.game.getVisionGeneral((this.numeroBimestre-1),(response) => {
+     this.http.game.getVisionGeneral(this.numeroBimestre,(response) => {
               console.log("getVisionGeneral front", response)
               this.visionGeneral=response
             });
@@ -571,17 +571,17 @@ export class TablaDeDecisionComponent implements OnInit {
               this.estadoResultados=response
             });
 
-     this.http.game.getBalanceGeneral((this.numeroBimestre-1), (response) => {
+     this.http.game.getBalanceGeneral(this.numeroBimestre, (response) => {
               console.log("getBalanceGeneral front", response)
               this.balanceGeneral=response
             });
   
-     this.http.game.getVentas((this.numeroBimestre-1), (response) => {
+     this.http.game.getVentas(this.numeroBimestre, (response) => {
               console.log("getVentas front", response)
               this.ventas=response
             });
             
-     this.http.game.getCostosProduccion((this.numeroBimestre-1), (response) => {
+     this.http.game.getCostosProduccion(this.numeroBimestre, (response) => {
           console.log("getCostosProduccion front", response)
           this.costoProduccion=response
             });
@@ -628,7 +628,6 @@ export class TablaDeDecisionComponent implements OnInit {
               console.log("getEstadoResultados front", response)
               this.estadoResultados=response
             });
-
     this.http.game.getSumatoriaCapacidadProduccion((response) => {
             console.log("getSumatoriaCapacidadProduccion  front", response)
             this.sumatoriaCapacidadProduccion=response
@@ -661,7 +660,7 @@ export class TablaDeDecisionComponent implements OnInit {
     // document.getElementById("info-analisisIndustria").style.display = "none";
     // document.getElementById("info-informeCompañia").style.display = "none";
     // document.getElementById("info-analisis").style.display = "block";
-    this.produccionvsventas();
+    //this.produccionvsventas();
 
   }
 
@@ -797,7 +796,9 @@ export class TablaDeDecisionComponent implements OnInit {
       }
     });
 
-    for (let i = 0; i <this.numeroBimestre; i++) {
+    for (let i = 0; i <this.produccionIndustriaBimestres.length; i++) {
+        console.log("produccionIndustriaBimestres ==> ",this.produccionIndustriaBimestres[i]);
+
       //this.LineChart2.data.labels.push("Bimestre "+this.produccionIndustriaBimestres[i].numero);
         this.LineChart2.data.datasets[0].data.push(this.produccionIndustriaBimestres[i].produccionIndustriaValorActual);
         this.LineChart2.update();
