@@ -229,7 +229,15 @@ export class TablaDeDecisionComponent implements OnInit {
                   this.obtenerTodosLosDatos();
                 }
                 this.numeroBimestre=3;
-
+                console.log("numero Bimestre front => ",this.numeroBimestre)
+                document.getElementById("numero-bimestre-siguiente").style.display="none";
+                document.getElementById("precioUnitarioTD").style.display="none";
+                document.getElementById("tabla-proyeccionesID").style.display = "none";
+                document.getElementById("boton-decisionID").style.display = "none";
+                document.getElementById("produccionTD").style.display="none";
+                document.getElementById("inversionEnMarketingTD").style.display="none";
+                document.getElementById("inversionEnInvestigacionTD").style.display="none";
+                document.getElementById("inversionEnActivosTD").style.display="none";
               }
             } else {
               alert("faltan completar el bimestre dos")
@@ -241,9 +249,9 @@ export class TablaDeDecisionComponent implements OnInit {
             if(this.http.game.bimestre_dos_c==1)
                 {this.obtenerTodosLosDatos();
                 }
-          }
             this.numeroBimestre=2;
-
+            console.log("numero Bimestre front => ",this.numeroBimestre)
+          }
         } else {
           alert("faltan completar el bimestre uno")
         }
@@ -255,7 +263,7 @@ export class TablaDeDecisionComponent implements OnInit {
                 {this.obtenerTodosLosDatos();
                 }    
           this.numeroBimestre=1;
-
+          console.log("numero Bimestre front => ",this.numeroBimestre)
       }
     }
     else {
@@ -601,7 +609,6 @@ export class TablaDeDecisionComponent implements OnInit {
     // document.getElementById("info-analisisIndustria").style.display = "none";
     // document.getElementById("info-informeCompañia").style.display = "block";
     // document.getElementById("info-analisis").style.display = "none";
-
   }
   analisis() {
     this.tap_position = 4;
@@ -790,15 +797,14 @@ export class TablaDeDecisionComponent implements OnInit {
       }
     });
 
-    for (let i = 0; i < this.ventasIndustriaBimestres.length; i++) {
-      this.LineChart2.data.labels.push("Bimestre "+this.ventasIndustriaBimestres[i].numero);
-        this.LineChart2.data.datasets[1].data.push(this.ventasIndustriaBimestres[i].ventasIndustriaUnidadesActual);
-        this.LineChart2.update();
-    }
-
-    for (let i = 0; i < this.produccionIndustriaBimestres.length; i++) {
+    for (let i = 0; i <this.numeroBimestre; i++) {
       //this.LineChart2.data.labels.push("Bimestre "+this.produccionIndustriaBimestres[i].numero);
         this.LineChart2.data.datasets[0].data.push(this.produccionIndustriaBimestres[i].produccionIndustriaValorActual);
+        this.LineChart2.update();
+    }
+        for (let i = 0; i <this.numeroBimestre; i++) {
+      this.LineChart2.data.labels.push("Bimestre "+this.ventasIndustriaBimestres[i].numero);
+        this.LineChart2.data.datasets[1].data.push(this.ventasIndustriaBimestres[i].ventasIndustriaUnidadesActual);
         this.LineChart2.update();
     }
 
@@ -869,13 +875,13 @@ export class TablaDeDecisionComponent implements OnInit {
       }
     });
 
-    for (let i = 0; i < this.promedioPrecioUnitarios.length; i++) {
+    for (let i = 0; i <this.numeroBimestre; i++) {
       this.LineChart3.data.datasets[1].data.push(this.promedioPrecioUnitarios[i]);
       this.LineChart3.data.labels.push("Bimestre "+(i+1));
       this.LineChart3.update();
     }
 
-    for (let i = 0; i < this.produccionIndustriaBimestres.length; i++) {
+    for (let i = 0; i <this.numeroBimestre; i++) {
       //this.LineChart3.data.labels.push("Bimestre "+this.produccionIndustriaBimestres[i].numero);
       if (this.produccionIndustriaBimestres[i].costeMedioUnitarioActual != 0) {
         this.LineChart3.data.datasets[0].data.push(this.produccionIndustriaBimestres[i].costeMedioUnitarioActual);
@@ -945,13 +951,13 @@ export class TablaDeDecisionComponent implements OnInit {
       }
     });
 
-    for (let i = 0; i < this.sumatoriaCapacidadProduccion.length; i++) {
+    for (let i = 0; i <this.numeroBimestre; i++) {
       this.LineChart4.data.datasets[1].data.push(this.sumatoriaCapacidadProduccion[i]);
       this.LineChart4.data.labels.push("Bimestre "+ (i+1));
       this.LineChart4.update();
     }
 
-    for (let i = 0; i < this.produccionIndustriaBimestres.length; i++) {
+    for (let i = 0; i <this.numeroBimestre; i++) {
       //this.LineChart4.data.labels.push("Bimestre "+this.produccionIndustriaBimestres[i].numero);
       if (this.produccionIndustriaBimestres[i].costeMedioUnitarioActual != 0) {
         this.LineChart4.data.datasets[0].data.push(this.produccionIndustriaBimestres[i].costeMedioUnitarioActual);
@@ -1023,12 +1029,12 @@ export class TablaDeDecisionComponent implements OnInit {
       }
     });
 
-    for (let i = 0; i < this.promedioERUtilidadNeta.length; i++) {
+    for (let i = 0; i <this.numeroBimestre; i++) {
       this.LineChart5.data.datasets[1].data.push(this.promedioERUtilidadNeta[i]);
       this.LineChart5.data.labels.push("Bimestre "+(i+1));
       this.LineChart5.update();
     }
-    for (let i = 0; i < this.estadoResultados.length; i++) {
+    for (let i = 0; i <this.numeroBimestre; i++) {
       this.LineChart5.data.datasets[0].data.push(this.estadoResultados[i].utilidadNeta);
       //this.LineChart5.data.labels.push("Bimestre "+(i+1));
       this.LineChart5.update();
@@ -1287,7 +1293,8 @@ export class TablaDeDecisionComponent implements OnInit {
       options: {
         title: {
           text: "% Mercado",
-          display: true
+          display: true,
+          responsive: false
         }
       }
     });

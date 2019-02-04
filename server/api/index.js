@@ -393,6 +393,7 @@ class Mercado {
         for (let player in this.players) {
             res.push(this.players[player].toString())
         }
+        ordenarPlayersPorNombreAsc(res)
         return { size: this.cantidad_judagores, players: res, codigo: this.token }
     }
     calcular(empresas){
@@ -500,6 +501,7 @@ class Mercado {
         let visionGeneral =[];
         console.log("getVisionGeneral socket =>", visionGeneral)
         visionGeneral= await  db.getAllVisionGeneralByCodigoYNumero(data.codigo,data.numeroBimestre)
+        ordenarJugadoresPorJugadorAsc(VisionGeneral)        
         return visionGeneral
     }
 
@@ -1238,4 +1240,10 @@ async function calcularTodo(codigoJuego, numeroBimestre) {
             }
             console.log("como ordeno final",visionGeneralList)
         }
+}
+async function ordenarPlayersPorNombreAsc(lista){
+    lista.sort(function(a,b) {return (a.name > b.name) ? 1 : ((b.name < a.name) ? -1 : 0)})
+}
+async function ordenarJugadoresPorJugadorAsc(lista){
+    lista.sort(function(a,b) {return (a.jugador > b.jugador) ? 1 : ((b.jugador < a.jugador) ? -1 : 0)})
 }

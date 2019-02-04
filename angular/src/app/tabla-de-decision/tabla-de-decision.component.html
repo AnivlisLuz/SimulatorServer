@@ -240,10 +240,12 @@
                   <td>{{(http.game.player&&http.game.player.bimestre_dos)?http.game.player.bimestre_dos.inversionEnMarketing:""}}</td>
                   <td>{{(http.game.player&&http.game.player.bimestre_tres)?http.game.player.bimestre_tres.inversionEnMarketing:""}}</td>
                   <td id="inversionEnMarketingTD">
-                    <!--  <input type="number" id="inversionEnMarketing"  name="inversionEnMarketing" [(ngModel)]="bimestreActual.inversionEnMarketing" min="0" value=3500> -->
                     <select class="input-width" type="number" (change)="onChangeinversionEnMarketings($event.target.value)">
-                      <option *ngFor="let inversion of inversionEnMarketings" [ngValue]="inversion">{{inversion}}</option>
-
+                      <ng-container *ngFor="let inversion of inversionEnMarketings" >
+                        <option *ngIf="inversion+inversionEnInvestigacion+inversionEnActivos+(produccion*35)+8000+22770<=capitalPeriodoAnterior+(precioUnitario*produccion)+10000" [ngValue]="inversion" >
+                          {{inversion}}
+                        </option>
+                      </ng-container>
                     </select>
                   </td>
 
@@ -255,9 +257,12 @@
                   <td>{{(http.game.player&&http.game.player.bimestre_dos)?http.game.player.bimestre_dos.inversionEnInvestigacion:"" | thousandPipe}}</td>
                   <td>{{(http.game.player&&http.game.player.bimestre_tres)?http.game.player.bimestre_tres.inversionEnInvestigacion:"" | thousandPipe}}</td>
                   <td id="inversionEnInvestigacionTD">
-                    <!-- <input type="number" id="inversionEnInvestigacion" name="inversionEnInvestigacion"[(ngModel)]="bimestreActual.inversionEnInvestigacion" min="0" value=1500> -->
-                    <select class="input-width" (change)="onChangeinversionEnInvestigacions($event.target.value)" type="number">
-                      <option *ngFor="let inversion of inversionEnInvestigacions" [ngValue]="inversion">{{inversion}}</option>
+                    <select class="input-width" type="number" (change)="onChangeinversionEnInvestigacions($event.target.value)">
+                      <ng-container *ngFor="let inversion of inversionEnInvestigacions" >
+                        <option *ngIf="inversionEnMarketing+inversion+inversionEnActivos+(produccion*35)+8000+22770<=capitalPeriodoAnterior+(precioUnitario*produccion)+10000" [ngValue]="inversion" >
+                          {{inversion}}
+                        </option>
+                      </ng-container>
                     </select>
                   </td>
 
@@ -269,27 +274,13 @@
                   <td>{{(http.game.player&&http.game.player.bimestre_dos)?http.game.player.bimestre_dos.inversionEnActivos:""}}</td>
                   <td>{{(http.game.player&&http.game.player.bimestre_tres)?http.game.player.bimestre_tres.inversionEnActivos:""}}</td>
                   <td id="inversionEnActivosTD">
-                    <!-- <input type="number" id="inversionEnActivos" name="inversionEnActivos" [(ngModel)]="bimestreActual.inversionEnActivos" min="0" value=3500> -->
-
-<!-- 
-                    <select type="number" (change)="onChangeinversionEnActivoss($event.target.value)"
-                    ng-options="inversion for inversion in inversionEnActivoss">
-                    </select> -->
-
- <!-- | filter: {inversion: ''} -->
-
                     <select class="input-width" type="number" (change)="onChangeinversionEnActivoss($event.target.value)">
-                      <option *ngFor="let inversion of inversionEnActivoss" [ngValue]="inversion" >{{inversion}}</option>
-
+                      <ng-container *ngFor="let inversion of inversionEnActivoss">
+                        <option *ngIf="inversionEnMarketing+inversionEnInvestigacion+inversion+(produccion*35)+8000+22770<=capitalPeriodoAnterior+(precioUnitario*produccion)+10000" [ngValue]="inversion" >
+                          {{inversion}}
+                        </option>
+                      </ng-container>
                     </select>
-
-                 <!-- <ng-container *ngFor="let inversion of inversionEnActivoss">
-  <option *ngIf="inversion>=3000" [ngValue]="inversion" >
-    {{inversion}}
-  </option>
-</ng-container> -->
-
-
                   </td>
                 </tr>
               </table>
@@ -331,7 +322,7 @@
               </div>
             </div>
           </div>
-          <div style="display: flex; justify-content: center;padding-top: 50px;">
+          <div style="display: flex; justify-content: center;padding-top: 50px" id="boton-decisionID">
             <button (click)="iniciar()" style="width:300px">
               {{http.game.bimestre_inicial_c==0?
               "ENVIAR MIS DECISIONES":
@@ -382,12 +373,8 @@
                 </div>
               </div>
               <div class="section_body_content  {{section_tap_2==3 ? '' : 'tap_menu_hidden'}}">
-                <div id="PorcentajeMercado">
-                  <table>
-                    <tr>
-                      <td style="width: 700px;height:50%"><canvas id="pieI"></canvas></td>
-                    </tr>
-                  </table>
+                <div id="PorcentajeMercado"><canvas id="pieI" height="3"
+                width="8"></canvas>
                 </div>
               </div>
             </div>
@@ -440,7 +427,8 @@
                 </div>
               </div>
               <div class="section_body_content  {{section_tap_3==4 ? '' : 'tap_menu_hidden'}}" style="overflow: scroll;">
-                <canvas id="lineChart"></canvas>
+                <canvas id="lineChart"  height="3"
+                width="8"></canvas>
               </div>
             </div>
           </div>
@@ -474,19 +462,19 @@
             </div>
             <div class="section_body_container">
               <div class="section_body_content  {{section_tap_4==0 ? '' : 'tap_menu_hidden'}}" style="overflow: scroll;">
-                <canvas id="lineChart2"></canvas>
+                <canvas id="lineChart2" height="3" width="8"></canvas>
               </div>
               <div class="section_body_content  {{section_tap_4==1 ? '' : 'tap_menu_hidden'}}" style="overflow: scroll;">
-                <canvas id="lineChart3"></canvas>
+                <canvas id="lineChart3" height="3" width="8"></canvas>
 
 
               </div>
               <div class="section_body_content  {{section_tap_4==2 ? '' : 'tap_menu_hidden'}}" style="overflow: scroll;">
-                <canvas id="lineChart4"></canvas>
+                <canvas id="lineChart4" height="3" width="8"></canvas>
 
               </div>
               <div class="section_body_content  {{section_tap_4==3 ? '' : 'tap_menu_hidden'}}" style="overflow: scroll;">
-                <canvas id="lineChart5"></canvas>
+                <canvas id="lineChart5" height="3" width="8"></canvas>
 
               </div>
               <div class="section_body_content  {{section_tap_4==4 ? '' : 'tap_menu_hidden'}}" style="overflow: scroll;">

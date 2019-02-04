@@ -16,7 +16,8 @@ export class FinJuegoComponent implements OnInit {
   visionGeneralUno: VisionGeneral[];
   visionGeneralDos: VisionGeneral[];
   visionGeneralTres: VisionGeneral[];
-  resultadosFinales:number[]
+
+  resultadosFinales:number[];
     //tab manager
   tap_position: number = 1;
 
@@ -24,44 +25,53 @@ export class FinJuegoComponent implements OnInit {
     this.visionGeneralUno= [];
     this.visionGeneralDos= [];
     this.visionGeneralTres= [];
+    this.resultadosFinales=[];
     this.cargar();
 
    }
  cargar(){
+       while(this.resultadosFinales.length > 0) {
+          this.resultadosFinales.pop();
+      }
     if(this.http.game.bimestre_uno_c==0)
     {
       this.http.game.getVisionGeneral(0,(response) => {
               console.log("getVisionGeneral front", response)
               this.visionGeneralUno=response
-    /*this.visionGeneralUno.sort(a,b)=>(a:{},b:{})=> {if (a.jugador < b.jugador) {return 1;}
-    if(a.jugador > b.jugador) {return -1}return 0;};*/
-                  console.log("visionGeneralUno front", this.visionGeneralUno)
+              console.log("visionGeneralUno front", this.visionGeneralUno)
 
             });
-
+      for (let i = 0; i < this.visionGeneralUno.length; i++) {
+          this.resultadosFinales.push(this.visionGeneralUno[i].puntajeBeneficio+this.visionGeneralUno[i].puntajeMercado);
+      }
+      console.log("resultados fianles hasta bim 1 => ",this.resultadosFinales)
     }
     if(this.http.game.bimestre_dos_c==0)
     {
       this.http.game.getVisionGeneral(1,(response) => {
               console.log("getVisionGeneral front", response)
               this.visionGeneralDos=response
-      /*this.visionGeneralDos.sort(a,b)=>(a:{},b:{})=> {if (a.jugador < b.jugador) {return 1;}
-    if(a.jugador > b.jugador) {return -1}return 0;};*/
               console.log("visionGeneralDos front", this.visionGeneralDos)
 
             });
+      for (let i = 0; i < this.visionGeneralDos.length; i++) {
+          this.resultadosFinales[i]=this.resultadosFinales[i]+this.visionGeneralDos[i].puntajeBeneficio+this.visionGeneralDos[i].puntajeMercado;
+      }
+      console.log("resultados fianles hasta bim 2 => ",this.resultadosFinales)    
+
     }
     if(this.http.game.bimestre_tres_c==0)
     {
       this.http.game.getVisionGeneral(2,(response) => {
               console.log("getVisionGeneral front", response)
               this.visionGeneralTres=response
-      /*this.visionGeneralTres.sort(a,b)=>(a:{},b:{})=> {if (a.jugador < b.jugador) {return 1;}
-    if(a.jugador > b.jugador) {return -1}return 0;};*/
               console.log("visionGeneralTres front", this.visionGeneralTres)
 
             });
-
+      for (let i = 0; i < this.visionGeneralTres.length; i++) {
+            this.resultadosFinales[i]=this.resultadosFinales[i]+this.visionGeneralTres[i].puntajeBeneficio+this.visionGeneralTres[i].puntajeMercado;
+      }
+      console.log("resultados fianles hasta bim 3 => ",this.resultadosFinales)
     }
 }
 

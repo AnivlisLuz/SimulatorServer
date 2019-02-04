@@ -114,7 +114,7 @@
 
             <tbody >
               <td><tr *ngFor="let visionG of http.game.players">{{visionG.name}}</tr></td>
-              <td><tr *ngFor="let visionG1 of visionGeneralUno;let visionG2 of visionGeneralDos;let visionG3 of visionGeneralTres" >{{visionG1.puntajeBeneficio+visionG2.puntajeBeneficio+visionG3.puntajeBeneficio+visionG1.puntajeMercado+visionG2.puntajeMercado+visionG3.puntajeMercado}}</tr></td>
+              <td><tr *ngFor="let resultados of resultadosFinales" >{{resultados}}</tr></td>
             </tbody>
               </table>
             </div>

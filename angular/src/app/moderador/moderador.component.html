@@ -4,9 +4,9 @@
   <br>
   <div class="form-group">
     <label>Nombre del Mercado</label>
-    <input type="text" formControlName="nombreMercado" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.nombreMercado.errors }" placeholder="Nombre de tu empresa"/>
+    <input type="text" formControlName="nombreMercado" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.nombreMercado.errors }" placeholder="Nombre de tu mercado"/>
     <div *ngIf="submitted && f.nombreMercado.errors" class="invalid-feedback">
-        <div *ngIf="f.nombreMercado.errors.required" style="color: red">Nombre  de empresa es requerido</div>
+        <div *ngIf="f.nombreMercado.errors.required" style="color: red">Nombre  de mercado es requerido</div>
     </div>
   </div>
   <br>
