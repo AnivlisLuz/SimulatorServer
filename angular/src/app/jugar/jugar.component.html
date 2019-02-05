@@ -2,7 +2,7 @@
     <header>  Unirse a un juego</header>
         <div class="form-group">
             <label>Nombre empresa</label>
-                <input type="text" style="text-transform:uppercase" formControlName="nombreE" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.nombreE.errors }" placeholder="Nombre de tu empresa"/>
+                <input type="text" formControlName="nombreE" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.nombreE.errors }" placeholder="Nombre de tu empresa"/>
                     <div *ngIf="submitted && f.nombreE.errors" class="invalid-feedback">
                         <div *ngIf="f.nombreE.errors.required" style="color: red">Nonbre de empresa es requerido</div>
                     </div>
