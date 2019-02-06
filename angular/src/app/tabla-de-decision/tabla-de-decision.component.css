@@ -105,8 +105,8 @@ aside {
 }
 
 .section_body {
-  padding-top: 60px;
-  height: calc(100% - 160px);
+  padding-top: 40px;
+  height: calc(100% - 140px);
   width: 100%;
   background-color: white;
   overflow: scroll;
