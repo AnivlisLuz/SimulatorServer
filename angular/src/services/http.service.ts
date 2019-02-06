@@ -29,35 +29,35 @@ export class HttpService {
       this.game = new Game(socket)
 
        let tmp = new VentasIndustria();
-      tmp.nombreEmpresaVentasI="nombreprueba"
+      tmp.jugador="nombreprueba"
       socket.emit("datosDePrueba", tmp)
 
       let estadoResultados = new EstadoResultados();
-      estadoResultados.empresa="nombreEmpresaEstadoResultados"
+      estadoResultados.jugador="nombreEmpresaEstadoResultados"
       socket.emit("datosEstadoResultados", estadoResultados)
 
       let balanceGeneral = new BalanceGeneral();
-      balanceGeneral.nombreEmpresa="nombreEmpresaBalanceGeneral"
+      balanceGeneral.jugador="nombreEmpresaBalanceGeneral"
       socket.emit("datosBalanceGeneral", balanceGeneral)
 
       let ventas = new Ventas();
-      ventas.nombreEmpresa="nombreEmpresaBVentas"
+      ventas.jugador="nombreEmpresaBVentas"
       socket.emit("datosVentas", ventas)
 
        let costosProduccion = new CostosProduccion();
-      costosProduccion.nombreEmpresa="nombreEmpresacostosProduccion"
+      costosProduccion.jugador="nombreEmpresacostosProduccion"
       socket.emit("datosCostosProduccion", costosProduccion)
 
       let visionGeneral = new VisionGeneral();
-      visionGeneral.nombreEmpresa="nombreEmpresavisionGeneral"
+      visionGeneral.jugador="nombreEmpresavisionGeneral"
       socket.emit("datosvisionGeneral", visionGeneral)
 
       let produccion = new Produccion();
-      produccion.nombreEmpresaProduccion="nombreEmpresaproduccion"
+      produccion.jugador="nombreEmpresaproduccion"
       socket.emit("datosProduccion", produccion)
 
       let ventasIndustria = new VentasIndustria();
-      ventasIndustria.nombreEmpresaVentasI="nombreprueba"
+      ventasIndustria.jugador="nombreprueba"
       socket.emit("datosVentasIndustria", ventasIndustria)
 
 
@@ -108,6 +108,8 @@ class Game {
   bimestre_uno_c: number
   bimestre_dos_c: number
   bimestre_tres_c: number
+  cantidadTotalJugadores:number
+  moderator:string
   constructor(socket: Socket) {
     this.socket = socket
     socket.on("update_state", (data) => {
@@ -138,6 +140,8 @@ class Game {
         this.bimestre_uno_c = data.size - bimestre_uno_count
         this.bimestre_dos_c = data.size - bimestre_dos_count
         this.bimestre_tres_c = data.size - bimestre_tres_count
+        this.cantidadTotalJugadores=data.size
+        this.moderator=this.codigo
         console.log(this.bimestre_inicial_c, this.bimestre_uno_c, this.bimestre_dos_c, this.bimestre_tres_c)
       } else {
         console.log("no es de este mercado")
@@ -169,6 +173,96 @@ class Game {
   public createGame(data, callback) {
     console.log("createGame", data)
     this.socket.emit("createGame", data, callback);
+  }
+
+  /*public calcularBalanceGeneralP(callback){
+    let send_Data = { codigo: this.codigo, player_name: this.player.name }
+      console.log("calcularBalanceGeneralHttpService", send_Data)
+          this.socket.emit("calcularBalanceGeneralP", send_Data, callback);
+
+  }*/
+
+  public calcularTodoPrueba(data, callback){
+    let send_Data = { numeroBimestre: data, codigo: this.codigo}
+    console.log("calcularTodoPrueba =>", send_Data)
+    this.socket.emit("calcularTodoPrueba", send_Data, callback);
+  }
+
+  public getBalanceGeneral(data,callback){
+    let send_Data = { numeroBimestre:data, codigo: this.codigo, player_name: this.player.name }
+      console.log("getBalanceGeneral", send_Data)
+           this.socket.emit("getBalanceGeneral", send_Data, callback);
+  }
+
+  public getVentas(data,callback){
+    let send_Data = { numeroBimestre:data, codigo: this.codigo, player_name: this.player.name }
+      console.log("getVentas", send_Data)
+          this.socket.emit("getVentas", send_Data, callback);
+
+  }
+  public getCostosProduccion(data,callback){
+    let send_Data = { numeroBimestre:data, codigo: this.codigo, player_name: this.player.name }
+    console.log("getCostosProduccion http.service", send_Data)
+    this.socket.emit("getCostosProduccion", send_Data, callback);
+
+  }
+
+  public getProduccion(data,callback){
+    let send_Data = { numeroBimestre:data, codigo: this.codigo, player_name: this.player.name }
+      console.log("getProduccion", send_Data)
+          this.socket.emit("getProduccion", send_Data, callback);
+  }
+
+  public getVentasIndustria(data,callback){
+    let send_Data = { numeroBimestre:data, codigo: this.codigo, player_name: this.player.name }
+      console.log("getVentasIndustria", send_Data)
+          this.socket.emit("getVentasIndustria", send_Data, callback);
+
+  }
+
+    public getEstadoResultados(callback){
+    let send_Data = { codigo: this.codigo, player_name: this.player.name }
+      console.log("v", send_Data);
+      this.socket.emit("getEstadoResultados", send_Data, callback);
+  }
+    public getVisionGeneral(data,callback){
+    let send_Data = { numeroBimestre:data, codigo: this.codigo}
+      console.log("getVisionGeneral", send_Data)
+           this.socket.emit("getVisionGeneral", send_Data, callback);
+  }
+
+  public getAllProduccion(callback){
+    let send_Data = { codigo: this.codigo, player_name: this.player.name }
+      console.log("getAllProduccion", send_Data)
+           this.socket.emit("getAllProduccion", send_Data, callback);
+  }
+
+  public getAllVentasIndustria(callback){
+    let send_Data = { codigo: this.codigo, player_name: this.player.name }
+      console.log("getAllVentasIndustria", send_Data)
+           this.socket.emit("getAllVentasIndustria", send_Data, callback);
+  }
+
+    public getPromedioUtilidadNeta(callback){
+    let send_Data = { codigo: this.codigo, player_name: this.player.name }
+      console.log("getPromedioUtilidadNeta", send_Data)
+           this.socket.emit("getPromedioUtilidadNeta", send_Data, callback);
+  }
+    public getSumatoriaCapacidadProduccion(callback){
+    let send_Data = { codigo: this.codigo, player_name: this.player.name }
+      console.log("getSumatoriaCapacidadProduccion", send_Data)
+           this.socket.emit("getSumatoriaCapacidadProduccion", send_Data, callback);
+  }
+    public getPromedioPrecioUnitarios(callback){
+    let send_Data = { codigo: this.codigo, player_name: this.player.name }
+      console.log("getPromedioPrecioUnitarios", send_Data)
+           this.socket.emit("getPromedioPrecioUnitarios", send_Data, callback);
+  }
+  public joinGameModerator(data, callback) {
+    this.codigo = data;
+    this.name=data;
+    console.log("join game moderator", data)
+    this.socket.emit("joinGameModerator", data, callback);
   }
 }
 class Player {
@@ -213,7 +307,3 @@ class Bimestre {
     this.inversionEnActivos = data.inversionEnActivos
   }
 }
-
-
-
-

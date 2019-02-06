@@ -105,8 +105,8 @@ aside {
 }
 
 .section_body {
-  padding-top: 60px;
-  height: calc(100% - 160px);
+  padding-top: 40px;
+  height: calc(100% - 140px);
   width: 100%;
   background-color: white;
   overflow: scroll;
@@ -278,7 +278,9 @@ table#t01 th {
     left:50%;
     margin-left:-130px;/*aqui*/
     top:40px;/*aqui*/
-    font:bold 12px 'Open Sans Condensed', sans-serif;
+    font-size: 12px;
+    font-weight: bold;
+    /*font:bold 12px 'Open Sans Condensed', sans-serif;*/
 
     /* This is important for the show/hide CSS animation */
     max-height:0px;
@@ -346,3 +348,11 @@ table#t01 th {
 .material-icons{
   font-size: 4rem;
 }
+.fuente{
+  font-size: 16px;
+  font-weight: bold;
+}
+pre{
+  font-family: "arial";
+  color: black;
+  }

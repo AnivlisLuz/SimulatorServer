@@ -3,28 +3,38 @@
     
 
 <div class="box">
-   <img src="imagenes/cba.png" alt="">
-    <h2>Business Simulator</h2>
+   <img src="/imagenes/logo-oficial.png" alt="" class="logo-cba">
+   <br> 
+   <h2>Business Simulator</h2>
     
-    <form>
-        <div class="inputBox">
-            <input type="text" name="" required>
-            <label>Jugador</label>
-        </div>
-        <div class="inputBox">
-            <input type="text" name="" required>
-            <label>Ciudad</label>
-        </div>
-        <div class="inputBox">
-            <input type="text" name="" required>
-            <label>Edad</label>
-        </div>
-        <br>
+<form [formGroup]="registerForm" class="formularioJugar"  #form="ngForm">
+          <div class="inputBox">
+              <input type="text" formControlName="jugador" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.jugador.errors }"required/>
+              <div *ngIf="submitted && f.jugador.errors" class="invalid-feedback">
+                  <div *ngIf="f.jugador.errors.required" style="color: red;font-size: 12px">Jugador es requerido</div>
+              </div>
+          <label>Jugador</label>
+
+          </div>
+          <div class="inputBox">
+              <input type="text" formControlName="ciudad" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.ciudad.errors }"required/>
+              <div *ngIf="submitted && f.ciudad.errors" class="invalid-feedback">
+                  <div *ngIf="f.ciudad.errors.required" style="color: red;font-size: 12px">Ciudad es requerido</div>
+              </div>
+              <label>Ciudad</label>
+          </div>          
+          <div class="inputBox">
+              <input type="text" formControlName="edad" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.edad.errors }"required/>
+              <div *ngIf="submitted && f.edad.errors" class="invalid-feedback">
+                  <div *ngIf="f.edad.errors.required" style="color: red;font-size: 12px">Edad es requerido</div>
+              </div>
+              <label>Edad</label>
+
+          </div>                  
         <input type="submit" name="" value="Unirse a un juego" (click)="jugar()">
         <br>
         <br>
         <input type="submit" name="" value="Crear un juego" (click)="moderador()">
-       
-       </form>
+</form>
         </div>
 </div>

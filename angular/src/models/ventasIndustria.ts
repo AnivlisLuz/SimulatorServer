@@ -1,6 +1,6 @@
 export class VentasIndustria{
 
- public nombreEmpresaVentasI:String;
+ public jugador:String;
 
  public ventasIndustriaUnidadesActual:number;
     public ventasIndustriaUnidadesAnterior:number;
@@ -15,4 +15,6 @@ export class VentasIndustria{
     public invetarioPromediosAnterior:number;
 
     public numero:number
+     public codigo:String;
+
 }

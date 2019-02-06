@@ -6,7 +6,7 @@ import { environment } from '../environments/environment';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 
 import { AuthService } from './auth.service';
-import { FormsModule,ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 import { APP_ROUTER } from './app.routes';
@@ -28,6 +28,8 @@ import { TablaVentasComponent } from './tablas-AI/tabla-ventas/tabla-ventas.comp
 import { TablaVisionGeneralComponent } from './tablas-AI/tabla-vision-general/tabla-vision-general.component';
 import { FinJuegoComponent } from './fin-juego/fin-juego.component';
 import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
+import { ThousandsPipe } from './separador-de-miles/thousand.pipe';
+
 
 const config: SocketIoConfig = { url: 'http://localhost:8080', options: {} };
 @NgModule({
@@ -46,7 +48,8 @@ const config: SocketIoConfig = { url: 'http://localhost:8080', options: {} };
       TablaProduccionComponent,
       TablaVisionGeneralComponent,
       TablaVentasComponent,
-      FinJuegoComponent
+      FinJuegoComponent,
+      ThousandsPipe
    ],
    imports: [
       BrowserModule,

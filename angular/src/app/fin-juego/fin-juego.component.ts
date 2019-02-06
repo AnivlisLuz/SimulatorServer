@@ -13,26 +13,84 @@ export class FinJuegoComponent implements OnInit {
   esFinJuego:boolean;
   numeroBimestre:number;
   codigo:string;
-  visionGeneral: VisionGeneral[];
+  visionGeneralUno: VisionGeneral[];
+  visionGeneralDos: VisionGeneral[];
+  visionGeneralTres: VisionGeneral[];
+
+  resultadosFinales:number[];
+    //tab manager
+  tap_position: number = 1;
 
   constructor(private http:HttpService,     private route:ActivatedRoute) {
-    this.visionGeneral= [];
+    this.visionGeneralUno= [];
+    this.visionGeneralDos= [];
+    this.visionGeneralTres= [];
+    this.resultadosFinales=[];
+    this.cargar();
+
    }
-
-  ngOnInit() {
-    this.route.params.subscribe(params=>{
-      if( params['codigo']!=null){
-          this.codigo=params['codigo'];
+ cargar(){
+       while(this.resultadosFinales.length > 0) {
+          this.resultadosFinales.pop();
       }
-      });
-  }
-  cargar(){
-    this.http.get('http://localhost:8080/visionGeneral/'+this.codigo+'/'+this.numeroBimestre).subscribe(
-      (response:any) => {
-        console.log(response);
-      this.visionGeneral =response;
-  });
+    if(this.http.game.bimestre_uno_c==0)
+    {
+      this.http.game.getVisionGeneral(1,(response) => {
+              console.log("getVisionGeneral front", response)
+              this.visionGeneralUno=response
+              console.log("visionGeneralUno front", this.visionGeneralUno)
 
+            });
+      for (let i = 0; i < this.visionGeneralUno.length; i++) {
+          this.resultadosFinales.push(this.visionGeneralUno[i].puntajeBeneficio+this.visionGeneralUno[i].puntajeMercado);
+      }
+      console.log("resultados fianles hasta bim 1 => ",this.resultadosFinales)
+    }
+    if(this.http.game.bimestre_dos_c==0)
+    {
+      this.http.game.getVisionGeneral(2,(response) => {
+              console.log("getVisionGeneral front", response)
+              this.visionGeneralDos=response
+              console.log("visionGeneralDos front", this.visionGeneralDos)
+
+            });
+      for (let i = 0; i < this.visionGeneralDos.length; i++) {
+          this.resultadosFinales[i]=this.resultadosFinales[i]+this.visionGeneralDos[i].puntajeBeneficio+this.visionGeneralDos[i].puntajeMercado;
+      }
+      console.log("resultados fianles hasta bim 2 => ",this.resultadosFinales)    
+
+    }
+    if(this.http.game.bimestre_tres_c==0)
+    {
+      this.http.game.getVisionGeneral(3,(response) => {
+              console.log("getVisionGeneral front", response)
+              this.visionGeneralTres=response
+              console.log("visionGeneralTres front", this.visionGeneralTres)
+
+            });
+      for (let i = 0; i < this.visionGeneralTres.length; i++) {
+            this.resultadosFinales[i]=this.resultadosFinales[i]+this.visionGeneralTres[i].puntajeBeneficio+this.visionGeneralTres[i].puntajeMercado;
+      }
+      console.log("resultados fianles hasta bim 3 => ",this.resultadosFinales)
+    }
 }
 
+  ngOnInit() {
+    /*this.route.params.subscribe(params=>{
+      if( params['numeroBimestre']!=null){
+          this.numeroBimestre=params['numeroBimestre'];
+      }
+      this.numeroBimestre=params['numeroBimestre']
+      });*/
+  }
+  
+  parciales() {
+    this.tap_position = 1;
+    this.cargar();
+    
+  }
+  finales() {
+    this.tap_position = 2;
+    this.cargar();
+  }
 }

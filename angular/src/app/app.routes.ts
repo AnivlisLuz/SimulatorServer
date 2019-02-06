@@ -17,6 +17,7 @@ const APPROUTES: Routes = [
  { path: 'jugar', component:  JugarComponent },
  { path: 'moderador', component: ModeradorComponent},
  { path: 'fin', component:  FinJuegoComponent },
+ { path: 'fin/:numeroBimestre', component:  FinJuegoComponent },
  { path: '**', pathMatch: 'full', redirectTo: 'home'}
 ];
 

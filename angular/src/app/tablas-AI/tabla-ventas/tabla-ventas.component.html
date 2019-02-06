@@ -11,27 +11,27 @@
             <tbody >
               <tr>
                 <td >VENTAS DE LA INDUSTRIA (UNIDADES)</td>
-                <td >{{ventasIndustria.ventasIndustriaUnidadesActual}}</td>
-                <td >{{(ventasIndustria.ventasIndustriaUnidadesActual-ventasIndustria.ventasIndustriaUnidadesAnterior)/ventasIndustria.ventasIndustriaUnidadesAnterior*100}} %</td>
+                <td >{{ventasIndustria.ventasIndustriaUnidadesActual | thousandPipe}}</td>
+                <td >{{(ventasIndustria.ventasIndustriaUnidadesActual-ventasIndustria.ventasIndustriaUnidadesAnterior)/ventasIndustria.ventasIndustriaUnidadesAnterior*100 | thousandPipe}} %</td>
 
               </tr>
               <tr>
                 <td class="td2">VENTAS DE LA INDUSTRIA (MONETARIO)</td>
-                <td class="td2">{{ventasIndustria.ventasIndustriaMonetarioActual}}</td>
-                <td class="td2">{{(ventasIndustria.ventasIndustriaMonetarioActual-ventasIndustria.ventasIndustriaMonetarioAnterior)/ventasIndustria.ventasIndustriaMonetarioAnterior*100}} %</td>
+                <td class="td2">{{ventasIndustria.ventasIndustriaMonetarioActual | thousandPipe}}</td>
+                <td class="td2">{{(ventasIndustria.ventasIndustriaMonetarioActual-ventasIndustria.ventasIndustriaMonetarioAnterior)/ventasIndustria.ventasIndustriaMonetarioAnterior*100 | thousandPipe}} %</td>
 
               </tr>
               <tr>
                 <td >PRECIO UNITARIO PROMEDIO</td>
-                <td >{{ventasIndustria.precioUnitarioPromedioActual}}</td>
-                <td >{{(ventasIndustria.precioUnitarioPromedioActual-ventasIndustria.precioUnitarioPromedioAnterior)/ventasIndustria.precioUnitarioPromedioAnterior*100}} %</td>
+                <td >{{ventasIndustria.precioUnitarioPromedioActual | thousandPipe}}</td>
+                <td >{{(ventasIndustria.precioUnitarioPromedioActual-ventasIndustria.precioUnitarioPromedioAnterior)/ventasIndustria.precioUnitarioPromedioAnterior*100 | thousandPipe}} %</td>
 
               </tr>
 
               <tr >
                 <td class="td2">INVENTARIOS PROMEDIO</td>
-                <td class="td2">{{ventasIndustria.inventarioPromediosActual}}</td>
-                <td class="td2">{{(ventasIndustria.inventarioPromediosActual-ventasIndustria.invetarioPromediosAnterior)/ventasIndustria.invetarioPromediosAnterior*100}} %</td>
+                <td class="td2">{{ventasIndustria.inventarioPromediosActual | thousandPipe}}</td>
+                <td class="td2">{{(ventasIndustria.inventarioPromediosActual-ventasIndustria.invetarioPromediosAnterior)/ventasIndustria.invetarioPromediosAnterior*100 | thousandPipe}} %</td>
 
               </tr>
 

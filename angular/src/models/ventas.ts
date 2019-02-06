@@ -7,7 +7,7 @@ export class Ventas{
   public inventarioMonetario:number=0;
   public pedidosNoAtendidosUnidades:number=0;
   public pedidosNoAtendidosMonetario:number=0;
-  public numero:number=0;
+  public numeroBimestre:number=0;
   public codigo:string;
-  public nombreEmpresa:String;
+  public jugador:String;
 }
