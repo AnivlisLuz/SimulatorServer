@@ -528,15 +528,18 @@ export class TablaDeDecisionComponent implements OnInit {
     this.tap_position = 2
     this.http.game.getVisionGeneral(this.numeroBimestre, (response) => {
       console.log("getVisionGeneral front", response)
-      this.visionGeneral = response
+      if (response)
+        this.visionGeneral = response
     });
     this.http.game.getProduccion(this.numeroBimestre, (response) => {
       console.log("getProduccion front", response)
-      this.produccionIndustria = response
+      if (response)
+        this.produccionIndustria = response
     });
     this.http.game.getVentasIndustria(this.numeroBimestre, (response) => {
       console.log("getVentasIndustria front", response)
-      this.ventasIndustria = response
+      if (response)
+        this.ventasIndustria = response
     });
     // document.getElementById("decisiones").style.display = "none";
     // document.getElementById("tabla-analisis-industria").style.display = "block";

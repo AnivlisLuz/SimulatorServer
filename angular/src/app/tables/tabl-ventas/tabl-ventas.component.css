@@ -1,7 +1,7 @@
 #main-containerVentas{
 	
 	margin: 7px;
-    width: 100%;
+    width: calc(100% - 20px);
 	color: black;
 }
 
