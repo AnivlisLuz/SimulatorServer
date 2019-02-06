@@ -6375,7 +6375,7 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 
 
 
-var config = { url: 'http://localhost:8080', options: {} };
+var config = { url: 'http://67.205.156.58', options: {} };
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }
@@ -9494,7 +9494,7 @@ var HttpService = /** @class */ (function () {
         var _this = this;
         this.http = http;
         this.socket = socket;
-        this.baseUrl = 'http://localhost:8080';
+        this.baseUrl = 'http://67.205.156.58';
         this.contador = 0;
         console.log("servicio generado");
         socket.on("connect", function (data) {
