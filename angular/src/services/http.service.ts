@@ -19,7 +19,7 @@ import { Produccion } from 'src/models/produccion';
   providedIn: 'root'
 })
 export class HttpService {
-  baseUrl: string = 'http://localhost:8080';
+  baseUrl: string = 'http://67.205.156.58';
   contador: number = 0
   game: Game
   constructor(private http: Http, private socket: Socket) {
