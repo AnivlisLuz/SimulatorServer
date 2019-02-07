@@ -186,7 +186,7 @@
         <div class="section_title">
           <div class="material-icons section_title_icon" style="background-color: #135A82;z-index: 1000;">person</div>
           <div class="section_title_desc"> MIS DECISIONES</div>
-          <nav id="colorNav">
+          <!-- <nav id="colorNav">
             <ul>
                 <li class="material-icons">apps
                     <a class="icon-home"></a>
@@ -196,7 +196,15 @@
                     </ul>
                 </li>
             </ul>
-          </nav>
+          </nav> -->
+          <div class="btn btn-primary tooltip">
+            <li class="material-icons">apps
+            </li>
+            <div class="left">
+              <div (click)="fin()">Resultados</div>
+              <div (click)="fin()">Retirarse del juego</div>
+            </div>
+          </div>
         </div>
         <div class="section_body">
           <div style="display: flex; justify-content: center;">
@@ -219,8 +227,8 @@
                   <td>{{(http.game.player&&http.game.player.bimestre_uno)?http.game.player.bimestre_uno.precioUnitario:""}}</td>
                   <td>{{(http.game.player&&http.game.player.bimestre_dos)?http.game.player.bimestre_dos.precioUnitario:""}}</td>
                   <td>{{(http.game.player&&http.game.player.bimestre_tres)?http.game.player.bimestre_tres.precioUnitario:""}}</td>
-                  <td  id="precioUnitarioTD"><input class="input-width" type="number" id="precioUnitario" name="precioUnitario" [(ngModel)]="precioUnitario"
-                      min="0" max="bimestreActual.produccion" value="bimestreActual.produccion">
+                  <td id="precioUnitarioTD"><input class="input-width" type="number" id="precioUnitario" name="precioUnitario"
+                      [(ngModel)]="precioUnitario" min="0" max="bimestreActual.produccion" value="bimestreActual.produccion">
                   </td>
                 </tr>
                 <tr>
@@ -230,8 +238,8 @@
                   <td>{{(http.game.player&&http.game.player.bimestre_dos)?http.game.player.bimestre_dos.produccion:""}}</td>
                   <td>{{(http.game.player&&http.game.player.bimestre_tres)?http.game.player.bimestre_tres.produccion:""}}</td>
                   <td id="produccionTD">
-                    <input class="input-width" type="number" id="produccion" name="produccion" [(ngModel)]="produccion" min="0" max="850*{{ numeroBimestre }}"
-                      value=500></td>
+                    <input class="input-width" type="number" id="produccion" name="produccion" [(ngModel)]="produccion"
+                      min="0" max="850*{{ numeroBimestre }}" value=500></td>
                 </tr>
                 <tr>
                   <td>INVERSIÓN EN MARKETING</td>
@@ -241,8 +249,9 @@
                   <td>{{(http.game.player&&http.game.player.bimestre_tres)?http.game.player.bimestre_tres.inversionEnMarketing:""}}</td>
                   <td id="inversionEnMarketingTD">
                     <select class="input-width" type="number" (change)="onChangeinversionEnMarketings($event.target.value)">
-                      <ng-container *ngFor="let inversion of inversionEnMarketings" >
-                        <option *ngIf="inversion+inversionEnInvestigacion+inversionEnActivos+(produccion*35)+8000+22770<=capitalPeriodoAnterior+(precioUnitario*produccion)+10000" [ngValue]="inversion" >
+                      <ng-container *ngFor="let inversion of inversionEnMarketings">
+                        <option *ngIf="inversion+inversionEnInvestigacion+inversionEnActivos+(produccion*35)+8000+22770<=capitalPeriodoAnterior+(precioUnitario*produccion)+10000"
+                          [ngValue]="inversion">
                           {{inversion}}
                         </option>
                       </ng-container>
@@ -252,14 +261,19 @@
                 </tr>
                 <tr>
                   <td>INVERSIÓN EN INVESTIGACIÓN</td>
-                  <td>{{(http.game.player&&http.game.player.bimestre_inicial)?http.game.player.bimestre_inicial.inversionEnInvestigacion:"" | thousandPipe}}</td>
-                  <td>{{(http.game.player&&http.game.player.bimestre_uno)?http.game.player.bimestre_uno.inversionEnInvestigacion:"" | thousandPipe}}</td>
-                  <td>{{(http.game.player&&http.game.player.bimestre_dos)?http.game.player.bimestre_dos.inversionEnInvestigacion:"" | thousandPipe}}</td>
-                  <td>{{(http.game.player&&http.game.player.bimestre_tres)?http.game.player.bimestre_tres.inversionEnInvestigacion:"" | thousandPipe}}</td>
+                  <td>{{(http.game.player&&http.game.player.bimestre_inicial)?http.game.player.bimestre_inicial.inversionEnInvestigacion:""
+                    | thousandPipe}}</td>
+                  <td>{{(http.game.player&&http.game.player.bimestre_uno)?http.game.player.bimestre_uno.inversionEnInvestigacion:""
+                    | thousandPipe}}</td>
+                  <td>{{(http.game.player&&http.game.player.bimestre_dos)?http.game.player.bimestre_dos.inversionEnInvestigacion:""
+                    | thousandPipe}}</td>
+                  <td>{{(http.game.player&&http.game.player.bimestre_tres)?http.game.player.bimestre_tres.inversionEnInvestigacion:""
+                    | thousandPipe}}</td>
                   <td id="inversionEnInvestigacionTD">
                     <select class="input-width" type="number" (change)="onChangeinversionEnInvestigacions($event.target.value)">
-                      <ng-container *ngFor="let inversion of inversionEnInvestigacions" >
-                        <option *ngIf="inversionEnMarketing+inversion+inversionEnActivos+(produccion*35)+8000+22770<=capitalPeriodoAnterior+(precioUnitario*produccion)+10000" [ngValue]="inversion" >
+                      <ng-container *ngFor="let inversion of inversionEnInvestigacions">
+                        <option *ngIf="inversionEnMarketing+inversion+inversionEnActivos+(produccion*35)+8000+22770<=capitalPeriodoAnterior+(precioUnitario*produccion)+10000"
+                          [ngValue]="inversion">
                           {{inversion}}
                         </option>
                       </ng-container>
@@ -276,7 +290,8 @@
                   <td id="inversionEnActivosTD">
                     <select class="input-width" type="number" (change)="onChangeinversionEnActivoss($event.target.value)">
                       <ng-container *ngFor="let inversion of inversionEnActivoss">
-                        <option *ngIf="inversionEnMarketing+inversionEnInvestigacion+inversion+(produccion*35)+8000+22770<=capitalPeriodoAnterior+(precioUnitario*produccion)+10000" [ngValue]="inversion" >
+                        <option *ngIf="inversionEnMarketing+inversionEnInvestigacion+inversion+(produccion*35)+8000+22770<=capitalPeriodoAnterior+(precioUnitario*produccion)+10000"
+                          [ngValue]="inversion">
                           {{inversion}}
                         </option>
                       </ng-container>
@@ -293,7 +308,8 @@
                 <ul style="list-style-type:none">
                   <li> <span> <i class="material-icons" (click)="general()" style="font-size:18px; color:blue;cursor: pointer">
                         arrow_right</i></span> CAPITAL PERIODO
-                    ANTERIOR&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{capitalPeriodoAnterior | thousandPipe}}</li>
+                    ANTERIOR&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{capitalPeriodoAnterior
+                    | thousandPipe}}</li>
                   <li><span> <i class="material-icons" (click)="ingresoDiv()" style="font-size:18px; color:blue;cursor: pointer">arrow_drop_down</i></span>
                     INGRESOS&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     {{precioUnitario*produccion+10000 | thousandPipe}}</li>
@@ -310,7 +326,7 @@
                     <pre>INV. MARKETING                                     {{inversionEnMarketing | thousandPipe}}</pre>
                     <pre>INV. INVESTIGACIÓN                              {{inversionEnInvestigacion | thousandPipe}}</pre>
                     <pre>INV. ACTIVOS                                          {{inversionEnActivos | thousandPipe}}</pre>
-                    
+
                   </div>
                   <li><span> <i class="material-icons" (click)="resultadosDiv()" style="font-size:18px; color:blue;cursor: pointer">arrow_drop_down</i></span>RESULTADO
                   </li>
@@ -373,8 +389,7 @@
                 </div>
               </div>
               <div class="section_body_content  {{section_tap_2==3 ? '' : 'tap_menu_hidden'}}">
-                <div id="PorcentajeMercado"><canvas id="pieI" height="3"
-                width="8"></canvas>
+                <div id="PorcentajeMercado"><canvas id="pieI" height="3" width="8"></canvas>
                 </div>
               </div>
             </div>
@@ -427,8 +442,7 @@
                 </div>
               </div>
               <div class="section_body_content  {{section_tap_3==4 ? '' : 'tap_menu_hidden'}}" style="overflow: scroll;">
-                <canvas id="lineChart"  height="3"
-                width="8"></canvas>
+                <canvas id="lineChart" height="3" width="8"></canvas>
               </div>
             </div>
           </div>
