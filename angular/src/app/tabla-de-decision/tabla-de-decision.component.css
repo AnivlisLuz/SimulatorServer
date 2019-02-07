@@ -109,7 +109,7 @@ aside {
   height: calc(100% - 140px);
   width: 100%;
   background-color: white;
-  overflow: scroll;
+  overflow: hidden;
 }
 
 .section_body_main {
