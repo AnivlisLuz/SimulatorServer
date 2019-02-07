@@ -6375,7 +6375,7 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 
 
 
-var config = { url: 'http://localhost', options: {} };
+var config = { url: 'http://159.89.225.48', options: {} };
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }
