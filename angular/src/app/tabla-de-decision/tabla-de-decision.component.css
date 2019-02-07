@@ -2,7 +2,7 @@
   position: absolute;
   height: 100vh;
   width: 100vw;
-  background-color: #36A9E1;
+  background-color: #36a9e1;
   display: flex;
 }
 
@@ -96,7 +96,7 @@ aside {
 
 .section_title_desc {
   position: relative;
-  font-size:3vw;
+  font-size: 3vw;
   color: white;
   line-height: 100px;
   text-align: center;
@@ -130,18 +130,18 @@ aside {
   padding: 0;
   margin: 0;
   height: 50px;
-  background-color: #092B3A;
+  background-color: #092b3a;
 }
 
 .tap_selected {
-  background-color: #135A82;
+  background-color: #135a82;
 }
 
 .section_body_container {
   height: calc(100% - 20px);
   width: calc(100% - 20px);
   padding: 10px;
-  background-color: #092B3A;
+  background-color: #092b3a;
 }
 
 .section_body_content {
@@ -153,12 +153,13 @@ aside {
 
 .section_body_content_title {
   width: 500px;
-  background-color: #092B3A;
+  background-color: #092b3a;
   line-height: 50px;
   text-align: center;
   color: white;
 }
-.input-width{width: calc(100% - 20px);
+.input-width {
+  width: calc(100% - 20px);
 }
 .tabla-decision {
   text-align: center;
@@ -170,7 +171,6 @@ aside {
 table {
   width: 100%;
   color: black;
-
 }
 
 table,
@@ -183,18 +183,15 @@ td {
 .th1 {
   width: 10%;
   border: 1px solid white;
-
 }
 
 .th2 {
   width: 200%;
-
 }
 
 .tr1 {
   width: 10%;
   border: 1px solid white;
-
 }
 
 table#t01 tr {
@@ -203,12 +200,10 @@ table#t01 tr {
 
 table#t01 tr:nth-child(odd) {
   background-color: #fff;
-
 }
 
 table#t01 tr:nth-child(even) {
   background-color: rgb(116, 197, 233);
-
 }
 
 table#t01 th {
@@ -225,7 +220,6 @@ table#t01 th {
   background-color: rgb(255, 255, 255);
   margin-left: 20px;
   font-size: 14px;
-
 }
 
 .header-proyecciones {
@@ -243,116 +237,81 @@ table#t01 th {
   text-align: left;
   background-color: white;
   border: 1px solid black;
-
 }
 
-#colorNav > ul{
-    width: 450px;
-    margin:0 auto;
-}
-
-#colorNav > ul > li{ /* will style only the top level li */
-    list-style: none;
-    /*box-shadow: 0 0 10px rgba(100, 100, 100, 0.2) inset,1px 1px 1px #CCC;*/
-    display: inline-block;
-    line-height: 1;
-    margin: 1px;
-    border-radius: 3px;
-    position:relative;
-    top: 20px;
-    left: 320px;
-}
-
-#colorNav > ul > li > a{
-    color:inherit;
-    text-decoration:none !important;
-    font-size:0px;/*aqui*/
-    padding: 10px;/*aqui*/
-}
-
-#colorNav li ul{
-    position:absolute;
-    list-style:none;
-    text-align:center;
-    width:180px;
-    left:50%;
-    margin-left:-130px;/*aqui*/
-    top:40px;/*aqui*/
-    font-size: 12px;
-    font-weight: bold;
-    /*font:bold 12px 'Open Sans Condensed', sans-serif;*/
-
-    /* This is important for the show/hide CSS animation */
-    max-height:0px;
-    overflow:hidden;
-
-    -webkit-transition:max-height 0.4s linear;
-    -moz-transition:max-height 0.4s linear;
-    transition:max-height 0.4s linear;
-}
-
-#colorNav li:hover ul{
-    max-height:200px;
-}
-
-#colorNav li ul li{
-    background-color:#313131;
-}
-
-#colorNav li ul li a{
-    padding:12px;
-    color:#fff !important;
-    text-decoration:none !important;
-    display:block;
-}
-
-#colorNav li ul li:nth-child(odd){ /* zebra stripes */
-    background-color:#363636;
-}
-
-#colorNav li ul li:hover{
-    background-color:#444;
-}
-
-#colorNav li ul li:first-child{
-    border-radius:3px 3px 0 0;
-    margin-top:25px;
-    position:relative;
-}
-
-#colorNav li ul li:first-child:before{ /* the pointer tip */
-    content:'';
-    position:absolute;
-    width:1px;
-    height:1px;
-    border:5px solid transparent;
-    border-bottom-color:#313131;
-    left:50%;
-    top:-10px;
-    margin-left:-5px;
-}
-
-#colorNav li ul li:last-child{
-    border-bottom-left-radius:3px;
-    border-bottom-right-radius:3px;
-}
-
-#colorNav li.material-icons{
-    /* This is the color of the menu item */
-    background-color:#135A82;
-
-    /* This is the color of the icon */
-    color:#092B3A;
-}
-
-.material-icons{
-  font-size: 4rem;
-}
-.fuente{
+.fuente {
   font-size: 16px;
   font-weight: bold;
 }
-pre{
+pre {
   font-family: "arial";
   color: black;
-  }
+}
+/* Tooltip container */
+.tooltip {
+  display: inline-block;
+  position: relative;
+  border-bottom: 1px dotted #666;
+  text-align: left;
+}
+
+.tooltip .left {
+  min-width: 200px;
+  top: 50%;
+  right: 100%;
+  margin-right: 20px;
+  transform: translate(50%, 40%);
+  padding: 0px;
+  color: #ffffff;
+  background-color: #092B3A;
+  font-weight: normal;
+  font-size: 13px;
+  border-radius: 3px;
+  position: absolute;
+  z-index: 99999999;
+  box-sizing: border-box;
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.5);
+  display: none;
+}
+.tooltip .left div{
+  font-size: 15px;
+  padding: 20px;
+  cursor: pointer;
+}
+.tooltip .left div:hover{
+  background-color: #50515c;
+}
+
+.tooltip:hover .left {
+  display: block;
+}
+
+.tooltip .left i {
+  position: absolute;
+  top: 50%;
+  left: 100%;
+  margin-top: -12px;
+  width: 12px;
+  height: 24px;
+  overflow: hidden;
+}
+
+.tooltip .left i::after {
+  content: "";
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  left: 0;
+  top: 50%;
+  transform: translate(-50%, -50%) rotate(-45deg);
+  background-color: #eeeeee;
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.5);
+}
+.tooltip .material-icons{
+  height: 100px;
+  width: 100px;
+  font-size: 100px;
+  text-align: center;
+  line-height: 100px;
+  color: white
+}
