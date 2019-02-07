@@ -24,6 +24,9 @@ export class HttpService {
   game: Game
   constructor(private http: Http, private socket: Socket) {
     console.log("servicio generado")
+    socket.on('disconnect', () => {
+      alert("desconectado del servidor");
+    });
     socket.on("connect", data => {
       console.log("servicio generado socket")
       this.game = new Game(socket)
