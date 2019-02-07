@@ -26,6 +26,7 @@ export class HttpService {
     console.log("servicio generado")
     socket.on('disconnect', () => {
       alert("desconectado del servidor");
+      window.location.reload();
     });
     socket.on("connect", data => {
       console.log("servicio generado socket")
