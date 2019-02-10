@@ -8,9 +8,9 @@ describe('TablaProduccionComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ TablaProduccionComponent ]
+      declarations: [TablaProduccionComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

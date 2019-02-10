@@ -13,7 +13,7 @@ export class AppComponent {
   password: string;
 
 
-  constructor(public authService: AuthService, private _firebaseAuth: AngularFireAuth) {}
+  constructor(public authService: AuthService, private _firebaseAuth: AngularFireAuth) { }
 
   signup() {
     this.authService.signup(this.email, this.password);

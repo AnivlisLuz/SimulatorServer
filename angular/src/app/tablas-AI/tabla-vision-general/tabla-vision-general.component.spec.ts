@@ -11,9 +11,9 @@ describe('TablaVisionGeneralComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ TablaVisionGeneralComponent ]
+      declarations: [TablaVisionGeneralComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

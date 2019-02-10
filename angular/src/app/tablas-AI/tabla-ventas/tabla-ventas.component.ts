@@ -7,7 +7,7 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./tabla-ventas.component.css']
 })
 export class TablaVentasComponent implements OnInit {
-  @Input() public ventasIndustria:VentasIndustria;
+  @Input() public ventasIndustria: VentasIndustria;
   constructor() {
   }
 

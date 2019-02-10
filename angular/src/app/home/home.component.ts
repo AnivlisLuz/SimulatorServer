@@ -9,43 +9,46 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private router: Router,private formBuilder: FormBuilder) { }
+  constructor(private router: Router, private formBuilder: FormBuilder) { }
   registerForm: FormGroup;
   submitted = false;
   ngOnInit() {
-      this.registerForm = this.formBuilder.group({
-            jugador: ['', Validators.required],
-            ciudad: ['', Validators.required],
-            edad: ['', Validators.required]
-        });
+    this.registerForm = this.formBuilder.group({
+      jugador: ['', Validators.required],
+      ciudad: ['', Validators.required],
+      edad: ['', Validators.required]
+    });
   }
-  aceptado(){this.submitted = true;
+  aceptado() {
+  this.submitted = true;
 
-        // stop here if form is invalid
-        if (this.registerForm.invalid) {return;}
-  
+    // stop here if form is invalid
+    if (this.registerForm.invalid) { return; }
+
   }
-  iniciarSesion(){
+  iniciarSesion() {
     this.router.navigateByUrl('/login');
   }
-  registrarse(){
+  registrarse() {
     this.router.navigateByUrl('/register');
 
   }
   get f() { return this.registerForm.controls; }
-  moderador() {{}
-   this.submitted = true;
+  moderador() {
+    { }
+    this.submitted = true;
 
-        // stop here if form is invalid
-        if (this.registerForm.invalid) {return;}
+    // stop here if form is invalid
+    if (this.registerForm.invalid) { return; }
     this.router.navigateByUrl('/moderador');
   }
 
-  jugar() {{}
-   this.submitted = true;
+  jugar() {
+    { }
+    this.submitted = true;
 
-        // stop here if form is invalid
-        if (this.registerForm.invalid) {return;}
+    // stop here if form is invalid
+    if (this.registerForm.invalid) { return; }
     this.router.navigateByUrl('/jugar');
   }
 }

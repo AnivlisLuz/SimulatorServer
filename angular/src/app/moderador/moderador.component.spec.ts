@@ -8,9 +8,9 @@ describe('ModeradorComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ModeradorComponent ]
+      declarations: [ModeradorComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

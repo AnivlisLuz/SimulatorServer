@@ -1,116 +1,116 @@
 <div id="main-containerBalance">
   <table id="success">
     <tbody>
-        <tr>
-                <th colspan="4">Activo</th>
-                <th colspan="4">Pasivo</th>
+      <tr>
+        <th colspan="4">Activo</th>
+        <th colspan="4">Pasivo</th>
 
-            </tr>
-
-
-          <tr>
-              <td colspan="4"></td>
-              <td id="primero-Izq">Corriente</td>
-              <td colspan="2"></td>
-              <td> 0</td>
-          </tr>
-
-              <td>Corriente</td>
-              <td colspan="2"></td>
-              <td>{{balanceGeneral.corriente | thousandPipe}}</td>
-              <td id="medio-Izq"></td>
-              <td>Cuenta por Cobrar</td>
-              <td>0</td>
-              <td></td>
+      </tr>
 
 
+      <tr>
+        <td colspan="4"></td>
+        <td id="primero-Izq">Corriente</td>
+        <td colspan="2"></td>
+        <td> 0</td>
+      </tr>
+
+      <td>Corriente</td>
+      <td colspan="2"></td>
+      <td>{{balanceGeneral.corriente | thousandPipe}}</td>
+      <td id="medio-Izq"></td>
+      <td>Cuenta por Cobrar</td>
+      <td>0</td>
+      <td></td>
 
 
-            <tr>
 
-            </tr>
-            <tr>
-              <td></td>
-              <td>Caja</td>
-              <td>{{balanceGeneral.caja | thousandPipe}}</td>
-              <td></td>
-              <td id="medio-Izq">no corriente</td>
-              <td colspan="2"></td>
-              <td>{{1300 | thousandPipe}}</td>
 
-            </tr>
-            <tr>
-              <td></td>
-              <td>Bancos</td>
-              <td>{{balanceGeneral.bancos | thousandPipe}}</td>
-              <td></td>
-              <td id="medio-Izq"></td>
-              <td>Alquiler</td>
-              <td>{{1300 | thousandPipe}}</td>
-              <td></td>
+      <tr>
 
-            </tr>
+      </tr>
+      <tr>
+        <td></td>
+        <td>Caja</td>
+        <td>{{balanceGeneral.caja | thousandPipe}}</td>
+        <td></td>
+        <td id="medio-Izq">no corriente</td>
+        <td colspan="2"></td>
+        <td>{{1300 | thousandPipe}}</td>
 
-              <tr>
-              <td></td>
-              <td>Inventario</td>
-              <td>{{balanceGeneral.inventario | thousandPipe}}</td>
-              <td></td>
-              <td id="ultimo-Izq">Total pasivo</td>
-              <td colspan="2" id="ultimo"></td>
-              <td>{{1300 | thousandPipe}}</td>
+      </tr>
+      <tr>
+        <td></td>
+        <td>Bancos</td>
+        <td>{{balanceGeneral.bancos | thousandPipe}}</td>
+        <td></td>
+        <td id="medio-Izq"></td>
+        <td>Alquiler</td>
+        <td>{{1300 | thousandPipe}}</td>
+        <td></td>
 
-            </tr>
+      </tr>
 
-            <tr>
-              <td>No corriente</td>
-              <td colspan="2"></td>
-              <td>{{8500 | thousandPipe}}</td>
-              <th colspan="4">Patrimonio</th>
+      <tr>
+        <td></td>
+        <td>Inventario</td>
+        <td>{{balanceGeneral.inventario | thousandPipe}}</td>
+        <td></td>
+        <td id="ultimo-Izq">Total pasivo</td>
+        <td colspan="2" id="ultimo"></td>
+        <td>{{1300 | thousandPipe}}</td>
 
-            </tr>
+      </tr>
 
-            <tr>
-              <td></td>
-              <td>Herramientas</td>
-              <td>{{1500 | thousandPipe}}</td>
-              <td></td>
-              <td id="primero-Izq">Capital</td>
-              <td colspan="2"></td>
-              <td>{{balanceGeneral.capital | thousandPipe}}</td>
+      <tr>
+        <td>No corriente</td>
+        <td colspan="2"></td>
+        <td>{{8500 | thousandPipe}}</td>
+        <th colspan="4">Patrimonio</th>
 
-            </tr>
+      </tr>
 
-            <tr>
-              <td></td>
-              <td>Maquinaria</td>
-              <td>{{7000 | thousandPipe}}</td>
-              <td></td>
-              <td id="medio-Izq">Utilidad del ejercicio</td>
-              <td colspan="2"></td>
-              <td>{{balanceGeneral.utilidadEjercicio | thousandPipe}}</td>
+      <tr>
+        <td></td>
+        <td>Herramientas</td>
+        <td>{{1500 | thousandPipe}}</td>
+        <td></td>
+        <td id="primero-Izq">Capital</td>
+        <td colspan="2"></td>
+        <td>{{balanceGeneral.capital | thousandPipe}}</td>
 
-            </tr>
+      </tr>
 
-            <tr>
-              <td colspan="4"></td>
-              <td id="ultimo-Izq">Total patrimonio</td>
-              <td colspan="2"></td>
-              <td>{{balanceGeneral.totalPatrimonio | thousandPipe}}</td>
+      <tr>
+        <td></td>
+        <td>Maquinaria</td>
+        <td>{{7000 | thousandPipe}}</td>
+        <td></td>
+        <td id="medio-Izq">Utilidad del ejercicio</td>
+        <td colspan="2"></td>
+        <td>{{balanceGeneral.utilidadEjercicio | thousandPipe}}</td>
 
-            </tr>
+      </tr>
 
-            <tr id="pintar">
-              <td>Total activos</td>
-              <td></td>
-              <td></td>
-              <td>{{balanceGeneral.totalActivos | thousandPipe}}</td>
-              <td id="ultimo-Izq-Final">Total pasivo + patrimonio</td>
-              <td colspan="2"></td>
-              <td>{{balanceGeneral.totalPasivoPatrimonio | thousandPipe}}</td>
+      <tr>
+        <td colspan="4"></td>
+        <td id="ultimo-Izq">Total patrimonio</td>
+        <td colspan="2"></td>
+        <td>{{balanceGeneral.totalPatrimonio | thousandPipe}}</td>
 
-            </tr>
+      </tr>
 
-            </tbody>
-        </table>
-      </div>
+      <tr id="pintar">
+        <td>Total activos</td>
+        <td></td>
+        <td></td>
+        <td>{{balanceGeneral.totalActivos | thousandPipe}}</td>
+        <td id="ultimo-Izq-Final">Total pasivo + patrimonio</td>
+        <td colspan="2"></td>
+        <td>{{balanceGeneral.totalPasivoPatrimonio | thousandPipe}}</td>
+
+      </tr>
+
+    </tbody>
+  </table>
+</div>

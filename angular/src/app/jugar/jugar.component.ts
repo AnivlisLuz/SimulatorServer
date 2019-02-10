@@ -38,12 +38,12 @@ export class JugarComponent implements OnInit {
     this.submitted = true;
 
     // stop here if form is invalid
-    if (this.registerForm.invalid) {return;}
-    this.nombre_empresa=this.registerForm.value.nombreE
-    this.codigo=this.registerForm.value.codigo
+    if (this.registerForm.invalid) { return; }
+    this.nombre_empresa = this.registerForm.value.nombreE
+    this.codigo = this.registerForm.value.codigo
 
     let body_send = { player_name: this.nombre_empresa.toUpperCase(), codigo: this.codigo }
-    this.http.game.joinGame( body_send, (response) => {
+    this.http.game.joinGame(body_send, (response) => {
       if (response.message && response.message == "ok") {
         alert("Tu nombre de empresa sera:" + this.nombre_empresa);
         this.router.navigate(['/tabla']);
@@ -51,6 +51,6 @@ export class JugarComponent implements OnInit {
       else
         alert(`Error: ${response}`)
     })
-   
+
   }
 }

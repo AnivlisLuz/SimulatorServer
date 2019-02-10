@@ -8,9 +8,9 @@ describe('TablVentasComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ TablVentasComponent ]
+      declarations: [TablVentasComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

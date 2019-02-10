@@ -15,7 +15,7 @@ export class ModeradorComponent implements OnInit {
   submitted = false;
   moderador: Moderador;
 
-  constructor(private http: HttpService,private formBuilder: FormBuilder, private router: Router) {
+  constructor(private http: HttpService, private formBuilder: FormBuilder, private router: Router) {
     this.moderador = new Moderador();
   }
 
@@ -24,27 +24,26 @@ export class ModeradorComponent implements OnInit {
       nombreMercado: ['', Validators.required],
       cantidadJugadores: [2, Validators.required]
 
-  });
+    });
   }
   get f() { return this.registerForm.controls; }
   onClickMe() {
     this.submitted = true;
 
     // stop here if form is invalid
-    if (this.registerForm.invalid) {return;}
-    this.moderador.nombreMercado=this.registerForm.value.nombreMercado
-    this.moderador.cantidadJugadores=this.registerForm.value.cantidadJugadores
+    if (this.registerForm.invalid) { return; }
+    this.moderador.nombreMercado = this.registerForm.value.nombreMercado
+    this.moderador.cantidadJugadores = this.registerForm.value.cantidadJugadores
 
-    this.http.game.createGame( this.moderador, (response) => {
-      if (response.message && response.message == "ok")
-      {
+    this.http.game.createGame(this.moderador, (response) => {
+      if (response.message && response.message == "ok") {
         alert(`Creado correctamente, Codigo: ${response.token}`)
-        let codigo=response.token;
-        this.http.game.joinGameModerator( codigo, (response) => {
+        let codigo = response.token;
+        this.http.game.joinGameModerator(codigo, (response) => {
           if (response.message && response.message == "ok") {
             this.router.navigate(['/fin']);
           }
-      });
+        });
       }
       else
         alert(`Error: ${response}`)

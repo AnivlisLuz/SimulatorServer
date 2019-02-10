@@ -1,36 +1,36 @@
 <div id="main-containerVentas">
   <table>
-          <thead>
-            <tr>
-                <th>DETALLE</th>
-                <th>UNIDADES</th>
-                <th>MONETARIO</th>
+    <thead>
+      <tr>
+        <th>DETALLE</th>
+        <th>UNIDADES</th>
+        <th>MONETARIO</th>
 
-            </tr>
-          </thead>
+      </tr>
+    </thead>
 
-          <tbody>
-            <tr>
-              <td>PRODUCIDO</td>
-              <td>{{ventas.producidoUnidades | thousandPipe}}</td>
-              <td>{{ventas.producidoMonetario | thousandPipe}}</td>
+    <tbody>
+      <tr>
+        <td>PRODUCIDO</td>
+        <td>{{ventas.producidoUnidades | thousandPipe}}</td>
+        <td>{{ventas.producidoMonetario | thousandPipe}}</td>
 
-            </tr>
-            <tr>
-              <td>VENTAS REALIZADAS</td>
-              <td>{{ventas.ventasRealizadasUnidades | thousandPipe}}</td>
-              <td>{{ventas.ventasRealizadasMonetario | thousandPipe}}</td>
-            </tr>
-            <tr>
-              <td>INVENTARIO</td>
-              <td>{{ventas.inventarioUnidades | thousandPipe}}</td>
-              <td>{{ventas.inventarioMonetario | thousandPipe}}</td>
-            </tr>
-            <tr>
-              <td>PEDIDOS NO ATENDIDOS</td>
-              <td>{{ventas.pedidosNoAtendidosUnidades | thousandPipe}}</td>
-              <td>{{ventas.pedidosNoAtendidosMonetario | thousandPipe}}</td>
-            </tr>
-          </tbody>
-        </table>
+      </tr>
+      <tr>
+        <td>VENTAS REALIZADAS</td>
+        <td>{{ventas.ventasRealizadasUnidades | thousandPipe}}</td>
+        <td>{{ventas.ventasRealizadasMonetario | thousandPipe}}</td>
+      </tr>
+      <tr>
+        <td>INVENTARIO</td>
+        <td>{{ventas.inventarioUnidades | thousandPipe}}</td>
+        <td>{{ventas.inventarioMonetario | thousandPipe}}</td>
+      </tr>
+      <tr>
+        <td>PEDIDOS NO ATENDIDOS</td>
+        <td>{{ventas.pedidosNoAtendidosUnidades | thousandPipe}}</td>
+        <td>{{ventas.pedidosNoAtendidosMonetario | thousandPipe}}</td>
+      </tr>
+    </tbody>
+  </table>
 </div>

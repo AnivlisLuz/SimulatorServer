@@ -8,12 +8,12 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class TablaProduccionComponent implements OnInit {
 
- @Input() public produccionIndustria:Produccion;
+  @Input() public produccionIndustria: Produccion;
   constructor() {
   }
 
   ngOnInit() {
-    
+
   }
 
 }

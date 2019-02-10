@@ -8,7 +8,7 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class TablVentasComponent implements OnInit {
 
-  @Input() public ventas:Ventas;
+  @Input() public ventas: Ventas;
 
   constructor() { }
 

@@ -1,37 +1,46 @@
 <div id="main-container">
-    <table id="success">
-            <thead>
-              <tr>
-                <th >COMPAÑIA</th>
-                <th >VENTAS</th>
-                <th >BENEFICIO</th>
-                <th>PRECIO U.</th>
-                <th>% MERCADO</th>
-              </tr>
-            </thead>
+  <table id="success">
+    <thead>
+      <tr>
+        <th>COMPAÑIA</th>
+        <th>VENTAS</th>
+        <th>BENEFICIO</th>
+        <th>PRECIO U.</th>
+        <th>% MERCADO</th>
+      </tr>
+    </thead>
 
-            <tbody >
-              <td><tr *ngFor="let visionG of http.game.players">{{visionG.name}}</tr></td>
-              <td><tr *ngFor="let visionG of visionGeneral">{{visionG.ventas | thousandPipe}}</tr></td>
-              <td><tr *ngFor="let visionG of visionGeneral">{{visionG.beneficio | thousandPipe}}</tr></td>
-              <td><tr *ngFor="let visionG of visionGeneral">{{visionG.precioUnitario | thousandPipe}}</tr></td>
-              <td><tr *ngFor="let visionG of visionGeneral">{{visionG.porcentajeDeMercado | thousandPipe}} %</tr></td>
-              <tr>
-                <td class="td2">MERCADO DESATENDIDO</td>
-                <td class="td2"></td>
-                <td class="td2"></td>
-                <td class="td2"></td>
-                <td class="td2">{{sumatoriasTotales()}}{{mercadoDesatendido | thousandPipe}} %</td>
-              </tr>
-              <tr>
-                <td>{{sumatoriasTotales() | thousandPipe}}TOTALES</td>
-                <td>{{totalesVentas | thousandPipe}}</td>
-                <td>{{totalesBeneficio | thousandPipe}}</td>
-                <td>PROM. {{totalesPrecioUnitario | thousandPipe}}</td>
-                <td>{{totalesPorcentajeMercado | thousandPipe}} %</td>
-              </tr>
-            </tbody>
-      </table>
+    <tbody>
+      <td>
+        <tr *ngFor="let visionG of http.game.players">{{visionG.name}}</tr>
+      </td>
+      <td>
+        <tr *ngFor="let visionG of visionGeneral">{{visionG.ventas | thousandPipe}}</tr>
+      </td>
+      <td>
+        <tr *ngFor="let visionG of visionGeneral">{{visionG.beneficio | thousandPipe}}</tr>
+      </td>
+      <td>
+        <tr *ngFor="let visionG of visionGeneral">{{visionG.precioUnitario | thousandPipe}}</tr>
+      </td>
+      <td>
+        <tr *ngFor="let visionG of visionGeneral">{{visionG.porcentajeDeMercado | thousandPipe}} %</tr>
+      </td>
+      <tr>
+        <td class="td2">MERCADO DESATENDIDO</td>
+        <td class="td2"></td>
+        <td class="td2"></td>
+        <td class="td2"></td>
+        <td class="td2">{{sumatoriasTotales()}}{{mercadoDesatendido | thousandPipe}} %</td>
+      </tr>
+      <tr>
+        <td>{{sumatoriasTotales() | thousandPipe}}TOTALES</td>
+        <td>{{totalesVentas | thousandPipe}}</td>
+        <td>{{totalesBeneficio | thousandPipe}}</td>
+        <td>PROM. {{totalesPrecioUnitario | thousandPipe}}</td>
+        <td>{{totalesPorcentajeMercado | thousandPipe}} %</td>
+      </tr>
+    </tbody>
+  </table>
 
-  </div>
-
+</div>

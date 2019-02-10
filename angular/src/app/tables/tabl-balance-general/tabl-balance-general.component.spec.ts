@@ -8,9 +8,9 @@ describe('TablBalanceGeneralComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ TablBalanceGeneralComponent ]
+      declarations: [TablBalanceGeneralComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
