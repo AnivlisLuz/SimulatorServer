@@ -1028,34 +1028,17 @@ function calcularProduccion(bimestres, costosProduccion, produccion) {
     db.saveProduccion(produccion)
 }
 
-function sleep(ms) {
-    return new Promise(resolve => {
-        setTimeout(resolve, ms)
-    })
-}
+// function sleep(ms) {
+//     return new Promise(resolve => {
+//         setTimeout(resolve, ms)
+//     })
+// }
 async function calcularTodo(codigoJuego, numeroBimestre) {
     let bimestres = []
     let empresas = []
     let player = {}
-    db.getAllBimestresByCodigoYNumero(codigoJuego, numeroBimestre, function (error, res) {
-        if (error) {
-            console.log("error")
-        } else {
-
-            bimestres = res
-        }
-    })
-    await sleep(2000)
-
-    db.getEmpresasPorCodigoDeJuego(codigoJuego, function (error, res) {
-        if (error) {
-            console.log("error")
-        } else {
-
-            empresas = res
-        }
-    })
-    await sleep(2000)
+    bimestres = await db.getAllBimestresByCodigoYNumero(codigoJuego, numeroBimestre)
+    empresas = await db.getEmpresasPorCodigoDeJuego(codigoJuego)
 
 
     for (let i = 0; i < bimestres.length; i++) {
@@ -1064,36 +1047,15 @@ async function calcularTodo(codigoJuego, numeroBimestre) {
         ventasUnidades = 0
         utilidadNeta = 10000
         if (bimestre.numero != 1) {
-            db.getVentasPorCodigoDeJuegoNombreNumero(codigoJuego, bimestre.jugador, numeroBimestre - 1, function (error, res) {
-                if (error) {
-                    console.log("error")
-                } else {
-                    ventasAnterior = res
-                }
-            })
-            await sleep(3000)
+            ventasAnterior = await db.getVentasPorCodigoDeJuegoNombreNumero(codigoJuego, bimestre.jugador, numeroBimestre - 1)
 
-            db.getEstadoResultadosPorCodigoDeJuegoNombreNumero(codigoJuego, bimestre.jugador, numeroBimestre - 1, function (error, res) {
-                if (error) {
-                    console.log("error")
-                } else {
-                    estadoResultadosAnterior = res
-                }
-            })
-            await sleep(3000)
+            estadoResultadosAnterior = await db.getEstadoResultadosPorCodigoDeJuegoNombreNumero(codigoJuego, bimestre.jugador, numeroBimestre - 1)
             ventasUnidades = ventasAnterior.inventarioUnidades
             utilidadNeta = estadoResultadosAnterior.utilidadNeta
         }
         let costoProduccion = new CostosProduccion(bimestre.numero, bimestre.codigo, bimestre.jugador)
         costoProduccion.calcular(bimestre.produccion)
-        db.getEmpresaPorCodigoDeJuegoYNombre(codigoJuego, bimestre.jugador, function (error, res) {
-            if (error) {
-                console.log("error")
-            } else {
-                player = res
-            }
-        })
-        await sleep(3000)
+        player = await db.getEmpresaPorCodigoDeJuegoYNombre(codigoJuego, bimestre.jugador)
         empresa = new Empresa(player.name, player.codigo, player.cantidadIdealTotal, bimestre.produccion, player.cantidadRealVendida, player.cantidadIdeal)
         empresa.calcular(empresas, bimestre.precioUnitario, bimestre.inversionEnMarketing, bimestre.inversionEnInvestigacion, bimestre.inversionEnActivos, ventasUnidades)
         db.updateEmpresa(empresa)
@@ -1113,34 +1075,12 @@ async function calcularTodo(codigoJuego, numeroBimestre) {
         db.saveBalanceGeneral(balanceGeneral)
 
     }
-    db.getEmpresasPorCodigoDeJuego(codigoJuego, function (error, res) {
-        if (error) {
-            console.log("error")
-        } else {
-
-            empresas = res
-        }
-    })
-    await sleep(3000)
+    empresas = await db.getEmpresasPorCodigoDeJuego(codigoJuego)
     let costosProduccionBimestre = []
     let ventasBimestre = []
-    db.getAllCostosProduccionByCodigoYNumero(codigoJuego, numeroBimestre, function (error, res) {
-        if (error) {
-            console.log("errorCoP")
-        } else {
-            costosProduccionBimestre = res
-        }
-    })
-    await sleep(2000)
+    costosProduccionBimestre = await db.getAllCostosProduccionByCodigoYNumero(codigoJuego, numeroBimestre)
 
-    db.getAllVentasByCodigoYNumero(codigoJuego, numeroBimestre, function (error, res) {
-        if (error) {
-            console.log("errorV")
-        } else {
-            ventasBimestre = res
-        }
-    })
-    await sleep(1000)
+    ventasBimestre = await db.getAllVentasByCodigoYNumero(codigoJuego, numeroBimestre)
     mercados[codigoJuego].calcular(empresas)
 
     juego = mercados[codigoJuego]
@@ -1148,23 +1088,8 @@ async function calcularTodo(codigoJuego, numeroBimestre) {
         player = empresas[i]
         empresa = new Empresa(player.name, player.codigo, player.cantidadIdealTotal, player.produccion, player.cantidadRealVendida, player.cantidadIdeal)
         empresa.calcularPorcentajeMercado(juego.mercado)
-        db.getEstadoResultadosPorCodigoDeJuegoNombreNumero(codigoJuego, player.name, numeroBimestre, function (error, res) {
-            if (error) {
-                console.log("errorER")
-            } else {
-                estadoResultados = res
-
-            }
-        })
-        await sleep(3000)
-        db.getBimestrePorCodigoDeJuegoNombreNumero(codigoJuego, player.name, numeroBimestre, function (error, res) {
-            if (error) {
-                console.log("errorBim")
-            } else {
-                bimestre = res
-            }
-        })
-        await sleep(3000)
+        estadoResultados = await db.getEstadoResultadosPorCodigoDeJuegoNombreNumero(codigoJuego, player.name, numeroBimestre)
+        bimestre = await db.getBimestrePorCodigoDeJuegoNombreNumero(codigoJuego, player.name, numeroBimestre)
 
         visionGeneral = new VisionGeneral(empresa.cantidadRealVendida, estadoResultados.utilidadNeta, bimestre.precioUnitario, empresa.porcentajeDeMercado, numeroBimestre, codigoJuego, empresa.name)
         db.saveVisionGeneral(visionGeneral)
@@ -1175,38 +1100,16 @@ async function calcularTodo(codigoJuego, numeroBimestre) {
             db.saveProduccion(produccion)
             db.saveVentasIndustria(ventasIndustria)
         } else {
-            db.getProduccionPorCodigoDeJuegoNombreNumero(codigoJuego, player.name, numeroBimestre - 1, function (error, res) {
-                if (error) {
-                    console.log("errorProd")
-                } else {
-                    produccion = res
-                }
-            })
-            await sleep(3000)
+            produccion = await db.getProduccionPorCodigoDeJuegoNombreNumero(codigoJuego, player.name, numeroBimestre - 1)
             calcularProduccion(bimestres, costosProduccionBimestre, produccion)
-            db.getVentasIndustriaPorCodigoDeJuegoNombreNumero(codigoJuego, player.name, numeroBimestre - 1, function (error, res) {
-                if (error) {
-                    console.log("errorVI")
-                } else {
-                    ventasIndustria = res
-                }
-            })
-            await sleep(3000)
+            ventasIndustria = await db.getVentasIndustriaPorCodigoDeJuegoNombreNumero(codigoJuego, player.name, numeroBimestre - 1)
             calcularVentasIndustria(bimestres, ventasBimestre, ventasIndustria)
         }
     }
 
     let visionGeneralList = []
     let visionGeneralElement = {}
-    db.getAllVisionGeneralByCodigoYNumeroParaUpdate(codigoJuego, numeroBimestre, function (error, res) {
-        if (error) {
-            console.log("error getAllVisionGeneralByCodigoYNumeroParaUpdate")
-        } else {
-            visionGeneralList = res
-            console.log("llego visionGeneralList", visionGeneralList)
-        }
-    })
-    await sleep(3000)
+    visionGeneralList = await db.getAllVisionGeneralByCodigoYNumeroParaUpdate(codigoJuego, numeroBimestre)
     console.log("visionGeneralList =>", visionGeneralList, "tam ", visionGeneralList.length)
     if (visionGeneralList.length != 0) {
         visionGeneralList.sort(function (a, b) {
