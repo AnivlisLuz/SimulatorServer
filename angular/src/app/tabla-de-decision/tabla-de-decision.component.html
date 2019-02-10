@@ -314,25 +314,25 @@
                     INGRESOS&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     {{precioUnitario*produccion+10000 | thousandPipe}}</li>
                   <div id="div-ingresos" style="padding-left: 20%">
-                    <pre>VENTAS                                                  {{precioUnitario*produccion | thousandPipe}} </pre>
-                    <pre>OTROS INGRESOS                               {{ 10000 | thousandPipe}}</pre>
+                    <pre>VENTAS                                        {{precioUnitario*produccion | thousandPipe}} </pre>
+                    <pre>OTROS INGRESOS                     {{ 10000 | thousandPipe}}</pre>
                   </div>
                   <li><span> <i class="material-icons" (click)="gastosDiv()" style="font-size:18px; color:blue ;cursor: pointer">arrow_drop_down</i></span>GASTOS&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     {{inversionEnMarketing +inversionEnInvestigacion+
                     inversionEnActivos+produccion*35
                     +30770 | thousandPipe}}</li>
                   <div id="div-gastos" style="padding-left: 20%">
-                    <pre>PRODUCCIÓN                                       {{produccion*35 +30770 | thousandPipe}}</pre>
-                    <pre>INV. MARKETING                                     {{inversionEnMarketing | thousandPipe}}</pre>
-                    <pre>INV. INVESTIGACIÓN                              {{inversionEnInvestigacion | thousandPipe}}</pre>
-                    <pre>INV. ACTIVOS                                          {{inversionEnActivos | thousandPipe}}</pre>
+                    <pre>PRODUCCIÓN                             {{produccion*35 +30770 | thousandPipe}}</pre>
+                    <pre>INV. MARKETING                           {{inversionEnMarketing | thousandPipe}}</pre>
+                    <pre>INV. INVESTIGACIÓN                    {{inversionEnInvestigacion | thousandPipe}}</pre>
+                    <pre>INV. ACTIVOS                                {{inversionEnActivos | thousandPipe}}</pre>
 
                   </div>
                   <li><span> <i class="material-icons" (click)="resultadosDiv()" style="font-size:18px; color:blue;cursor: pointer">arrow_drop_down</i></span>RESULTADO
                   </li>
                   <div id="div-resultados" style="padding-left: 20%">
-                    <pre>EFECTIVO DISPONIBLE                      {{capitalPeriodoAnterior+10000+precioUnitario*produccion+10000-(inversionEnMarketing + inversionEnActivos+inversionEnInvestigacion) | thousandPipe}} </pre>
-                    <pre>UTILIDAD ESPERADA                          {{(precioUnitario*produccion+10000)-(inversionEnMarketing + inversionEnActivos+inversionEnInvestigacion+produccion*35 +30770) | thousandPipe}}</pre>
+                    <pre>EFECTIVO DISPONIBLE            {{capitalPeriodoAnterior+10000+precioUnitario*produccion+10000-(inversionEnMarketing + inversionEnActivos+inversionEnInvestigacion) | thousandPipe}} </pre>
+                    <pre>UTILIDAD ESPERADA                {{(precioUnitario*produccion+10000)-(inversionEnMarketing + inversionEnActivos+inversionEnInvestigacion+produccion*35 +30770) | thousandPipe}}</pre>
                   </div>
                 </ul>
               </div>
@@ -466,9 +466,9 @@
               <button (click)="costovsprecio()" class="section_body_tab_button  {{section_tap_4==1 ? '' : 'tap_selected'}}">COSTO
                 VS PRECIO</button>
               <button (click)="capacidadvsproduccion()" class="section_body_tab_button  {{section_tap_4==2 ? '' : 'tap_selected'}}">CAPACIDAD
-                vs PRODUCCION</button>
+                VS PRODUCCION</button>
               <button (click)="companiavscompetencia()" class="section_body_tab_button  {{section_tap_4==3 ? '' : 'tap_selected'}}">COMPAÑIA
-                vs COMPETENCIA</button>
+                VS COMPETENCIA</button>
               <button (click)="consejos()" class="section_body_tab_button  {{section_tap_4==4 ? '' : 'tap_selected'}}">CONSEJOS</button>
 
 
