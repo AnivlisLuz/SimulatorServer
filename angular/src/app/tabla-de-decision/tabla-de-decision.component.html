@@ -1,3 +1,4 @@
+
 <div id="main_container">
   <aside>
     <div id="logo_container">
@@ -12,7 +13,7 @@
       <div class="{{tap_position==0 ? '' : 'tap_menu_hidden'}} tab_menu_description">
         Como nuevo gerente general es necesario que conozcas a detalle todo acerca de la compañ&#237;a que ahora
         diriges.
-        En esta secci&#243;n te brindamos toda la informaci&#243;n necesaria para que conozcas el negocio.
+        En esta seci&#243;n te brindamos toda la informaci&#243;n necesaria para que conozcas el negocio.
       </div>
     </div>
     <div class="button_tab_container" style="background-color: #135A82;">
@@ -227,19 +228,21 @@
                   <td>{{(http.game.player&&http.game.player.bimestre_uno)?http.game.player.bimestre_uno.precioUnitario:""}}</td>
                   <td>{{(http.game.player&&http.game.player.bimestre_dos)?http.game.player.bimestre_dos.precioUnitario:""}}</td>
                   <td>{{(http.game.player&&http.game.player.bimestre_tres)?http.game.player.bimestre_tres.precioUnitario:""}}</td>
-                  <td id="precioUnitarioTD"><input class="input-width" type="number" id="precioUnitario" name="precioUnitario"
-                      [(ngModel)]="precioUnitario" min="0" max="bimestreActual.produccion" value="bimestreActual.produccion">
+                  <td id="precioUnitarioTD"> <input class="input-width" type="number" id="precioUnitario" name="precioUnitario"
+                      [(ngModel)]="precioUnitario" min="96" max="300" value="bimestreActual.precioUnitario" onkeydown=" return false">
+
                   </td>
                 </tr>
                 <tr>
                   <td>PRODUCCIÓN</td>
                   <td>{{(http.game.player&&http.game.player.bimestre_inicial)?http.game.player.bimestre_inicial.produccion:""}}</td>
-                  <td>{{(http.game.player&&http.game.player.bimestre_uno)?http.game.player.bimestre_uno.produccion:""}}</td>
-                  <td>{{(http.game.player&&http.game.player.bimestre_dos)?http.game.player.bimestre_dos.produccion:""}}</td>
+                  <td >{{(http.game.player&&http.game.player.bimestre_uno)?http.game.player.bimestre_uno.produccion:""}}</td>
+                  <td >{{(http.game.player&&http.game.player.bimestre_dos)?http.game.player.bimestre_dos.produccion:""}}</td>
                   <td>{{(http.game.player&&http.game.player.bimestre_tres)?http.game.player.bimestre_tres.produccion:""}}</td>
                   <td id="produccionTD">
                     <input class="input-width" type="number" id="produccion" name="produccion" [(ngModel)]="produccion"
-                      min="0" max="850*{{ numeroBimestre }}" value=500></td>
+                      min="0" max="850" value=500 onkeydown=" return false"
+                      onchange="document.getElementById('precioUnitario').min=Math.round((this.value*35+ 30270)/this.value);" ></td>
                 </tr>
                 <tr>
                   <td>INVERSIÓN EN MARKETING</td>
