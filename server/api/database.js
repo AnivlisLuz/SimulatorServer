@@ -25,7 +25,7 @@ exports.saveBalanceGeneral = (balance) => {
     db.run("insert into balanceGeneral(caja,bancos, inventario, corriente, totalActivos, capital, utilidadEjercicio, totalPatrimonio,totalPasivoPatrimonio, numero,codigo,jugador) values(?,?,?,?,?,?,?,?, ?,?,?,?)", [balance.caja,balance.bancos, balance.inventario, balance.corriente, balance.totalActivos, balance.capital, balance.utilidadEjercicio, balance.totalPatrimonio,balance.totalPasivoPatrimonio, balance.numeroBimestre,balance.codigo,balance.jugador])    
 }
 exports.saveEmpresa = (empresa) => {
-    db.run("insert into player(name, codigo,cantidadIdealTotal, produccion, cantidadRealVendida,cantidadIdeal) values(?,?,?,?,?,?)", [empresa.name, empresa.codigo,empresa.cantidadIdealTotal, empresa.produccion, empresa.cantidadRealVendida,empresa.cantidadIdeal])    
+    db.run("insert into player(name, codigo,cantidadIdealTotal, produccion, cantidadRealVendida,cantidadIdeal,activo) values(?,?,?,?,?,?,?)", [empresa.name, empresa.codigo,empresa.cantidadIdealTotal, empresa.produccion, empresa.cantidadRealVendida,empresa.cantidadIdeal,empresa.activo])    
 }
 
 exports.saveProduccion = (produccion) => {
@@ -285,4 +285,26 @@ exports.getAllBimestresByCodigo = (codigo,callback) => {
 }*/
 exports.updateVisionGeneral = (vision) => {
     db.run("update  visionGeneral set puntajeBeneficio = ?,puntajeMercado= ? where codigo = ? AND numero = ? AND jugador = ?"  ,[vision.puntajeBeneficio,vision.puntajeMercado,vision.codigo,vision.numero,vision.jugador])
+}
+
+exports.getEstadoResultadosAllJugadoresPorCodigoDeJuegoNumero = async(codigo, numero) => {
+    return new Promise((resolve,reject)=>{
+        db.all("select * from estadoResultados where codigo = ? AND numero = ?",[codigo,numero], (error,res)=>{
+            if(error){
+                reject(error)
+            }else{
+                resolve(res)
+            }
+        })
+    }).then(response=>{
+        console.log("esta funcionando getEstadoResultadosAllJugadoresPorCodigoDeJuegoNumero", response)
+        return response
+    }).catch(error=>{        
+        console.log("error con funcionando getEstadoResultadosAllJugadoresPorCodigoDeJuegoNumero", response)
+        return []
+    })
+}
+
+exports.updateActivoEmpresa = (empresa) => {
+    db.run("update  player set activo=? where codigo = ? AND name = ?"  ,[empresa.activo,empresa.codigo,empresa.name])
 }
