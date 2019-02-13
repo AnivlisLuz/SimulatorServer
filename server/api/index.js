@@ -331,6 +331,36 @@ exports.setSocket = io => {
                 client("error con el codigo")
             }
         })
+        socket.on('getActivo', (data, client) => {
+            console.log("getActivo socket =>", data)
+
+            let _mercado = mercados[data.codigo]
+            if (_mercado) {
+               _mercado.getActivo(data).then(result=>{
+                client(result)                     
+                io.sockets.emit("getActivo(data)", result)
+               }) .catch(error=>{        
+                client("error con el socket")
+            })              
+            } else {
+                client("error con el codigo")
+            }
+        })
+        socket.on('retirarseJuego', (data, client) => {
+            console.log("retirarseJuego socket =>", data)
+
+            let _mercado = mercados[data.codigo]
+            if (_mercado) {
+               _mercado.retirarseJuego(data).then(result=>{
+                client(result)                     
+                io.sockets.emit("retirarseJuego(data)", result)
+               }) .catch(error=>{        
+                client("error con el socket")
+            })              
+            } else {
+                client("error con el codigo")
+            }
+        })
     });
 }
 
@@ -654,6 +684,49 @@ class Mercado {
             message: "ok"
         }
     }
+    async getActivo(data) {
+        let player_tmp = this.players[data.player_name]
+        if (player_tmp) {
+            let empresa={}
+            let empresas=[]
+            empresas = await db.getEmpresasPorCodigoDeJuego(data.codigo)
+            console.log("get activo =>",empresas)
+            for (let i = 0; i < empresas.length; i++)
+            {
+                empresa=empresas[i]
+                if(empresa.name==data.player_name)
+                {
+                    console.log("empresa.activo =>",empresa.activo)
+                    return {esActivo:empresa.activo}   
+                }
+            }
+        } else {
+            return "no hay activo"
+        }
+    }
+    async retirarseJuego(data) {
+        let player_tmp = this.players[data.player_name]
+        if (player_tmp) {
+            let empresa={}
+            let empresas=[]
+            let esRetirado=false
+            empresas = await db.getEmpresasPorCodigoDeJuego(data.codigo)
+            console.log("retirarseJuego =>",empresas)           
+            for (let i = 0; i < empresas.length; i++)
+            {
+                empresa=empresas[i]
+                if(empresa.name==data.player_name)
+                {
+                    empresa.activo=0
+                    db.updateActivoEmpresa(empresa)
+                    esRetirado=true
+                }
+            }
+            return {esRetirado:esRetirado}
+        } else {
+            return "no hay activo"
+        }
+    }
 }
 
 mercados["a"] = new Mercado("nombre mercardo", 2, "a")
@@ -668,6 +741,7 @@ class Player {
         this.cantidadRealVendida = 500
         this.cantidadIdeal = 500
         this.codigo = codigo
+        this.activo=1
     }
 
     addBimestreUno(data, codigo) {
@@ -1050,9 +1124,9 @@ async function calcularTodo(codigoJuego, numeroBimestre) {
         let estadoResultadosAnterior={}
         if (bimestre.numero != 1) {
             ventasAnterior = await db.getVentasPorCodigoDeJuegoNombreNumero(codigoJuego, bimestre.jugador, numeroBimestre - 1)
-            console.log("ventasAnterior ==>",ventasAnterior)
+            //console.log("ventasAnterior ==>",ventasAnterior)
             estadoResultadosAnterior = await db.getEstadoResultadosPorCodigoDeJuegoNombreNumero(codigoJuego, bimestre.jugador, numeroBimestre - 1)
-            console.log("estadoResultadosAnterior ==>",estadoResultadosAnterior)
+            //console.log("estadoResultadosAnterior ==>",estadoResultadosAnterior)
             ventasUnidades = ventasAnterior.inventarioUnidades
             utilidadNeta = estadoResultadosAnterior.utilidadNeta
         }

@@ -268,6 +268,16 @@ class Game {
     console.log("join game moderator", data)
     this.socket.emit("joinGameModerator", data, callback);
   }
+  public getActivo(callback){
+    let send_Data = { codigo: this.codigo, player_name: this.player.name }
+    console.log("getActivo", send_Data)
+    this.socket.emit("getActivo", send_Data, callback);
+  }
+  public retirarseJuego(callback){
+    let send_Data = { codigo: this.codigo, player_name: this.player.name }
+    console.log("retirarseJuego", send_Data)
+    this.socket.emit("retirarseJuego", send_Data, callback);
+  }
 }
 class Player {
   name: string

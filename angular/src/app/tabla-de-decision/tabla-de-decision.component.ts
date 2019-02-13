@@ -84,6 +84,10 @@ export class TablaDeDecisionComponent implements OnInit {
   produccionIndustriaBimestres: Produccion[];
   ventasIndustriaBimestres: VentasIndustria[];
   porcentajeDeMercadoTotal: number;
+  existeGanadorPorcentajeMercado:boolean=false;
+  unicaValorPositivo:boolean=false;
+  esActivo:number=1;
+  esUnicaEmpresa:boolean=false;
 
 
   constructor(private http: HttpService, private route: ActivatedRoute, private router: Router) {
@@ -173,7 +177,45 @@ export class TablaDeDecisionComponent implements OnInit {
   //   }
 
   // }
-
+  bloquear()
+  {
+    console.log("this.numeroBimestre => ",this.numeroBimestre,"this.existeGanadorPorcentajeMercado =>",this.existeGanadorPorcentajeMercado," this.unicaValorPositivo =>",this.unicaValorPositivo,"this.esActivo =>",this.esActivo,"this.esUnicaEmpresa =>",this.esUnicaEmpresa)
+    if(this.numeroBimestre == 3||this.existeGanadorPorcentajeMercado==true||this.unicaValorPositivo==true||this.esActivo==0||this.esUnicaEmpresa==true)
+    {
+      document.getElementById("numero-bimestre-siguiente").style.display = "none";
+      document.getElementById("precioUnitarioTD").style.display = "none";
+      document.getElementById("tabla-proyeccionesID").style.display = "none";
+      document.getElementById("boton-decisionID").style.display = "none";
+      document.getElementById("produccionTD").style.display = "none";
+      document.getElementById("inversionEnMarketingTD").style.display = "none";
+      document.getElementById("inversionEnInvestigacionTD").style.display = "none";
+      document.getElementById("inversionEnActivosTD").style.display = "none";
+    }
+  }
+  actualizarActivo()
+  {
+    this.http.game.getActivo((response) => {
+    if (response)
+    {
+      this.esActivo = response.esActivo
+      console.log("getActivo front", this.esActivo)
+    }
+    });
+      this.bloquear();
+  }
+  retirarseJuego()
+  {
+      let esRetirarse = confirm("¿Seguro de retirarse del juego?");
+      if( esRetirarse )
+      {
+          this.http.game.retirarseJuego((response) => {
+            if(response)
+            console.log("retirarseJuego front =>", response.esRetirado)
+          });
+      }
+      this.actualizarActivo();
+      this.bloquear();
+  }
   actualizarVentasIndustriasBimestre() {
     this.http.get('http://localhost:8080/ventasIndustria/VI' + this.nombreEmpresa + '' + this.codigo).subscribe(
       (response: any) => {
@@ -227,15 +269,7 @@ export class TablaDeDecisionComponent implements OnInit {
                 if (this.http.game.bimestre_tres_c == 1) {
                   this.obtenerTodosLosDatos();
                 }
-                console.log("numero Bimestre front => ", this.numeroBimestre)
-                document.getElementById("numero-bimestre-siguiente").style.display = "none";
-                document.getElementById("precioUnitarioTD").style.display = "none";
-                document.getElementById("tabla-proyeccionesID").style.display = "none";
-                document.getElementById("boton-decisionID").style.display = "none";
-                document.getElementById("produccionTD").style.display = "none";
-                document.getElementById("inversionEnMarketingTD").style.display = "none";
-                document.getElementById("inversionEnInvestigacionTD").style.display = "none";
-                document.getElementById("inversionEnActivosTD").style.display = "none";
+                this.bloquear();
               }
             } else {
               alert("faltan completar el bimestre dos")
