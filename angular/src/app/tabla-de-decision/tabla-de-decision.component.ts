@@ -179,7 +179,7 @@ export class TablaDeDecisionComponent implements OnInit {
   // }
   bloquear()
   {
-    console.log("this.numeroBimestre => ",this.numeroBimestre,"this.existeGanadorPorcentajeMercado =>",this.existeGanadorPorcentajeMercado," this.unicaValorPositivo =>",this.unicaValorPositivo,"this.esActivo =>",this.esActivo,"this.esUnicaEmpresa =>",this.esUnicaEmpresa)
+    console.log("this.numeroBimestre => ",this.numeroBimestre,"this.existeGanadorPorcentajeMercado =>",this.existeGanadorPorcentajeMercado," this.unicaValorPositivo =>",this.unicaValorPositivo,"this.esActivo =>",this.esActivo,"this.esUnicaEmpresa =>",this.esUnicaEmpresa);
     if(this.numeroBimestre == 3||this.existeGanadorPorcentajeMercado==true||this.unicaValorPositivo==true||this.esActivo==0||this.esUnicaEmpresa==true)
     {
       document.getElementById("numero-bimestre-siguiente").style.display = "none";
@@ -199,6 +199,7 @@ export class TablaDeDecisionComponent implements OnInit {
     {
       this.esActivo = response.esActivo
       console.log("getActivo front", this.esActivo)
+      this.bloquear();
     }
     });
       this.bloquear();
@@ -210,10 +211,16 @@ export class TablaDeDecisionComponent implements OnInit {
       {
           this.http.game.retirarseJuego((response) => {
             if(response)
-            console.log("retirarseJuego front =>", response.esRetirado)
+            {
+              console.log("retirarseJuego front =>", response.esRetirado)
+              this.bloquear();
+            }
           });
+          this.bloquear();
+
       }
       this.actualizarActivo();
+      console.log("Ya acabria actualizar activo")
       this.bloquear();
   }
   actualizarVentasIndustriasBimestre() {
