@@ -73,7 +73,7 @@ exports.getEmpresasPorCodigoDeJuego = (codigo) => {
 }
 exports.getVentasPorCodigoDeJuegoNombreNumero = (codigo, nombre, numero) => {
     return new Promise((resolve, reject) => {
-        db.all("select * from ventas where codigo = ? AND jugador = ? AND numero = ? ", [codigo, nombre, numero], (error, res) => (error) ? reject(error) : resolve(res))
+        db.get("select * from ventas where codigo = ? AND jugador = ? AND numero = ? ", [codigo, nombre, numero], (error, res) => (error) ? reject(error) : resolve(res))
     }).catch(error => {
         console.log("error getVentasPorCodigoDeJuegoNombreNumero", error)
         return []
@@ -81,7 +81,7 @@ exports.getVentasPorCodigoDeJuegoNombreNumero = (codigo, nombre, numero) => {
 }
 exports.getEstadoResultadosPorCodigoDeJuegoNombreNumero = (codigo, nombre, numero) => {
     return new Promise((resolve, reject) => {
-        db.all("select * from estadoResultados where codigo = ? AND jugador = ? AND numero = ? ", [codigo, nombre, numero], (error, res) => (error) ? reject(error) : resolve(res))
+        db.get("select * from estadoResultados where codigo = ? AND jugador = ? AND numero = ? ", [codigo, nombre, numero], (error, res) => (error) ? reject(error) : resolve(res))
     }).catch(error => {
         console.log("error getEstadoResultadosPorCodigoDeJuegoNombreNumero", error)
         return []
@@ -89,7 +89,7 @@ exports.getEstadoResultadosPorCodigoDeJuegoNombreNumero = (codigo, nombre, numer
 }
 exports.getProduccionPorCodigoDeJuegoNombreNumero = (codigo, nombre, numero) => {
     return new Promise((resolve, reject) => {
-        db.all("select * from produccion where codigo = ? AND jugador = ? AND numero = ? ", [codigo, nombre, numero], (error, res) => (error) ? reject(error) : resolve(res))
+        db.get("select * from produccion where codigo = ? AND jugador = ? AND numero = ? ", [codigo, nombre, numero], (error, res) => (error) ? reject(error) : resolve(res))
     }).catch(error => {
         console.log(error)
         return []
@@ -97,7 +97,7 @@ exports.getProduccionPorCodigoDeJuegoNombreNumero = (codigo, nombre, numero) => 
 }
 exports.getVentasIndustriaPorCodigoDeJuegoNombreNumero = (codigo, nombre, numero) => {
     return new Promise((resolve, reject) => {
-        db.all("select * from ventasIndustria where codigo = ? AND jugador = ? AND numero = ? ", [codigo, nombre, numero], (error, res) => (error) ? reject(error) : resolve(res))
+        db.get("select * from ventasIndustria where codigo = ? AND jugador = ? AND numero = ? ", [codigo, nombre, numero], (error, res) => (error) ? reject(error) : resolve(res))
     }).catch(error => {
         console.log(error)
         return []
@@ -105,7 +105,7 @@ exports.getVentasIndustriaPorCodigoDeJuegoNombreNumero = (codigo, nombre, numero
 }
 exports.getBimestrePorCodigoDeJuegoNombreNumero = (codigo, nombre, numero) => {
     return new Promise((resolve, reject) => {
-        db.all("select * from bimestre where codigo = ? AND jugador = ? AND numero = ? ", [codigo, nombre, numero], (error, res) => (error) ? reject(error) : resolve(res))
+        db.get("select * from bimestre where codigo = ? AND jugador = ? AND numero = ? ", [codigo, nombre, numero], (error, res) => (error) ? reject(error) : resolve(res))
     }).catch(error => {
         console.log("error getBimestrePorCodigoDeJuegoNombreNumero", error)
         return []

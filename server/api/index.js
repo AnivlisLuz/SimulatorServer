@@ -1046,10 +1046,13 @@ async function calcularTodo(codigoJuego, numeroBimestre) {
 
         ventasUnidades = 0
         utilidadNeta = 10000
+        let ventasAnterior={}
+        let estadoResultadosAnterior={}
         if (bimestre.numero != 1) {
             ventasAnterior = await db.getVentasPorCodigoDeJuegoNombreNumero(codigoJuego, bimestre.jugador, numeroBimestre - 1)
-
+            console.log("ventasAnterior ==>",ventasAnterior)
             estadoResultadosAnterior = await db.getEstadoResultadosPorCodigoDeJuegoNombreNumero(codigoJuego, bimestre.jugador, numeroBimestre - 1)
+            console.log("estadoResultadosAnterior ==>",estadoResultadosAnterior)
             ventasUnidades = ventasAnterior.inventarioUnidades
             utilidadNeta = estadoResultadosAnterior.utilidadNeta
         }
