@@ -520,6 +520,10 @@ export class TablaDeDecisionComponent implements OnInit {
 
   informacion() {
     this.tap_position = 0;
+
+    this.actualizarActivo();
+    this.bloquear(); 
+
     // document.getElementById("decisiones").style.display = "none";
     // document.getElementById("tabla-analisis-industria").style.display = "none";
     // document.getElementById("informe").style.display = "none";
@@ -561,8 +565,8 @@ export class TablaDeDecisionComponent implements OnInit {
     // document.getElementById("info-analisisIndustria").style.display = "none";
     // document.getElementById("info-informeCompañia").style.display = "none";
     // document.getElementById("info-analisis").style.display = "none";
-
-
+    this.actualizarActivo();
+    this.bloquear(); 
   }
 
   tanalisis() {
@@ -587,6 +591,10 @@ export class TablaDeDecisionComponent implements OnInit {
       if (response)
         this.ventasIndustria = response
     });
+
+    this.actualizarActivo();
+    this.bloquear(); 
+
     // document.getElementById("decisiones").style.display = "none";
     // document.getElementById("tabla-analisis-industria").style.display = "block";
     // document.getElementById("informe").style.display = "none";
@@ -644,6 +652,9 @@ export class TablaDeDecisionComponent implements OnInit {
       if (response)
         this.costoProduccion = response
     });
+
+    this.actualizarActivo();
+    this.bloquear(); 
     // document.getElementById("decisiones").style.display = "none";
     // document.getElementById("tabla-analisis-industria").style.display = "none";
     // document.getElementById("informe").style.display = "block";
@@ -695,6 +706,9 @@ export class TablaDeDecisionComponent implements OnInit {
       console.log("getPromedioPrecioUnitarios  front", response)
       this.promedioPrecioUnitarios = response
     });
+
+    this.actualizarActivo();
+    this.bloquear(); 
     // document.getElementById("decisiones").style.display = "none";
     // document.getElementById("tabla-analisis-industria").style.display = "none";
     // document.getElementById("informe").style.display = "none";
