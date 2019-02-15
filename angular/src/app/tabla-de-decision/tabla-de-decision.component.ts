@@ -608,12 +608,17 @@ export class TablaDeDecisionComponent implements OnInit {
   }
   informe() {
     this.tap_position = 3;
-    this.http.game.getEstadoResultados((response) => {
+    this.http.game.getEstadoResultados(this.numeroBimestre,(response) => {
       console.log("getEstadoResultados front", response)
-      if (response)
-        this.estadoResultados = response
+      if (response){
+        this.estadoResultados = response.estadoResultados
+        this.unicaValorPositivo=response.unicaValorPositivo
+        console.log("estadoResultados front", this.estadoResultados)
+        console.log("unicaValorPositivo front", this.unicaValorPositivo)
+        this.bloquear();
+        }
     });
-
+    this.bloquear();
     this.http.game.getBalanceGeneral(this.numeroBimestre, (response) => {
       console.log("getBalanceGeneral front", response)
       if (response)
@@ -670,7 +675,7 @@ export class TablaDeDecisionComponent implements OnInit {
       console.log("getPromedioUtilidadNeta front", response)
       this.promedioERUtilidadNeta = response
     });
-    this.http.game.getEstadoResultados((response) => {
+    this.http.game.getEstadoResultados(this.numeroBimestre,(response) => {
       console.log("getEstadoResultados front", response)
       this.estadoResultados = response
     });

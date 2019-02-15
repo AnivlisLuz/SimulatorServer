@@ -527,11 +527,46 @@ class Mercado {
     async getEstadoResultados(data) {
         let player_tmp = this.players[data.player_name]
         if (player_tmp) {
-            let estadoResultados = [];
+            let estadoResultados =[]
+            let cantidadJugadores=this.cantidad_judagores
+            let unicaValorPositivo=false
+            let estadoResultadosJugadores=[]
+            let estadoResultadosJugadoresElement={}
+            //console.log("getEstadoResultados socket =>", estadoResultados)
+            estadoResultados= await  db.getAllEstadoResultadosPorCodigoDeJuegoNombre(data.codigo,data.player_name)
             console.log("getEstadoResultados socket =>", estadoResultados)
-            estadoResultados = await db.getAllEstadoResultadosPorCodigoDeJuegoNombre(data.codigo, data.player_name)
-            console.log("getEstadoResultados socket =>", estadoResultados)
-            return estadoResultados
+            //console.log("estadoResultadosJugadores socket =>", estadoResultadosJugadores)
+            estadoResultadosJugadores=await db.getEstadoResultadosAllJugadoresPorCodigoDeJuegoNumero(data.codigo,data.numeroBimestre)
+            console.log("estadoResultadosJugadores socket =>", estadoResultadosJugadores)
+            let empresa={}
+            let empresas=[]
+            empresas = await db.getEmpresasPorCodigoDeJuego(data.codigo)
+            console.log("empresas socket =>", empresas)   
+            for(let i=0; i<estadoResultadosJugadores.length;i++)
+            {
+                estadoResultadosJugadoresElement=estadoResultadosJugadores[i]
+                console.log("estadoResultadosJugadoresElement  =>", estadoResultadosJugadoresElement.utilidadNeta)
+                if(estadoResultadosJugadoresElement.utilidadNeta<0)
+                {
+                    cantidadJugadores--
+                    for (let j = 0; j < empresas.length; j++)
+                    {
+                        empresa=empresas[j]
+                        if(empresa.name==estadoResultadosJugadoresElement.jugador)
+                        {
+                            empresa.activo=0
+                            db.updateActivoEmpresa(empresa)
+                        }                   
+                    }
+
+                }
+            }
+            if(cantidadJugadores==1)
+            {
+                unicaValorPositivo=true
+            }          
+            console.log("estadoResultados =>", estadoResultados,"unicaValorPositivo =>",unicaValorPositivo)
+            return {estadoResultados: estadoResultados,unicaValorPositivo:unicaValorPositivo}
         }
     }
 

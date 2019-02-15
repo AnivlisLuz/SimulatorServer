@@ -332,6 +332,25 @@ exports.getAllBimestresByCodigo = (codigo,callback) => {
 exports.updateVisionGeneral = (vision) => {
     db.run("update  visionGeneral set puntajeBeneficio = ?,puntajeMercado= ? where codigo = ? AND numero = ? AND jugador = ?", [vision.puntajeBeneficio, vision.puntajeMercado, vision.codigo, vision.numero, vision.jugador])
 }
+
+exports.getEstadoResultadosAllJugadoresPorCodigoDeJuegoNumero = async(codigo, numero) => {
+    return new Promise((resolve,reject)=>{
+        db.all("select * from estadoResultados where codigo = ? AND numero = ?",[codigo,numero], (error,res)=>{
+            if(error){
+                reject(error)
+            }else{
+                resolve(res)
+            }
+        })
+    }).then(response=>{
+        console.log("esta funcionando getEstadoResultadosAllJugadoresPorCodigoDeJuegoNumero", response)
+        return response
+    }).catch(error=>{        
+        console.log("error con funcionando getEstadoResultadosAllJugadoresPorCodigoDeJuegoNumero", response)
+        return []
+    })
+}
+
 exports.updateActivoEmpresa = (empresa) => {
     db.run("update  player set activo=? where codigo = ? AND name = ?"  ,[empresa.activo,empresa.codigo,empresa.name])
 }
