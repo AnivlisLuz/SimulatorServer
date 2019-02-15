@@ -569,8 +569,13 @@ export class TablaDeDecisionComponent implements OnInit {
     this.tap_position = 2
     this.http.game.getVisionGeneral(this.numeroBimestre, (response) => {
       console.log("getVisionGeneral front", response)
-      if (response)
-        this.visionGeneral = response
+      if (response){
+        this.visionGeneral = response.visionGeneral
+        console.log("existeGanadorPorcentajeMercado ==>", this.existeGanadorPorcentajeMercado)
+        this.existeGanadorPorcentajeMercado=response.existeGanadorPorcentajeMercado
+        console.log("existeGanadorPorcentajeMercado ==>", this.existeGanadorPorcentajeMercado)
+        this.bloquear();
+      }
     });
     this.http.game.getProduccion(this.numeroBimestre, (response) => {
       console.log("getProduccion front", response)

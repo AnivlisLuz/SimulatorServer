@@ -570,12 +570,40 @@ class Mercado {
         }
     }
 
-    async getVisionGeneral(data) {
-        let visionGeneral = [];
+    async getVisionGeneral(data)
+    {
+        let visionGeneral =[]
+        let visionGeneralElement={}
+        let existeGanadorPorcentajeMercado=false
         console.log("getVisionGeneral socket =>", visionGeneral)
-        visionGeneral = await db.getAllVisionGeneralByCodigoYNumero(data.codigo, data.numeroBimestre)
-        //ordenarJugadoresPorJugadorAsc(VisionGeneral)        
-        return visionGeneral
+        visionGeneral= await  db.getAllVisionGeneralByCodigoYNumero(data.codigo,data.numeroBimestre)
+        console.log("getVisionGeneral socket =>", visionGeneral)
+        
+        let empresa={}
+        let empresas=[]
+        empresas = await db.getEmpresasPorCodigoDeJuego(data.codigo)
+        for (let j=0;j<visionGeneral.length;j++)
+        {
+            visionGeneralElement=visionGeneral[j]
+            if(visionGeneralElement.porcentajeDeMercado>85){
+                existeGanadorPorcentajeMercado=true
+            }
+            if(visionGeneralElement.porcentajeDeMercado<2)
+            {
+                for (let x = 0; x < empresas.length; x++)
+                {
+                    empresa=empresas[x]
+                    if(empresa.name==visionGeneralElement.jugador)
+                    {
+                        empresa.activo=0
+                        db.updateActivoEmpresa(empresa)
+                    }                   
+                }
+            }
+
+        }   
+        console.log("visionGeneral =>", visionGeneral," existeGanadorPorcentajeMercado => ",existeGanadorPorcentajeMercado)
+        return {visionGeneral: visionGeneral,existeGanadorPorcentajeMercado: existeGanadorPorcentajeMercado}
     }
 
     async getAllProduccion(data) {
