@@ -489,9 +489,25 @@ class Mercado {
     async getVentas(data) {
         let player_tmp = this.players[data.player_name]
         if (player_tmp) {
-            let ventas = new Ventas(data.numeroBimestre, data.codigo, data.player_name);
+            let ventas =new Ventas(data.numeroBimestre,data.codigo,data.player_name);
             console.log("getVentas socket =>", ventas)
-            ventas = await db.getVentasPorCodigoDeJuegoNombreNumeroF(data.codigo, data.player_name, data.numeroBimestre)
+            ventas= await db.getVentasPorCodigoDeJuegoNombreNumeroF(data.codigo,data.player_name,data.numeroBimestre)
+            let empresa={}
+            let empresas=[]
+            empresas = await db.getEmpresasPorCodigoDeJuego(data.codigo)
+            console.log("mercado ==>",this.mercado," ------- ",ventas.inventarioUnidades)
+            if(ventas.inventarioUnidades>=this.mercado)
+            {
+                for (let x = 0; x < empresas.length; x++)
+                {
+                    empresa=empresas[x]
+                    if(empresa.name==ventas.jugador)
+                    {
+                        empresa.activo=0
+                        db.updateActivoEmpresa(empresa)
+                    }                   
+                }
+            }
             return ventas
         }
     }

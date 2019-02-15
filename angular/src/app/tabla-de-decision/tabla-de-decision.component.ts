@@ -632,10 +632,13 @@ export class TablaDeDecisionComponent implements OnInit {
 
     this.http.game.getVentas(this.numeroBimestre, (response) => {
       console.log("getVentas front", response)
-      if (response)
+      if (response){
         this.ventas = response
+        this.actualizarActivo();
+        this.bloquear();        
+      }
     });
-
+    this.bloquear();        
     this.http.game.getCostosProduccion(this.numeroBimestre, (response) => {
       console.log("getCostosProduccion front", response)
       if (response)
