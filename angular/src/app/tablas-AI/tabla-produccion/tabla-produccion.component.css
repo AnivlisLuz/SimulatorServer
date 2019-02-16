@@ -1,76 +1,85 @@
-#main-container{
+#main-container {
 
-    margin: 7px;
-  
-      width: 80%;
-      color: black;
-  
-  }
-  
-  table{
-  
-    font-family: "arial";
-    font-size: 14px;
-      background-color: white;
-      text-align: left;
-      border-collapse: collapse;
-      width: 120%;
-  
-  
-  
-  }
-  /*
+  margin: 7px;
+
+  width: 80%;
+  color: black;
+
+}
+
+table {
+
+  font-family: "arial";
+  font-size: 14px;
+  background-color: white;
+  text-align: left;
+  border-collapse: collapse;
+  width: 120%;
+
+
+
+}
+
+/*
   thead{
       background-color: #0064FF;
       border-bottom: solid 5px #4c92ff;
       color: white;
   
   }*/
-  tr{
-      border-color:black;
-  }
-  
-  table,th{
-      border: 2px solid black;
-  }
-  
-  table td + td {
-      border-left:2px solid black;
-  }
-  th{
-      text-align:center;
-  }
-  #itemTipoNum{
-      padding-left: 4%;
-  }
-  
-  #subItemTipo1{
-      padding-left: 5%
-  }
-  #subItemTipo2{
-      padding-left: 8%
-  }
-  /*
+tr {
+  border-color: black;
+}
+
+table,
+th {
+  border: 2px solid black;
+}
+
+table td+td {
+  border-left: 2px solid black;
+}
+
+th {
+  text-align: center;
+}
+
+#itemTipoNum {
+  padding-left: 4%;
+}
+
+#subItemTipo1 {
+  padding-left: 5%
+}
+
+#subItemTipo2 {
+  padding-left: 8%
+}
+
+/*
   tr:nth-child(even){
   background-color:  #ddd;
   }*/
-  
-  
-  tr:hover td{
-      background-color: #4c92ff;
-    color: white;
-  }
-  th{
-    background-color:  rgb(24, 76, 133);
-    width: 35px;
-    height: 45px;
-    color: #fff;
-     }
-  td{
-      height: 45px;
-      width: 28px;
-      text-align: center;
-  }
-  .td2{
-      background-color:#81BEF7;
-  }
+
+
+tr:hover td {
+  background-color: #4c92ff;
+  color: white;
+}
+
+th {
+  background-color: rgb(24, 76, 133);
+  width: 35px;
+  height: 45px;
+  color: #fff;
+}
+
+td {
+  height: 45px;
+  width: 28px;
+  text-align: center;
+}
+
+.td2 {
+  background-color: #81BEF7;
+}

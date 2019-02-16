@@ -1,41 +1,45 @@
 <div id="main-container">
-    <table id="success">
-            <thead>
-              <tr>
-                  <th >DETALLE</th>
-                  <th >BIMESTRE</th>
-                  <th >% VARIACIÓN</th>
-              </tr>
-            </thead>
+  <table id="success">
+    <thead>
+      <tr>
+        <th>DETALLE</th>
+        <th>BIMESTRE</th>
+        <th>% VARIACIÓN</th>
+      </tr>
+    </thead>
 
-            <tbody >
-              <tr>
-                <td >VENTAS DE LA INDUSTRIA (UNIDADES)</td>
-                <td >{{ventasIndustria.ventasIndustriaUnidadesActual | thousandPipe}}</td>
-                <td >{{(ventasIndustria.ventasIndustriaUnidadesActual-ventasIndustria.ventasIndustriaUnidadesAnterior)/ventasIndustria.ventasIndustriaUnidadesAnterior*100 | thousandPipe}} %</td>
+    <tbody>
+      <tr>
+        <td>VENTAS DE LA INDUSTRIA (UNIDADES)</td>
+        <td>{{ventasIndustria.ventasIndustriaUnidadesActual | thousandPipe}}</td>
+        <td>{{(ventasIndustria.ventasIndustriaUnidadesActual-ventasIndustria.ventasIndustriaUnidadesAnterior)/ventasIndustria.ventasIndustriaUnidadesAnterior*100
+          | thousandPipe}} %</td>
 
-              </tr>
-              <tr>
-                <td class="td2">VENTAS DE LA INDUSTRIA (MONETARIO)</td>
-                <td class="td2">{{ventasIndustria.ventasIndustriaMonetarioActual | thousandPipe}}</td>
-                <td class="td2">{{(ventasIndustria.ventasIndustriaMonetarioActual-ventasIndustria.ventasIndustriaMonetarioAnterior)/ventasIndustria.ventasIndustriaMonetarioAnterior*100 | thousandPipe}} %</td>
+      </tr>
+      <tr>
+        <td class="td2">VENTAS DE LA INDUSTRIA (MONETARIO)</td>
+        <td class="td2">{{ventasIndustria.ventasIndustriaMonetarioActual | thousandPipe}}</td>
+        <td class="td2">{{(ventasIndustria.ventasIndustriaMonetarioActual-ventasIndustria.ventasIndustriaMonetarioAnterior)/ventasIndustria.ventasIndustriaMonetarioAnterior*100
+          | thousandPipe}} %</td>
 
-              </tr>
-              <tr>
-                <td >PRECIO UNITARIO PROMEDIO</td>
-                <td >{{ventasIndustria.precioUnitarioPromedioActual | thousandPipe}}</td>
-                <td >{{(ventasIndustria.precioUnitarioPromedioActual-ventasIndustria.precioUnitarioPromedioAnterior)/ventasIndustria.precioUnitarioPromedioAnterior*100 | thousandPipe}} %</td>
+      </tr>
+      <tr>
+        <td>PRECIO UNITARIO PROMEDIO</td>
+        <td>{{ventasIndustria.precioUnitarioPromedioActual | thousandPipe}}</td>
+        <td>{{(ventasIndustria.precioUnitarioPromedioActual-ventasIndustria.precioUnitarioPromedioAnterior)/ventasIndustria.precioUnitarioPromedioAnterior*100
+          | thousandPipe}} %</td>
 
-              </tr>
+      </tr>
 
-              <tr >
-                <td class="td2">INVENTARIOS PROMEDIO</td>
-                <td class="td2">{{ventasIndustria.inventarioPromediosActual | thousandPipe}}</td>
-                <td class="td2">{{(ventasIndustria.inventarioPromediosActual-ventasIndustria.invetarioPromediosAnterior)/ventasIndustria.invetarioPromediosAnterior*100 | thousandPipe}} %</td>
+      <tr>
+        <td class="td2">INVENTARIOS PROMEDIO</td>
+        <td class="td2">{{ventasIndustria.inventarioPromediosActual | thousandPipe}}</td>
+        <td class="td2">{{(ventasIndustria.inventarioPromediosActual-ventasIndustria.invetarioPromediosAnterior)/ventasIndustria.invetarioPromediosAnterior*100
+          | thousandPipe}} %</td>
 
-              </tr>
+      </tr>
 
-            </tbody>
-      </table>
+    </tbody>
+  </table>
 
-  </div>
+</div>

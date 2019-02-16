@@ -8,9 +8,9 @@ describe('TablCostosComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ TablCostosComponent ]
+      declarations: [TablCostosComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

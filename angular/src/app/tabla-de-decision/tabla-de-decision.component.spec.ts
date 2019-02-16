@@ -9,9 +9,9 @@ describe('TablaDeDecisionComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ TablaDeDecisionComponent ]
+      declarations: [TablaDeDecisionComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

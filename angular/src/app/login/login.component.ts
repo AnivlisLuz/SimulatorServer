@@ -21,7 +21,7 @@ export class LoginComponent implements OnInit {
 
 
 
-  constructor(public authService: AuthService, private _firebaseAuth: AngularFireAuth, private router: Router) {}
+  constructor(public authService: AuthService, private _firebaseAuth: AngularFireAuth, private router: Router) { }
 
 
   login() {

@@ -1,12 +1,13 @@
-<form  class="formularioModerador" [formGroup]="registerForm"   #form="ngForm" >
+<form class="formularioModerador" [formGroup]="registerForm" #form="ngForm">
   <header>MODERADOR </header>
   <br>
   <br>
   <div class="form-group">
     <label>Nombre del Juego</label>
-    <input type="text" formControlName="nombreMercado" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.nombreMercado.errors }" placeholder="Nombre de tu juego"/>
+    <input type="text" formControlName="nombreMercado" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.nombreMercado.errors }"
+      placeholder="Nombre de tu juego" />
     <div *ngIf="submitted && f.nombreMercado.errors" class="invalid-feedback">
-        <div *ngIf="f.nombreMercado.errors.required" style="color: red">Nombre del juego es requerido</div>
+      <div *ngIf="f.nombreMercado.errors.required" style="color: red">Nombre del juego es requerido</div>
     </div>
   </div>
   <br>
@@ -15,15 +16,15 @@
   <br>
   <div class="form-group">
     <div class="styled-select jugadores">
-      <select formControlName="cantidadJugadores"  >
-          <option value="2" selected>2</option>
-          <option value="3">3</option>
-          <option value="4">4</option>
-          <option value="5">5</option>
+      <select formControlName="cantidadJugadores">
+        <option value="2" selected>2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
       </select>
     </div>
   </div>
 
-  <button type="submit"  (click)="onClickMe()">Hecho</button>
+  <button type="submit" (click)="onClickMe()">Hecho</button>
 
 </form>

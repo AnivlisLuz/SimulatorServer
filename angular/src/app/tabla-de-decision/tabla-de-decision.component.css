@@ -158,9 +158,11 @@ aside {
   text-align: center;
   color: white;
 }
+
 .input-width {
-  width: calc(100% - 20px);
+  width: 60px;
 }
+
 .tabla-decision {
   text-align: center;
   color: white;
@@ -243,10 +245,12 @@ table#t01 th {
   font-size: 16px;
   font-weight: bold;
 }
+
 pre {
   font-family: "arial";
   color: black;
 }
+
 /* Tooltip container */
 .tooltip {
   display: inline-block;
@@ -273,12 +277,14 @@ pre {
   box-shadow: 0 1px 8px rgba(0, 0, 0, 0.5);
   display: none;
 }
-.tooltip .left div{
+
+.tooltip .left div {
   font-size: 15px;
   padding: 20px;
   cursor: pointer;
 }
-.tooltip .left div:hover{
+
+.tooltip .left div:hover {
   background-color: #50515c;
 }
 
@@ -307,7 +313,8 @@ pre {
   background-color: #eeeeee;
   box-shadow: 0 1px 8px rgba(0, 0, 0, 0.5);
 }
-.tooltip .material-icons{
+
+.tooltip .material-icons {
   height: 100px;
   width: 100px;
   font-size: 100px;

@@ -1,18 +1,13 @@
-
-<div class="formulario" >
+<div class="formulario">
   <header>Simulador de Negocios </header>
 
-  <div >
-      <label for="email">Ingrese su email</label>
-      <input type="email" [(ngModel)]="email" placeholder="email" required>
-      <label for="password">Ingrese un password</label>
-      <input type="password" [(ngModel)]="password" placeholder="password" required>
-      <button (click)="signup()" [disabled]="!email || !password">
-        Signup
-      </button>
+  <div>
+    <label for="email">Ingrese su email</label>
+    <input type="email" [(ngModel)]="email" placeholder="email" required>
+    <label for="password">Ingrese un password</label>
+    <input type="password" [(ngModel)]="password" placeholder="password" required>
+    <button (click)="signup()" [disabled]="!email || !password">
+      Signup
+    </button>
 
-</div>
-
-
-
-
+  </div>

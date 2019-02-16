@@ -84,6 +84,10 @@ export class TablaDeDecisionComponent implements OnInit {
   produccionIndustriaBimestres: Produccion[];
   ventasIndustriaBimestres: VentasIndustria[];
   porcentajeDeMercadoTotal: number;
+  existeGanadorPorcentajeMercado:boolean=false;
+  unicaValorPositivo:boolean=false;
+  esActivo:number=1;
+  esUnicaEmpresa:boolean=false;
 
 
   constructor(private http: HttpService, private route: ActivatedRoute, private router: Router) {
@@ -173,7 +177,52 @@ export class TablaDeDecisionComponent implements OnInit {
   //   }
 
   // }
+  bloquear()
+  {
+    console.log("this.numeroBimestre => ",this.numeroBimestre,"this.existeGanadorPorcentajeMercado =>",this.existeGanadorPorcentajeMercado," this.unicaValorPositivo =>",this.unicaValorPositivo,"this.esActivo =>",this.esActivo,"this.esUnicaEmpresa =>",this.esUnicaEmpresa);
+    if(this.numeroBimestre == 3||this.existeGanadorPorcentajeMercado==true||this.unicaValorPositivo==true||this.esActivo==0||this.esUnicaEmpresa==true)
+    {
+      document.getElementById("numero-bimestre-siguiente").style.display = "none";
+      document.getElementById("precioUnitarioTD").style.display = "none";
+      document.getElementById("tabla-proyeccionesID").style.display = "none";
+      document.getElementById("boton-decisionID").style.display = "none";
+      document.getElementById("produccionTD").style.display = "none";
+      document.getElementById("inversionEnMarketingTD").style.display = "none";
+      document.getElementById("inversionEnInvestigacionTD").style.display = "none";
+      document.getElementById("inversionEnActivosTD").style.display = "none";
+    }
+  }
+  actualizarActivo()
+  {
+    this.http.game.getActivo((response) => {
+    if (response)
+    {
+      this.esActivo = response.esActivo
+      console.log("getActivo front", this.esActivo)
+      this.bloquear();
+    }
+    });
+      this.bloquear();
+  }
+  retirarseJuego()
+  {
+      let esRetirarse = confirm("¿Seguro de retirarse del juego?");
+      if( esRetirarse )
+      {
+          this.http.game.retirarseJuego((response) => {
+            if(response)
+            {
+              console.log("retirarseJuego front =>", response.esRetirado)
+              this.bloquear();
+            }
+          });
+          this.bloquear();
 
+      }
+      this.actualizarActivo();
+      console.log("Ya acabria actualizar activo")
+      this.bloquear();
+  }
   actualizarVentasIndustriasBimestre() {
     this.http.get('http://localhost:8080/ventasIndustria/VI' + this.nombreEmpresa + '' + this.codigo).subscribe(
       (response: any) => {
@@ -227,15 +276,7 @@ export class TablaDeDecisionComponent implements OnInit {
                 if (this.http.game.bimestre_tres_c == 1) {
                   this.obtenerTodosLosDatos();
                 }
-                console.log("numero Bimestre front => ", this.numeroBimestre)
-                document.getElementById("numero-bimestre-siguiente").style.display = "none";
-                document.getElementById("precioUnitarioTD").style.display = "none";
-                document.getElementById("tabla-proyeccionesID").style.display = "none";
-                document.getElementById("boton-decisionID").style.display = "none";
-                document.getElementById("produccionTD").style.display = "none";
-                document.getElementById("inversionEnMarketingTD").style.display = "none";
-                document.getElementById("inversionEnInvestigacionTD").style.display = "none";
-                document.getElementById("inversionEnActivosTD").style.display = "none";
+                this.bloquear();
               }
             } else {
               alert("faltan completar el bimestre dos")
@@ -479,6 +520,10 @@ export class TablaDeDecisionComponent implements OnInit {
 
   informacion() {
     this.tap_position = 0;
+
+    this.actualizarActivo();
+    this.bloquear(); 
+
     // document.getElementById("decisiones").style.display = "none";
     // document.getElementById("tabla-analisis-industria").style.display = "none";
     // document.getElementById("informe").style.display = "none";
@@ -520,16 +565,21 @@ export class TablaDeDecisionComponent implements OnInit {
     // document.getElementById("info-analisisIndustria").style.display = "none";
     // document.getElementById("info-informeCompañia").style.display = "none";
     // document.getElementById("info-analisis").style.display = "none";
-
-
+    this.actualizarActivo();
+    this.bloquear(); 
   }
 
   tanalisis() {
     this.tap_position = 2
     this.http.game.getVisionGeneral(this.numeroBimestre, (response) => {
       console.log("getVisionGeneral front", response)
-      if (response)
-        this.visionGeneral = response
+      if (response){
+        this.visionGeneral = response.visionGeneral
+        console.log("existeGanadorPorcentajeMercado ==>", this.existeGanadorPorcentajeMercado)
+        this.existeGanadorPorcentajeMercado=response.existeGanadorPorcentajeMercado
+        console.log("existeGanadorPorcentajeMercado ==>", this.existeGanadorPorcentajeMercado)
+        this.bloquear();
+      }
     });
     this.http.game.getProduccion(this.numeroBimestre, (response) => {
       console.log("getProduccion front", response)
@@ -541,6 +591,10 @@ export class TablaDeDecisionComponent implements OnInit {
       if (response)
         this.ventasIndustria = response
     });
+
+    this.actualizarActivo();
+    this.bloquear(); 
+
     // document.getElementById("decisiones").style.display = "none";
     // document.getElementById("tabla-analisis-industria").style.display = "block";
     // document.getElementById("informe").style.display = "none";
@@ -567,12 +621,17 @@ export class TablaDeDecisionComponent implements OnInit {
   }
   informe() {
     this.tap_position = 3;
-    this.http.game.getEstadoResultados((response) => {
+    this.http.game.getEstadoResultados(this.numeroBimestre,(response) => {
       console.log("getEstadoResultados front", response)
-      if (response)
-        this.estadoResultados = response
+      if (response){
+        this.estadoResultados = response.estadoResultados
+        this.unicaValorPositivo=response.unicaValorPositivo
+        console.log("estadoResultados front", this.estadoResultados)
+        console.log("unicaValorPositivo front", this.unicaValorPositivo)
+        this.bloquear();
+        }
     });
-
+    this.bloquear();
     this.http.game.getBalanceGeneral(this.numeroBimestre, (response) => {
       console.log("getBalanceGeneral front", response)
       if (response)
@@ -581,15 +640,21 @@ export class TablaDeDecisionComponent implements OnInit {
 
     this.http.game.getVentas(this.numeroBimestre, (response) => {
       console.log("getVentas front", response)
-      if (response)
+      if (response){
         this.ventas = response
+        this.actualizarActivo();
+        this.bloquear();        
+      }
     });
-
+    this.bloquear();        
     this.http.game.getCostosProduccion(this.numeroBimestre, (response) => {
       console.log("getCostosProduccion front", response)
       if (response)
         this.costoProduccion = response
     });
+
+    this.actualizarActivo();
+    this.bloquear(); 
     // document.getElementById("decisiones").style.display = "none";
     // document.getElementById("tabla-analisis-industria").style.display = "none";
     // document.getElementById("informe").style.display = "block";
@@ -629,7 +694,7 @@ export class TablaDeDecisionComponent implements OnInit {
       console.log("getPromedioUtilidadNeta front", response)
       this.promedioERUtilidadNeta = response
     });
-    this.http.game.getEstadoResultados((response) => {
+    this.http.game.getEstadoResultados(this.numeroBimestre,(response) => {
       console.log("getEstadoResultados front", response)
       this.estadoResultados = response
     });
@@ -641,6 +706,9 @@ export class TablaDeDecisionComponent implements OnInit {
       console.log("getPromedioPrecioUnitarios  front", response)
       this.promedioPrecioUnitarios = response
     });
+
+    this.actualizarActivo();
+    this.bloquear(); 
     // document.getElementById("decisiones").style.display = "none";
     // document.getElementById("tabla-analisis-industria").style.display = "none";
     // document.getElementById("informe").style.display = "none";

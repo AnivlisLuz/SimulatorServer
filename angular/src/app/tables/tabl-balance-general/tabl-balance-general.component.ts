@@ -8,7 +8,7 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class TablBalanceGeneralComponent implements OnInit {
 
-  @Input() public balanceGeneral:BalanceGeneral;
+  @Input() public balanceGeneral: BalanceGeneral;
 
   constructor() { }
 

@@ -17,12 +17,12 @@ export class RegisterComponent implements OnInit {
   password: string;
 
 
-  constructor(public authService: AuthService, private _firebaseAuth: AngularFireAuth, private router: Router) {}
+  constructor(public authService: AuthService, private _firebaseAuth: AngularFireAuth, private router: Router) { }
 
   signup() {
     this.authService.signup(this.email, this.password);
     this.email = this.password = '';
-  this.router.navigateByUrl('/tabla');
+    this.router.navigateByUrl('/tabla');
   }
   tabla() {
     this.router.navigateByUrl('/tabla');

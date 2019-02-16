@@ -21,8 +21,8 @@ import { TablBalanceGeneralComponent } from './tables/tabl-balance-general/tabl-
 import { JugarComponent } from './jugar/jugar.component';
 import { ModeradorComponent } from './moderador/moderador.component';
 
-import {HttpService} from './../services/http.service';
-import {HttpModule} from '@angular/http';
+import { HttpService } from './../services/http.service';
+import { HttpModule } from '@angular/http';
 import { TablaProduccionComponent } from './tablas-AI/tabla-produccion/tabla-produccion.component';
 import { TablaVentasComponent } from './tablas-AI/tabla-ventas/tabla-ventas.component';
 import { TablaVisionGeneralComponent } from './tablas-AI/tabla-vision-general/tabla-vision-general.component';
@@ -31,7 +31,7 @@ import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
 import { ThousandsPipe } from './separador-de-miles/thousand.pipe';
 
 
-const config: SocketIoConfig = { url: 'http://localhost:8080', options: {} };
+const config: SocketIoConfig = { url: 'http://192.168.1.8', options: {} };
 @NgModule({
    declarations: [
       AppComponent,
@@ -54,15 +54,15 @@ const config: SocketIoConfig = { url: 'http://localhost:8080', options: {} };
    imports: [
       BrowserModule,
       AngularFireModule.initializeApp(environment.firebase),
-    AngularFireAuthModule,
-    FormsModule,
-    APP_ROUTER,
-    HttpModule,
-    ReactiveFormsModule,
-    SocketIoModule.forRoot(config)
+      AngularFireAuthModule,
+      FormsModule,
+      APP_ROUTER,
+      HttpModule,
+      ReactiveFormsModule,
+      SocketIoModule.forRoot(config)
 
-  ],
-  providers: [AuthService],
-  bootstrap: [AppComponent]
+   ],
+   providers: [AuthService],
+   bootstrap: [AppComponent]
 })
 export class AppModule { }
