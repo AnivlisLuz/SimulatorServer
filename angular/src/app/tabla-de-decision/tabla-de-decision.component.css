@@ -160,7 +160,7 @@ aside {
 }
 
 .input-width {
-  width: calc(100% - 20px);
+  width: 60px;
 }
 
 .tabla-decision {
