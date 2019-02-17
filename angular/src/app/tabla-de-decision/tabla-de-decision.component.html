@@ -229,8 +229,8 @@
                   <td>{{(http.game.player&&http.game.player.bimestre_tres)?http.game.player.bimestre_tres.produccion:""}}</td>
                   <td id="produccionTD">
                     <input class="input-width" type="number" id="produccion" name="produccion" [(ngModel)]="produccion"
-                      min="0" max="850" value=500 onkeydown=" return false"
-                      onchange="document.getElementById('precioUnitario').min=Math.round((this.value*35+ 30270)/this.value);" ></td>
+                      min="0" max="600" value=500 onkeydown=" return false"
+                      (change)="calcularLimitePrecioUnitario($event.target.value)"  ></td>
                 </tr>
                 <tr>
                   <td>INVERSIÓN EN MARKETING</td>

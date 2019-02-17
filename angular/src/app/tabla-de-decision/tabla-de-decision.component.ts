@@ -122,6 +122,35 @@ export class TablaDeDecisionComponent implements OnInit {
   onChangeinversionEnActivoss(data) {
     console.log("changed onChangeinversionEnActivoss", data)
     this.inversionEnActivos = parseInt(data);
+    this.calcularLimiteProduccion(parseInt(data));
+  }
+  calcularLimiteProduccion(inversionActivos){
+    let produccion=document.getElementById("produccion")
+    let limite
+    if(inversionActivos === 0)
+      limite=600
+    if(inversionActivos === 6000)
+      limite=750
+    if(inversionActivos === 15000)
+      limite=900
+    if(inversionActivos === 28000)
+      limite=1140
+    if(inversionActivos === 40000)
+      limite=1500
+    produccion.setAttribute("max",limite.toString())
+
+    if((<HTMLInputElement>document.getElementById("produccion")).value >limite)
+      (<HTMLInputElement>document.getElementById("produccion")).value= limite
+
+  }
+  calcularLimitePrecioUnitario(data){
+    let precioUnitario=document.getElementById("precioUnitario")
+    let limite=Math.round((parseInt(data)*35+ 30270)/parseInt(data))
+    precioUnitario.setAttribute("min",limite.toString())
+//    if((<HTMLInputElement>document.getElementById("precioUnitario")).value <limite)
+//  (<HTMLInputElement>document.getElementById("precioUnitario")).value= limite
+
+
   }
   ngOnInit() {
 
@@ -522,7 +551,7 @@ export class TablaDeDecisionComponent implements OnInit {
     this.tap_position = 0;
 
     this.actualizarActivo();
-    this.bloquear(); 
+    this.bloquear();
 
     // document.getElementById("decisiones").style.display = "none";
     // document.getElementById("tabla-analisis-industria").style.display = "none";
@@ -566,7 +595,7 @@ export class TablaDeDecisionComponent implements OnInit {
     // document.getElementById("info-informeCompañia").style.display = "none";
     // document.getElementById("info-analisis").style.display = "none";
     this.actualizarActivo();
-    this.bloquear(); 
+    this.bloquear();
   }
 
   tanalisis() {
@@ -593,7 +622,7 @@ export class TablaDeDecisionComponent implements OnInit {
     });
 
     this.actualizarActivo();
-    this.bloquear(); 
+    this.bloquear();
 
     // document.getElementById("decisiones").style.display = "none";
     // document.getElementById("tabla-analisis-industria").style.display = "block";
@@ -644,10 +673,10 @@ export class TablaDeDecisionComponent implements OnInit {
       if (response){
         this.ventas = response
         this.actualizarActivo();
-        this.bloquear();        
+        this.bloquear();
       }
     });
-    this.bloquear();        
+    this.bloquear();
     this.http.game.getCostosProduccion(this.numeroBimestre, (response) => {
       console.log("getCostosProduccion front", response)
       if (response)
@@ -655,7 +684,7 @@ export class TablaDeDecisionComponent implements OnInit {
     });
 
     this.actualizarActivo();
-    this.bloquear(); 
+    this.bloquear();
     // document.getElementById("decisiones").style.display = "none";
     // document.getElementById("tabla-analisis-industria").style.display = "none";
     // document.getElementById("informe").style.display = "block";
@@ -709,7 +738,7 @@ export class TablaDeDecisionComponent implements OnInit {
     });
 
     this.actualizarActivo();
-    this.bloquear(); 
+    this.bloquear();
     // document.getElementById("decisiones").style.display = "none";
     // document.getElementById("tabla-analisis-industria").style.display = "none";
     // document.getElementById("informe").style.display = "none";
