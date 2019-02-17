@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 const server = require('http').Server(app);
 const cors = require('cors')
-const port = 80
+const port = 8080
 const api = require('./api')
 const io = require('socket.io')(server);
 
