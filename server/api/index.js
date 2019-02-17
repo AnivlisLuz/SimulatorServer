@@ -812,7 +812,7 @@ mercados["a"] = new Mercado("nombre mercardo", 2, "a")
 class Player {
     constructor(name, codigo, cantidadIdealTotal, produccion, cantidadRealVendida, cantidadIdeal) {
         this.name = name
-        this.bimestre_inicial = new Bimestre(150, 500, 3000, 1500, 3000, 0, codigo, name)
+        this.bimestre_inicial = new Bimestre(150, 600, 500, 1000, 6000, 0, codigo, name)
         db.saveBimestre(this.bimestre_inicial)
 
         this.cantidadIdealTotal = 535
@@ -906,17 +906,39 @@ class Empresa {
         this.cantidadIdeal = cantidadIdeal
         this.codigo = codigo
     }
-    obtenerPorcentaje(investigacion) {
-        if (investigacion == 0)
+    obtenerPorcentajeMarketing(marketing) {
+        if (marketing == 0)
             return 0
-        if (investigacion == 1500)
-            return (0.1 * this.cantidadIdeal)
+        if (marketing == 500)
+            return (0.03 * this.cantidadIdeal)
+        if (marketing == 1800)
+            return (0.075 * this.cantidadIdeal)
+        if (marketing == 3100)
+            return (0.15 * this.cantidadIdeal)
+        if (marketing == 8300)
+            return (0.33 * this.cantidadIdeal)
+        return 0
+    }
+    obtenerPorcentajeInvestigacion(investigacion) {
+        if (investigacion == 1000)
+            return (0.04 * this.cantidadIdeal)
+        if (investigacion == 2000)
+            return (0.08 * this.cantidadIdeal)
         if (investigacion == 3000)
-            return (0.3 * this.cantidadIdeal)
-        if (investigacion == 4500)
-            return (0.5 * this.cantidadIdeal)
-        if (investigacion == 6000)
-            return (0.7 * this.cantidadIdeal)
+            return (0.12 * this.cantidadIdeal)
+        if (investigacion == 4000)
+            return (0.16 * this.cantidadIdeal)
+        return 0
+    }
+    obtenerPorcentajeActivos(activos) {
+        if (activos == 6000)
+            return (0.02 * this.cantidadIdeal)
+        if (activos == 15000)
+            return (0.04 * this.cantidadIdeal)
+        if (activos == 28000)
+            return (0.08 * this.cantidadIdeal)
+        if (activos == 40000)
+            return (0.12 * this.cantidadIdeal)
         return 0
     }
     calcular(players, precioUnitario, marketing, investigacion, activos, inventarioUnidadesAnterior) {
@@ -927,7 +949,7 @@ class Empresa {
         }
         suma = suma / 2
         this.cantidadIdeal = ((337.5 - precioUnitario) / 0.125) - suma
-        this.cantidadIdealTotal = this.cantidadIdeal + this.obtenerPorcentaje(marketing) + this.obtenerPorcentaje(investigacion) + this.obtenerPorcentaje(activos)
+        this.cantidadIdealTotal = this.cantidadIdeal + this.obtenerPorcentajeMarketing(marketing) + this.obtenerPorcentajeInvestigacion(investigacion) + this.obtenerPorcentajeActivos(activos)
         this.cantidadRealVendida = Math.min(this.cantidadIdealTotal, this.produccion + inventarioUnidadesAnterior)
     }
     calcularPorcentajeMercado(mercado) {

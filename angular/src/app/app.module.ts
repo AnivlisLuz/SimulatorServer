@@ -31,7 +31,7 @@ import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
 import { ThousandsPipe } from './separador-de-miles/thousand.pipe';
 
 
-const config: SocketIoConfig = { url: 'http://192.168.1.8', options: {} };
+const config: SocketIoConfig = { url: 'localhost:8080', options: {} };
 @NgModule({
    declarations: [
       AppComponent,
