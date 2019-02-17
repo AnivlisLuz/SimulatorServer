@@ -31,8 +31,8 @@
 
       <tr>
         <td class="td2">CAPACIDAD DE PRODUCCIÓN</td>
-        <td class="td2">{{850+50*produccionIndustria.numero}}</td>
-        <td class="td2">{{((850+50*produccionIndustria.numero)-(850+50*(produccionIndustria.numero-1)))/(850+50*(produccionIndustria.numero-1))*100}}%</td>
+        <td class="td2">{{produccionIndustria.capacidadProduccionActual}}</td>
+        <td class="td2">{{(produccionIndustria.capacidadProduccionActual-produccionIndustria.capacidadProduccionAnterior)/produccionIndustria.capacidadProduccionAnterior*100}}%</td>
       </tr>
 
     </tbody>

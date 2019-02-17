@@ -1180,7 +1180,20 @@ function calcularVentasIndustria(bimestres, ventas, ventasIndustria) {
     //db.updateVentasIndustria(ventasIndustria)
     db.saveVentasIndustria(ventasIndustria)
 }
-
+function calcularLimiteProduccion(inversionActivos){
+    limite=0
+    if(inversionActivos === 0)
+        limite=600
+    if(inversionActivos === 6000)
+        limite=750
+    if(inversionActivos === 15000)
+        limite=900
+    if(inversionActivos === 28000)
+        limite=1140
+    if(inversionActivos === 40000)
+        limite=1500
+    return limite
+}
 function calcularProduccion(bimestres, costosProduccion, produccion) {
     produccion.produccionIndustriaValorAnterior = produccion.produccionIndustriaValorActual
     produccion.costeMedioTotalAnterior = produccion.costeMedioTotalActual
@@ -1189,8 +1202,10 @@ function calcularProduccion(bimestres, costosProduccion, produccion) {
     produccion.produccionIndustriaValorActual = 0
     produccion.costeMedioTotalActual = 0
     produccion.costeMedioUnitarioActual = 0
+    produccion.capacidadProduccionActual=0
     for (let i = 0; i < bimestres.length; i++) {
         produccion.produccionIndustriaValorActual = produccion.produccionIndustriaValorActual + bimestres[i].produccion
+        produccion.capacidadProduccionActual= produccion.capacidadProduccionActual+ calcularLimiteProduccion(bimestres[i].inversionEnActivos)
     }
     for (let i = 0; i < costosProduccion.length; i++) {
         produccion.costeMedioTotalActual = produccion.costeMedioTotalActual + costosProduccion[i].costoTotal
@@ -1199,7 +1214,7 @@ function calcularProduccion(bimestres, costosProduccion, produccion) {
     produccion.costeMedioTotalActual = produccion.costeMedioTotalActual / costosProduccion.length
     produccion.costeMedioUnitarioActual = produccion.costeMedioUnitarioActual / costosProduccion.length
     produccion.numero = produccion.numero + 1
-    produccion.capacidadProduccionActual = produccion.capacidadProduccionActual + 50
+    produccion.capacidadProduccionActual = produccion.capacidadProduccionActual /bimestres.length
 
     //db.updateProduccion(produccion)
     db.saveProduccion(produccion)
@@ -1210,6 +1225,7 @@ function calcularProduccion(bimestres, costosProduccion, produccion) {
 //         setTimeout(resolve, ms)
 //     })
 // }
+
 async function calcularTodo(codigoJuego, numeroBimestre) {
     let bimestres = []
     let empresas = []
