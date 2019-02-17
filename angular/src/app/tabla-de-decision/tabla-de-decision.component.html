@@ -212,10 +212,10 @@
                 </tr>
                 <tr>
                   <td>PRECIO UNITARIO</td>
-                  <td>{{(http.game.player&&http.game.player.bimestre_inicial)?http.game.player.bimestre_inicial.precioUnitario:""}}</td>
-                  <td>{{(http.game.player&&http.game.player.bimestre_uno)?http.game.player.bimestre_uno.precioUnitario:""}}</td>
-                  <td>{{(http.game.player&&http.game.player.bimestre_dos)?http.game.player.bimestre_dos.precioUnitario:""}}</td>
-                  <td>{{(http.game.player&&http.game.player.bimestre_tres)?http.game.player.bimestre_tres.precioUnitario:""}}</td>
+                  <td>{{(http.game.player&&http.game.player.bimestre_inicial)?http.game.player.bimestre_inicial.precioUnitario:"" | thousandPipe}}</td>
+                  <td>{{(http.game.player&&http.game.player.bimestre_uno)?http.game.player.bimestre_uno.precioUnitario:"" | thousandPipe}}</td>
+                  <td>{{(http.game.player&&http.game.player.bimestre_dos)?http.game.player.bimestre_dos.precioUnitario:"" | thousandPipe}}</td>
+                  <td>{{(http.game.player&&http.game.player.bimestre_tres)?http.game.player.bimestre_tres.precioUnitario:"" | thousandPipe}}</td>
                   <td id="precioUnitarioTD"> <input class="input-width" type="number" id="precioUnitario" name="precioUnitario"
                       [(ngModel)]="precioUnitario" min="96" max="300" value="bimestreActual.precioUnitario" onkeydown=" return false">
 
@@ -223,10 +223,10 @@
                 </tr>
                 <tr>
                   <td>PRODUCCIÓN</td>
-                  <td>{{(http.game.player&&http.game.player.bimestre_inicial)?http.game.player.bimestre_inicial.produccion:""}}</td>
-                  <td >{{(http.game.player&&http.game.player.bimestre_uno)?http.game.player.bimestre_uno.produccion:""}}</td>
-                  <td >{{(http.game.player&&http.game.player.bimestre_dos)?http.game.player.bimestre_dos.produccion:""}}</td>
-                  <td>{{(http.game.player&&http.game.player.bimestre_tres)?http.game.player.bimestre_tres.produccion:""}}</td>
+                  <td>{{(http.game.player&&http.game.player.bimestre_inicial)?http.game.player.bimestre_inicial.produccion:"" | thousandPipe}}</td>
+                  <td >{{(http.game.player&&http.game.player.bimestre_uno)?http.game.player.bimestre_uno.produccion:"" | thousandPipe}}</td>
+                  <td >{{(http.game.player&&http.game.player.bimestre_dos)?http.game.player.bimestre_dos.produccion:"" | thousandPipe}}</td>
+                  <td>{{(http.game.player&&http.game.player.bimestre_tres)?http.game.player.bimestre_tres.produccion:"" | thousandPipe}}</td>
                   <td id="produccionTD">
                     <input class="input-width" type="number" id="produccion" name="produccion" [(ngModel)]="produccion"
                       min="0" max="850" value=500 onkeydown=" return false"
@@ -234,16 +234,16 @@
                 </tr>
                 <tr>
                   <td>INVERSIÓN EN MARKETING</td>
-                  <td>{{(http.game.player&&http.game.player.bimestre_inicial)?http.game.player.bimestre_inicial.inversionEnMarketing:""}}</td>
-                  <td>{{(http.game.player&&http.game.player.bimestre_uno)?http.game.player.bimestre_uno.inversionEnMarketing:""}}</td>
-                  <td>{{(http.game.player&&http.game.player.bimestre_dos)?http.game.player.bimestre_dos.inversionEnMarketing:""}}</td>
-                  <td>{{(http.game.player&&http.game.player.bimestre_tres)?http.game.player.bimestre_tres.inversionEnMarketing:""}}</td>
+                  <td>{{(http.game.player&&http.game.player.bimestre_inicial)?http.game.player.bimestre_inicial.inversionEnMarketing:"" | thousandPipe}}</td>
+                  <td>{{(http.game.player&&http.game.player.bimestre_uno)?http.game.player.bimestre_uno.inversionEnMarketing:"" | thousandPipe}}</td>
+                  <td>{{(http.game.player&&http.game.player.bimestre_dos)?http.game.player.bimestre_dos.inversionEnMarketing:"" | thousandPipe}}</td>
+                  <td>{{(http.game.player&&http.game.player.bimestre_tres)?http.game.player.bimestre_tres.inversionEnMarketing:"" | thousandPipe}}</td>
                   <td id="inversionEnMarketingTD">
                     <select class="input-width" type="number" (change)="onChangeinversionEnMarketings($event.target.value)">
                       <ng-container *ngFor="let inversion of inversionEnMarketings">
                         <option *ngIf="inversion+inversionEnInvestigacion+inversionEnActivos+(produccion*35)+8000+22770<=capitalPeriodoAnterior+(precioUnitario*produccion)+10000"
                           [ngValue]="inversion">
-                          {{inversion}}
+                          {{inversion | thousandPipe}}
                         </option>
                       </ng-container>
                     </select>
@@ -265,7 +265,7 @@
                       <ng-container *ngFor="let inversion of inversionEnInvestigacions">
                         <option *ngIf="inversionEnMarketing+inversion+inversionEnActivos+(produccion*35)+8000+22770<=capitalPeriodoAnterior+(precioUnitario*produccion)+10000"
                           [ngValue]="inversion">
-                          {{inversion}}
+                          {{inversion | thousandPipe}}
                         </option>
                       </ng-container>
                     </select>
@@ -274,16 +274,16 @@
                 </tr>
                 <tr>
                   <td>INVERSIÓN EN ACTIVOS</td>
-                  <td>{{(http.game.player&&http.game.player.bimestre_inicial)?http.game.player.bimestre_inicial.inversionEnActivos:""}}</td>
-                  <td>{{(http.game.player&&http.game.player.bimestre_uno)?http.game.player.bimestre_uno.inversionEnActivos:""}}</td>
-                  <td>{{(http.game.player&&http.game.player.bimestre_dos)?http.game.player.bimestre_dos.inversionEnActivos:""}}</td>
-                  <td>{{(http.game.player&&http.game.player.bimestre_tres)?http.game.player.bimestre_tres.inversionEnActivos:""}}</td>
+                  <td>{{(http.game.player&&http.game.player.bimestre_inicial)?http.game.player.bimestre_inicial.inversionEnActivos:"" | thousandPipe}}</td>
+                  <td>{{(http.game.player&&http.game.player.bimestre_uno)?http.game.player.bimestre_uno.inversionEnActivos:"" | thousandPipe}}</td>
+                  <td>{{(http.game.player&&http.game.player.bimestre_dos)?http.game.player.bimestre_dos.inversionEnActivos:"" | thousandPipe}}</td>
+                  <td>{{(http.game.player&&http.game.player.bimestre_tres)?http.game.player.bimestre_tres.inversionEnActivos:"" | thousandPipe}}</td>
                   <td id="inversionEnActivosTD">
                     <select class="input-width" type="number" (change)="onChangeinversionEnActivoss($event.target.value)">
                       <ng-container *ngFor="let inversion of inversionEnActivoss">
                         <option *ngIf="inversionEnMarketing+inversionEnInvestigacion+inversion+(produccion*35)+8000+22770<=capitalPeriodoAnterior+(precioUnitario*produccion)+10000"
                           [ngValue]="inversion">
-                          {{inversion}}
+                          {{inversion | thousandPipe}}
                         </option>
                       </ng-container>
                     </select>
