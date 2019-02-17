@@ -947,8 +947,10 @@ class Empresa {
             if (players[i].name != this.name)
                 suma = suma + players[i].produccion
         }
-        suma = suma / 2
-        this.cantidadIdeal = ((337.5 - precioUnitario) / 0.125) - suma
+        suma = suma / 10
+        let A=319.127516
+        let B=0.1006711
+        this.cantidadIdeal = ((A - precioUnitario) / 2*B) - suma
         this.cantidadIdealTotal = this.cantidadIdeal + this.obtenerPorcentajeMarketing(marketing) + this.obtenerPorcentajeInvestigacion(investigacion) + this.obtenerPorcentajeActivos(activos)
         this.cantidadRealVendida = Math.min(this.cantidadIdealTotal, this.produccion + inventarioUnidadesAnterior)
     }
