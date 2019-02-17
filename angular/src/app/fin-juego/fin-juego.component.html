@@ -32,19 +32,19 @@
         <div class="section_body">
           <div style="display: flex; justify-content: center;">
             <div class="tabla-decision">
-               <table id="t01">
+               <table id="">
                 <thead>
                 <tr>
                   <th class="th1" colspan=7>BENEFICIO</th>
                 </tr>
                   <tr>
                   <th >COMPAÑIA</th>
-                  <th >Bimestre 1</th>
-                  <th >Puntaje</th>
-                  <th >Bimestre 2</th>
-                  <th >Puntaje</th>
-                  <th >Bimestre 3</th>
-                  <th >Puntaje</th>
+                  <th >BIMESTRE 1</th>
+                  <th >PUNTAJE</th>
+                  <th >BIMESTRE 2</th>
+                  <th >PUNTAJE</th>
+                  <th >BIMESTRE 3</th>
+                  <th >PUNTAJE</th>
                   </tr>
                 </thead>
 
@@ -58,20 +58,22 @@
               <td><tr *ngFor="let visionG of visionGeneralTres">{{visionG.puntajeBeneficio}}</tr></td>
             </tbody>
               </table>
+              
+              <br>
 
-              <table id="t01">
+              <table>
                 <thead>
                 <tr>
-                  <th class="th1" colspan=7>% DE MERCADO</th>
+                  <th class="" colspan=7>% DE MERCADO</th>
                 </tr>
                   <tr>
                   <th >COMPAÑIA</th>
-                  <th >Bimestre 1</th>
-                  <th >Puntaje</th>
-                  <th >Bimestre 2</th>
-                  <th >Puntaje</th>
-                  <th >Bimestre 3</th>
-                  <th >Puntaje</th>
+                  <th >BIMESTRE 1</th>
+                  <th >PUNTAJE</th>
+                  <th >BIMESTRE 2</th>
+                  <th >PUNTAJE</th>
+                  <th >BIMESTRE 3</th>
+                  <th >PUNTAJE</th>
 
                   <!-- <th *ngFor="let visionG of visionGeneral;let i=index">BIMESTRE {{i+1}}</th> -->
                   </tr>
@@ -101,20 +103,19 @@
         <div class="section_body">
           <div style="display: flex; justify-content: center;">
             <div class="tabla-decision">
-               <table id="t01">
+               <table>
                 <thead>
                 <tr>
-                  <th class="th1" colspan=5>PUNTAJES TOTALES</th>
+                  <th class="" colspan=5>PUNTAJES TOTALES</th>
                 </tr>
                   <tr>
-                  <th >COMPAÑIA</th>
-                  <th >Puntaje total</th>
+                  <th class="">COMPAÑIA</th>
+                  <th class="">PUNTAJE TOTAL</th>
                   </tr>
                 </thead>
-
             <tbody >
-              <td><tr *ngFor="let visionG of http.game.players">{{visionG.name}}</tr></td>
-              <td><tr *ngFor="let resultados of resultadosFinales" >{{resultados}}</tr></td>
+              <td class="b2"><tr *ngFor="let visionG of http.game.players">{{visionG.name}}</tr></td>
+              <td class="b2"><tr *ngFor="let resultados of resultadosFinales">{{resultados}}</tr></td>
             </tbody>
               </table>
             </div>

@@ -154,57 +154,59 @@ aside {
   text-align: center;
   color: white;
 }
+.tabla-decision{
 
-.tabla-decision {
-  text-align: center;
-  color: white;
+  margin: 7px;
+
+    width: 70%;
+    color: black;
+
+}
+
+table{
+
   font-family: "arial";
-  background-color: rgb(255, 255, 255);
-}
-
-table {
-  width: 100%;
-  color: black;
-
-}
-
-table,th,td {
-  border: 1px solid black;
+  font-size: 14px;
+  background-color: white;
+  text-align: left;
   border-collapse: collapse;
-}
-
-.th1 {
-  width: 10%;
-  border: 1px solid white;
+  width: 100%;
 
 }
-
-.th2 {
-  width: 200%;
-
+tr{
+  border-color:black;
 }
 
-.tr1 {
-  width: 10%;
-  border: 1px solid white;
-
+table,th{
+  border: 2px solid black;
 }
 
-table#t01 tr {
-  height: 60px;
+table td + td {
+  border-left:2px solid black;
+  border-right:2px solid black;
+}
+th{
+  text-align:center;
 }
 
-/*table#t01 tr:nth-child(odd) {
-  background-color: #fff;
 
-}
 
-table#t01 tr:nth-child(even) {
-  background-color: rgb(116, 197, 233);
-
-}*/
-
-table#t01 th {
-  background-color: rgb(24, 76, 133);
+tr:hover td{
+  background-color: #81BEF7;
   color: white;
+
+}
+th{
+background-color:  rgb(24, 76, 133);
+width: 28px;
+height: 45px;
+color: #fff;
+}
+td{
+height: 45px;
+width: 28px;
+
+}
+.td2{
+background-color:   #81BEF7
 }
