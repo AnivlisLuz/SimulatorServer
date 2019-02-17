@@ -1063,7 +1063,7 @@ class CostosProduccion {
         this.jugador = jugador
     }
     calcular(produccion) {
-        this.materiaPrima = produccion * 35
+        this.materiaPrima = produccion * 50
         this.costoTotal = this.materiaPrima + 8000 + 22770
         this.costoUnitario = this.costoTotal / produccion
     }
