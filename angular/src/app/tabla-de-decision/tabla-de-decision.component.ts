@@ -78,7 +78,7 @@ export class TablaDeDecisionComponent implements OnInit {
   LineChart5: any;
   LineChart: any;
 
-  capitalPeriodoAnterior: number = 10000;
+  capitalPeriodoAnterior: number = 5930;
   auxiliarMercadoSinAtender: number;
   mercadoSinAtender: number;
   produccionIndustriaBimestres: Produccion[];
@@ -628,6 +628,7 @@ export class TablaDeDecisionComponent implements OnInit {
         this.unicaValorPositivo=response.unicaValorPositivo
         console.log("estadoResultados front", this.estadoResultados)
         console.log("unicaValorPositivo front", this.unicaValorPositivo)
+        this.capitalPeriodoAnterior=this.estadoResultados[this.estadoResultados.length-1].utilidadNeta
         this.bloquear();
         }
     });
