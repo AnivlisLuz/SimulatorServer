@@ -988,7 +988,7 @@ class EstadoResultados {
     constructor(numeroBimestre, codigo, jugador) {
         this.ingresos = 95000
         this.ventas = 75000
-        this.otrosIngresos = 10000
+        this.otrosIngresos = 0
         this.capitalAnterior = 10000
         this.costos = 48270
         this.materiaPrima = 17500

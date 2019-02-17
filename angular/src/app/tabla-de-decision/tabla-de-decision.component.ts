@@ -1445,7 +1445,7 @@ export class TablaDeDecisionComponent implements OnInit {
 
   generarConsejo1(): boolean {
 
-    if (this.ventas && this.ventas.inventarioUnidades && this.ventas.inventarioUnidades >= 50)
+    if (this.ventas && this.ventas.inventarioUnidades && this.ventas.inventarioUnidades > 100)
       return true;
     else
       return false;
@@ -1453,7 +1453,7 @@ export class TablaDeDecisionComponent implements OnInit {
   generarConsejo2(): boolean {
     let indice = this.estadoResultados.length;
     if (this.estadoResultados.length > 0) {
-      if (this.estadoResultados[indice - 1].utilidadNeta < 8000)
+      if (this.estadoResultados[indice - 1].utilidadNeta < 5000)
         return true;
       else
         return false;
