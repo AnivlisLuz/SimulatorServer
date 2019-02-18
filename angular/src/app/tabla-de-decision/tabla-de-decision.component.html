@@ -81,6 +81,12 @@
                 id="">
                 ORGANIGRAMA
               </button>
+
+              <button (click)="maquinaria()" class="section_body_tab_button  {{section_tap_1==5 ? '' : 'tap_selected'}}"
+              id="">
+                MAQUINARIA
+            </button>
+
               <button (click)="objetivos()" class="section_body_tab_button  {{section_tap_1==4 ? '' : 'tap_selected'}}"
                 id="D">
                 OBJETIVOS
@@ -90,25 +96,26 @@
               <div class="section_body_content  {{section_tap_1==0 ? '' : 'tap_menu_hidden'}}">
                 <div style="padding: 20px;">
                   <img src="/imagenes/LOGO SIMULADOR FINAL.png" style="float: right; width: 250px;"><br /><br /><br />
-                  UNA BREVE HISTORIA SOBRE NOSOTROS
-                  <br /><br /><br /><br />
-                  La empresa "{{(http.game)?http.game.name:""}}", inicio sus actividades en el año 2005.
-                  <br /><br />Desde el comienzo de nuestras actividades, nos especializamos en la venta de poleras de
-                  alta
-                  calidad con diseños innovadores y que están en constante actualización según las tendencias del
-                  mercado.
-                  <br /><br />Con el transcurso de los años hemos incorporado nuevas líneas de productos con el
-                  objetivo de
-                  proveer a nuestros clientes una solución integral a sus necesidades. Contamos con un excelente
-                  grupo humano el cual se capacita en forma permanente a fin de estar actualizado en los cambios e
-                  innovaciones
-                  tecnológicas que se presentan en nuestro ámbito.
-                  <br /><br />La calidad de nuestros productos y la excelencia en nuestro servicio nos han permitido
-                  posicionarnos en el mercado en muy poco tiempo, llegando a alcanzar a nuestros principales
-                  competidores.
-                  <br /><br />Pretendemos convertirnos en la empresa líder en nuestro sector a través de decisiones que
-                  nos
-                  permitan aprovechar nuestras ventajas competitivas.
+                 <div class="centro">
+                  <U>UNA BREVE HISTORIA SOBRE NOSOTROS</U>
+                </div>
+                <pre>
+La empresa "{{(http.game)?http.game.name:""}}", inicio sus actividades en el año 2005.
+
+Desde el comienzo de nuestras actividades, nos especializamos en la venta de poleras de alta calidad con diseños
+innovadores y que están en constante actualización según las tendencias del mercado.
+
+Con el transcurso de los años hemos incorporado nuevas líneas de productos con el objetivo de proveer a nuestros 
+clientes una solución integral a sus necesidades. Contamos con un excelente grupo humano el cual se capacita en
+forma permanente a fin de estar actualizado en los cambios e innovaciones tecnológicas que se presentan en nuestro
+ámbito.
+
+La calidad de nuestros productos y la excelencia en nuestro servicio nos han permitido posicionarnos en el mercado
+en muy poco tiempo, llegando a alcanzar a nuestros principales competidores.
+
+Pretendemos convertirnos en la empresa líder en nuestro sector a través de decisiones que nos permitan aprovechar
+nuestras ventajas competitivas.
+                </pre>
                 </div>
               </div>
               <div class="section_body_content  {{section_tap_1==1 ? '' : 'tap_menu_hidden'}}">
@@ -121,7 +128,6 @@
                       innovadores para personas que aprecian el buen vestir.”
                     </div><br /><br />
                   </div>
-                  <img src="/imagenes/LOGO SIMULADOR FINAL.png" style=" width: 200px;height: 200px;; ">
                 </div>
                 <div>
                   <div class="section_body_content_title" style=" float: right; font-weight: bold; font-size: 22px; ">VISIÓN
@@ -135,16 +141,17 @@
 
               </div>
               <div class="section_body_content  {{section_tap_1==2 ? '' : 'tap_menu_hidden'}}">
-                <img src="/imagenes/LOGO SIMULADOR FINAL.png" style="float: right; width: 250px;height: 200px; ">
-                <br /><br />
-                <div style="padding: 20px;">Ofrecemos poleras exclusivasde alta calidad con diseños innovadores para
-                  personas que aprecian el
-                  buen
-                  vestir.
-                  <br /><br />
-                  Contamos con un equipo de diseñadores gráficos que se encarga del arte que nosotros
-                  ponemos en
-                  cada uno de nuestros productos. <br /><br />
+                <div style="padding: 20px;">
+                <pre>
+    Nuestra empresa ofrece poleras exclusivas y de alta calidad con diseños innovadores para personas
+ que aprecian el buen vestir.
+ 
+    Contamos con un equipo de diseñadores gráficos que se encargan de crear el arte que nosotros
+ ponemos en cada uno de nuestros productos. Es importante mencionar que por políticas de la
+ empresa se maneja un precio único para todos nuestros diseños.
+
+    Aqui te mostramos algunas poleras de nuestra colección actual:
+                </pre>
                 </div>
 
                 <div>
@@ -156,12 +163,14 @@
                 </div>
               </div>
               <div class="section_body_content  {{section_tap_1==3 ? '' : 'tap_menu_hidden'}}" style="position: relative;">
-                <div style="background: url('/imagenes/Organigrama.JPG') no-repeat center; background-size: contain;width: calc(110% - 110px);height: calc(110% - 110px);position: absolute;top: 50px;"></div>
-                <img src="/imagenes/LOGO SIMULADOR FINAL.png" style="float: right; width: 200px;height: 200px;position: absolute;right: 0; ">
+                <div style="background: url('/imagenes/organigrama2.jpg') no-repeat center; background-size: contain;width: calc(110% - 110px);height: calc(110% - 110px);position: absolute;top: 50px;"></div>
+                    </div>
+
+              <div class="section_body_content  {{section_tap_1==5 ? '' : 'tap_menu_hidden'}}">
+              <p>Se encuentra en desarrollo</p> 
               </div>
-              <div class="section_body_content  {{section_tap_1==4 ? '' : 'tap_menu_hidden'}}"><img src="/imagenes/LOGO SIMULADOR FINAL.png"
-                  style="float: right; width: 250px; ">
-                <br /> <br /> <br />
+              <div class="section_body_content  {{section_tap_1==4 ? '' : 'tap_menu_hidden'}}">
+                 <br /> <br /> <br />
                 <div class="section_body_content_title" style="font-weight: bold;"> BIENVENIDO A LA EMPRESA
                 </div><br /> <br />
                 <div style="padding-left:50px;">
@@ -313,7 +322,7 @@
                     inversionEnActivos+produccion*35
                     +30770 | thousandPipe}}</li>
                   <div id="div-gastos" style="padding-left: 20%">
-                    <pre>PRODUCCIÓN                             {{produccion*35 +30770 | thousandPipe}}</pre>
+                    <pre>COSTO PRODUCCIÓN                          {{produccion*35 +30770 | thousandPipe}}</pre>
                     <pre>INV. MARKETING                           {{inversionEnMarketing | thousandPipe}}</pre>
                     <pre>INV. INVESTIGACIÓN                    {{inversionEnInvestigacion | thousandPipe}}</pre>
                     <pre>INV. ACTIVOS                                {{inversionEnActivos | thousandPipe}}</pre>
@@ -323,7 +332,7 @@
                   </li>
                   <div id="div-resultados" style="padding-left: 20%">
                     <pre>EFECTIVO DISPONIBLE            {{capitalPeriodoAnterior+10000+precioUnitario*produccion+10000-(inversionEnMarketing + inversionEnActivos+inversionEnInvestigacion) | thousandPipe}} </pre>
-                    <pre>UTILIDAD ESPERADA                {{(precioUnitario*produccion+10000)-(inversionEnMarketing + inversionEnActivos+inversionEnInvestigacion+produccion*35 +30770) | thousandPipe}}</pre>
+                    <pre>UTILIDAD ESPERADA                  {{(precioUnitario*produccion+10000)-(inversionEnMarketing + inversionEnActivos+inversionEnInvestigacion+produccion*35 +30770) | thousandPipe}}</pre>
                   </div>
                 </ul>
               </div>
