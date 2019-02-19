@@ -7,7 +7,7 @@
     </div>
     <div class="button_tab_container" style="background-color: #092B3A;">
       <button (click)="informacion()" class="boton-infomacion-compania tab_menu_button" style="background-color: #092B3A;">
-        INFORMACI&#211;N SOBRE LA COMPA&#209;&#205;A
+       DATOS SOBRE LA COMPA&#209;&#205;A
       </button>
 
       <div class="{{tap_position==0 ? '' : 'tap_menu_hidden'}} tab_menu_description">
@@ -96,24 +96,24 @@
               <div class="section_body_content  {{section_tap_1==0 ? '' : 'tap_menu_hidden'}}">
                 <div style="padding: 20px;">
                   <img src="/imagenes/LOGO SIMULADOR FINAL.png" style="float: right; width: 250px;"><br /><br /><br />
-                 <div class="centro">
+                 <div class="centro" style="font-weight: bold;">
                   <U>UNA BREVE HISTORIA SOBRE NOSOTROS</U>
                 </div>
                 <pre>
-La empresa "{{(http.game)?http.game.name:""}}", inicio sus actividades en el año 2005.
+    La empresa "{{(http.game)?http.game.name:""}}", inicio sus actividades en el año 2005.
 
-Desde el comienzo de nuestras actividades, nos especializamos en la venta de poleras de alta calidad con diseños
+    Desde el comienzo de nuestras actividades, nos especializamos en la venta de poleras de alta calidad con diseños
 innovadores y que están en constante actualización según las tendencias del mercado.
 
-Con el transcurso de los años hemos incorporado nuevas líneas de productos con el objetivo de proveer a nuestros 
+    Con el transcurso de los años hemos incorporado nuevas líneas de productos con el objetivo de proveer a nuestros 
 clientes una solución integral a sus necesidades. Contamos con un excelente grupo humano el cual se capacita en
 forma permanente a fin de estar actualizado en los cambios e innovaciones tecnológicas que se presentan en nuestro
 ámbito.
 
-La calidad de nuestros productos y la excelencia en nuestro servicio nos han permitido posicionarnos en el mercado
+    La calidad de nuestros productos y la excelencia en nuestro servicio nos han permitido posicionarnos en el mercado
 en muy poco tiempo, llegando a alcanzar a nuestros principales competidores.
 
-Pretendemos convertirnos en la empresa líder en nuestro sector a través de decisiones que nos permitan aprovechar
+    Pretendemos convertirnos en la empresa líder en nuestro sector a través de decisiones que nos permitan aprovechar
 nuestras ventajas competitivas.
                 </pre>
                 </div>
@@ -122,20 +122,25 @@ nuestras ventajas competitivas.
                 <div style="display: flex; width: 100%;">
                   <div style="width: calc(100% - 200px);">
                     <br /><br />
-                    <div class="section_body_content_title" style="font-weight: bold; font-size: 22px;"> MISIÓN</div><br /><br />
-                    <div style="text-align: center; font-size: 25px;">“Somos una empresa rentable que ofrece poleras
-                      exclusivas de alta calidad con diseños
-                      innovadores para personas que aprecian el buen vestir.”
-                    </div><br /><br />
+                    <div class="section_body_content_title" style="font-weight: bold; font-size: 22px;"> MISIÓN</div><br>
+                    <div style="text-align: center; font-size: 25px;">
+                      <pre>
+“Somos una empresa rentable que ofrece poleras
+ exclusivas de alta calidad con diseños
+ innovadores para personas que aprecian el buen vestir.”
+                    </pre>
+                    </div>
                   </div>
                 </div>
                 <div>
                   <div class="section_body_content_title" style=" float: right; font-weight: bold; font-size: 22px; ">VISIÓN
-                  </div><br /><br /><br /><br /><br />
-                  <div style="text-align: center; font-size: 25px;">“Ser una empresa referente en nuestro sector,
-                    reconocida por su excelente trato al
-                    cliente
-                    y productos de alta calidad”
+                  </div>
+                  <div style="text-align: center; font-size: 25px;">
+                    <br><br>
+                    <pre>
+“Ser una empresa referente en nuestro sector, reconocida
+por su excelente trato al cliente y productos de alta calidad.”
+                  </pre>
                   </div>
                 </div>
 
@@ -170,19 +175,39 @@ nuestras ventajas competitivas.
               <p>Se encuentra en desarrollo</p> 
               </div>
               <div class="section_body_content  {{section_tap_1==4 ? '' : 'tap_menu_hidden'}}">
-                 <br /> <br /> <br />
+                 <br>
                 <div class="section_body_content_title" style="font-weight: bold;"> BIENVENIDO A LA EMPRESA
-                </div><br /> <br />
-                <div style="padding-left:50px;">
-                  Hoy la empresa se encuentra en las mismas condiciones que la competencia y no ha crecido en el
-                  último año.
-                  Es por eso que decidimos NOMBRARTE A TI como el nuevo gerente de {{(http.game)?http.game.name:""}}.
-                  <br /><br />
-                  Esperamos que mediante tus decisiones puedas llevar a la empresa a obtener el MAYOR
-                  PORCENTAJE de
-                  mercado y la mejor rentabilidad en los siguientes bimestres. ¡Confiamos en ti!
-                  <br /><br />
-                  Muchos éxitos.
+                </div>
+                <div style="padding-left:50px; font-size: 18px">
+                <pre>
+        Después de unos años de trayectoria nuestra empresa ha logrado igualar a la compentencia y
+    actualmente, según los resultados del último bimestre, todas las empresas que competimos en
+    el mercado nos encontramos en igualdad de condiciones. Si embargo; es nuestro deseo que
+    "{{(http.game)?http.game.name:""}}" se convierta en la lider del mercado y sea un referente de calidad
+    entre nuestros competidores y clientes. Es por tal motivo que hemos decidido contratarte como
+    generente general de nuestra organización esperando que mediante tus decisiones administrati-
+    vas nos ayudes a cumplir nuestras metas.
+
+        Tus principales objetivos como nuevo gerente general de la empresa son:
+</pre>
+    <ul>
+    <li>
+        Obtener el mayor porcentaje del mercado (clientes) posibles en cada bimestre.
+    </li>
+    <li>
+        Obtener la mayor restabilidad posible de cada bimestre.
+    </li>
+    </ul>
+    <pre>
+        Te recomendamos analizar los datos e informacion que se te brinda despues de cada bimes-
+    tre de manera detallada que las siguientes decisiones que tomes nos garanticen el éxito. Confia-
+    mos en ti, sabemos que lo harás muy bien.
+</pre>
+                <div class="lower-case">
+                  (Consulta la "GUIA DEL JUGADOR" para obtener más información acerca de tus objetivos y estrategias para ganar a tu competencia en la
+                  simulación.)
+                </div>
+            
                 </div>
               </div>
             </div>

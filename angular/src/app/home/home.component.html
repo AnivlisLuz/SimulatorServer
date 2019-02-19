@@ -7,8 +7,9 @@
    <img src="/imagenes/logo-oficial.png" alt="" class="logo-cba">
   
    <br>
-   <img src="/imagenes/logo-business.jpg" class="logo-cba">
- 
+   <div>
+   <img src="/imagenes/simulator-logo.jpg" class="logo-cba">
+   </div>
 
 <form [formGroup]="registerForm" class="formularioJugar"  #form="ngForm">
           <div class="inputBox">
@@ -18,14 +19,6 @@
               </div>
           <label>Jugador</label>
 
-          </div>
-          <div class="inputBox">
-              <input type="text" formControlName="ciudad" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.ciudad.errors }"required/>
-              <div *ngIf="submitted && f.ciudad.errors" class="invalid-feedback">
-                  <div *ngIf="f.ciudad.errors.required" style="color: red;font-size: 12px">Ciudad es requerido</div>
-              </div>
-              <label>Ciudad</label>
-          </div>
           <div class="inputBox">
               <input type="number" formControlName="edad" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.edad.errors }"required/>
               <div *ngIf="submitted && f.edad.errors" class="invalid-feedback">
@@ -34,6 +27,27 @@
               <label>Edad</label>
 
           </div>
+          <br>
+        </div>
+        <div class="select-style">
+            <select  formControlName="ciudad" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.ciudad.errors }"required>
+              <option value="" disabled selected>Elige tu pais</option>
+              <option value="ARGENTINA">ARGENTINA</option>
+              <option value="BOLIVIA">BOLIVIA</option>
+              <option value="CHILE">CHILE</option>
+              <option value="COLOBIA">COLOMBIA</option>
+              <option value="ECUADOR">ECUADOR</option>
+              <option value="PARAGUAY">PARAGUAY</option>
+              <option value="PERÚ">PERÚ</option>
+              <option value="URUGUAY">URUGUAY</option>
+              <option value="VENEZUELA">VENEZUELA</option>
+            </select>
+        </div>
+        <div *ngIf="submitted && f.ciudad.errors" class="invalid-feedback">
+            <div *ngIf="f.ciudad.errors.required" style="color: red;font-size: 12px">Ciudad es requerido</div>
+        </div>
+        <br>
+
         <input type="submit" name="" value="Unirse a un juego" (click)="jugar()">
         <br>
         <br>
