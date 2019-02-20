@@ -39,9 +39,9 @@ export class TablaDeDecisionComponent implements OnInit {
   produccion: number = 500;
   inversionEnMarketings: number[] = [0, 500, 1800, 3100, 8300];
   inversionEnMarketing: number = this.inversionEnMarketings[0];
-  inversionEnInvestigacions: number[] = [1000, 2000, 3000, 4000];
+  inversionEnInvestigacions: number[] = [0,1000, 2000, 3000, 4000];
   inversionEnInvestigacion: number = this.inversionEnInvestigacions[0];
-  inversionEnActivoss: number[] = [6000, 15000, 28000, 40000];
+  inversionEnActivoss: number[] = [0,6000, 15000, 28000, 40000];
   inversionEnActivos: number = this.inversionEnActivoss[0];
 
   nombreEmpresa: string;
@@ -126,7 +126,7 @@ export class TablaDeDecisionComponent implements OnInit {
   }
   calcularLimiteProduccion(inversionActivos){
     let produccion=document.getElementById("produccion")
-    let limite
+    let limite=600
     if(inversionActivos === 0)
       limite=600
     if(inversionActivos === 6000)
@@ -138,17 +138,19 @@ export class TablaDeDecisionComponent implements OnInit {
     if(inversionActivos === 40000)
       limite=1500
     produccion.setAttribute("max",limite.toString())
-
-    if((<HTMLInputElement>document.getElementById("produccion")).value >limite)
-      (<HTMLInputElement>document.getElementById("produccion")).value= limite
+  console.log(inversionActivos)
+  console.log(limite)
+    if(parseInt((<HTMLInputElement>document.getElementById("produccion")).value) >limite)
+      (<HTMLInputElement>document.getElementById("produccion")).value= limite.toString()
 
   }
   calcularLimitePrecioUnitario(data){
     let precioUnitario=document.getElementById("precioUnitario")
     let limite=Math.round((parseInt(data)*35+ 30270)/parseInt(data))
     precioUnitario.setAttribute("min",limite.toString())
-//    if((<HTMLInputElement>document.getElementById("precioUnitario")).value <limite)
-//  (<HTMLInputElement>document.getElementById("precioUnitario")).value= limite
+    if(parseInt((<HTMLInputElement>document.getElementById("precioUnitario")).value) <limite)
+      (<HTMLInputElement>document.getElementById("precioUnitario")).value= limite.toString()
+
 
 
   }
