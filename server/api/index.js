@@ -942,17 +942,26 @@ class Empresa {
         return 0
     }
     calcular(players, precioUnitario, marketing, investigacion, activos, inventarioUnidadesAnterior) {
+console.log("llego calcular FORMULA MAESTRA =>",precioUnitario,marketing, investigacion, activos, inventarioUnidadesAnterior)        
         let suma = 0
         for (let i = 0; i < players.length; i++) {
             if (players[i].name != this.name)
                 suma = suma + players[i].produccion
         }
+        console.log("suma =>",suma)
         suma = suma / 10
-        let A=319.127516
-        let B=0.1006711
-        this.cantidadIdeal = ((A - precioUnitario) / 2*B) - suma
+        console.log("suma =>",suma)
+        let A=319.1275168
+        let B=0.100671141
+        this.cantidadIdeal = ((A - precioUnitario) / (2*B)) - suma
+console.log("cantidadIdeal =>",this.cantidadIdeal)
         this.cantidadIdealTotal = this.cantidadIdeal + this.obtenerPorcentajeMarketing(marketing) + this.obtenerPorcentajeInvestigacion(investigacion) + this.obtenerPorcentajeActivos(activos)
-        this.cantidadRealVendida = Math.min(this.cantidadIdealTotal, this.produccion + inventarioUnidadesAnterior)
+console.log("cantidadIdealTotal =>",this.cantidadIdealTotal)
+        this.cantidadRealVendida=0
+        if (this.cantidadIdealTotal>=0) {
+            this.cantidadRealVendida = Math.min(this.cantidadIdealTotal, this.produccion + inventarioUnidadesAnterior)
+        }     
+console.log("cantidadRealVendida =>",this.cantidadRealVendida)        
     }
     calcularPorcentajeMercado(mercado) {
         this.porcentajeDeMercado = Math.round((this.cantidadRealVendida * 100) / mercado)
@@ -973,14 +982,15 @@ class BalanceGeneral {
         this.codigo = codigo
         this.jugador = jugador
     }
-    calcular(utilidadBruta, precioUnitario, inventario, utilidadNeta) {
-        this.caja = (utilidadBruta * 0.7)
-        this.bancos = (utilidadBruta * 0.3)
-        this.inventario = precioUnitario - inventario
+    calcular(utilidadBruta,inventarioMonetario, utilidadNeta) {
+console.log("calcular BALANCE GENERAL =>",utilidadBruta, inventarioMonetario, utilidadNeta)
+        this.caja = (utilidadNeta * 0.7)
+        this.bancos = (utilidadNeta * 0.3)
+        this.inventario =inventarioMonetario
         this.corriente = this.bancos + this.caja + this.inventario
         this.totalActivos = this.corriente + 8500
         this.utilidadEjercicio = utilidadNeta
-        this.capital = this.totalActivos - this.utilidadEjercicio + 1300
+        this.capital = this.totalActivos - (this.utilidadEjercicio + 1300)
         this.totalPatrimonio = this.capital + this.utilidadEjercicio
         this.totalPasivoPatrimonio = this.totalPatrimonio + 1300
     }
@@ -1008,8 +1018,9 @@ class EstadoResultados {
     }
 
     calcular(ventasRealizadasMonetario, materiaPrima, manoObra, costosIndirectos, inversionMarketing, inversionInvestigacion, inversionEnActivos, utilidadNetaAnterior) {
+console.log("calcular estadoResultados => ",ventasRealizadasMonetario, materiaPrima, manoObra, costosIndirectos, inversionMarketing, inversionInvestigacion, inversionEnActivos, utilidadNetaAnterior)
         this.ventas = ventasRealizadasMonetario
-        this.otrosIngresos = 10000
+        this.otrosIngresos = 0
         this.capitalAnterior = utilidadNetaAnterior
         this.ingresos = this.ventas + this.otrosIngresos + this.capitalAnterior
         this.materiaPrima = materiaPrima
@@ -1040,17 +1051,22 @@ class Ventas {
         this.codigo = codigo
         this.jugador = jugador
     }
-    calcular(produccion, costoUnitario, inventarioUnidadesAnterior, precioUnitario, cantidadReal) {
+    calcular(produccion, costoUnitario, inventarioUnidadesAnterior, precioUnitario, cantidadReal,cantidadIdeal) {
+console.log("calcular VENTAS =>",produccion, costoUnitario, inventarioUnidadesAnterior, precioUnitario, cantidadReal,cantidadIdeal)        
         this.producidoUnidades = produccion
         this.producidoMonetario = produccion * costoUnitario
         this.inventarioUnidades = this.producidoUnidades + inventarioUnidadesAnterior - this.ventasRealizadasUnidades
         this.inventarioMonetario = this.inventarioUnidades * precioUnitario
         this.ventasRealizadasUnidades = cantidadReal
         this.ventasRealizadasMonetario = this.ventasRealizadasUnidades * precioUnitario
-        if (cantidadReal < (produccion + inventarioUnidadesAnterior))
+        if (cantidadIdeal <= (produccion + inventarioUnidadesAnterior))
+        {
             this.pedidosNoAtendidosUnidades = 0
+        }
         else
-            this.pedidosNoAtendidosUnidades = cantidadReal - (produccion + inventarioUnidadesAnterior)
+        {
+            this.pedidosNoAtendidosUnidades = cantidadIdeal - (produccion + inventarioUnidadesAnterior)
+        }
         this.pedidosNoAtendidosMonetario = this.pedidosNoAtendidosUnidades * precioUnitario
     }
 }
@@ -1086,63 +1102,57 @@ class VisionGeneral {
 
 class Produccion {
     constructor(numeroBimestre, codigo, jugador) {
-        this.produccionIndustriaValorActual = 2500
-        this.produccionIndustriaValorAnterior = 0
-        this.costeMedioTotalActual = 48270
-        this.costeMedioTotalAnterior = 0
-        this.costeMedioUnitarioActual = 94.54
-        this.costeMedioUnitarioAnterior = 0
-        this.capacidadProduccionActual = 850
-        this.capacidadProduccionAnterior = 0
+        this.produccionIndustriaValorActual = 3000
+        this.produccionIndustriaValorAnterior = 3000
+        this.costeMedioTotalActual = 60770
+        this.costeMedioTotalAnterior = 60770
+        this.costeMedioUnitarioActual = 101.283333
+        this.costeMedioUnitarioAnterior = 101.283333
+        this.capacidadProduccionActual = 750
+        this.capacidadProduccionAnterior = 750
         this.numero = numeroBimestre
         this.codigo = codigo
         this.jugador = jugador
     }
-    calcular(bimestres) {
-        this.produccionIndustriaValorAnterior = this.produccionIndustriaValorActual
-        this.costeMedioTotalAnterior = this.costeMedioTotalActual
-        this.costeMedioUnitarioAnteriort = this.costeMedioUnitarioActual
-        this.capacidadProduccionAnterior = this.capacidadProduccionActual
+    calcular(bimestres,costosProduccion) {
         this.produccionIndustriaValorActual = 0
         this.costeMedioTotalActual = 0
         this.costeMedioUnitarioActual = 0
+        this.capacidadProduccionActual=0
         for (let i = 0; i < bimestres.length; i++) {
             this.produccionIndustriaValorActual = this.produccionIndustriaValorActual + bimestres[i].produccion
+            this.capacidadProduccionActual= this.capacidadProduccionActual+ calcularLimiteProduccion(bimestres[i].inversionEnActivos)
         }
         for (let i = 0; i < costosProduccion.length; i++) {
             this.costeMedioTotalActual = this.costeMedioTotalActual + costosProduccion[i].costoTotal
             this.costeMedioUnitarioActual = this.costeMedioUnitarioActual + costosProduccion[i].costoUnitario
         }
-        this.costeMedioTotalActual = this.costeMedioTotalActual / costosProduccionList.length
-        this.costeMedioUnitarioActual = this.costeMedioUnitarioActual / costosProduccionList.length
-        this.capacidadProduccionActual = this.capacidadProduccionActual + 50
+        this.costeMedioTotalActual = this.costeMedioTotalActual / costosProduccion.length
+        this.costeMedioUnitarioActual = this.costeMedioUnitarioActual / costosProduccion.length
+        this.capacidadProduccionActual = this.capacidadProduccionActual /bimestres.length
     }
 }
 class VentasIndustria {
     constructor(numeroBimestre, codigo, jugador) {
-        this.ventasIndustriaUnidadesActual = 2500
-        this.ventasIndustriaUnidadesAnterior
-        this.ventasIndustriaMonetarioActual = 375000
-        this.ventasIndustriaMonetarioAnterior
+        this.ventasIndustriaUnidadesActual = 3000
+        this.ventasIndustriaUnidadesAnterior = 3000
+        this.ventasIndustriaMonetarioActual = 450000
+        this.ventasIndustriaMonetarioAnterior = 450000
         this.precioUnitarioPromedioActual = 150
-        this.precioUnitarioPromedioAnterior
-        this.inventarioPromediosActual = 25
-        this.inventarioPromediosAnterior
+        this.precioUnitarioPromedioAnterior = 150
+        this.inventarioPromediosActual = 1
+        this.inventarioPromediosAnterior = 1
         this.numero = numeroBimestre
         this.codigo = codigo
         this.jugador = jugador
     }
     calcular(bimestres, ventas) {
-        this.inventarioPromediosAnterior = this.inventarioPromediosActual
-        this.ventasIndustriaMonetarioAnterior = this.ventasIndustriaMonetarioActual
-        this.ventasIndustriaUnidadesAnterior = this.ventasIndustriaUnidadesActual
-        this.precioUnitarioPromedioAnterior = this.precioUnitarioPromedioActual
         this.precioUnitarioPromedioActual = 0
         this.ventasIndustriaUnidadesActual = 0
         this.ventasIndustriaMonetarioActual = 0
         this.inventarioPromediosActual = 0
         for (let i = 0; i < bimestres.length; i++) {
-            precioUnitarioPromedioActual = precioUnitarioPromedioActual + bimestres[i].precioUnitario
+            this.precioUnitarioPromedioActual = this.precioUnitarioPromedioActual + bimestres[i].precioUnitario
         }
         this.precioUnitarioPromedioActual = this.precioUnitarioPromedioActual / (bimestres.length)
 
@@ -1181,7 +1191,7 @@ function calcularVentasIndustria(bimestres, ventas, ventasIndustria) {
     db.saveVentasIndustria(ventasIndustria)
 }
 function calcularLimiteProduccion(inversionActivos){
-    limite=0
+    let limite=0
     if(inversionActivos === 0)
         limite=600
     if(inversionActivos === 6000)
@@ -1236,9 +1246,9 @@ async function calcularTodo(codigoJuego, numeroBimestre) {
 
     for (let i = 0; i < bimestres.length; i++) {
         bimestre = bimestres[i]
-
+console.log("bimestre =>",bimestre)
         ventasUnidades = 0
-        utilidadNeta = 10000
+        utilidadNeta = 5930
         let ventasAnterior={}
         let estadoResultadosAnterior={}
         if (bimestre.numero != 1) {
@@ -1252,31 +1262,40 @@ async function calcularTodo(codigoJuego, numeroBimestre) {
         let costoProduccion = new CostosProduccion(bimestre.numero, bimestre.codigo, bimestre.jugador)
         costoProduccion.calcular(bimestre.produccion)
         player = await db.getEmpresaPorCodigoDeJuegoYNombre(codigoJuego, bimestre.jugador)
+//console.log("player =>",player,player.name, player.codigo, player.cantidadIdealTotal, bimestre.produccion, player.cantidadRealVendida, player.cantidadIdeal)                        
         empresa = new Empresa(player.name, player.codigo, player.cantidadIdealTotal, bimestre.produccion, player.cantidadRealVendida, player.cantidadIdeal)
         empresa.calcular(empresas, bimestre.precioUnitario, bimestre.inversionEnMarketing, bimestre.inversionEnInvestigacion, bimestre.inversionEnActivos, ventasUnidades)
+//console.log("empresa =>",empresa)                
         db.updateEmpresa(empresa)
         cantidadRealVendida = 500
         ventas = new Ventas(bimestre.numero, bimestre.codigo, bimestre.jugador)
-        ventas.calcular(bimestre.produccion, costoProduccion.costoUnitario, ventasUnidades, bimestre.precioUnitario, empresa.cantidadRealVendida)
+        ventas.calcular(bimestre.produccion, costoProduccion.costoUnitario, ventasUnidades, bimestre.precioUnitario,empresa.cantidadRealVendida, empresa.cantidadIdealTotal)
 
         estadoResultados = new EstadoResultados(bimestre.numero, bimestre.codigo, bimestre.jugador)
         let manoObraDirecta = 8000
         let costosIndirectos = 22770
         estadoResultados.calcular(ventas.ventasRealizadasMonetario, costoProduccion.materiaPrima, manoObraDirecta, costosIndirectos, bimestre.inversionEnMarketing, bimestre.inversionEnInvestigacion, bimestre.inversionEnActivos, utilidadNeta)
         balanceGeneral = new BalanceGeneral(bimestre.numero, bimestre.codigo, bimestre.jugador)
-        balanceGeneral.calcular(estadoResultados.utilidadBruta, bimestre.precioUnitario, ventas.inventarioUnidades, estadoResultados.utilidadNeta)
+        balanceGeneral.calcular(estadoResultados.utilidadBruta,ventas.inventarioMonetario, estadoResultados.utilidadNeta)
+//console.log("costoProduccion =>",costoProduccion)        
         db.saveCostosProduccion(costoProduccion)
+//console.log("ventas =>",ventas)
         db.saveVentas(ventas)
+//console.log("estadoResultados =>",estadoResultados)
         db.saveEstadoResultados(estadoResultados)
+//console.log("balanceGeneral =>",balanceGeneral)
         db.saveBalanceGeneral(balanceGeneral)
 
     }
+console.log("+++++++++++++++++++++++++++++++++++++++++++++++++++++++++")
     empresas = await db.getEmpresasPorCodigoDeJuego(codigoJuego)
     let costosProduccionBimestre = []
     let ventasBimestre = []
     costosProduccionBimestre = await db.getAllCostosProduccionByCodigoYNumero(codigoJuego, numeroBimestre)
+console.log("costosProduccionBimestre =>",costosProduccionBimestre)
 
     ventasBimestre = await db.getAllVentasByCodigoYNumero(codigoJuego, numeroBimestre)
+console.log("ventasBimestre =>",ventasBimestre)
     mercados[codigoJuego].calcular(empresas)
 
     juego = mercados[codigoJuego]
@@ -1284,15 +1303,21 @@ async function calcularTodo(codigoJuego, numeroBimestre) {
         player = empresas[i]
         empresa = new Empresa(player.name, player.codigo, player.cantidadIdealTotal, player.produccion, player.cantidadRealVendida, player.cantidadIdeal)
         empresa.calcularPorcentajeMercado(juego.mercado)
+console.log("empresa =>",empresa)       
         estadoResultados = await db.getEstadoResultadosPorCodigoDeJuegoNombreNumero(codigoJuego, player.name, numeroBimestre)
+console.log("estadoResultados =>",estadoResultados)             
         bimestre = await db.getBimestrePorCodigoDeJuegoNombreNumero(codigoJuego, player.name, numeroBimestre)
+console.log("bimestre =>",bimestre)             
 
         visionGeneral = new VisionGeneral(empresa.cantidadRealVendida, estadoResultados.utilidadNeta, bimestre.precioUnitario, empresa.porcentajeDeMercado, numeroBimestre, codigoJuego, empresa.name)
+console.log("visionGeneral =>",visionGeneral)                     
         db.saveVisionGeneral(visionGeneral)
 
         if (numeroBimestre == 1) {
             produccion = new Produccion(1, codigoJuego, empresa.name)
+            produccion.calcular(bimestres,costosProduccionBimestre)
             ventasIndustria = new VentasIndustria(1, codigoJuego, empresa.name)
+            ventasIndustria.calcular(bimestres,ventasBimestre)
             db.saveProduccion(produccion)
             db.saveVentasIndustria(ventasIndustria)
         } else {
@@ -1301,8 +1326,11 @@ async function calcularTodo(codigoJuego, numeroBimestre) {
             ventasIndustria = await db.getVentasIndustriaPorCodigoDeJuegoNombreNumero(codigoJuego, player.name, numeroBimestre - 1)
             calcularVentasIndustria(bimestres, ventasBimestre, ventasIndustria)
         }
+console.log("produccion =>",produccion)                     
+console.log("ventasIndustria =>",ventasIndustria)                     
     }
 
+console.log("----------------------------------------------------------------")
     let visionGeneralList = []
     let visionGeneralElement = {}
     visionGeneralList = await db.getAllVisionGeneralByCodigoYNumeroParaUpdate(codigoJuego, numeroBimestre)
