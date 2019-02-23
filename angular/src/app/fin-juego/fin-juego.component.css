@@ -162,10 +162,13 @@ aside {
   background-color: rgb(255, 255, 255);
 }
 
-table {
-  width: 100%;
-  color: black;
 
+
+table {
+  width: 80%;
+  color: black;
+  margin: auto;
+  padding: auto;
 }
 
 table,
@@ -210,3 +213,5 @@ table#t01 th {
   background-color: rgb(24, 76, 133);
   color: white;
 }
+
+

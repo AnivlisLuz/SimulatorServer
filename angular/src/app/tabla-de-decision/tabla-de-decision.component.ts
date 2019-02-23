@@ -815,6 +815,23 @@ export class TablaDeDecisionComponent implements OnInit {
     // document.getElementById("boton-objetivosID").style.backgroundColor = "rgb(8, 25, 43)";
   }
 
+  maquinaria() {
+    this.section_tap_1 = 5;
+    // document.getElementById("historiaID").style.display = "none";
+    // document.getElementById("mision-visionID").style.display = "none";
+    // document.getElementById("nuestro-productoID").style.display = "none";
+    // document.getElementById("organigramaID").style.display = "none";
+    // document.getElementById("objetivosID").style.display = "block";
+    // document.getElementById("titulo").innerText = "INFORMACIÓN DE LA COMPAÑIA";
+
+    // document.getElementById("boton-historiaID").style.backgroundColor = "rgb(24, 76, 133)";
+    // document.getElementById("boton-misionvisionID").style.backgroundColor = "rgb(24, 76, 133)";
+    // document.getElementById("boton-nuestroproductoID").style.backgroundColor = "rgb(24, 76, 133)";
+    // document.getElementById("boton-organigramaID").style.backgroundColor = "rgb(24, 76, 133)";
+    // document.getElementById("boton-objetivosID").style.backgroundColor = "rgb(8, 25, 43)";
+  }
+
+
   produccionvsventas() {
     this.section_tap_4 = 0;
     // document.getElementById("produccionvsventasID").style.display = "block";
