@@ -247,8 +247,8 @@ class Game {
     this.socket.emit("getAllVentasIndustria", send_Data, callback);
   }
 
-  public getPromedioUtilidadNeta(callback) {
-    let send_Data = { codigo: this.codigo, player_name: this.player.name }
+  public getPromedioUtilidadNeta(data,callback) {
+    let send_Data = { numeroBimestre: data,codigo: this.codigo, player_name: this.player.name }
     console.log("getPromedioUtilidadNeta", send_Data)
     this.socket.emit("getPromedioUtilidadNeta", send_Data, callback);
   }
@@ -261,6 +261,11 @@ class Game {
     let send_Data = { codigo: this.codigo, player_name: this.player.name }
     console.log("getPromedioPrecioUnitarios", send_Data)
     this.socket.emit("getPromedioPrecioUnitarios", send_Data, callback);
+  }
+  public getProduccionTotalIndustriaBimestres(data,callback) {
+    let send_Data = { numeroBimestre: data,codigo: this.codigo, player_name: this.player.name }
+    console.log("getProduccionTotalIndustriaBimestres", send_Data)
+    this.socket.emit("getProduccionTotalIndustriaBimestres", send_Data, callback);
   }
   public joinGameModerator(data, callback) {
     this.codigo = data;

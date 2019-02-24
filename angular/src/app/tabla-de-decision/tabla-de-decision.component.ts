@@ -67,6 +67,7 @@ export class TablaDeDecisionComponent implements OnInit {
   sumatoriaCapacidadProduccion: number[];
   promedioPrecioUnitarios: number[];
   promedioERUtilidadNeta: number[];
+  produccionTotalIndustriaBimestres: number[]
 
 
 
@@ -104,10 +105,10 @@ export class TablaDeDecisionComponent implements OnInit {
     this.visionGeneral = [];
     this.produccionIndustriaBimestres = [];
     this.ventasIndustriaBimestres = [];
-
     this.sumatoriaCapacidadProduccion = [];
     this.promedioPrecioUnitarios = [];
     this.promedioERUtilidadNeta = [];
+    this.produccionTotalIndustriaBimestres=[];
     if (!this.http.game)
       this.router.navigateByUrl('/jugar');
   }
@@ -714,31 +715,48 @@ export class TablaDeDecisionComponent implements OnInit {
   }
   analisis() {
     this.tap_position = 4;
+
+    //produccion vs ventas //costo vs precio
     this.http.game.getAllProduccion((response) => {
       console.log("getAllProduccion front", response)
       this.produccionIndustriaBimestres = response
     });
+
+    //produccion vs ventas    
     this.http.game.getAllVentasIndustria((response) => {
       console.log("getAllVentasIndustria front", response)
       this.ventasIndustriaBimestres = response
     });
-    this.http.game.getPromedioUtilidadNeta((response) => {
+
+    //costo vs precio
+           this.http.game.getPromedioPrecioUnitarios((response) => {
+      console.log("getPromedioPrecioUnitarios  front", response)
+      this.promedioPrecioUnitarios = response
+    });
+
+    //capacidad vs produccion
+    this.http.game.getSumatoriaCapacidadProduccion((response) => {
+      console.log("getSumatoriaCapacidadProduccion  front", response)
+      this.sumatoriaCapacidadProduccion = response
+    });
+    this.http.game.getProduccionTotalIndustriaBimestres(this.numeroBimestre, (response) => {
+      console.log("getProduccionTotalIndustriaBimestres front", response)
+      if (response)
+        this.produccionTotalIndustriaBimestres=response
+    });
+
+    //compania vs competencia
+    this.http.game.getPromedioUtilidadNeta(this.numeroBimestre,(response) => {
       console.log("getPromedioUtilidadNeta front", response)
       this.promedioERUtilidadNeta = response
     });
     this.http.game.getEstadoResultados(this.numeroBimestre,(response) => {
       console.log("getEstadoResultados front", response)
-      this.estadoResultados = response
+      if (response){
+        this.estadoResultados = response.estadoResultados
+        this.bloquear();
+        }
     });
-    this.http.game.getSumatoriaCapacidadProduccion((response) => {
-      console.log("getSumatoriaCapacidadProduccion  front", response)
-      this.sumatoriaCapacidadProduccion = response
-    });
-    this.http.game.getPromedioPrecioUnitarios((response) => {
-      console.log("getPromedioPrecioUnitarios  front", response)
-      this.promedioPrecioUnitarios = response
-    });
-
     this.actualizarActivo();
     this.bloquear();
     // document.getElementById("decisiones").style.display = "none";
@@ -950,7 +968,7 @@ export class TablaDeDecisionComponent implements OnInit {
       data: {
         labels: [],
         datasets: [{
-          label: 'Costo unitario de la industria (promedio)',
+          label: 'Costo medio de produccion (unitario)',
           data: [],
           fill: false,
           lineTension: 0.2,
@@ -958,7 +976,7 @@ export class TablaDeDecisionComponent implements OnInit {
           backgroundColor: "green",
           borderWidth: 1
         }, {
-          label: 'Precio unitario de la industria (promedio)',
+          label: 'Precio unitario (promedio)',
           data: [],
           fill: false,
           lineTension: 0.2,
@@ -1026,7 +1044,7 @@ export class TablaDeDecisionComponent implements OnInit {
       data: {
         labels: [],
         datasets: [{
-          label: 'Capacidad de producción de la industria',
+          label: 'Capacidad de producción',
           data: [],
           fill: false,
           lineTension: 0.2,
@@ -1034,7 +1052,7 @@ export class TablaDeDecisionComponent implements OnInit {
           backgroundColor: "green",
           borderWidth: 1
         }, {
-          label: 'Produccion real de la industria',
+          label: 'Produccion de la industria',
           data: [],
           fill: false,
           lineTension: 0.2,
@@ -1059,19 +1077,15 @@ export class TablaDeDecisionComponent implements OnInit {
     });
 
     for (let i = 0; i < this.numeroBimestre; i++) {
-      this.LineChart4.data.datasets[1].data.push(this.sumatoriaCapacidadProduccion[i]);
+      this.LineChart4.data.datasets[0].data.push(this.sumatoriaCapacidadProduccion[i]);
       this.LineChart4.data.labels.push("Bimestre " + (i + 1));
       this.LineChart4.update();
     }
 
     for (let i = 0; i < this.numeroBimestre; i++) {
-      //this.LineChart4.data.labels.push("Bimestre "+this.produccionIndustriaBimestres[i].numero);
-      if (this.produccionIndustriaBimestres[i].costeMedioUnitarioActual != 0) {
-        this.LineChart4.data.datasets[0].data.push(this.produccionIndustriaBimestres[i].costeMedioUnitarioActual);
+        this.LineChart4.data.datasets[1].data.push(this.produccionTotalIndustriaBimestres[i]);
         this.LineChart4.update();
-      }
     }
-
   }
   companiavscompetencia() {
 

@@ -321,6 +321,21 @@ exports.setSocket = io => {
                 client("error con el codigo")
             }
         })
+        socket.on('getProduccionTotalIndustriaBimestres', (data, client) => {
+            console.log("getProduccionTotalIndustriaBimestres socket =>", data)
+
+            let _mercado = mercados[data.codigo]
+            if (_mercado) {
+                _mercado.getProduccionTotalIndustriaBimestres(data).then(result => {
+                    client(result)
+                    io.sockets.emit("getProduccionTotalIndustriaBimestres(data)", result)
+                }).catch(error => {
+                    client("error con el socket")
+                })
+            } else {
+                client("error con el codigo")
+            }
+        })
         socket.on('joinGameModerator', (data, client) => {
             console.log("socket joinGameModerator =>", data)
             let _mercado = mercados[data]
@@ -649,43 +664,22 @@ class Mercado {
         if (player_tmp) {
             let empresas = []
             let promedioERUtilidadNeta = []
-            let estadoResultadosListMiEmpresa = [];
             let empresa = {}
-            let estadoResultadosPersonal = {}
-            estadoResultadosListMiEmpresa = await db.getAllEstadoResultadosPorCodigoDeJuegoNombre(data.codigo, player_tmp.name)
-            console.log("getPromedioUtilidadNeta socket ===>", estadoResultadosListMiEmpresa, "   ", estadoResultadosListMiEmpresa.length)
             for (let player in this.players) {
                 empresas.push(this.players[player].toString())
             }
             let indice = 0
-
-            for (let i = 0; i < estadoResultadosListMiEmpresa.length; i++) {
-                indice = i;
-                console.log("indice", indice)
-                console.log("estadoResultadosListMiEmpresa indice", estadoResultadosListMiEmpresa[i])
+            for (let i = 1; i <= data.numeroBimestre; i++) {
                 let suma = 0
                 for (let j = 0; j < empresas.length; j++) {
+                    let estadoResultadosPersonal = {}
                     empresa = empresas[j]
-                    console.log("empresa =>", empresa)
-
-                    if (empresa.name != data.player_name) {
-                        db.getEstadoResultadosPorCodigoDeJuegoNombreNumero(data.codigo, empresa.name, estadoResultadosListMiEmpresa[i].numero, function (error, res) {
-                            if (error) {
-                                console.log("error")
-                            } else {
-                                estadoResultadosPersonal = res
-                                console.log("estadoResultadosPersonal", estadoResultadosPersonal)
-                                suma += (estadoResultadosPersonal.utilidadNeta)
-                            }
-                        })
-                    }
+                    estadoResultadosPersonal = await db.getEstadoResultadosPorCodigoDeJuegoNombreNumero(data.codigo, empresa.name,i)
+                    suma += (estadoResultadosPersonal.utilidadNeta)
                 }
-                suma = suma / (empresas.length - 1)
-
-
+                suma = suma / empresas.length
                 promedioERUtilidadNeta.push(suma)
             }
-
             console.log("promedioERUtilidadNeta =>", promedioERUtilidadNeta)
             return promedioERUtilidadNeta
         }
@@ -696,8 +690,6 @@ class Mercado {
         if (player_tmp) {
             let sumatoriaCapacidadProduccion = []
             let bimestres = []
-            let bimestre = {}
-            console.log("bimestres =>", bimestres)
             bimestres = await db.getAllBimestresByCodigo(data.codigo)
             console.log("bimestres =>", bimestres)
 
@@ -705,10 +697,10 @@ class Mercado {
 
             for (let i = 1; i < 4; i++) {
                 for (let j = 0; j < bimestres.length; j++) {
+                    let bimestre = {}
                     bimestre = bimestres[j]
-                    console.log("bimestre =>", bimestre)
                     if (bimestre.numero == i) {
-                        suma = suma + bimestre.numero * 50 + 850
+                        suma+=calcularLimiteProduccion(bimestre.inversionEnActivos)
                     }
                 }
                 sumatoriaCapacidadProduccion.push(suma)
@@ -751,6 +743,19 @@ class Mercado {
                 //console.log("fin for")
             }
             return promedioPrecioUnitarios
+        }
+    }
+    async getProduccionTotalIndustriaBimestres(data) {
+        let player_tmp = this.players[data.player_name]
+        if (player_tmp) {
+            let produccionTotalIndustriaBimestres=[]
+            let produccion ={}
+            for (let i = 1; i <=data.numeroBimestre; i++) {
+                produccion = await db.getProduccionPorCodigoDeJuegoNombreNumeroF(data.codigo, data.player_name, i)
+                produccionTotalIndustriaBimestres.push(produccion.produccionIndustriaValorActual)
+            }
+            console.log("produccionTotalIndustriaBimestres =>",produccionTotalIndustriaBimestres)
+            return produccionTotalIndustriaBimestres
         }
     }
     setModerator(codigo) {
@@ -942,26 +947,26 @@ class Empresa {
         return 0
     }
     calcular(players, precioUnitario, marketing, investigacion, activos, inventarioUnidadesAnterior) {
-console.log("llego calcular FORMULA MAESTRA =>",precioUnitario,marketing, investigacion, activos, inventarioUnidadesAnterior)        
+//console.log("llego calcular FORMULA MAESTRA =>",precioUnitario,marketing, investigacion, activos, inventarioUnidadesAnterior)        
         let suma = 0
         for (let i = 0; i < players.length; i++) {
             if (players[i].name != this.name)
                 suma = suma + players[i].produccion
         }
-        console.log("suma =>",suma)
+//console.log("suma =>",suma)
         suma = suma / 10
-        console.log("suma =>",suma)
+//console.log("suma =>",suma)
         let A=319.1275168
         let B=0.100671141
         this.cantidadIdeal = ((A - precioUnitario) / (2*B)) - suma
-console.log("cantidadIdeal =>",this.cantidadIdeal)
+//console.log("cantidadIdeal =>",this.cantidadIdeal)
         this.cantidadIdealTotal = this.cantidadIdeal + this.obtenerPorcentajeMarketing(marketing) + this.obtenerPorcentajeInvestigacion(investigacion) + this.obtenerPorcentajeActivos(activos)
-console.log("cantidadIdealTotal =>",this.cantidadIdealTotal)
+//console.log("cantidadIdealTotal =>",this.cantidadIdealTotal)
         this.cantidadRealVendida=0
         if (this.cantidadIdealTotal>=0) {
             this.cantidadRealVendida = Math.min(this.cantidadIdealTotal, this.produccion + inventarioUnidadesAnterior)
         }     
-console.log("cantidadRealVendida =>",this.cantidadRealVendida)        
+//console.log("cantidadRealVendida =>",this.cantidadRealVendida)        
     }
     calcularPorcentajeMercado(mercado) {
         this.porcentajeDeMercado = Math.round((this.cantidadRealVendida * 100) / mercado)
@@ -983,7 +988,7 @@ class BalanceGeneral {
         this.jugador = jugador
     }
     calcular(utilidadBruta,inventarioMonetario, utilidadNeta) {
-console.log("calcular BALANCE GENERAL =>",utilidadBruta, inventarioMonetario, utilidadNeta)
+//console.log("calcular BALANCE GENERAL =>",utilidadBruta, inventarioMonetario, utilidadNeta)
         this.caja = (utilidadNeta * 0.7)
         this.bancos = (utilidadNeta * 0.3)
         this.inventario =inventarioMonetario
@@ -1018,7 +1023,7 @@ class EstadoResultados {
     }
 
     calcular(ventasRealizadasMonetario, materiaPrima, manoObra, costosIndirectos, inversionMarketing, inversionInvestigacion, inversionEnActivos, utilidadNetaAnterior) {
-console.log("calcular estadoResultados => ",ventasRealizadasMonetario, materiaPrima, manoObra, costosIndirectos, inversionMarketing, inversionInvestigacion, inversionEnActivos, utilidadNetaAnterior)
+//console.log("calcular estadoResultados => ",ventasRealizadasMonetario, materiaPrima, manoObra, costosIndirectos, inversionMarketing, inversionInvestigacion, inversionEnActivos, utilidadNetaAnterior)
         this.ventas = ventasRealizadasMonetario
         this.otrosIngresos = 0
         this.capitalAnterior = utilidadNetaAnterior
@@ -1052,7 +1057,7 @@ class Ventas {
         this.jugador = jugador
     }
     calcular(produccion, costoUnitario, inventarioUnidadesAnterior, precioUnitario, cantidadReal,cantidadIdeal) {
-console.log("calcular VENTAS =>",produccion, costoUnitario, inventarioUnidadesAnterior, precioUnitario, cantidadReal,cantidadIdeal)        
+//console.log("calcular VENTAS =>",produccion, costoUnitario, inventarioUnidadesAnterior, precioUnitario, cantidadReal,cantidadIdeal)        
         this.producidoUnidades = produccion
         this.producidoMonetario = produccion * costoUnitario
         this.inventarioUnidades = this.producidoUnidades + inventarioUnidadesAnterior - this.ventasRealizadasUnidades
@@ -1246,7 +1251,7 @@ async function calcularTodo(codigoJuego, numeroBimestre) {
 
     for (let i = 0; i < bimestres.length; i++) {
         bimestre = bimestres[i]
-console.log("bimestre =>",bimestre)
+//console.log("bimestre =>",bimestre)
         ventasUnidades = 0
         utilidadNeta = 5930
         let ventasAnterior={}
@@ -1287,15 +1292,15 @@ console.log("bimestre =>",bimestre)
         db.saveBalanceGeneral(balanceGeneral)
 
     }
-console.log("+++++++++++++++++++++++++++++++++++++++++++++++++++++++++")
+//console.log("+++++++++++++++++++++++++++++++++++++++++++++++++++++++++")
     empresas = await db.getEmpresasPorCodigoDeJuego(codigoJuego)
     let costosProduccionBimestre = []
     let ventasBimestre = []
     costosProduccionBimestre = await db.getAllCostosProduccionByCodigoYNumero(codigoJuego, numeroBimestre)
-console.log("costosProduccionBimestre =>",costosProduccionBimestre)
+//console.log("costosProduccionBimestre =>",costosProduccionBimestre)
 
     ventasBimestre = await db.getAllVentasByCodigoYNumero(codigoJuego, numeroBimestre)
-console.log("ventasBimestre =>",ventasBimestre)
+//console.log("ventasBimestre =>",ventasBimestre)
     mercados[codigoJuego].calcular(empresas)
 
     juego = mercados[codigoJuego]
@@ -1303,14 +1308,14 @@ console.log("ventasBimestre =>",ventasBimestre)
         player = empresas[i]
         empresa = new Empresa(player.name, player.codigo, player.cantidadIdealTotal, player.produccion, player.cantidadRealVendida, player.cantidadIdeal)
         empresa.calcularPorcentajeMercado(juego.mercado)
-console.log("empresa =>",empresa)       
+//console.log("empresa =>",empresa)       
         estadoResultados = await db.getEstadoResultadosPorCodigoDeJuegoNombreNumero(codigoJuego, player.name, numeroBimestre)
-console.log("estadoResultados =>",estadoResultados)             
+//console.log("estadoResultados =>",estadoResultados)             
         bimestre = await db.getBimestrePorCodigoDeJuegoNombreNumero(codigoJuego, player.name, numeroBimestre)
-console.log("bimestre =>",bimestre)             
+//console.log("bimestre =>",bimestre)             
 
         visionGeneral = new VisionGeneral(empresa.cantidadRealVendida, estadoResultados.utilidadNeta, bimestre.precioUnitario, empresa.porcentajeDeMercado, numeroBimestre, codigoJuego, empresa.name)
-console.log("visionGeneral =>",visionGeneral)                     
+//console.log("visionGeneral =>",visionGeneral)                     
         db.saveVisionGeneral(visionGeneral)
 
         if (numeroBimestre == 1) {
@@ -1326,22 +1331,22 @@ console.log("visionGeneral =>",visionGeneral)
             ventasIndustria = await db.getVentasIndustriaPorCodigoDeJuegoNombreNumero(codigoJuego, player.name, numeroBimestre - 1)
             calcularVentasIndustria(bimestres, ventasBimestre, ventasIndustria)
         }
-console.log("produccion =>",produccion)                     
-console.log("ventasIndustria =>",ventasIndustria)                     
+//console.log("produccion =>",produccion)                     
+//console.log("ventasIndustria =>",ventasIndustria)                     
     }
 
-console.log("----------------------------------------------------------------")
+//console.log("----------------------------------------------------------------")
     let visionGeneralList = []
     let visionGeneralElement = {}
     visionGeneralList = await db.getAllVisionGeneralByCodigoYNumeroParaUpdate(codigoJuego, numeroBimestre)
-    console.log("visionGeneralList =>", visionGeneralList, "tam ", visionGeneralList.length)
+    //console.log("visionGeneralList =>", visionGeneralList, "tam ", visionGeneralList.length)
     if (visionGeneralList.length != 0) {
         visionGeneralList.sort(function (a, b) {
             return (a.porcentajeDeMercado > b.porcentajeDeMercado) ? 1 : ((b.porcentajeDeMercado < a.porcentajeDeMercado) ? -1 : 0)
         })
         let puntaje = 2 * visionGeneralList.length
         for (let i = visionGeneralList.length - 1; i >= 0; i--) {
-            console.log("element", visionGeneralElement)
+            //console.log("element", visionGeneralElement)
 
             visionGeneralElement = visionGeneralList[i]
             if (i > 0 && visionGeneralElement.porcentajeDeMercado != visionGeneralList[i - 1].porcentajeDeMercado) {
@@ -1352,7 +1357,7 @@ console.log("----------------------------------------------------------------")
             }
             db.updateVisionGeneral(visionGeneralElement)
         }
-        console.log("ordeno porcentajeDeMercado")
+        //console.log("ordeno porcentajeDeMercado")
         visionGeneralList.sort(function (a, b) {
             return (a.beneficio > b.beneficio) ? 1 : ((b.beneficio < a.beneficio) ? -1 : 0)
         })
