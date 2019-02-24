@@ -39,12 +39,12 @@ export class TablaVisionGeneralComponent implements OnInit {
       this.totalesBeneficio += this.visionGeneral[i].beneficio;
       this.totalesPrecioUnitario += this.visionGeneral[i].precioUnitario;
       this.totalesPorcentajeMercado += this.visionGeneral[i].porcentajeDeMercado;
-    }
+    } 
     this.totalesPrecioUnitario /= this.visionGeneral.length;
     if (this.totalesPorcentajeMercado < 100) {
       this.mercadoDesatendido = 100 - this.totalesPorcentajeMercado;
     }
-
+    this.totalesPorcentajeMercado+=this.mercadoDesatendido
   }
 
 }
