@@ -258,6 +258,20 @@ exports.setSocket = io => {
             let _mercado = mercados[data.codigo]
             if (_mercado) {
                 _mercado.getEstadoResultados(data).then(result => {
+                    result.ingresos = Math.round(result.ingresos) 
+                    result.ventas = Math.round(result.ventas) 
+                    result.otrosIngresos = Math.round(result.otrosIngresos) 
+                    result.capitalAnterior = Math.round(result.capitalAnterior) 
+                    result.costos = Math.round(result.costos) 
+                    result.materiaPrima = Math.round(result.materiaPrima) 
+                    result.manoObra = Math.round(result.manoObra) 
+                    result.costosIndirectos = Math.round(result.costosIndirectos) 
+                    result.utilidadBruta = Math.round(result.utilidadBruta) 
+                    result.gastosOperativos = Math.round(result.gastosOperativos) 
+                    result.inversionMarketing = Math.round(result.inversionMarketing) 
+                    result.inversionInvestigacion = Math.round(result.inversionInvestigacion) 
+                    result.inversionActivos = Math.round(result.inversionActivos) 
+                    result.utilidadNeta = Math.round(result.utilidadNeta)
                     client(result)
                     io.sockets.emit("getEstadoResultados(data)", result)
                 }).catch(error => {
