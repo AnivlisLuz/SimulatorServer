@@ -983,8 +983,8 @@ class Empresa {
         suma = suma / 10
 //console.log("suma =>",suma)
         let A=319.1275168
-        let B=0.100671141
-        this.cantidadIdeal = ((A - precioUnitario) / (2*B)) - suma
+        let B=-0.100671141
+        this.cantidadIdeal = ((A - precioUnitario) / (2*(-B))) - suma
 //console.log("cantidadIdeal =>",this.cantidadIdeal)
         this.cantidadIdealTotal = this.cantidadIdeal + this.obtenerPorcentajeMarketing(marketing) + this.obtenerPorcentajeInvestigacion(investigacion) + this.obtenerPorcentajeActivos(activos)
 //console.log("cantidadIdealTotal =>",this.cantidadIdealTotal)
@@ -1085,10 +1085,10 @@ class Ventas {
     calcular(produccion, costoUnitario, inventarioUnidadesAnterior, precioUnitario, cantidadReal,cantidadIdeal) {
 //console.log("calcular VENTAS =>",produccion, costoUnitario, inventarioUnidadesAnterior, precioUnitario, cantidadReal,cantidadIdeal)        
         this.producidoUnidades = produccion
+        this.ventasRealizadasUnidades = cantidadReal
         this.producidoMonetario = produccion * costoUnitario
         this.inventarioUnidades = this.producidoUnidades + inventarioUnidadesAnterior - this.ventasRealizadasUnidades
         this.inventarioMonetario = this.inventarioUnidades * precioUnitario
-        this.ventasRealizadasUnidades = cantidadReal
         this.ventasRealizadasMonetario = this.ventasRealizadasUnidades * precioUnitario
         if (cantidadIdeal <= (produccion + inventarioUnidadesAnterior))
         {
