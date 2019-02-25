@@ -32,14 +32,14 @@
       <tr>
         <td id="subItemTipo1">CAPITAL PERIODO ANTERIOR</td>
         <td>{{-15800 | thousandPipe}}</td>
-        <td *ngFor="let estado of estadoResultados">{{estado.capitalAnterior}}</td>
+        <td *ngFor="let estado of estadoResultados">{{estado.capitalAnterior | thousandPipe}}</td>
 
       </tr>
 
       <tr>
         <td>- COSTOS</td>
         <td id="itemTipoNum">{{60770 | thousandPipe}}</td>
-        <td *ngFor="let estado of estadoResultados" id="itemTipoNum">{{estado.costos}}</td>
+        <td *ngFor="let estado of estadoResultados" id="itemTipoNum">{{estado.costos | thousandPipe}}</td>
 
       </tr>
 
@@ -47,7 +47,7 @@
 
         <td id="subItemTipo2">MATERIA PRIMA</td>
         <td>{{30000 | thousandPipe}}</td>
-        <td *ngFor="let estado of estadoResultados">{{estado.materiaPrima}}</td>
+        <td *ngFor="let estado of estadoResultados">{{estado.materiaPrima | thousandPipe}}</td>
 
       </tr>
 

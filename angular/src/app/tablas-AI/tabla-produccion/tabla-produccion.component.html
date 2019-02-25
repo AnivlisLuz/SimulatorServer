@@ -11,27 +11,27 @@
     <tbody>
       <tr>
         <td>PRODUCCIÓN DE LA INDUSTRIA</td>
-        <td>{{produccionIndustria.produccionIndustriaValorActual}}</td>
+        <td>{{produccionIndustria.produccionIndustriaValorActual | thousandPipe}}</td>
         <td>{{(produccionIndustria.produccionIndustriaValorActual-produccionIndustria.produccionIndustriaValorAnterior)/produccionIndustria.produccionIndustriaValorAnterior*100}}
           %</td>
 
       </tr>
       <tr>
         <td class="td2">COSTE MEDIO DE PRODUCCIÓN (TOTAL)</td>
-        <td class="td2">{{produccionIndustria.costeMedioTotalActual}}</td>
+        <td class="td2">{{produccionIndustria.costeMedioTotalActual | thousandPipe}}</td>
         <td class="td2">{{(produccionIndustria.costeMedioTotalActual-produccionIndustria.costeMedioTotalAnterior)/produccionIndustria.costeMedioTotalAnterior*100}}
           %</td>
 
       </tr>
       <tr>
         <td>COSTE MEDIO DE PRODUCCIÓN (UNITARIO)</td>
-        <td>{{produccionIndustria.costeMedioUnitarioActual}}</td>
+        <td>{{produccionIndustria.costeMedioUnitarioActual | thousandPipe}}</td>
         <td>{{(produccionIndustria.costeMedioUnitarioActual-produccionIndustria.costeMedioUnitarioAnterior)/produccionIndustria.costeMedioUnitarioAnterior*100}}%</td>
       </tr>
 
       <tr>
         <td class="td2">CAPACIDAD DE PRODUCCIÓN</td>
-        <td class="td2">{{produccionIndustria.capacidadProduccionActual}}</td>
+        <td class="td2">{{produccionIndustria.capacidadProduccionActual | thousandPipe }}</td>
         <td class="td2">{{(produccionIndustria.capacidadProduccionActual-produccionIndustria.capacidadProduccionAnterior)/produccionIndustria.capacidadProduccionAnterior*100}}%</td>
       </tr>
 

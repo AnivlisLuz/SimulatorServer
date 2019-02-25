@@ -159,6 +159,14 @@ exports.setSocket = io => {
             let _mercado = mercados[data.codigo]
             if (_mercado) {
                 _mercado.getVentas(data).then(result => {
+                    result.producidoUnidades= Math.round(result.producidoUnidades)
+                    result.producidoMonetario= Math.round(result.producidoMonetario)
+                    result.ventasRealizadasUnidades= Math.round(result.ventasRealizadasUnidades)
+                    result.ventasRealizadasMonetario= Math.round(result.ventasRealizadasMonetario)
+                    result.inventarioUnidades= Math.round(result.inventarioUnidades)
+                    result.inventarioMonetario= Math.round(result.inventarioMonetario)
+					result.pedidosNoAtendidosMonetario= Math.round(result.pedidosNoAtendidosMonetario)
+                    result.pedidosNoAtendidosUnidades=Math.round(result.pedidosNoAtendidosUnidades)
                     client(result)
                     io.sockets.emit("getVentas(data)", result)
                 }).catch(error => {
@@ -186,10 +194,18 @@ exports.setSocket = io => {
         })
         socket.on('getProduccion', (data, client) => {
             console.log("getProduccion socket =>", data)
-
             let _mercado = mercados[data.codigo]
             if (_mercado) {
                 _mercado.getProduccion(data).then(result => {
+                    result.produccionIndustriaValorActual=Math.round(result.produccionIndustriaValorActual)
+                    result.produccionIndustriaValorAnterior=Math.round(result.produccionIndustriaValorAnterior)
+                    result.costeMedioTotalActual=Math.round(result.costeMedioTotalActual)
+                    result.costeMedioTotalAnterior=Math.round(result.costeMedioTotalAnterior)
+                    result.costeMedioUnitarioActual=Math.round(result.costeMedioUnitarioActual)
+                    result.costeMedioUnitarioAnterior=Math.round(result.costeMedioUnitarioAnterior)
+                    result.capacidadProduccionActual=Math.round(result.capacidadProduccionActual)
+                    result.capacidadProduccionAnterior=Math.round(result.capacidadProduccionAnterior)
+                   
                     client(result)
                     io.sockets.emit("getProduccion(data)", result)
                 }).catch(error => {
@@ -205,6 +221,15 @@ exports.setSocket = io => {
             let _mercado = mercados[data.codigo]
             if (_mercado) {
                 _mercado.getVentasIndustria(data).then(result => {
+                    result.ventasIndustriaUnidadesActual = Math.round(result.ventasIndustriaUnidadesActual)
+                    result.ventasIndustriaUnidadesAnterior =  Math.round(result.ventasIndustriaUnidadesAnterior)
+                    result.ventasIndustriaMonetarioActual =  Math.round(result.ventasIndustriaMonetarioActual)
+                    result.ventasIndustriaMonetarioAnterior =  Math.round(result.ventasIndustriaMonetarioAnterior)
+                    result.precioUnitarioPromedioActual =  Math.round(result.precioUnitarioPromedioActual)
+                    result.precioUnitarioPromedioAnterior =  Math.round(result.precioUnitarioPromedioAnterior)
+                    result.inventarioPromediosActual =  Math.round(result.inventarioPromediosActual)
+                    result.inventarioPromediosAnterior =  Math.round(result.inventarioPromediosAnterior)
+                    
                     client(result)
                     io.sockets.emit("getVentasIndustria(data)", result)
                 }).catch(error => {
@@ -251,6 +276,7 @@ exports.setSocket = io => {
             if (_mercado) {
                 _mercado.getAllProduccion(data).then(result => {
                     client(result)
+
                     io.sockets.emit("getAllProduccion(data)", result)
                 }).catch(error => {
                     client("error con el socket")
