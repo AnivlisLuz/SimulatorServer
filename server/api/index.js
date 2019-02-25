@@ -143,7 +143,17 @@ exports.setSocket = io => {
             let _mercado = mercados[data.codigo]
             if (_mercado) {
                 _mercado.getBalanceGeneral(data).then(result => {
+                    result.caja =Math.round(result.caja)
+                    result.bancos=Math.round(result.bancos)
+                    result.inventario =Math.round(result.inventario)
+                    result.corriente=Math.round(result.corriente)
+                    result.totalActivos =Math.round(result.totalActivos)
+                    result.capital=Math.round(result.capital)
+                    result.utilidadEjercicio =Math.round(result.utilidadEjercicio)
+                    result.totalPatrimonio=Math.round(result.totalPatrimonio)
+                    result.totalPasivoPatrimonio=Math.round(result.totalPasivoPatrimonio)
                     client(result)
+
                     io.sockets.emit("getBalanceGeneral(data)", result)
                 }).catch(error => {
                     client("error con el socket")
@@ -183,6 +193,9 @@ exports.setSocket = io => {
             let _mercado = mercados[data.codigo]
             if (_mercado) {
                 _mercado.getCostosProduccion(data).then(result => {
+                    result.materiaPrima= Math.round(result.materiaPrima)
+                    result.costoTotal= Math.round(result.costoTotal)
+                    result.costoUnitario= Math.round(result.costoUnitario)
                     client(result)
                     io.sockets.emit("getCostosProduccion(data)", result)
                 }).catch(error => {
@@ -260,6 +273,9 @@ exports.setSocket = io => {
             let _mercado = mercados[data.codigo]
             if (_mercado) {
                 _mercado.getVisionGeneral(data).then(result => {
+                    result.precioUnitario= Math.round(result.precioUnitario)
+                    result.beneficio= Math.round(result.beneficio)
+                    result.ventas= Math.round(result.ventas)
                     client(result)
                     io.sockets.emit("getVisionGeneral(data)", result)
                 }).catch(error => {
