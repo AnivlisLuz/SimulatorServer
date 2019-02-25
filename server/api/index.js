@@ -769,8 +769,8 @@ class Mercado {
                 //console.log("indice==>",indice)
                 for (let j = 0; j < bimestres.length; j++) {
                     bimestre = bimestres[j]
-                    if (bimestre.numero == indice) {
-
+                    if (bimestre.numero == i) {
+console.log(bimestre.precioUnitario,bimestre.numero,bimestre.jugador)
                         suma = suma + bimestre.precioUnitario
                         cantidad += 1
                     }
@@ -782,7 +782,7 @@ class Mercado {
                 promedioPrecioUnitarios.push(suma)
                 suma = 0;
                 cantidad = 0;
-                //console.log("fin for")
+                console.log("promedioPrecioUnitarios =>",promedioPrecioUnitarios)
             }
             return promedioPrecioUnitarios
         }
