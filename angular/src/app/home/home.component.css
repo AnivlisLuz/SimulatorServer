@@ -81,7 +81,7 @@ h2 {
 }
 
 .logo-cba {
-  width: 70%;
+  width: 55%;
   display: block;
   margin-left: auto;
   margin-right: auto
@@ -94,4 +94,34 @@ h2 {
 
 .ng-invalid:not(form) {
   border-left: 3px solid #a94442;
+}
+.select-style
+{
+margin: 0;
+padding: 0;
+}
+.select-style select
+{
+  
+  background: rgba(0, 0, 0, .5);
+  color: #fff;
+  padding:10px;
+  width: 320px;
+  height: 40px;
+  border: none;
+  font-size: 11px;
+  box-shadow: 0 5px 25px rgb(0,0,0,.5);
+  cursor: pointer;
+  
+}
+.logo-cba1 
+{
+  width: 102%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto
+}
+.color
+{
+  background-color: #4c92ff;
 }

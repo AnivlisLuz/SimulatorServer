@@ -157,6 +157,7 @@ aside {
   line-height: 50px;
   text-align: center;
   color: white;
+  font-size: 20px;
 }
 
 .input-width {
@@ -321,4 +322,12 @@ pre {
   text-align: center;
   line-height: 100px;
   color: white
+}
+.centro 
+{
+  text-align: center;
+}
+.lower-case
+{
+font-size: 14px;
 }
