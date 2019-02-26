@@ -7,13 +7,13 @@
     </div>
     <div class="button_tab_container" style="background-color: #092B3A;">
       <button (click)="informacion()" class="boton-infomacion-compania tab_menu_button" style="background-color: #092B3A;">
-       DATOS SOBRE LA COMPA&#209;&#205;A
+       DATOS SOBRE LA COMPAÑÍA
       </button>
 
       <div class="{{tap_position==0 ? '' : 'tap_menu_hidden'}} tab_menu_description">
-        Como nuevo gerente general es necesario que conozcas a detalle todo acerca de la compañ&#237;a que ahora
+        Como nuevo gerente general es necesario que conozcas a detalle todo acerca de la compañía que ahora
         diriges.
-        En esta seci&#243;n te brindamos toda la informaci&#243;n necesaria para que conozcas el negocio.
+        En esta seción te brindamos toda la información necesaria para que conozcas el negocio.
       </div>
     </div>
     <div class="button_tab_container" style="background-color: #135A82;">
@@ -21,7 +21,7 @@
         MIS DECISIONES
       </button>
       <div class="{{tap_position==1 ? '' : 'tap_menu_hidden'}}  tab_menu_description">
-        En esta secci&#243;n puedo tomar las decisiones que afectaran el desenvolvimiento de mi empresa en los
+        En esta sección puedo tomar las decisiones que afectaran el desenvolvimiento de mi empresa en los
         siguientes
         2
         meses.
@@ -29,28 +29,28 @@
     </div>
     <div class="button_tab_container" style="background-color: #0D8EC8;">
       <button (click)="tanalisis()" class="boton-t-analisi tab_menu_button" style="background-color: #0D8EC8;">
-        AN&#193;LISIS DE LA INDUSTRIA
+        ANÁLISIS DE LA INDUSTRIA
       </button>
       <div class="{{tap_position==2? '' : 'tap_menu_hidden'}}  tab_menu_description">
-        En esta secci&#243;n puedes ver y analizar las decisiones y resultados de tu competencia y la industria.
+        En esta sección puedes ver y analizar las decisiones y resultados de tu competencia y la industria.
       </div>
     </div>
     <div class="button_tab_container" style="background-color: #2EC3EC;">
       <button (click)="informe()" class="boton-informe tab_menu_button" style="background-color: #2EC3EC;">
-        INFORMES DE LA COMPA&#209;&#205;A
+        INFORMES DE LA COMPAÑÍA
       </button>
       <div class="{{tap_position==3 ? '' : 'tap_menu_hidden'}} tab_menu_description">
-        En esta secci&#243;n puedes ver y analizar las decisiones y resultados de tus decisiones as&#237; como el
+        En esta sección puedes ver y analizar las decisiones y resultados de tus decisiones así como el
         estado de tu
-        compañ&#237;a.
+        compañía.
       </div>
     </div>
     <div class="button_tab_container" style="background-color: #36A9E1;">
       <button (click)="analisis()" class="boton-analisis tab_menu_button" style="background-color: #36A9E1;">
-        AN&#193;LISIS
+        ANÁLISIS
       </button>
       <div class="{{tap_position==4 ? '' : 'tap_menu_hidden'}} tab_menu_description">
-        En esta secci&#243;n puedes comparar variables para tener un panorama más claro de tus decisiones.
+        En esta secciÓn puedes comparar variables para tener un panorama más claro de tus decisiones.
       </div>
     </div>
   </aside>
@@ -59,7 +59,7 @@
       <div class="section_container_body">
         <div class="section_title">
           <div class="material-icons section_title_icon" style="background-color: #092B3A;">help_outline</div>
-          <div class="section_title_desc"> INFORMACI&#211;N SOBRE LA COMPA&#209;&#205;A</div>
+          <div class="section_title_desc"> DATOS SOBRE LA COMPAÑÍA</div>
         </div>
         <div class="section_body">
 
@@ -94,28 +94,23 @@
             </div>
             <div class="section_body_container">
               <div class="section_body_content  {{section_tap_1==0 ? '' : 'tap_menu_hidden'}}">
-                <div style="padding: 20px;">
+                <div style="padding: 40px;text-align: justify;">
                   <img src="/imagenes/LOGO SIMULADOR FINAL.png" style="float: right; width: 250px;"><br /><br /><br />
                  <div class="centro" style="font-weight: bold;">
                   <U>UNA BREVE HISTORIA SOBRE NOSOTROS</U>
                 </div>
-                <pre>
-    La empresa "{{(http.game)?http.game.name:""}}", inicio sus actividades en el año 2005.
-
-    Desde el comienzo de nuestras actividades, nos especializamos en la venta de poleras de alta calidad con diseños
-innovadores y que están en constante actualización según las tendencias del mercado.
-
-    Con el transcurso de los años hemos incorporado nuevas líneas de productos con el objetivo de proveer a nuestros 
+                <br/>
+                <br/>&nbsp;&nbsp;&nbsp;&nbsp;La empresa "{{(http.game)?http.game.name:""}}", inicio sus actividades en el año 2005.<br/><br/>
+                &nbsp;&nbsp;&nbsp;Desde el comienzo de nuestras actividades, nos especializamos en la venta de poleras de alta calidad con diseños
+innovadores y que están en constante actualización según las tendencias del mercado. <br/><br/>
+&nbsp;&nbsp;&nbsp;Con el transcurso de los años hemos incorporado nuevas líneas de productos con el objetivo de proveer a nuestros 
 clientes una solución integral a sus necesidades. Contamos con un excelente grupo humano el cual se capacita en
 forma permanente a fin de estar actualizado en los cambios e innovaciones tecnológicas que se presentan en nuestro
-ámbito.
-
-    La calidad de nuestros productos y la excelencia en nuestro servicio nos han permitido posicionarnos en el mercado
-en muy poco tiempo, llegando a alcanzar a nuestros principales competidores.
-
-    Pretendemos convertirnos en la empresa líder en nuestro sector a través de decisiones que nos permitan aprovechar
+ámbito.<br/><br/>
+&nbsp;&nbsp;&nbsp;La calidad de nuestros productos y la excelencia en nuestro servicio nos han permitido posicionarnos en el mercado
+en muy poco tiempo, llegando a alcanzar a nuestros principales competidores.<br/><br/>
+&nbsp;&nbsp;&nbsp;Pretendemos convertirnos en la empresa líder en nuestro sector a través de decisiones que nos permitan aprovechar
 nuestras ventajas competitivas.
-                </pre>
                 </div>
               </div>
               <div class="section_body_content  {{section_tap_1==1 ? '' : 'tap_menu_hidden'}}">
@@ -123,14 +118,14 @@ nuestras ventajas competitivas.
                   <div style="width: calc(100% - 200px);">
                     <br /><br />
                     <div class="section_body_content_title" style="font-weight: bold; font-size: 22px;"> MISIÓN</div><br>
-                    <div style="text-align: center; font-size: 25px;">
-                      <pre>
-“Somos una empresa rentable que ofrece poleras
- exclusivas de alta calidad con diseños
- innovadores para personas que aprecian el buen vestir.”
-                    </pre>
-                    </div>
                   </div>
+                </div>
+                <div style="text-align: center; font-size: 25px;">
+                  <pre>
+“Somos una empresa rentable que ofrece poleras
+exclusivas de alta calidad con diseños innovadores 
+para personas que aprecian el buen vestir.”
+                </pre>
                 </div>
                 <div>
                   <div class="section_body_content_title" style=" float: right; font-weight: bold; font-size: 22px; ">VISIÓN
@@ -140,23 +135,21 @@ nuestras ventajas competitivas.
                     <pre>
 “Ser una empresa referente en nuestro sector, reconocida
 por su excelente trato al cliente y productos de alta calidad.”
-                  </pre>
+</pre>
                   </div>
                 </div>
 
               </div>
               <div class="section_body_content  {{section_tap_1==2 ? '' : 'tap_menu_hidden'}}">
-                <div style="padding: 20px;">
-                <pre>
-    Nuestra empresa ofrece poleras exclusivas y de alta calidad con diseños innovadores para personas
- que aprecian el buen vestir.
- 
-    Contamos con un equipo de diseñadores gráficos que se encargan de crear el arte que nosotros
+                <div style="padding: 40px; text-align: justify; font-size: 17px">
+               
+                  <br/>&nbsp;&nbsp;&nbsp;Nuestra empresa ofrece poleras exclusivas y de alta calidad con diseños innovadores para personas
+ que aprecian el buen vestir. <br/><br/>
+ &nbsp;&nbsp;&nbsp;Contamos con un equipo de diseñadores gráficos que se encargan de crear el arte que nosotros
  ponemos en cada uno de nuestros productos. Es importante mencionar que por políticas de la
- empresa se maneja un precio único para todos nuestros diseños.
-
-    Aqui te mostramos algunas poleras de nuestra colección actual:
-                </pre>
+ empresa se maneja un precio único para todos nuestros diseños. <br/><br/>
+ &nbsp;&nbsp;&nbsp;Aquí te mostramos algunas poleras de nuestra colección actual: 
+                
                 </div>
 
                 <div>
@@ -173,7 +166,7 @@ por su excelente trato al cliente y productos de alta calidad.”
 
               <div class="section_body_content  {{section_tap_1==5 ? '' : 'tap_menu_hidden'}}">
               <pre>
-                   Esta pestaña se encutra en desarrollo
+                   Esta pestaña se encuentra en desarrollo
               </pre>
               </div>
 
@@ -181,18 +174,14 @@ por su excelente trato al cliente y productos de alta calidad.”
                  <br>
                 <div class="section_body_content_title" style="font-weight: bold;"> BIENVENIDO A LA EMPRESA
                 </div>
-                <div style="padding-left:50px; font-size: 18px">
-                <pre>
-        Después de unos años de trayectoria nuestra empresa ha logrado igualar a la compentencia y
+                <div style="padding-left:40px; padding-right: 40px ; font-size: 17px; text-align: justify">
+        <br/><br/>&nbsp;&nbsp;&nbsp;Después de unos años de trayectoria nuestra empresa ha logrado igualar a la compentencia y
     actualmente, según los resultados del último bimestre, todas las empresas que competimos en
-    el mercado nos encontramos en igualdad de condiciones. Si embargo; es nuestro deseo que
-    "{{(http.game)?http.game.name:""}}" se convierta en la lider del mercado y sea un referente de calidad
+    el mercado nos encontramos en igualdad de condiciones. Sin embargo; es nuestro deseo que
+    "{{(http.game)?http.game.name:""}}" se convierta en la líder del mercado y sea un referente de calidad
     entre nuestros competidores y clientes. Es por tal motivo que hemos decidido contratarte como
-    generente general de nuestra organización esperando que mediante tus decisiones administrati-
-    vas nos ayudes a cumplir nuestras metas.
-
-        Tus principales objetivos como nuevo gerente general de la empresa son:
-</pre>
+    gerente general de nuestra organización esperando que mediante tus decisiones administrativas nos ayudes a cumplir nuestras metas.<br/><br/>
+    &nbsp;&nbsp;&nbsp;Tus principales objetivos como nuevo gerente general de la empresa son:
     <ul>
     <li>
         Obtener el mayor porcentaje del mercado (clientes) posibles en cada bimestre.
@@ -201,13 +190,10 @@ por su excelente trato al cliente y productos de alta calidad.”
         Obtener la mayor restabilidad posible de cada bimestre.
     </li>
     </ul>
-    <pre>
-        Te recomendamos analizar los datos e informacion que se te brinda despues de cada bimes-
-    tre de manera detallada que las siguientes decisiones que tomes nos garanticen el éxito. Confia-
-    mos en ti, sabemos que lo harás muy bien.
-</pre>
+    &nbsp;&nbsp;&nbsp;Te recomendamos analizar los datos e información que se te brinda después de cada bimestre de manera detallada 
+        que las siguientes decisiones que tomes nos garanticen el éxito. Confiamos en ti, sabemos que lo harás muy bien.<br/><br/><br/><br/>
                 <div class="lower-case">
-                  (Consulta la "GUIA DEL JUGADOR" para obtener más información acerca de tus objetivos y estrategias para ganar a tu competencia en la
+                  (Consulta la "GUÍA DEL JUGADOR" para obtener más información acerca de tus objetivos y estrategias para ganar a tu competencia en la
                   simulación.)
                 </div>
             
@@ -332,22 +318,22 @@ por su excelente trato al cliente y productos de alta calidad.”
                 <ul style="list-style-type:none">
                   <li> <span> <i class="material-icons" (click)="general()" style="font-size:18px; color:blue;cursor: pointer">
                         arrow_right</i></span> CAPITAL PERIODO
-                    ANTERIOR&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{capitalPeriodoAnterior
+                    ANTERIOR &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {{capitalPeriodoAnterior
                     | thousandPipe}}</li>
                   <li><span> <i class="material-icons" (click)="ingresoDiv()" style="font-size:18px; color:blue;cursor: pointer">arrow_drop_down</i></span>
                     INGRESOS&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     {{precioUnitario*produccion | thousandPipe}}</li>
                   <div id="div-ingresos" style="padding-left: 20%">
                     <pre>VENTAS                                        {{precioUnitario*produccion | thousandPipe}} </pre>
-                    <pre>OTROS INGRESOS                     {{ 0 | thousandPipe}}</pre>
+                    <pre>OTROS INGRESOS                              {{ 0 | thousandPipe}}</pre>
                   </div>
                   <li><span> <i class="material-icons" (click)="gastosDiv()" style="font-size:18px; color:blue ;cursor: pointer">arrow_drop_down</i></span>GASTOS&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     {{inversionEnMarketing + inversionEnActivos+inversionEnInvestigacion+produccion*50 +30770 | thousandPipe}}</li>
                   <div id="div-gastos" style="padding-left: 20%">
-                    <pre>COSTOS DE PRODUCCION         {{produccion*50 +30770 | thousandPipe}}</pre>
-                    <pre>INV. MARKETING                           {{inversionEnMarketing | thousandPipe}}</pre>
-                    <pre>INV. INVESTIGACIÓN                    {{inversionEnInvestigacion | thousandPipe}}</pre>
-                    <pre>INV. ACTIVOS                                {{inversionEnActivos | thousandPipe}}</pre>
+                    <pre>COSTOS DE PRODUCCIÓN         {{produccion*50 +30770 | thousandPipe}}</pre>
+                    <pre>INV. MARKETING                            {{inversionEnMarketing | thousandPipe}}</pre>
+                    <pre>INV. INVESTIGACIÓN                     {{inversionEnInvestigacion | thousandPipe}}</pre>
+                    <pre>INV. ACTIVOS                                 {{inversionEnActivos | thousandPipe}}</pre>
 
                   </div>
                   <li><span> <i class="material-icons" (click)="resultadosDiv()" style="font-size:18px; color:blue;cursor: pointer">arrow_drop_down</i></span>RESULTADO
@@ -364,7 +350,7 @@ por su excelente trato al cliente y productos de alta calidad.”
             <button (click)="iniciar()" style="width:300px">
               {{http.game.bimestre_inicial_c==0?
               "ENVIAR MIS DECISIONES":
-              "aun "+http.game.bimestre_inicial_c+" falta jugadores"}}
+              "Aún faltan "+http.game.bimestre_inicial_c+" jugadores"}}
             </button></div>
         </div>
       </div>
@@ -373,17 +359,17 @@ por su excelente trato al cliente y productos de alta calidad.”
       <div class="section_container_body">
         <div class="section_title">
           <div class="material-icons section_title_icon" style="background-color: #0D8EC8;">attach_money</div>
-          <div class="section_title_desc"> AN&#193;LISIS DE LA INDUSTRIA</div>
+          <div class="section_title_desc"> ANÁLISIS DE LA INDUSTRIA</div>
         </div>
         <div class="section_body">
           <div class="section_body_main">
             <div class="section_body_tab">
 
               <button (click)="VisionGeneral()" class="section_body_tab_button  {{section_tap_2==0 ? '' : 'tap_selected'}}">
-                VISION GENERAL
+                VISIÓN GENERAL
               </button>
               <button (click)="ProduccionTablaAnalisis()" class="section_body_tab_button  {{section_tap_2==1 ? '' : 'tap_selected'}}">
-                PRODUCCION
+                PRODUCCIÓN
               </button>
               <button (click)="VentasTablaAnalisis()" class="section_body_tab_button  {{section_tap_2==2 ? '' : 'tap_selected'}}">
                 VENTAS
@@ -423,7 +409,7 @@ por su excelente trato al cliente y productos de alta calidad.”
       <div class="section_container_body">
         <div class="section_title">
           <div class="material-icons section_title_icon" style="background-color: #2EC3EC;">business_center</div>
-          <div class="section_title_desc">INFORMES DE LA COMPA&#209;&#205;A</div>
+          <div class="section_title_desc">INFORMES DE LA COMPAÑÍA</div>
         </div>
         <div class="section_body">
           <div class="section_body_main">
@@ -436,7 +422,7 @@ por su excelente trato al cliente y productos de alta calidad.”
               <button (click)="Ventas()" class="section_body_tab_button  {{section_tap_3==2 ? '' : 'tap_selected'}}">VENTAS</button>
               <button (click)="Produccion()" class="section_body_tab_button  {{section_tap_3==3 ? '' : 'tap_selected'}}">COSTOS
                 DE PRODUCCIÓN</button>
-              <button (click)="Compania()" class="section_body_tab_button  {{section_tap_3==4 ? '' : 'tap_selected'}}">COMPAÑIA</button>
+              <button (click)="Compania()" class="section_body_tab_button  {{section_tap_3==4 ? '' : 'tap_selected'}}">COMPAÑÍA</button>
 
             </div>
             <div class="section_body_container">
@@ -476,7 +462,7 @@ por su excelente trato al cliente y productos de alta calidad.”
       <div class="section_container_body">
         <div class="section_title">
           <div class="material-icons section_title_icon" style="background-color: #36A9E1;">search</div>
-          <div class="section_title_desc"> AN&#193;LISIS</div>
+          <div class="section_title_desc"> ANÁLISIS</div>
         </div>
         <div class="section_body">
           <div class="section_body_main">
@@ -488,8 +474,8 @@ por su excelente trato al cliente y productos de alta calidad.”
               <button (click)="costovsprecio()" class="section_body_tab_button  {{section_tap_4==1 ? '' : 'tap_selected'}}">COSTO
                 VS PRECIO</button>
               <button (click)="capacidadvsproduccion()" class="section_body_tab_button  {{section_tap_4==2 ? '' : 'tap_selected'}}">CAPACIDAD
-                VS PRODUCCION</button>
-              <button (click)="companiavscompetencia()" class="section_body_tab_button  {{section_tap_4==3 ? '' : 'tap_selected'}}">COMPAÑIA
+                VS PRODUCCIÓN</button>
+              <button (click)="companiavscompetencia()" class="section_body_tab_button  {{section_tap_4==3 ? '' : 'tap_selected'}}">COMPAÑÍA
                 VS COMPETENCIA</button>
               <button (click)="consejos()" class="section_body_tab_button  {{section_tap_4==4 ? '' : 'tap_selected'}}">CONSEJOS</button>
 
@@ -517,9 +503,9 @@ por su excelente trato al cliente y productos de alta calidad.”
                 <div id="consejosID">
 
                   <!-- <div *ngIf="ventas.inventarioUnidades > 50">  -->
-                  <p *ngIf="generarConsejo1()">Tus niveles de inventario estas creciendo. Te recomendamos idear
+                  <p *ngIf="generarConsejo1()">Tus niveles de inventario estan creciendo. Te recomendamos idear
                     estrategias para
-                    aumentar las ventas o disminuir sla producción.</p>
+                    aumentar las ventas o disminuir la producción.</p>
                   <p *ngIf="generarConsejo2()">Tu utilidad es muy baja. Te recomendamos idear estrategias para aumentar
                     las ventas,
                     aumentar ingresos o reducir los costos y gastos.</p>
