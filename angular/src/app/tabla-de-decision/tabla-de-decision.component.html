@@ -7,13 +7,13 @@
     </div>
     <div class="button_tab_container" style="background-color: #092B3A;">
       <button (click)="informacion()" class="boton-infomacion-compania tab_menu_button" style="background-color: #092B3A;">
-        INFORMACI&#211;N SOBRE LA COMPA&#209;&#205;A
+       DATOS SOBRE LA COMPAÑÍA
       </button>
 
       <div class="{{tap_position==0 ? '' : 'tap_menu_hidden'}} tab_menu_description">
-        Como nuevo gerente general es necesario que conozcas a detalle todo acerca de la compañ&#237;a que ahora
+        Como nuevo gerente general es necesario que conozcas a detalle todo acerca de la compañía que ahora
         diriges.
-        En esta seci&#243;n te brindamos toda la informaci&#243;n necesaria para que conozcas el negocio.
+        En esta seción te brindamos toda la información necesaria para que conozcas el negocio.
       </div>
     </div>
     <div class="button_tab_container" style="background-color: #135A82;">
@@ -21,7 +21,7 @@
         MIS DECISIONES
       </button>
       <div class="{{tap_position==1 ? '' : 'tap_menu_hidden'}}  tab_menu_description">
-        En esta secci&#243;n puedo tomar las decisiones que afectaran el desenvolvimiento de mi empresa en los
+        En esta sección puedo tomar las decisiones que afectaran el desenvolvimiento de mi empresa en los
         siguientes
         2
         meses.
@@ -29,28 +29,28 @@
     </div>
     <div class="button_tab_container" style="background-color: #0D8EC8;">
       <button (click)="tanalisis()" class="boton-t-analisi tab_menu_button" style="background-color: #0D8EC8;">
-        AN&#193;LISIS DE LA INDUSTRIA
+        ANÁLISIS DE LA INDUSTRIA
       </button>
       <div class="{{tap_position==2? '' : 'tap_menu_hidden'}}  tab_menu_description">
-        En esta secci&#243;n puedes ver y analizar las decisiones y resultados de tu competencia y la industria.
+        En esta sección puedes ver y analizar las decisiones y resultados de tu competencia y la industria.
       </div>
     </div>
     <div class="button_tab_container" style="background-color: #2EC3EC;">
       <button (click)="informe()" class="boton-informe tab_menu_button" style="background-color: #2EC3EC;">
-        INFORMES DE LA COMPA&#209;&#205;A
+        INFORMES DE LA COMPAÑÍA
       </button>
       <div class="{{tap_position==3 ? '' : 'tap_menu_hidden'}} tab_menu_description">
-        En esta secci&#243;n puedes ver y analizar las decisiones y resultados de tus decisiones as&#237; como el
+        En esta sección puedes ver y analizar las decisiones y resultados de tus decisiones así como el
         estado de tu
-        compañ&#237;a.
+        compañía.
       </div>
     </div>
     <div class="button_tab_container" style="background-color: #36A9E1;">
       <button (click)="analisis()" class="boton-analisis tab_menu_button" style="background-color: #36A9E1;">
-        AN&#193;LISIS
+        ANÁLISIS
       </button>
       <div class="{{tap_position==4 ? '' : 'tap_menu_hidden'}} tab_menu_description">
-        En esta secci&#243;n puedes comparar variables para tener un panorama más claro de tus decisiones.
+        En esta secciÓn puedes comparar variables para tener un panorama más claro de tus decisiones.
       </div>
     </div>
   </aside>
@@ -59,7 +59,7 @@
       <div class="section_container_body">
         <div class="section_title">
           <div class="material-icons section_title_icon" style="background-color: #092B3A;">help_outline</div>
-          <div class="section_title_desc"> INFORMACI&#211;N SOBRE LA COMPA&#209;&#205;A</div>
+          <div class="section_title_desc"> DATOS SOBRE LA COMPAÑÍA</div>
         </div>
         <div class="section_body">
 
@@ -81,6 +81,12 @@
                 id="">
                 ORGANIGRAMA
               </button>
+
+              <button (click)="maquinaria()" class="section_body_tab_button  {{section_tap_1==5 ? '' : 'tap_selected'}}"
+              id="">
+                MAQUINARIA
+            </button>
+
               <button (click)="objetivos()" class="section_body_tab_button  {{section_tap_1==4 ? '' : 'tap_selected'}}"
                 id="D">
                 OBJETIVOS
@@ -88,63 +94,62 @@
             </div>
             <div class="section_body_container">
               <div class="section_body_content  {{section_tap_1==0 ? '' : 'tap_menu_hidden'}}">
-                <div style="padding: 20px;">
+                <div style="padding: 40px;text-align: justify;">
                   <img src="/imagenes/LOGO SIMULADOR FINAL.png" style="float: right; width: 250px;"><br /><br /><br />
-                  UNA BREVE HISTORIA SOBRE NOSOTROS
-                  <br /><br /><br /><br />
-                  La empresa "{{(http.game)?http.game.name:""}}", inicio sus actividades en el año 2005.
-                  <br /><br />Desde el comienzo de nuestras actividades, nos especializamos en la venta de poleras de
-                  alta
-                  calidad con diseños innovadores y que están en constante actualización según las tendencias del
-                  mercado.
-                  <br /><br />Con el transcurso de los años hemos incorporado nuevas líneas de productos con el
-                  objetivo de
-                  proveer a nuestros clientes una solución integral a sus necesidades. Contamos con un excelente
-                  grupo humano el cual se capacita en forma permanente a fin de estar actualizado en los cambios e
-                  innovaciones
-                  tecnológicas que se presentan en nuestro ámbito.
-                  <br /><br />La calidad de nuestros productos y la excelencia en nuestro servicio nos han permitido
-                  posicionarnos en el mercado en muy poco tiempo, llegando a alcanzar a nuestros principales
-                  competidores.
-                  <br /><br />Pretendemos convertirnos en la empresa líder en nuestro sector a través de decisiones que
-                  nos
-                  permitan aprovechar nuestras ventajas competitivas.
+                 <div class="centro" style="font-weight: bold;">
+                  <U>UNA BREVE HISTORIA SOBRE NOSOTROS</U>
+                </div>
+                <br/>
+                <br/>&nbsp;&nbsp;&nbsp;&nbsp;La empresa "{{(http.game)?http.game.name:""}}", inicio sus actividades en el año 2005.<br/><br/>
+                &nbsp;&nbsp;&nbsp;Desde el comienzo de nuestras actividades, nos especializamos en la venta de poleras de alta calidad con diseños
+innovadores y que están en constante actualización según las tendencias del mercado. <br/><br/>
+&nbsp;&nbsp;&nbsp;Con el transcurso de los años hemos incorporado nuevas líneas de productos con el objetivo de proveer a nuestros 
+clientes una solución integral a sus necesidades. Contamos con un excelente grupo humano el cual se capacita en
+forma permanente a fin de estar actualizado en los cambios e innovaciones tecnológicas que se presentan en nuestro
+ámbito.<br/><br/>
+&nbsp;&nbsp;&nbsp;La calidad de nuestros productos y la excelencia en nuestro servicio nos han permitido posicionarnos en el mercado
+en muy poco tiempo, llegando a alcanzar a nuestros principales competidores.<br/><br/>
+&nbsp;&nbsp;&nbsp;Pretendemos convertirnos en la empresa líder en nuestro sector a través de decisiones que nos permitan aprovechar
+nuestras ventajas competitivas.
                 </div>
               </div>
               <div class="section_body_content  {{section_tap_1==1 ? '' : 'tap_menu_hidden'}}">
                 <div style="display: flex; width: 100%;">
                   <div style="width: calc(100% - 200px);">
                     <br /><br />
-                    <div class="section_body_content_title" style="font-weight: bold; font-size: 22px;"> MISIÓN</div><br /><br />
-                    <div style="text-align: center; font-size: 25px;">“Somos una empresa rentable que ofrece poleras
-                      exclusivas de alta calidad con diseños
-                      innovadores para personas que aprecian el buen vestir.”
-                    </div><br /><br />
+                    <div class="section_body_content_title" style="font-weight: bold; font-size: 22px;"> MISIÓN</div><br>
                   </div>
-                  <img src="/imagenes/LOGO SIMULADOR FINAL.png" style=" width: 200px;height: 200px;; ">
+                </div>
+                <div style="text-align: center; font-size: 25px;">
+                  <pre>
+“Somos una empresa rentable que ofrece poleras
+exclusivas de alta calidad con diseños innovadores 
+para personas que aprecian el buen vestir.”
+                </pre>
                 </div>
                 <div>
                   <div class="section_body_content_title" style=" float: right; font-weight: bold; font-size: 22px; ">VISIÓN
-                  </div><br /><br /><br /><br /><br />
-                  <div style="text-align: center; font-size: 25px;">“Ser una empresa referente en nuestro sector,
-                    reconocida por su excelente trato al
-                    cliente
-                    y productos de alta calidad”
+                  </div>
+                  <div style="text-align: center; font-size: 25px;">
+                    <br><br>
+                    <pre>
+“Ser una empresa referente en nuestro sector, reconocida
+por su excelente trato al cliente y productos de alta calidad.”
+</pre>
                   </div>
                 </div>
 
               </div>
               <div class="section_body_content  {{section_tap_1==2 ? '' : 'tap_menu_hidden'}}">
-                <img src="/imagenes/LOGO SIMULADOR FINAL.png" style="float: right; width: 250px;height: 200px; ">
-                <br /><br />
-                <div style="padding: 20px;">Ofrecemos poleras exclusivasde alta calidad con diseños innovadores para
-                  personas que aprecian el
-                  buen
-                  vestir.
-                  <br /><br />
-                  Contamos con un equipo de diseñadores gráficos que se encarga del arte que nosotros
-                  ponemos en
-                  cada uno de nuestros productos. <br /><br />
+                <div style="padding: 40px; text-align: justify; font-size: 17px">
+               
+                  <br/>&nbsp;&nbsp;&nbsp;Nuestra empresa ofrece poleras exclusivas y de alta calidad con diseños innovadores para personas
+ que aprecian el buen vestir. <br/><br/>
+ &nbsp;&nbsp;&nbsp;Contamos con un equipo de diseñadores gráficos que se encargan de crear el arte que nosotros
+ ponemos en cada uno de nuestros productos. Es importante mencionar que por políticas de la
+ empresa se maneja un precio único para todos nuestros diseños. <br/><br/>
+ &nbsp;&nbsp;&nbsp;Aquí te mostramos algunas poleras de nuestra colección actual: 
+                
                 </div>
 
                 <div>
@@ -156,24 +161,42 @@
                 </div>
               </div>
               <div class="section_body_content  {{section_tap_1==3 ? '' : 'tap_menu_hidden'}}" style="position: relative;">
-                <div style="background: url('/imagenes/Organigrama.JPG') no-repeat center; background-size: contain;width: calc(110% - 110px);height: calc(110% - 110px);position: absolute;top: 50px;"></div>
-                <img src="/imagenes/LOGO SIMULADOR FINAL.png" style="float: right; width: 200px;height: 200px;position: absolute;right: 0; ">
+                <div style="background: url('/imagenes/organigrama2.jpg') no-repeat center; background-size: contain;width: calc(110% - 110px);height: calc(110% - 110px);position: absolute;top: 50px;"></div>
+                    </div>
+
+              <div class="section_body_content  {{section_tap_1==5 ? '' : 'tap_menu_hidden'}}">
+              <pre>
+                   Esta pestaña se encuentra en desarrollo
+              </pre>
               </div>
-              <div class="section_body_content  {{section_tap_1==4 ? '' : 'tap_menu_hidden'}}"><img src="/imagenes/LOGO SIMULADOR FINAL.png"
-                  style="float: right; width: 250px; ">
-                <br /> <br /> <br />
+
+              <div class="section_body_content  {{section_tap_1==4 ? '' : 'tap_menu_hidden'}}">
+                 <br>
                 <div class="section_body_content_title" style="font-weight: bold;"> BIENVENIDO A LA EMPRESA
-                </div><br /> <br />
-                <div style="padding-left:50px;">
-                  Hoy la empresa se encuentra en las mismas condiciones que la competencia y no ha crecido en el
-                  último año.
-                  Es por eso que decidimos NOMBRARTE A TI como el nuevo gerente de {{(http.game)?http.game.name:""}}.
-                  <br /><br />
-                  Esperamos que mediante tus decisiones puedas llevar a la empresa a obtener el MAYOR
-                  PORCENTAJE de
-                  mercado y la mejor rentabilidad en los siguientes bimestres. ¡Confiamos en ti!
-                  <br /><br />
-                  Muchos éxitos.
+                </div>
+                <div style="padding-left:40px; padding-right: 40px ; font-size: 17px; text-align: justify">
+        <br/><br/>&nbsp;&nbsp;&nbsp;Después de unos años de trayectoria nuestra empresa ha logrado igualar a la compentencia y
+    actualmente, según los resultados del último bimestre, todas las empresas que competimos en
+    el mercado nos encontramos en igualdad de condiciones. Sin embargo; es nuestro deseo que
+    "{{(http.game)?http.game.name:""}}" se convierta en la líder del mercado y sea un referente de calidad
+    entre nuestros competidores y clientes. Es por tal motivo que hemos decidido contratarte como
+    gerente general de nuestra organización esperando que mediante tus decisiones administrativas nos ayudes a cumplir nuestras metas.<br/><br/>
+    &nbsp;&nbsp;&nbsp;Tus principales objetivos como nuevo gerente general de la empresa son:
+    <ul>
+    <li>
+        Obtener el mayor porcentaje del mercado (clientes) posibles en cada bimestre.
+    </li>
+    <li>
+        Obtener la mayor restabilidad posible de cada bimestre.
+    </li>
+    </ul>
+    &nbsp;&nbsp;&nbsp;Te recomendamos analizar los datos e información que se te brinda después de cada bimestre de manera detallada 
+        que las siguientes decisiones que tomes nos garanticen el éxito. Confiamos en ti, sabemos que lo harás muy bien.<br/><br/><br/><br/>
+                <div class="lower-case">
+                  (Consulta la "GUÍA DEL JUGADOR" para obtener más información acerca de tus objetivos y estrategias para ganar a tu competencia en la
+                  simulación.)
+                </div>
+            
                 </div>
               </div>
             </div>
@@ -223,21 +246,21 @@
                 </tr>
                 <tr>
                   <td>PRODUCCIÓN</td>
-                  <td>{{(http.game.player&&http.game.player.bimestre_inicial)?http.game.player.bimestre_inicial.produccion:""}}</td>
-                  <td >{{(http.game.player&&http.game.player.bimestre_uno)?http.game.player.bimestre_uno.produccion:""}}</td>
-                  <td >{{(http.game.player&&http.game.player.bimestre_dos)?http.game.player.bimestre_dos.produccion:""}}</td>
-                  <td>{{(http.game.player&&http.game.player.bimestre_tres)?http.game.player.bimestre_tres.produccion:""}}</td>
+                  <td >{{(http.game.player&&http.game.player.bimestre_inicial)?(http.game.player.bimestre_inicial.produccion | thousandPipe):""}}</td>
+                  <td >{{(http.game.player&&http.game.player.bimestre_uno)?(http.game.player.bimestre_uno.produccion | thousandPipe):""}}</td>
+                  <td >{{(http.game.player&&http.game.player.bimestre_dos)?(http.game.player.bimestre_dos.produccion | thousandPipe):""}}</td>
+                  <td >{{(http.game.player&&http.game.player.bimestre_tres)?(http.game.player.bimestre_tres.produccion | thousandPipe):""}}</td>
                   <td id="produccionTD">
                     <input class="input-width" type="number" id="produccion" name="produccion" [(ngModel)]="produccion"
-                      min="0" max="850" value=500 onkeydown=" return false"
-                      onchange="document.getElementById('precioUnitario').min=Math.round((this.value*35+ 30270)/this.value);" ></td>
+                      min="0" max="600" value=500 onkeydown=" return false"
+                      (change)="calcularLimitePrecioUnitario($event.target.value)"  ></td>
                 </tr>
                 <tr>
                   <td>INVERSIÓN EN MARKETING</td>
-                  <td>{{(http.game.player&&http.game.player.bimestre_inicial)?http.game.player.bimestre_inicial.inversionEnMarketing:""}}</td>
-                  <td>{{(http.game.player&&http.game.player.bimestre_uno)?http.game.player.bimestre_uno.inversionEnMarketing:""}}</td>
-                  <td>{{(http.game.player&&http.game.player.bimestre_dos)?http.game.player.bimestre_dos.inversionEnMarketing:""}}</td>
-                  <td>{{(http.game.player&&http.game.player.bimestre_tres)?http.game.player.bimestre_tres.inversionEnMarketing:""}}</td>
+                  <td>{{(http.game.player&&http.game.player.bimestre_inicial)?(http.game.player.bimestre_inicial.inversionEnMarketing | thousandPipe):""}}</td>
+                  <td>{{(http.game.player&&http.game.player.bimestre_uno)?(http.game.player.bimestre_uno.inversionEnMarketing | thousandPipe):""}}</td>
+                  <td>{{(http.game.player&&http.game.player.bimestre_dos)?(http.game.player.bimestre_dos.inversionEnMarketing | thousandPipe):""}}</td>
+                  <td>{{(http.game.player&&http.game.player.bimestre_tres)?(http.game.player.bimestre_tres.inversionEnMarketing | thousandPipe):""}}</td>
                   <td id="inversionEnMarketingTD">
                     <select class="input-width" type="number" (change)="onChangeinversionEnMarketings($event.target.value)">
                       <ng-container *ngFor="let inversion of inversionEnMarketings">
@@ -252,14 +275,10 @@
                 </tr>
                 <tr>
                   <td>INVERSIÓN EN INVESTIGACIÓN</td>
-                  <td>{{(http.game.player&&http.game.player.bimestre_inicial)?http.game.player.bimestre_inicial.inversionEnInvestigacion:""
-                    | thousandPipe}}</td>
-                  <td>{{(http.game.player&&http.game.player.bimestre_uno)?http.game.player.bimestre_uno.inversionEnInvestigacion:""
-                    | thousandPipe}}</td>
-                  <td>{{(http.game.player&&http.game.player.bimestre_dos)?http.game.player.bimestre_dos.inversionEnInvestigacion:""
-                    | thousandPipe}}</td>
-                  <td>{{(http.game.player&&http.game.player.bimestre_tres)?http.game.player.bimestre_tres.inversionEnInvestigacion:""
-                    | thousandPipe}}</td>
+                  <td>{{(http.game.player&&http.game.player.bimestre_inicial)?(http.game.player.bimestre_inicial.inversionEnInvestigacion | thousandPipe):""}}</td>
+                  <td>{{(http.game.player&&http.game.player.bimestre_uno)?(http.game.player.bimestre_uno.inversionEnInvestigacion | thousandPipe):""}}</td>
+                  <td>{{(http.game.player&&http.game.player.bimestre_dos)?(http.game.player.bimestre_dos.inversionEnInvestigacion | thousandPipe ):""}}</td>
+                  <td>{{(http.game.player&&http.game.player.bimestre_tres)?(http.game.player.bimestre_tres.inversionEnInvestigacion | thousandPipe):""}}</td>
                   <td id="inversionEnInvestigacionTD">
                     <select class="input-width" type="number" (change)="onChangeinversionEnInvestigacions($event.target.value)">
                       <ng-container *ngFor="let inversion of inversionEnInvestigacions">
@@ -274,10 +293,10 @@
                 </tr>
                 <tr>
                   <td>INVERSIÓN EN ACTIVOS</td>
-                  <td>{{(http.game.player&&http.game.player.bimestre_inicial)?http.game.player.bimestre_inicial.inversionEnActivos:""}}</td>
-                  <td>{{(http.game.player&&http.game.player.bimestre_uno)?http.game.player.bimestre_uno.inversionEnActivos:""}}</td>
-                  <td>{{(http.game.player&&http.game.player.bimestre_dos)?http.game.player.bimestre_dos.inversionEnActivos:""}}</td>
-                  <td>{{(http.game.player&&http.game.player.bimestre_tres)?http.game.player.bimestre_tres.inversionEnActivos:""}}</td>
+                  <td>{{(http.game.player&&http.game.player.bimestre_inicial)?(http.game.player.bimestre_inicial.inversionEnActivos| thousandPipe):""}}</td>
+                  <td>{{(http.game.player&&http.game.player.bimestre_uno)?(http.game.player.bimestre_uno.inversionEnActivos | thousandPipe):""}}</td>
+                  <td>{{(http.game.player&&http.game.player.bimestre_dos)?(http.game.player.bimestre_dos.inversionEnActivos | thousandPipe):""}}</td>
+                  <td>{{(http.game.player&&http.game.player.bimestre_tres)?(http.game.player.bimestre_tres.inversionEnActivos| thousandPipe):""}}</td>
                   <td id="inversionEnActivosTD">
                     <select class="input-width" type="number" (change)="onChangeinversionEnActivoss($event.target.value)">
                       <ng-container *ngFor="let inversion of inversionEnActivoss">
@@ -299,31 +318,29 @@
                 <ul style="list-style-type:none">
                   <li> <span> <i class="material-icons" (click)="general()" style="font-size:18px; color:blue;cursor: pointer">
                         arrow_right</i></span> CAPITAL PERIODO
-                    ANTERIOR&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{capitalPeriodoAnterior
+                    ANTERIOR &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {{capitalPeriodoAnterior
                     | thousandPipe}}</li>
                   <li><span> <i class="material-icons" (click)="ingresoDiv()" style="font-size:18px; color:blue;cursor: pointer">arrow_drop_down</i></span>
                     INGRESOS&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    {{precioUnitario*produccion+10000 | thousandPipe}}</li>
+                    {{precioUnitario*produccion | thousandPipe}}</li>
                   <div id="div-ingresos" style="padding-left: 20%">
                     <pre>VENTAS                                        {{precioUnitario*produccion | thousandPipe}} </pre>
-                    <pre>OTROS INGRESOS                     {{ 10000 | thousandPipe}}</pre>
+                    <pre>OTROS INGRESOS                              {{ 0 | thousandPipe}}</pre>
                   </div>
                   <li><span> <i class="material-icons" (click)="gastosDiv()" style="font-size:18px; color:blue ;cursor: pointer">arrow_drop_down</i></span>GASTOS&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    {{inversionEnMarketing +inversionEnInvestigacion+
-                    inversionEnActivos+produccion*35
-                    +30770 | thousandPipe}}</li>
+                    {{inversionEnMarketing + inversionEnActivos+inversionEnInvestigacion+produccion*50 +30770 | thousandPipe}}</li>
                   <div id="div-gastos" style="padding-left: 20%">
-                    <pre>PRODUCCIÓN                             {{produccion*35 +30770 | thousandPipe}}</pre>
-                    <pre>INV. MARKETING                           {{inversionEnMarketing | thousandPipe}}</pre>
-                    <pre>INV. INVESTIGACIÓN                    {{inversionEnInvestigacion | thousandPipe}}</pre>
-                    <pre>INV. ACTIVOS                                {{inversionEnActivos | thousandPipe}}</pre>
+                    <pre>COSTOS DE PRODUCCIÓN         {{produccion*50 +30770 | thousandPipe}}</pre>
+                    <pre>INV. MARKETING                            {{inversionEnMarketing | thousandPipe}}</pre>
+                    <pre>INV. INVESTIGACIÓN                     {{inversionEnInvestigacion | thousandPipe}}</pre>
+                    <pre>INV. ACTIVOS                                 {{inversionEnActivos | thousandPipe}}</pre>
 
                   </div>
                   <li><span> <i class="material-icons" (click)="resultadosDiv()" style="font-size:18px; color:blue;cursor: pointer">arrow_drop_down</i></span>RESULTADO
                   </li>
                   <div id="div-resultados" style="padding-left: 20%">
-                    <pre>EFECTIVO DISPONIBLE            {{capitalPeriodoAnterior+10000+precioUnitario*produccion+10000-(inversionEnMarketing + inversionEnActivos+inversionEnInvestigacion) | thousandPipe}} </pre>
-                    <pre>UTILIDAD ESPERADA                {{(precioUnitario*produccion+10000)-(inversionEnMarketing + inversionEnActivos+inversionEnInvestigacion+produccion*35 +30770) | thousandPipe}}</pre>
+                    <pre>EFECTIVO DISPONIBLE            {{capitalPeriodoAnterior+precioUnitario*produccion-(produccion*50 +30770+inversionEnMarketing + inversionEnActivos+inversionEnInvestigacion) | thousandPipe}} </pre>
+                    <pre>UTILIDAD ESPERADA                {{(precioUnitario*produccion)-(inversionEnMarketing + inversionEnActivos+inversionEnInvestigacion+produccion*50 +30770) | thousandPipe}}</pre>
                   </div>
                 </ul>
               </div>
@@ -333,7 +350,7 @@
             <button (click)="iniciar()" style="width:300px">
               {{http.game.bimestre_inicial_c==0?
               "ENVIAR MIS DECISIONES":
-              "aun "+http.game.bimestre_inicial_c+" falta jugadores"}}
+              "Aún faltan "+http.game.bimestre_inicial_c+" jugadores"}}
             </button></div>
         </div>
       </div>
@@ -342,17 +359,17 @@
       <div class="section_container_body">
         <div class="section_title">
           <div class="material-icons section_title_icon" style="background-color: #0D8EC8;">attach_money</div>
-          <div class="section_title_desc"> AN&#193;LISIS DE LA INDUSTRIA</div>
+          <div class="section_title_desc"> ANÁLISIS DE LA INDUSTRIA</div>
         </div>
         <div class="section_body">
           <div class="section_body_main">
             <div class="section_body_tab">
 
               <button (click)="VisionGeneral()" class="section_body_tab_button  {{section_tap_2==0 ? '' : 'tap_selected'}}">
-                VISION GENERAL
+                VISIÓN GENERAL
               </button>
               <button (click)="ProduccionTablaAnalisis()" class="section_body_tab_button  {{section_tap_2==1 ? '' : 'tap_selected'}}">
-                PRODUCCION
+                PRODUCCIÓN
               </button>
               <button (click)="VentasTablaAnalisis()" class="section_body_tab_button  {{section_tap_2==2 ? '' : 'tap_selected'}}">
                 VENTAS
@@ -392,7 +409,7 @@
       <div class="section_container_body">
         <div class="section_title">
           <div class="material-icons section_title_icon" style="background-color: #2EC3EC;">business_center</div>
-          <div class="section_title_desc">INFORMES DE LA COMPA&#209;&#205;A</div>
+          <div class="section_title_desc">INFORMES DE LA COMPAÑÍA</div>
         </div>
         <div class="section_body">
           <div class="section_body_main">
@@ -405,7 +422,7 @@
               <button (click)="Ventas()" class="section_body_tab_button  {{section_tap_3==2 ? '' : 'tap_selected'}}">VENTAS</button>
               <button (click)="Produccion()" class="section_body_tab_button  {{section_tap_3==3 ? '' : 'tap_selected'}}">COSTOS
                 DE PRODUCCIÓN</button>
-              <button (click)="Compania()" class="section_body_tab_button  {{section_tap_3==4 ? '' : 'tap_selected'}}">COMPAÑIA</button>
+              <button (click)="Compania()" class="section_body_tab_button  {{section_tap_3==4 ? '' : 'tap_selected'}}">COMPAÑÍA</button>
 
             </div>
             <div class="section_body_container">
@@ -445,7 +462,7 @@
       <div class="section_container_body">
         <div class="section_title">
           <div class="material-icons section_title_icon" style="background-color: #36A9E1;">search</div>
-          <div class="section_title_desc"> AN&#193;LISIS</div>
+          <div class="section_title_desc"> ANÁLISIS</div>
         </div>
         <div class="section_body">
           <div class="section_body_main">
@@ -457,8 +474,8 @@
               <button (click)="costovsprecio()" class="section_body_tab_button  {{section_tap_4==1 ? '' : 'tap_selected'}}">COSTO
                 VS PRECIO</button>
               <button (click)="capacidadvsproduccion()" class="section_body_tab_button  {{section_tap_4==2 ? '' : 'tap_selected'}}">CAPACIDAD
-                VS PRODUCCION</button>
-              <button (click)="companiavscompetencia()" class="section_body_tab_button  {{section_tap_4==3 ? '' : 'tap_selected'}}">COMPAÑIA
+                VS PRODUCCIÓN</button>
+              <button (click)="companiavscompetencia()" class="section_body_tab_button  {{section_tap_4==3 ? '' : 'tap_selected'}}">COMPAÑÍA
                 VS COMPETENCIA</button>
               <button (click)="consejos()" class="section_body_tab_button  {{section_tap_4==4 ? '' : 'tap_selected'}}">CONSEJOS</button>
 
@@ -486,9 +503,9 @@
                 <div id="consejosID">
 
                   <!-- <div *ngIf="ventas.inventarioUnidades > 50">  -->
-                  <p *ngIf="generarConsejo1()">Tus niveles de inventario estas creciendo. Te recomendamos idear
+                  <p *ngIf="generarConsejo1()">Tus niveles de inventario estan creciendo. Te recomendamos idear
                     estrategias para
-                    aumentar las ventas o disminuir sla producción.</p>
+                    aumentar las ventas o disminuir la producción.</p>
                   <p *ngIf="generarConsejo2()">Tu utilidad es muy baja. Te recomendamos idear estrategias para aumentar
                     las ventas,
                     aumentar ingresos o reducir los costos y gastos.</p>

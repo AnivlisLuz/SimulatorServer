@@ -2,7 +2,7 @@
   <table id="success">
     <thead>
       <tr>
-        <th>COMPAÑIA</th>
+        <th>COMPAÑÍA</th>
         <th>VENTAS</th>
         <th>BENEFICIO</th>
         <th>PRECIO U.</th>
@@ -12,7 +12,7 @@
 
     <tbody>
       <td>
-        <tr *ngFor="let visionG of http.game.players">{{visionG.name}}</tr>
+        <tr *ngFor="let visionG of visionGeneral">{{visionG.jugador}}</tr>
       </td>
       <td>
         <tr *ngFor="let visionG of visionGeneral">{{visionG.ventas | thousandPipe}}</tr>

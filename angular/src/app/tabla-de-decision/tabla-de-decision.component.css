@@ -109,7 +109,8 @@ aside {
   height: calc(100% - 140px);
   width: 100%;
   background-color: white;
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: scroll;
 }
 
 .section_body_main {
@@ -157,6 +158,7 @@ aside {
   line-height: 50px;
   text-align: center;
   color: white;
+  font-size: 20px;
 }
 
 .input-width {
@@ -321,4 +323,12 @@ pre {
   text-align: center;
   line-height: 100px;
   color: white
+}
+.centro 
+{
+  text-align: center;
+}
+.lower-case
+{
+font-size: 14px;
 }

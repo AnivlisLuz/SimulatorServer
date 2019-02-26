@@ -113,7 +113,7 @@ exports.getBimestrePorCodigoDeJuegoNombreNumero = (codigo, nombre, numero) => {
 }
 exports.getEmpresaPorCodigoDeJuegoYNombre = (codigo, nombre) => {
     return new Promise((resolve, reject) => {
-        db.all("select * from player where codigo = ?  AND name = ? ", [codigo, nombre], (error, res) => (error) ? reject(error) : resolve(res))
+        db.get("select * from player where codigo = ?  AND name = ? ", [codigo, nombre], (error, res) => (error) ? reject(error) : resolve(res))
     }).catch(error => {
         console.log("error getEmpresaPorCodigoDeJuegoYNombre", error)
         return []
@@ -155,7 +155,7 @@ exports.getAllVisionGeneralByCodigoYNumeroParaUpdate = async (codigo, numero) =>
 
 exports.getAllEstadoResultadosPorCodigoDeJuegoNombre = async (codigo, nombre) => {
     return new Promise((resolve, reject) => {
-        db.all("select * from estadoResultados where codigo = ? AND jugador = ? ", [codigo, nombre], (error, res) => (error) ? reject(error) : resolve(res))
+        db.all("select * from estadoResultados where codigo = ? AND jugador = ?", [codigo, nombre], (error, res) => (error) ? reject(error) : resolve(res))
     }).catch(error => {
         console.log("error getAllEstadoResultadosPorCodigoDeJuegoNombre", error)
         return []

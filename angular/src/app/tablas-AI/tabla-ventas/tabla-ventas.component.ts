@@ -8,6 +8,8 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class TablaVentasComponent implements OnInit {
   @Input() public ventasIndustria: VentasIndustria;
+  Math = Math
+
   constructor() {
   }
 

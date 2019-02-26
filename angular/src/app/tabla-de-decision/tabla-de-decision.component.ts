@@ -37,11 +37,11 @@ export class TablaDeDecisionComponent implements OnInit {
 
   precioUnitario: number = 150;
   produccion: number = 500;
-  inversionEnMarketings: number[] = [0, 1500, 3000, 4500, 6000];
+  inversionEnMarketings: number[] = [0, 500, 1800, 3100, 8300];
   inversionEnMarketing: number = this.inversionEnMarketings[0];
-  inversionEnInvestigacions: number[] = [0, 1500, 3000, 4500, 6000];
+  inversionEnInvestigacions: number[] = [0,1000, 2000, 3000, 4000];
   inversionEnInvestigacion: number = this.inversionEnInvestigacions[0];
-  inversionEnActivoss: number[] = [0, 1500, 3000, 4500, 6000];
+  inversionEnActivoss: number[] = [0,6000, 15000, 28000, 40000];
   inversionEnActivos: number = this.inversionEnActivoss[0];
 
   nombreEmpresa: string;
@@ -67,6 +67,7 @@ export class TablaDeDecisionComponent implements OnInit {
   sumatoriaCapacidadProduccion: number[];
   promedioPrecioUnitarios: number[];
   promedioERUtilidadNeta: number[];
+  produccionTotalIndustriaBimestres: number[]
 
 
 
@@ -78,7 +79,7 @@ export class TablaDeDecisionComponent implements OnInit {
   LineChart5: any;
   LineChart: any;
 
-  capitalPeriodoAnterior: number = 10000;
+  capitalPeriodoAnterior: number = 5930;
   auxiliarMercadoSinAtender: number;
   mercadoSinAtender: number;
   produccionIndustriaBimestres: Produccion[];
@@ -104,10 +105,10 @@ export class TablaDeDecisionComponent implements OnInit {
     this.visionGeneral = [];
     this.produccionIndustriaBimestres = [];
     this.ventasIndustriaBimestres = [];
-
     this.sumatoriaCapacidadProduccion = [];
     this.promedioPrecioUnitarios = [];
     this.promedioERUtilidadNeta = [];
+    this.produccionTotalIndustriaBimestres=[];
     if (!this.http.game)
       this.router.navigateByUrl('/jugar');
   }
@@ -122,6 +123,37 @@ export class TablaDeDecisionComponent implements OnInit {
   onChangeinversionEnActivoss(data) {
     console.log("changed onChangeinversionEnActivoss", data)
     this.inversionEnActivos = parseInt(data);
+    this.calcularLimiteProduccion(parseInt(data));
+  }
+  calcularLimiteProduccion(inversionActivos){
+    let produccion=document.getElementById("produccion")
+    let limite=600
+    if(inversionActivos === 0)
+      limite=600
+    if(inversionActivos === 6000)
+      limite=750
+    if(inversionActivos === 15000)
+      limite=900
+    if(inversionActivos === 28000)
+      limite=1140
+    if(inversionActivos === 40000)
+      limite=1500
+    produccion.setAttribute("max",limite.toString())
+  console.log(inversionActivos)
+  console.log(limite)
+    if(parseInt((<HTMLInputElement>document.getElementById("produccion")).value) >limite)
+      (<HTMLInputElement>document.getElementById("produccion")).value= limite.toString()
+
+  }
+  calcularLimitePrecioUnitario(data){
+    let precioUnitario=document.getElementById("precioUnitario")
+    let limite=Math.round((parseInt(data)*35+ 30270)/parseInt(data))
+    precioUnitario.setAttribute("min",limite.toString())
+    if(parseInt((<HTMLInputElement>document.getElementById("precioUnitario")).value) <limite)
+      (<HTMLInputElement>document.getElementById("precioUnitario")).value= limite.toString()
+
+
+
   }
   ngOnInit() {
 
@@ -522,7 +554,7 @@ export class TablaDeDecisionComponent implements OnInit {
     this.tap_position = 0;
 
     this.actualizarActivo();
-    this.bloquear(); 
+    this.bloquear();
 
     // document.getElementById("decisiones").style.display = "none";
     // document.getElementById("tabla-analisis-industria").style.display = "none";
@@ -566,7 +598,7 @@ export class TablaDeDecisionComponent implements OnInit {
     // document.getElementById("info-informeCompañia").style.display = "none";
     // document.getElementById("info-analisis").style.display = "none";
     this.actualizarActivo();
-    this.bloquear(); 
+    this.bloquear();
   }
 
   tanalisis() {
@@ -593,7 +625,7 @@ export class TablaDeDecisionComponent implements OnInit {
     });
 
     this.actualizarActivo();
-    this.bloquear(); 
+    this.bloquear();
 
     // document.getElementById("decisiones").style.display = "none";
     // document.getElementById("tabla-analisis-industria").style.display = "block";
@@ -628,6 +660,7 @@ export class TablaDeDecisionComponent implements OnInit {
         this.unicaValorPositivo=response.unicaValorPositivo
         console.log("estadoResultados front", this.estadoResultados)
         console.log("unicaValorPositivo front", this.unicaValorPositivo)
+        this.capitalPeriodoAnterior=this.estadoResultados[this.estadoResultados.length-1].utilidadNeta
         this.bloquear();
         }
     });
@@ -643,10 +676,10 @@ export class TablaDeDecisionComponent implements OnInit {
       if (response){
         this.ventas = response
         this.actualizarActivo();
-        this.bloquear();        
+        this.bloquear();
       }
     });
-    this.bloquear();        
+    this.bloquear();
     this.http.game.getCostosProduccion(this.numeroBimestre, (response) => {
       console.log("getCostosProduccion front", response)
       if (response)
@@ -654,7 +687,7 @@ export class TablaDeDecisionComponent implements OnInit {
     });
 
     this.actualizarActivo();
-    this.bloquear(); 
+    this.bloquear();
     // document.getElementById("decisiones").style.display = "none";
     // document.getElementById("tabla-analisis-industria").style.display = "none";
     // document.getElementById("informe").style.display = "block";
@@ -682,33 +715,50 @@ export class TablaDeDecisionComponent implements OnInit {
   }
   analisis() {
     this.tap_position = 4;
+
+    //produccion vs ventas //costo vs precio
     this.http.game.getAllProduccion((response) => {
       console.log("getAllProduccion front", response)
       this.produccionIndustriaBimestres = response
     });
+
+    //produccion vs ventas    
     this.http.game.getAllVentasIndustria((response) => {
       console.log("getAllVentasIndustria front", response)
       this.ventasIndustriaBimestres = response
     });
-    this.http.game.getPromedioUtilidadNeta((response) => {
+
+    //costo vs precio
+           this.http.game.getPromedioPrecioUnitarios((response) => {
+      console.log("getPromedioPrecioUnitarios  front", response)
+      this.promedioPrecioUnitarios = response
+    });
+
+    //capacidad vs produccion
+    this.http.game.getSumatoriaCapacidadProduccion((response) => {
+      console.log("getSumatoriaCapacidadProduccion  front", response)
+      this.sumatoriaCapacidadProduccion = response
+    });
+    this.http.game.getProduccionTotalIndustriaBimestres(this.numeroBimestre, (response) => {
+      console.log("getProduccionTotalIndustriaBimestres front", response)
+      if (response)
+        this.produccionTotalIndustriaBimestres=response
+    });
+
+    //compania vs competencia
+    this.http.game.getPromedioUtilidadNeta(this.numeroBimestre,(response) => {
       console.log("getPromedioUtilidadNeta front", response)
       this.promedioERUtilidadNeta = response
     });
     this.http.game.getEstadoResultados(this.numeroBimestre,(response) => {
       console.log("getEstadoResultados front", response)
-      this.estadoResultados = response
+      if (response){
+        this.estadoResultados = response.estadoResultados
+        this.bloquear();
+        }
     });
-    this.http.game.getSumatoriaCapacidadProduccion((response) => {
-      console.log("getSumatoriaCapacidadProduccion  front", response)
-      this.sumatoriaCapacidadProduccion = response
-    });
-    this.http.game.getPromedioPrecioUnitarios((response) => {
-      console.log("getPromedioPrecioUnitarios  front", response)
-      this.promedioPrecioUnitarios = response
-    });
-
     this.actualizarActivo();
-    this.bloquear(); 
+    this.bloquear();
     // document.getElementById("decisiones").style.display = "none";
     // document.getElementById("tabla-analisis-industria").style.display = "none";
     // document.getElementById("informe").style.display = "none";
@@ -815,6 +865,23 @@ export class TablaDeDecisionComponent implements OnInit {
     // document.getElementById("boton-objetivosID").style.backgroundColor = "rgb(8, 25, 43)";
   }
 
+  maquinaria() {
+    this.section_tap_1 = 5;
+    // document.getElementById("historiaID").style.display = "none";
+    // document.getElementById("mision-visionID").style.display = "none";
+    // document.getElementById("nuestro-productoID").style.display = "none";
+    // document.getElementById("organigramaID").style.display = "none";
+    // document.getElementById("objetivosID").style.display = "block";
+    // document.getElementById("titulo").innerText = "INFORMACIÓN DE LA COMPAÑIA";
+
+    // document.getElementById("boton-historiaID").style.backgroundColor = "rgb(24, 76, 133)";
+    // document.getElementById("boton-misionvisionID").style.backgroundColor = "rgb(24, 76, 133)";
+    // document.getElementById("boton-nuestroproductoID").style.backgroundColor = "rgb(24, 76, 133)";
+    // document.getElementById("boton-organigramaID").style.backgroundColor = "rgb(24, 76, 133)";
+    // document.getElementById("boton-objetivosID").style.backgroundColor = "rgb(8, 25, 43)";
+  }
+
+
   produccionvsventas() {
     this.section_tap_4 = 0;
     // document.getElementById("produccionvsventasID").style.display = "block";
@@ -918,7 +985,7 @@ export class TablaDeDecisionComponent implements OnInit {
       data: {
         labels: [],
         datasets: [{
-          label: 'Costo unitario de la industria (promedio)',
+          label: 'Costo medio de produccion (unitario)',
           data: [],
           fill: false,
           lineTension: 0.2,
@@ -926,7 +993,7 @@ export class TablaDeDecisionComponent implements OnInit {
           backgroundColor: "green",
           borderWidth: 1
         }, {
-          label: 'Precio unitario de la industria (promedio)',
+          label: 'Precio unitario (promedio)',
           data: [],
           fill: false,
           lineTension: 0.2,
@@ -994,7 +1061,7 @@ export class TablaDeDecisionComponent implements OnInit {
       data: {
         labels: [],
         datasets: [{
-          label: 'Capacidad de producción de la industria',
+          label: 'Capacidad de producción',
           data: [],
           fill: false,
           lineTension: 0.2,
@@ -1002,7 +1069,7 @@ export class TablaDeDecisionComponent implements OnInit {
           backgroundColor: "green",
           borderWidth: 1
         }, {
-          label: 'Produccion real de la industria',
+          label: 'Produccion de la industria',
           data: [],
           fill: false,
           lineTension: 0.2,
@@ -1027,19 +1094,15 @@ export class TablaDeDecisionComponent implements OnInit {
     });
 
     for (let i = 0; i < this.numeroBimestre; i++) {
-      this.LineChart4.data.datasets[1].data.push(this.sumatoriaCapacidadProduccion[i]);
+      this.LineChart4.data.datasets[0].data.push(this.sumatoriaCapacidadProduccion[i]);
       this.LineChart4.data.labels.push("Bimestre " + (i + 1));
       this.LineChart4.update();
     }
 
     for (let i = 0; i < this.numeroBimestre; i++) {
-      //this.LineChart4.data.labels.push("Bimestre "+this.produccionIndustriaBimestres[i].numero);
-      if (this.produccionIndustriaBimestres[i].costeMedioUnitarioActual != 0) {
-        this.LineChart4.data.datasets[0].data.push(this.produccionIndustriaBimestres[i].costeMedioUnitarioActual);
+        this.LineChart4.data.datasets[1].data.push(this.produccionTotalIndustriaBimestres[i]);
         this.LineChart4.update();
-      }
     }
-
   }
   companiavscompetencia() {
 
@@ -1444,7 +1507,7 @@ export class TablaDeDecisionComponent implements OnInit {
 
   generarConsejo1(): boolean {
 
-    if (this.ventas && this.ventas.inventarioUnidades && this.ventas.inventarioUnidades >= 50)
+    if (this.ventas && this.ventas.inventarioUnidades && this.ventas.inventarioUnidades > 100)
       return true;
     else
       return false;
@@ -1452,7 +1515,7 @@ export class TablaDeDecisionComponent implements OnInit {
   generarConsejo2(): boolean {
     let indice = this.estadoResultados.length;
     if (this.estadoResultados.length > 0) {
-      if (this.estadoResultados[indice - 1].utilidadNeta < 8000)
+      if (this.estadoResultados[indice - 1].utilidadNeta < 5000)
         return true;
       else
         return false;

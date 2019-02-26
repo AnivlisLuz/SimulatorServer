@@ -12,42 +12,42 @@
     <tbody>
       <tr>
         <td> + INGRESOS</td>
-        <td id="itemTipoNum">{{95000 | thousandPipe}}</td>
+        <td id="itemTipoNum">{{74200 | thousandPipe}}</td>
         <td *ngFor="let estado of estadoResultados" id="itemTipoNum">{{estado.ingresos | thousandPipe}}</td>
 
       </tr>
       <tr>
         <td>VENTAS</td>
-        <td>{{75000 | thousandPipe}}</td>
+        <td>{{90000 | thousandPipe}}</td>
         <td *ngFor="let estado of estadoResultados">{{estado.ventas | thousandPipe}}</td>
 
       </tr>
       <tr>
         <td id="subItemTipo1">OTROS INGRESOS</td>
-        <td>{{10000 | thousandPipe}}</td>
-        <td *ngFor="let estado of estadoResultados">{{estado.otrosIngresos}}</td>
+        <td>{{0 | thousandPipe}}</td>
+        <td *ngFor="let estado of estadoResultados">0</td>
 
       </tr>
 
       <tr>
         <td id="subItemTipo1">CAPITAL PERIODO ANTERIOR</td>
-        <td>{{10000 | thousandPipe}}</td>
-        <td *ngFor="let estado of estadoResultados">{{estado.capitalAnterior}}</td>
+        <td>{{-15800 | thousandPipe}}</td>
+        <td *ngFor="let estado of estadoResultados">{{estado.capitalAnterior | thousandPipe}}</td>
 
       </tr>
 
       <tr>
         <td>- COSTOS</td>
-        <td id="itemTipoNum">{{48270 | thousandPipe}}</td>
-        <td *ngFor="let estado of estadoResultados" id="itemTipoNum">{{estado.costos}}</td>
+        <td id="itemTipoNum">{{60770 | thousandPipe}}</td>
+        <td *ngFor="let estado of estadoResultados" id="itemTipoNum">{{estado.costos | thousandPipe}}</td>
 
       </tr>
 
       <tr>
 
         <td id="subItemTipo2">MATERIA PRIMA</td>
-        <td>{{17500 | thousandPipe}}</td>
-        <td *ngFor="let estado of estadoResultados">{{estado.materiaPrima}}</td>
+        <td>{{30000 | thousandPipe}}</td>
+        <td *ngFor="let estado of estadoResultados">{{estado.materiaPrima | thousandPipe}}</td>
 
       </tr>
 
@@ -66,13 +66,13 @@
 
       <tr style="background-color:rgb(14, 187, 230); ">
         <td>UTILIDAD BRUTA</td>
-        <td id="itemTipoNum">{{46730 | thousandPipe}}</td>
+        <td id="itemTipoNum">{{13430 | thousandPipe}}</td>
         <td *ngFor="let estado of estadoResultados" id="itemTipoNum">{{estado.utilidadBruta | thousandPipe}}</td>
       </tr>
 
       <tr>
         <td>-GASTOS OPERATIVOS</td>
-        <td id="itemTipoNum">{{8500 | thousandPipe}}</td>
+        <td id="itemTipoNum">{{7500 | thousandPipe}}</td>
         <td *ngFor="let estado of estadoResultados" id="itemTipoNum">{{estado.gastosOperativos | thousandPipe}}</td>
 
       </tr>
@@ -80,27 +80,27 @@
       <tr>
 
         <td id="subItemTipo1">INV. MARKETING</td>
-        <td>{{3500 | thousandPipe}}</td>
+        <td>{{500 | thousandPipe}}</td>
         <td *ngFor="let estado of estadoResultados"> {{estado.inversionMarketing | thousandPipe}}</td>
       </tr>
 
       <tr>
 
         <td id="subItemTipo1">INV. INVESTIGACIÓN</td>
-        <td>{{1500 | thousandPipe}}</td>
+        <td>{{1000 | thousandPipe}}</td>
         <td *ngFor="let estado of estadoResultados">{{estado.inversionInvestigacion | thousandPipe}}</td>
 
       </tr>
 
       <tr>
         <td id="subItemTipo1">INV. ACTIVOS</td>
-        <td>{{3500 | thousandPipe}}</td>
+        <td>{{6000 | thousandPipe}}</td>
         <td *ngFor="let estado of estadoResultados">{{estado.inversionActivos | thousandPipe}}</td>
       </tr>
 
       <tr style="background-color:rgb(14, 187, 230); ">
         <td>UTILIDAD NETA DEL EJERCICO</td>
-        <td id="itemTipoNum">{{38230 | thousandPipe}}</td>
+        <td id="itemTipoNum">{{5930 | thousandPipe}}</td>
         <td *ngFor="let estado of estadoResultados" id="itemTipoNum">{{estado.utilidadNeta | thousandPipe}}</td>
 
       </tr>
