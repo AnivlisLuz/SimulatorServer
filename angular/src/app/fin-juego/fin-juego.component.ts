@@ -37,7 +37,7 @@ export class FinJuegoComponent implements OnInit {
     {
       this.http.game.getVisionGeneral(1,(response) => {
               console.log("getVisionGeneral front", response)
-              this.visionGeneralUno=response
+              this.visionGeneralUno=response.visionGeneral
               console.log("visionGeneralUno front", this.visionGeneralUno)
 
             });
@@ -50,7 +50,7 @@ export class FinJuegoComponent implements OnInit {
     {
       this.http.game.getVisionGeneral(2,(response) => {
               console.log("getVisionGeneral front", response)
-              this.visionGeneralDos=response
+              this.visionGeneralDos=response.visionGeneral
               console.log("visionGeneralDos front", this.visionGeneralDos)
 
             });
@@ -64,7 +64,7 @@ export class FinJuegoComponent implements OnInit {
     {
       this.http.game.getVisionGeneral(3,(response) => {
               console.log("getVisionGeneral front", response)
-              this.visionGeneralTres=response
+              this.visionGeneralTres=response.visionGenerals
               console.log("visionGeneralTres front", this.visionGeneralTres)
 
             });
