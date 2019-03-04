@@ -714,18 +714,74 @@ export class TablaDeDecisionComponent implements OnInit {
     // document.getElementById("info-analisis").style.display = "none";
   }
   analisis() {
+    let element: HTMLElement = document.getElementById("prodvsventas") as HTMLElement;
     this.tap_position = 4;
+    this.LineChart2 = new Chart('lineChart2', {
+      type: 'line',
+      data: {
+        labels: [],
+        datasets: [{
+          label: 'Produccion de la industria',
+          data: [],
+          fill: false,
+          lineTension: 0.2,
+          borderColor: "green",
+          backgroundColor: "green",
+          borderWidth: 1
+        },
+        {
+          label: 'Ventas de la industria (unidades)',
+          data: [],
+          fill: false,
+          lineTension: 0.2,
+          borderColor: "red",
+          backgroundColor: "red",
+          borderWidth: 1
+        }]
+      },
+      options: {
+        title: {
+          text: "",
+          display: true
+        },
+        scales: {
+          yAxes: [{
+            ticks: {
+              beginAtZero: true
+            }
+          }]
+        }
+      }
+    });
 
     //produccion vs ventas //costo vs precio
     this.http.game.getAllProduccion((response) => {
       console.log("getAllProduccion front", response)
       this.produccionIndustriaBimestres = response
+
+    for (let i = 0; i < this.produccionIndustriaBimestres.length; i++) {
+      console.log("produccionIndustriaBimestres ==> ", this.produccionIndustriaBimestres[i]);
+
+      //this.LineChart2.data.labels.push("Bimestre "+this.produccionIndustriaBimestres[i].numero);
+      if (this.produccionIndustriaBimestres[i])
+        this.LineChart2.data.datasets[0].data.push(this.produccionIndustriaBimestres[i].produccionIndustriaValorActual);
+      this.LineChart2.update();
+    }
+
     });
 
-    //produccion vs ventas    
+    //produccion vs ventas
     this.http.game.getAllVentasIndustria((response) => {
       console.log("getAllVentasIndustria front", response)
       this.ventasIndustriaBimestres = response
+
+
+    for (let i = 0; i < this.numeroBimestre; i++) {
+      this.LineChart2.data.labels.push("Bimestre " + this.ventasIndustriaBimestres[i].numero);
+      this.LineChart2.data.datasets[1].data.push(this.ventasIndustriaBimestres[i].ventasIndustriaUnidadesActual);
+      this.LineChart2.update();
+    }
+
     });
 
     //costo vs precio
@@ -759,6 +815,12 @@ export class TablaDeDecisionComponent implements OnInit {
     });
     this.actualizarActivo();
     this.bloquear();
+
+
+    element.click();
+
+
+
     // document.getElementById("decisiones").style.display = "none";
     // document.getElementById("tabla-analisis-industria").style.display = "none";
     // document.getElementById("informe").style.display = "none";
