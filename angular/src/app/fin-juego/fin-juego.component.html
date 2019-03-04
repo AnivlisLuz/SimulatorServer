@@ -50,25 +50,25 @@
 
                 <tbody>
                   <td>
-                    <tr *ngFor="let visionG of http.game.players">{{visionG.name}}</tr>
+                    <tr *ngFor="let visionG of http.game.players">{{visionG.name | thousandPipe}}</tr>
                   </td>
                   <td>
-                    <tr *ngFor="let visionG of visionGeneralUno" class="color">{{visionG.beneficio}}</tr>
+                    <tr *ngFor="let visionG of visionGeneralUno" class="color">{{visionG.beneficio | thousandPipe}}</tr>
                   </td>
                   <td>
-                    <tr *ngFor="let visionG of visionGeneralUno">{{visionG.puntajeBeneficio}}</tr>
+                    <tr *ngFor="let visionG of visionGeneralUno">{{visionG.puntajeBeneficio | thousandPipe}}</tr>
                   </td>
                   <td>
-                    <tr *ngFor="let visionG of visionGeneralDos" class="color">{{visionG.beneficio}}</tr>
+                    <tr *ngFor="let visionG of visionGeneralDos" class="color">{{visionG.beneficio | thousandPipe}}</tr>
                   </td>
                   <td>
-                    <tr *ngFor="let visionG of visionGeneralDos">{{visionG.puntajeBeneficio}}</tr>
+                    <tr *ngFor="let visionG of visionGeneralDos">{{visionG.puntajeBeneficio | thousandPipe}}</tr>
                   </td>
                   <td>
-                    <tr *ngFor="let visionG of visionGeneralTres" class="color">{{visionG.beneficio}}</tr>
+                    <tr *ngFor="let visionG of visionGeneralTres" class="color">{{visionG.beneficio | thousandPipe}}</tr>
                   </td>
                   <td>
-                    <tr *ngFor="let visionG of visionGeneralTres">{{visionG.puntajeBeneficio}}</tr>
+                    <tr *ngFor="let visionG of visionGeneralTres">{{visionG.puntajeBeneficio | thousandPipe}}</tr>
                   </td>
                 </tbody>
               </table>
