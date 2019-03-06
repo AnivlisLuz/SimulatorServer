@@ -714,7 +714,6 @@ export class TablaDeDecisionComponent implements OnInit {
     // document.getElementById("info-analisis").style.display = "none";
   }
   analisis() {
-    let element: HTMLElement = document.getElementById("prodvsventas") as HTMLElement;
     this.tap_position = 4;
     this.LineChart2 = new Chart('lineChart2', {
       type: 'line',
@@ -817,7 +816,6 @@ export class TablaDeDecisionComponent implements OnInit {
     this.bloquear();
 
 
-    element.click();
 
 
 
