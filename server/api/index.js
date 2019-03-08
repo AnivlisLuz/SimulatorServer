@@ -1012,7 +1012,7 @@ class Empresa {
 //console.log("llego calcular FORMULA MAESTRA =>",precioUnitario,marketing, investigacion, activos, inventarioUnidadesAnterior)        
         let suma = 0
         for (let i = 0; i < players.length; i++) {
-            if (players[i].name != this.name)
+            if (players[i].jugador != this.name)
                 suma = suma + players[i].produccion
         }
 //console.log("suma =>",suma)
@@ -1331,7 +1331,7 @@ async function calcularTodo(codigoJuego, numeroBimestre) {
         player = await db.getEmpresaPorCodigoDeJuegoYNombre(codigoJuego, bimestre.jugador)
 //console.log("player =>",player,player.name, player.codigo, player.cantidadIdealTotal, bimestre.produccion, player.cantidadRealVendida, player.cantidadIdeal)                        
         empresa = new Empresa(player.name, player.codigo, player.cantidadIdealTotal, bimestre.produccion, player.cantidadRealVendida, player.cantidadIdeal)
-        empresa.calcular(empresas, bimestre.precioUnitario, bimestre.inversionEnMarketing, bimestre.inversionEnInvestigacion, bimestre.inversionEnActivos, ventasUnidades)
+        empresa.calcular(bimestres, bimestre.precioUnitario, bimestre.inversionEnMarketing, bimestre.inversionEnInvestigacion, bimestre.inversionEnActivos, ventasUnidades)
 //console.log("empresa =>",empresa)                
         db.updateEmpresa(empresa)
         cantidadRealVendida = 500
