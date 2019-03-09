@@ -1207,8 +1207,8 @@ class VentasIndustria {
         this.ventasIndustriaMonetarioAnterior = 450000
         this.precioUnitarioPromedioActual = 150
         this.precioUnitarioPromedioAnterior = 150
-        this.inventarioPromediosActual = 1
-        this.inventarioPromediosAnterior = 1
+        this.inventarioPromediosActual = 0
+        this.inventarioPromediosAnterior = 0
         this.numero = numeroBimestre
         this.codigo = codigo
         this.jugador = jugador
