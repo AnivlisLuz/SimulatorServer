@@ -1430,7 +1430,7 @@ async function calcularTodo(codigoJuego, numeroBimestre) {
                 visionGeneralElement.puntajeBeneficio = puntaje
                 puntaje -= 2;
             } else {
-                visionGeneralList[i].puntajeBeneficio = puntaje
+                visionGeneralElement.puntajeBeneficio = puntaje
             }
             db.updateVisionGeneral(visionGeneralElement)
         }
