@@ -1,4 +1,3 @@
-
 <div id="main_container">
   <aside>
     <div id="logo_container">
@@ -7,7 +6,7 @@
     </div>
     <div class="button_tab_container" style="background-color: #092B3A;">
       <button (click)="informacion()" class="boton-infomacion-compania tab_menu_button" style="background-color: #092B3A;">
-       DATOS SOBRE LA COMPAÑÍA
+        DATOS SOBRE LA COMPAÑÍA
       </button>
 
       <div class="{{tap_position==0 ? '' : 'tap_menu_hidden'}} tab_menu_description">
@@ -50,7 +49,7 @@
         ANÁLISIS
       </button>
       <div class="{{tap_position==4 ? '' : 'tap_menu_hidden'}} tab_menu_description">
-        En esta secciÓn puedes comparar variables para tener un panorama más claro de tus decisiones.
+        En esta sección puedes comparar variables para tener un panorama más claro de tus decisiones.
       </div>
     </div>
   </aside>
@@ -83,9 +82,9 @@
               </button>
 
               <button (click)="maquinaria()" class="section_body_tab_button  {{section_tap_1==5 ? '' : 'tap_selected'}}"
-              id="">
+                id="">
                 MAQUINARIA
-            </button>
+              </button>
 
               <button (click)="objetivos()" class="section_body_tab_button  {{section_tap_1==4 ? '' : 'tap_selected'}}"
                 id="D">
@@ -96,21 +95,28 @@
               <div class="section_body_content  {{section_tap_1==0 ? '' : 'tap_menu_hidden'}}">
                 <div style="padding: 40px;text-align: justify;">
                   <img src="/imagenes/LOGO SIMULADOR FINAL.png" style="float: right; width: 250px;"><br /><br /><br />
-                 <div class="centro" style="font-weight: bold;">
-                  <U>UNA BREVE HISTORIA SOBRE NOSOTROS</U>
-                </div>
-                <br/>
-                <br/>&nbsp;&nbsp;&nbsp;&nbsp;La empresa "{{(http.game)?http.game.name:""}}", inicio sus actividades en el año 2005.<br/><br/>
-                &nbsp;&nbsp;&nbsp;Desde el comienzo de nuestras actividades, nos especializamos en la venta de poleras de alta calidad con diseños
-innovadores y que están en constante actualización según las tendencias del mercado. <br/><br/>
-&nbsp;&nbsp;&nbsp;Con el transcurso de los años hemos incorporado nuevas líneas de productos con el objetivo de proveer a nuestros 
-clientes una solución integral a sus necesidades. Contamos con un excelente grupo humano el cual se capacita en
-forma permanente a fin de estar actualizado en los cambios e innovaciones tecnológicas que se presentan en nuestro
-ámbito.<br/><br/>
-&nbsp;&nbsp;&nbsp;La calidad de nuestros productos y la excelencia en nuestro servicio nos han permitido posicionarnos en el mercado
-en muy poco tiempo, llegando a alcanzar a nuestros principales competidores.<br/><br/>
-&nbsp;&nbsp;&nbsp;Pretendemos convertirnos en la empresa líder en nuestro sector a través de decisiones que nos permitan aprovechar
-nuestras ventajas competitivas.
+                  <div class="centro" style="font-weight: bold;">
+                    <U>UNA BREVE HISTORIA SOBRE NOSOTROS</U>
+                  </div>
+                  <br />
+                  <br />&nbsp;&nbsp;&nbsp;&nbsp;La empresa "{{(http.game)?http.game.name:""}}", inicio sus actividades
+                  en el año 2005.<br /><br />
+                  &nbsp;&nbsp;&nbsp;Desde el comienzo de nuestras actividades, nos especializamos en la venta de
+                  poleras de alta calidad con diseños
+                  innovadores y que están en constante actualización según las tendencias del mercado. <br /><br />
+                  &nbsp;&nbsp;&nbsp;Con el transcurso de los años hemos incorporado nuevas líneas de productos con el
+                  objetivo de proveer a nuestros
+                  clientes una solución integral a sus necesidades. Contamos con un excelente grupo humano el cual se
+                  capacita en
+                  forma permanente a fin de estar actualizado en los cambios e innovaciones tecnológicas que se
+                  presentan en nuestro
+                  ámbito.<br /><br />
+                  &nbsp;&nbsp;&nbsp;La calidad de nuestros productos y la excelencia en nuestro servicio nos han
+                  permitido posicionarnos en el mercado
+                  en muy poco tiempo, llegando a alcanzar a nuestros principales competidores.<br /><br />
+                  &nbsp;&nbsp;&nbsp;Pretendemos convertirnos en la empresa líder en nuestro sector a través de
+                  decisiones que nos permitan aprovechar
+                  nuestras ventajas competitivas.
                 </div>
               </div>
               <div class="section_body_content  {{section_tap_1==1 ? '' : 'tap_menu_hidden'}}">
@@ -142,62 +148,70 @@ por su excelente trato al cliente y productos de alta calidad.”
               </div>
               <div class="section_body_content  {{section_tap_1==2 ? '' : 'tap_menu_hidden'}}">
                 <div style="padding: 40px; text-align: justify; font-size: 17px">
-               
-                  <br/>&nbsp;&nbsp;&nbsp;Nuestra empresa ofrece poleras exclusivas y de alta calidad con diseños innovadores para personas
- que aprecian el buen vestir. <br/><br/>
- &nbsp;&nbsp;&nbsp;Contamos con un equipo de diseñadores gráficos que se encargan de crear el arte que nosotros
- ponemos en cada uno de nuestros productos. Es importante mencionar que por políticas de la
- empresa se maneja un precio único para todos nuestros diseños. <br/><br/>
- &nbsp;&nbsp;&nbsp;Aquí te mostramos algunas poleras de nuestra colección actual: 
-                
+
+                  <br />&nbsp;&nbsp;&nbsp;Nuestra empresa ofrece poleras exclusivas y de alta calidad con diseños
+                  innovadores para personas
+                  que aprecian el buen vestir. <br /><br />
+                  &nbsp;&nbsp;&nbsp;Contamos con un equipo de diseñadores gráficos que se encargan de crear el arte que
+                  nosotros
+                  ponemos en cada uno de nuestros productos. Es importante mencionar que por políticas de la
+                  empresa se maneja un precio único para todos nuestros diseños. <br /><br />
+                  &nbsp;&nbsp;&nbsp;Aquí te mostramos algunas poleras de nuestra colección actual:
+
                 </div>
 
                 <div>
                   <div class="" style="display: flex;height: 220px;justify-content: center;width: 100%;">
-                      <div style="width: 200px;background: url('/imagenes/polera_1.jpg')center no-repeat;background-size: contain;"></div>
-                      <div style="width: 200px;background: url('/imagenes/polera_2.jpg')center no-repeat;background-size: contain;"></div>
-                      <div style="width: 200px;background: url('/imagenes/polera_3.jpg')center no-repeat;background-size: contain;"></div>
+                    <div style="width: 200px;background: url('/imagenes/polera_1.jpg')center no-repeat;background-size: contain;"></div>
+                    <div style="width: 200px;background: url('/imagenes/polera_2.jpg')center no-repeat;background-size: contain;"></div>
+                    <div style="width: 200px;background: url('/imagenes/polera_3.jpg')center no-repeat;background-size: contain;"></div>
                   </div>
                 </div>
               </div>
               <div class="section_body_content  {{section_tap_1==3 ? '' : 'tap_menu_hidden'}}" style="position: relative;">
                 <div style="background: url('/imagenes/organigrama2.jpg') no-repeat center; background-size: contain;width: calc(110% - 110px);height: calc(110% - 110px);position: absolute;top: 50px;"></div>
-                    </div>
+              </div>
 
               <div class="section_body_content  {{section_tap_1==5 ? '' : 'tap_menu_hidden'}}">
-              <div class="maquinaria">
-                <br>
-                <img src="/imagenes/maquinaria.png" class="maquinaria-foto">
-              </div>
+                <div class="maquinaria">
+                  <br>
+                  <img src="/imagenes/maquinaria.png" class="maquinaria-foto">
+                </div>
               </div>
 
               <div class="section_body_content  {{section_tap_1==4 ? '' : 'tap_menu_hidden'}}">
-                 <br>
+                <br>
                 <div class="section_body_content_title" style="font-weight: bold;"> BIENVENIDO A LA EMPRESA
                 </div>
                 <div style="padding-left:40px; padding-right: 40px ; font-size: 17px; text-align: justify">
-        <br/><br/>&nbsp;&nbsp;&nbsp;Después de unos años de trayectoria nuestra empresa ha logrado igualar a la compentencia y
-    actualmente, según los resultados del último bimestre, todas las empresas que competimos en
-    el mercado nos encontramos en igualdad de condiciones. Sin embargo; es nuestro deseo que
-    "{{(http.game)?http.game.name:""}}" se convierta en la líder del mercado y sea un referente de calidad
-    entre nuestros competidores y clientes. Es por tal motivo que hemos decidido contratarte como
-    gerente general de nuestra organización esperando que mediante tus decisiones administrativas nos ayudes a cumplir nuestras metas.<br/><br/>
-    &nbsp;&nbsp;&nbsp;Tus principales objetivos como nuevo gerente general de la empresa son:
-    <ul>
-    <li>
-        Obtener el mayor porcentaje del mercado (clientes) posibles en cada bimestre.
-    </li>
-    <li>
-        Obtener la mayor restabilidad posible de cada bimestre.
-    </li>
-    </ul>
-    &nbsp;&nbsp;&nbsp;Te recomendamos analizar los datos e información que se te brinda después de cada bimestre de manera detallada 
-        que las siguientes decisiones que tomes nos garanticen el éxito. Confiamos en ti, sabemos que lo harás muy bien.<br/><br/><br/><br/>
-                <div class="lower-case">
-                  (Consulta la "GUÍA DEL JUGADOR" para obtener más información acerca de tus objetivos y estrategias para ganar a tu competencia en la
-                  simulación.)
-                </div>
-            
+                  <br /><br />&nbsp;&nbsp;&nbsp;Después de unos años de trayectoria nuestra empresa ha logrado igualar
+                  a la compentencia y
+                  actualmente, según los resultados del último bimestre, todas las empresas que competimos en
+                  el mercado nos encontramos en igualdad de condiciones. Sin embargo; es nuestro deseo que
+                  "{{(http.game)?http.game.name:""}}" se convierta en la líder del mercado y sea un referente de
+                  calidad
+                  entre nuestros competidores y clientes. Es por tal motivo que hemos decidido contratarte como
+                  gerente general de nuestra organización esperando que mediante tus decisiones administrativas nos
+                  ayudes a cumplir nuestras metas.<br /><br />
+                  &nbsp;&nbsp;&nbsp;Tus principales objetivos como nuevo gerente general de la empresa son:
+                  <ul>
+                    <li>
+                      Obtener el mayor porcentaje del mercado (clientes) posibles en cada bimestre.
+                    </li>
+                    <li>
+                      Obtener la mayor restabilidad posible de cada bimestre.
+                    </li>
+                  </ul>
+                  &nbsp;&nbsp;&nbsp;Te recomendamos analizar los datos e información que se te brinda después de cada
+                  bimestre de manera detallada
+                  que las siguientes decisiones que tomes nos garanticen el éxito. Confiamos en ti, sabemos que lo
+                  harás muy bien.<br /><br /><br /><br />
+                  <div class="lower-case">
+                    (Consulta la "GUÍA DEL JUGADOR" para obtener más información acerca de tus objetivos y estrategias
+                    para ganar a tu competencia en la
+                    simulación.)
+                  </div>
+
                 </div>
               </div>
             </div>
@@ -247,21 +261,28 @@ por su excelente trato al cliente y productos de alta calidad.”
                 </tr>
                 <tr>
                   <td>PRODUCCIÓN</td>
-                  <td >{{(http.game.player&&http.game.player.bimestre_inicial)?(http.game.player.bimestre_inicial.produccion | thousandPipe):""}}</td>
-                  <td >{{(http.game.player&&http.game.player.bimestre_uno)?(http.game.player.bimestre_uno.produccion | thousandPipe):""}}</td>
-                  <td >{{(http.game.player&&http.game.player.bimestre_dos)?(http.game.player.bimestre_dos.produccion | thousandPipe):""}}</td>
-                  <td >{{(http.game.player&&http.game.player.bimestre_tres)?(http.game.player.bimestre_tres.produccion | thousandPipe):""}}</td>
+                  <td>{{(http.game.player&&http.game.player.bimestre_inicial)?(http.game.player.bimestre_inicial.produccion
+                    | thousandPipe):""}}</td>
+                  <td>{{(http.game.player&&http.game.player.bimestre_uno)?(http.game.player.bimestre_uno.produccion |
+                    thousandPipe):""}}</td>
+                  <td>{{(http.game.player&&http.game.player.bimestre_dos)?(http.game.player.bimestre_dos.produccion |
+                    thousandPipe):""}}</td>
+                  <td>{{(http.game.player&&http.game.player.bimestre_tres)?(http.game.player.bimestre_tres.produccion |
+                    thousandPipe):""}}</td>
                   <td id="produccionTD">
                     <input class="input-width" type="number" id="produccion" name="produccion" [(ngModel)]="produccion"
-                      min="0" max="600" value=500 onkeydown=" return false"
-                      (change)="calcularLimitePrecioUnitario($event.target.value)"  ></td>
+                      min="0" max="600" value=500 onkeydown=" return false" (change)="calcularLimitePrecioUnitario($event.target.value)"></td>
                 </tr>
                 <tr>
                   <td>INVERSIÓN EN MARKETING</td>
-                  <td>{{(http.game.player&&http.game.player.bimestre_inicial)?(http.game.player.bimestre_inicial.inversionEnMarketing | thousandPipe):""}}</td>
-                  <td>{{(http.game.player&&http.game.player.bimestre_uno)?(http.game.player.bimestre_uno.inversionEnMarketing | thousandPipe):""}}</td>
-                  <td>{{(http.game.player&&http.game.player.bimestre_dos)?(http.game.player.bimestre_dos.inversionEnMarketing | thousandPipe):""}}</td>
-                  <td>{{(http.game.player&&http.game.player.bimestre_tres)?(http.game.player.bimestre_tres.inversionEnMarketing | thousandPipe):""}}</td>
+                  <td>{{(http.game.player&&http.game.player.bimestre_inicial)?(http.game.player.bimestre_inicial.inversionEnMarketing
+                    | thousandPipe):""}}</td>
+                  <td>{{(http.game.player&&http.game.player.bimestre_uno)?(http.game.player.bimestre_uno.inversionEnMarketing
+                    | thousandPipe):""}}</td>
+                  <td>{{(http.game.player&&http.game.player.bimestre_dos)?(http.game.player.bimestre_dos.inversionEnMarketing
+                    | thousandPipe):""}}</td>
+                  <td>{{(http.game.player&&http.game.player.bimestre_tres)?(http.game.player.bimestre_tres.inversionEnMarketing
+                    | thousandPipe):""}}</td>
                   <td id="inversionEnMarketingTD">
                     <select class="input-width" type="number" (change)="onChangeinversionEnMarketings($event.target.value)">
                       <ng-container *ngFor="let inversion of inversionEnMarketings">
@@ -276,10 +297,14 @@ por su excelente trato al cliente y productos de alta calidad.”
                 </tr>
                 <tr>
                   <td>INVERSIÓN EN INVESTIGACIÓN</td>
-                  <td>{{(http.game.player&&http.game.player.bimestre_inicial)?(http.game.player.bimestre_inicial.inversionEnInvestigacion | thousandPipe):""}}</td>
-                  <td>{{(http.game.player&&http.game.player.bimestre_uno)?(http.game.player.bimestre_uno.inversionEnInvestigacion | thousandPipe):""}}</td>
-                  <td>{{(http.game.player&&http.game.player.bimestre_dos)?(http.game.player.bimestre_dos.inversionEnInvestigacion | thousandPipe ):""}}</td>
-                  <td>{{(http.game.player&&http.game.player.bimestre_tres)?(http.game.player.bimestre_tres.inversionEnInvestigacion | thousandPipe):""}}</td>
+                  <td>{{(http.game.player&&http.game.player.bimestre_inicial)?(http.game.player.bimestre_inicial.inversionEnInvestigacion
+                    | thousandPipe):""}}</td>
+                  <td>{{(http.game.player&&http.game.player.bimestre_uno)?(http.game.player.bimestre_uno.inversionEnInvestigacion
+                    | thousandPipe):""}}</td>
+                  <td>{{(http.game.player&&http.game.player.bimestre_dos)?(http.game.player.bimestre_dos.inversionEnInvestigacion
+                    | thousandPipe ):""}}</td>
+                  <td>{{(http.game.player&&http.game.player.bimestre_tres)?(http.game.player.bimestre_tres.inversionEnInvestigacion
+                    | thousandPipe):""}}</td>
                   <td id="inversionEnInvestigacionTD">
                     <select class="input-width" type="number" (change)="onChangeinversionEnInvestigacions($event.target.value)">
                       <ng-container *ngFor="let inversion of inversionEnInvestigacions">
@@ -294,10 +319,14 @@ por su excelente trato al cliente y productos de alta calidad.”
                 </tr>
                 <tr>
                   <td>INVERSIÓN EN ACTIVOS</td>
-                  <td>{{(http.game.player&&http.game.player.bimestre_inicial)?(http.game.player.bimestre_inicial.inversionEnActivos| thousandPipe):""}}</td>
-                  <td>{{(http.game.player&&http.game.player.bimestre_uno)?(http.game.player.bimestre_uno.inversionEnActivos | thousandPipe):""}}</td>
-                  <td>{{(http.game.player&&http.game.player.bimestre_dos)?(http.game.player.bimestre_dos.inversionEnActivos | thousandPipe):""}}</td>
-                  <td>{{(http.game.player&&http.game.player.bimestre_tres)?(http.game.player.bimestre_tres.inversionEnActivos| thousandPipe):""}}</td>
+                  <td>{{(http.game.player&&http.game.player.bimestre_inicial)?(http.game.player.bimestre_inicial.inversionEnActivos|
+                    thousandPipe):""}}</td>
+                  <td>{{(http.game.player&&http.game.player.bimestre_uno)?(http.game.player.bimestre_uno.inversionEnActivos
+                    | thousandPipe):""}}</td>
+                  <td>{{(http.game.player&&http.game.player.bimestre_dos)?(http.game.player.bimestre_dos.inversionEnActivos
+                    | thousandPipe):""}}</td>
+                  <td>{{(http.game.player&&http.game.player.bimestre_tres)?(http.game.player.bimestre_tres.inversionEnActivos|
+                    thousandPipe):""}}</td>
                   <td id="inversionEnActivosTD">
                     <select class="input-width" type="number" (change)="onChangeinversionEnActivoss($event.target.value)">
                       <ng-container *ngFor="let inversion of inversionEnActivoss">
@@ -319,7 +348,9 @@ por su excelente trato al cliente y productos de alta calidad.”
                 <ul style="list-style-type:none">
                   <li> <span> <i class="material-icons" (click)="general()" style="font-size:18px; color:blue;cursor: pointer">
                         arrow_right</i></span> CAPITAL PERIODO
-                    ANTERIOR &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {{capitalPeriodoAnterior
+                    ANTERIOR
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    {{capitalPeriodoAnterior
                     | thousandPipe}}</li>
                   <li><span> <i class="material-icons" (click)="ingresoDiv()" style="font-size:18px; color:blue;cursor: pointer">arrow_drop_down</i></span>
                     INGRESOS&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -329,7 +360,8 @@ por su excelente trato al cliente y productos de alta calidad.”
                     <pre>OTROS INGRESOS                              {{ 0 | thousandPipe}}</pre>
                   </div>
                   <li><span> <i class="material-icons" (click)="gastosDiv()" style="font-size:18px; color:blue ;cursor: pointer">arrow_drop_down</i></span>GASTOS&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    {{inversionEnMarketing + inversionEnActivos+inversionEnInvestigacion+produccion*50 +30770 | thousandPipe}}</li>
+                    {{inversionEnMarketing + inversionEnActivos+inversionEnInvestigacion+produccion*50 +30770 |
+                    thousandPipe}}</li>
                   <div id="div-gastos" style="padding-left: 20%">
                     <pre>COSTOS DE PRODUCCIÓN         {{produccion*50 +30770 | thousandPipe}}</pre>
                     <pre>INV. MARKETING                            {{inversionEnMarketing | thousandPipe}}</pre>
