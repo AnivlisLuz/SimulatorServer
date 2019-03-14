@@ -718,10 +718,10 @@ export class TablaDeDecisionComponent implements OnInit {
     this.LineChart2 = new Chart('lineChart2', {
       type: 'line',
       data: {
-        labels: [],
+        labels: ["Bimestre inicial"],
         datasets: [{
           label: 'Produccion de la industria',
-          data: [],
+          data: [3000],
           fill: false,
           lineTension: 0.2,
           borderColor: "green",
@@ -730,7 +730,7 @@ export class TablaDeDecisionComponent implements OnInit {
         },
         {
           label: 'Ventas de la industria (unidades)',
-          data: [],
+          data: [3000],
           fill: false,
           lineTension: 0.2,
           borderColor: "red",
@@ -961,10 +961,10 @@ export class TablaDeDecisionComponent implements OnInit {
     this.LineChart2 = new Chart('lineChart2', {
       type: 'line',
       data: {
-        labels: [],
+        labels: ["Bimestre inicial"],
         datasets: [{
           label: 'Produccion de la industria',
-          data: [],
+          data: [3000],
           fill: false,
           lineTension: 0.2,
           borderColor: "green",
@@ -973,7 +973,7 @@ export class TablaDeDecisionComponent implements OnInit {
         },
         {
           label: 'Ventas de la industria (unidades)',
-          data: [],
+          data: [3000],
           fill: false,
           lineTension: 0.2,
           borderColor: "red",
@@ -1043,10 +1043,10 @@ export class TablaDeDecisionComponent implements OnInit {
     this.LineChart3 = new Chart('lineChart3', {
       type: 'line',
       data: {
-        labels: [],
+        labels: ["Bimestre inicial"],
         datasets: [{
           label: 'Costo medio de produccion (unitario)',
-          data: [],
+          data: [101.283],
           fill: false,
           lineTension: 0.2,
           borderColor: "green",
@@ -1054,7 +1054,7 @@ export class TablaDeDecisionComponent implements OnInit {
           borderWidth: 1
         }, {
           label: 'Precio unitario (promedio)',
-          data: [],
+          data: [150],
           fill: false,
           lineTension: 0.2,
           borderColor: "red",
@@ -1119,7 +1119,7 @@ export class TablaDeDecisionComponent implements OnInit {
     this.LineChart4 = new Chart('lineChart4', {
       type: 'line',
       data: {
-        labels: [],
+        labels: ["Bimestre inicial"],
         datasets: [{
           label: 'Capacidad de producción',
           data: [],
@@ -1130,7 +1130,7 @@ export class TablaDeDecisionComponent implements OnInit {
           borderWidth: 1
         }, {
           label: 'Produccion de la industria',
-          data: [],
+          data: [3000],
           fill: false,
           lineTension: 0.2,
           borderColor: "red",
@@ -1153,7 +1153,7 @@ export class TablaDeDecisionComponent implements OnInit {
       }
     });
 
-    for (let i = 0; i < this.numeroBimestre; i++) {
+    for (let i = 0; i <=this.numeroBimestre; i++) {
       this.LineChart4.data.datasets[0].data.push(this.sumatoriaCapacidadProduccion[i]);
       this.LineChart4.data.labels.push("Bimestre " + (i + 1));
       this.LineChart4.update();
@@ -1192,10 +1192,10 @@ export class TablaDeDecisionComponent implements OnInit {
     this.LineChart5 = new Chart('lineChart5', {
       type: 'line',
       data: {
-        labels: [],
+        labels: ["Bimestre inicial"],
         datasets: [{
           label: 'Utilidad de la compañia',
-          data: [],
+          data: [5930],
           fill: false,
           lineTension: 0.2,
           borderColor: "green",
@@ -1204,7 +1204,7 @@ export class TablaDeDecisionComponent implements OnInit {
         }, {
           label: 'Utilidad promedio de la industria',
 
-          data: [],
+          data: [5930],
           fill: false,
           lineTension: 0.2,
           borderColor: "red",
@@ -1351,10 +1351,10 @@ export class TablaDeDecisionComponent implements OnInit {
     this.LineChart = new Chart('lineChart', {
       type: 'line',
       data: {
-        labels: [],
+        labels: ["Bimestre inicial"],
         datasets: [{
           label: 'Utilidad neta por bimestre',
-          data: [],
+          data: [5930],
           fill: false,
           lineTension: 0.2,
           borderColor: "red",

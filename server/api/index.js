@@ -757,7 +757,7 @@ class Mercado {
 
             let suma = 0;
 
-            for (let i = 1; i < 4; i++) {
+            for (let i = 0; i < 4; i++) {
                 for (let j = 0; j < bimestres.length; j++) {
                     let bimestre = {}
                     bimestre = bimestres[j]
