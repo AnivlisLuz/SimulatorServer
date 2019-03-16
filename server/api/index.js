@@ -678,6 +678,7 @@ class Mercado {
             visionGeneralElement.precioUnitario= Math.round(visionGeneralElement.precioUnitario)
             visionGeneralElement.beneficio= Math.round(visionGeneralElement.beneficio)
             visionGeneralElement.ventas= Math.round(visionGeneralElement.ventas)
+            visionGeneralElement.porcentajeDeMercado= Math.round(visionGeneralElement.porcentajeDeMercado)
             if(visionGeneralElement.porcentajeDeMercado>85){
                 existeGanadorPorcentajeMercado=true
             }
@@ -1031,7 +1032,7 @@ class Empresa {
 //console.log("cantidadRealVendida =>",this.cantidadRealVendida)        
     }
     calcularPorcentajeMercado(mercado) {
-        this.porcentajeDeMercado = Math.round((this.cantidadRealVendida * 100) / mercado)
+        this.porcentajeDeMercado = (this.cantidadRealVendida * 100) / mercado
     }
 }
 class BalanceGeneral {
@@ -1297,11 +1298,11 @@ function calcularProduccion(bimestres, costosProduccion, produccion) {
     db.saveProduccion(produccion)
 }
 
-// function sleep(ms) {
-//     return new Promise(resolve => {
-//         setTimeout(resolve, ms)
-//     })
-// }
+function sleep(ms) {
+    return new Promise(resolve => {
+        setTimeout(resolve, ms)
+    })
+}
 
 async function calcularTodo(codigoJuego, numeroBimestre) {
     let bimestres = []
@@ -1400,30 +1401,12 @@ async function calcularTodo(codigoJuego, numeroBimestre) {
 //console.log("----------------------------------------------------------------")
     let visionGeneralList = []
     let visionGeneralElement = {}
-    visionGeneralList = await db.getAllVisionGeneralByCodigoYNumeroParaUpdate(codigoJuego, numeroBimestre)
-    //console.log("visionGeneralList =>", visionGeneralList, "tam ", visionGeneralList.length)
-    if (visionGeneralList.length != 0) {
-        visionGeneralList.sort(function (a, b) {
+    //visionGeneralList = await db.getAllVisionGeneralByCodigoYNumeroOrderByPorcentajeDeMercado(codigoJuego, numeroBimestre)
+    visionGeneralList = await db.getAllVisionGeneralByCodigoYNumeroOrderByBeneficio(codigoJuego, numeroBimestre)    
+        /*visionGeneralList.sort(function (a, b) {
             return (a.porcentajeDeMercado > b.porcentajeDeMercado) ? 1 : ((b.porcentajeDeMercado < a.porcentajeDeMercado) ? -1 : 0)
-        })
+        })*/
         let puntaje = 2 * visionGeneralList.length
-        for (let i = visionGeneralList.length - 1; i >= 0; i--) {
-            //console.log("element", visionGeneralElement)
-
-            visionGeneralElement = visionGeneralList[i]
-            if (i > 0 && visionGeneralElement.porcentajeDeMercado != visionGeneralList[i - 1].porcentajeDeMercado) {
-                visionGeneralElement.puntajeMercado = puntaje
-                puntaje -= 2;
-            } else {
-                visionGeneralElement.puntajeMercado = puntaje
-            }
-            db.updateVisionGeneral(visionGeneralElement)
-        }
-        //console.log("ordeno porcentajeDeMercado")
-        visionGeneralList.sort(function (a, b) {
-            return (a.beneficio > b.beneficio) ? 1 : ((b.beneficio < a.beneficio) ? -1 : 0)
-        })
-        puntaje = 2 * visionGeneralList.length
         for (let i = visionGeneralList.length - 1; i >= 0; i--) {
             visionGeneralElement = visionGeneralList[i]
             if (i > 0 && visionGeneralElement.beneficio != visionGeneralList[i - 1].beneficio) {
@@ -1433,9 +1416,25 @@ async function calcularTodo(codigoJuego, numeroBimestre) {
                 visionGeneralElement.puntajeBeneficio = puntaje
             }
             db.updateVisionGeneral(visionGeneralElement)
+            await sleep(300)
+        }
+
+    visionGeneralList = await db.getAllVisionGeneralByCodigoYNumeroOrderByPorcentajeDeMercado(codigoJuego, numeroBimestre)
+        /*visionGeneralList.sort(function (a, b) {
+            return (a.beneficio > b.beneficio) ? 1 : ((b.beneficio < a.beneficio) ? -1 : 0)
+        })*/
+        puntaje = 2 * visionGeneralList.length
+        for (let i = visionGeneralList.length - 1; i >= 0; i--) {
+            visionGeneralElement = visionGeneralList[i]
+            if (i > 0 && visionGeneralElement.porcentajeDeMercado != visionGeneralList[i - 1].porcentajeDeMercado) {
+                visionGeneralElement.puntajeMercado = puntaje
+                puntaje -= 2;
+            } else {
+                visionGeneralElement.puntajeMercado = puntaje
+            }
+            db.updateVisionGeneral(visionGeneralElement)
         }
         console.log("como ordeno final", visionGeneralList)
-    }
 }
 async function ordenarPlayersPorNombreAsc(lista) {
     lista.sort(function (a, b) {

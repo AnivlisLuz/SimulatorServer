@@ -1131,7 +1131,7 @@ export class TablaDeDecisionComponent implements OnInit {
         labels: ["Bimestre inicial"],
         datasets: [{
           label: 'Capacidad de producción',
-          data: [3750],
+          data: [],
           fill: false,
           lineTension: 0.2,
           borderColor: "green",
