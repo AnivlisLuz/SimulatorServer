@@ -752,6 +752,14 @@ export class TablaDeDecisionComponent implements OnInit {
               }
             }
           }]
+        },
+        tooltips: {
+          mode: 'index',
+          intersect: false,
+        },
+        hover: {
+          mode: 'nearest',
+          intersect: true
         }
       }
     });
@@ -998,6 +1006,14 @@ export class TablaDeDecisionComponent implements OnInit {
               }
             }
           }]
+        },
+        tooltips: {
+          mode: 'index',
+          intersect: false,
+        },
+        hover: {
+          mode: 'nearest',
+          intersect: true
         }
       }
     });
@@ -1082,6 +1098,14 @@ export class TablaDeDecisionComponent implements OnInit {
               }
             }
           }]
+        },
+        tooltips: {
+          mode: 'index',
+          intersect: false,
+        },
+        hover: {
+          mode: 'nearest',
+          intersect: true
         }
       }
     });
@@ -1161,18 +1185,26 @@ export class TablaDeDecisionComponent implements OnInit {
               }
             }
           }]
+        },
+        tooltips: {
+          mode: 'index',
+          intersect: false,
+        },
+        hover: {
+          mode: 'nearest',
+          intersect: true
         }
       }
     });
 
-    for (let i = 0; i <this.numeroBimestre; i++) {
+    for (let i = 0; i <=this.numeroBimestre; i++) {
       this.LineChart4.data.datasets[0].data.push(Math.round(this.sumatoriaCapacidadProduccion[i]));
-      this.LineChart4.data.labels.push("Bimestre " + (i + 1));
       this.LineChart4.update();
     }
 
     for (let i = 0; i < this.numeroBimestre; i++) {
         this.LineChart4.data.datasets[1].data.push(Math.round(this.produccionTotalIndustriaBimestres[i]));
+        this.LineChart4.data.labels.push("Bimestre " + (i + 1));
         this.LineChart4.update();
     }
   }
@@ -1238,6 +1270,14 @@ export class TablaDeDecisionComponent implements OnInit {
               }
             }
           }]
+        },
+        tooltips: {
+          mode: 'index',
+          intersect: false,
+        },
+        hover: {
+          mode: 'nearest',
+          intersect: true
         }
       }
     });
@@ -1388,6 +1428,14 @@ export class TablaDeDecisionComponent implements OnInit {
               beginAtZero: true
             }
           }]
+        },
+        tooltips: {
+          mode: 'index',
+          intersect: false,
+        },
+        hover: {
+          mode: 'nearest',
+          intersect: true
         }
       }
     });
