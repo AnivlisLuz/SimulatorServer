@@ -746,7 +746,10 @@ export class TablaDeDecisionComponent implements OnInit {
         scales: {
           yAxes: [{
             ticks: {
-              beginAtZero: true
+              beginAtZero: true,
+              callback: function(valor, index, valores) {
+                return Number(valor).toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+              }
             }
           }]
         }
@@ -989,7 +992,10 @@ export class TablaDeDecisionComponent implements OnInit {
         scales: {
           yAxes: [{
             ticks: {
-              beginAtZero: true
+              beginAtZero: true,
+              callback: function(valor, index, valores) {
+                return Number(valor).toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+              }
             }
           }]
         }
@@ -1001,12 +1007,12 @@ export class TablaDeDecisionComponent implements OnInit {
 
       //this.LineChart2.data.labels.push("Bimestre "+this.produccionIndustriaBimestres[i].numero);
       if (this.produccionIndustriaBimestres[i])
-        this.LineChart2.data.datasets[0].data.push(this.produccionIndustriaBimestres[i].produccionIndustriaValorActual);
+        this.LineChart2.data.datasets[0].data.push(Math.round(this.produccionIndustriaBimestres[i].produccionIndustriaValorActual));
       this.LineChart2.update();
     }
     for (let i = 0; i < this.numeroBimestre; i++) {
       this.LineChart2.data.labels.push("Bimestre " + this.ventasIndustriaBimestres[i].numero);
-      this.LineChart2.data.datasets[1].data.push(this.ventasIndustriaBimestres[i].ventasIndustriaUnidadesActual);
+      this.LineChart2.data.datasets[1].data.push(Math.round(this.ventasIndustriaBimestres[i].ventasIndustriaUnidadesActual));
       this.LineChart2.update();
     }
 
@@ -1070,7 +1076,10 @@ export class TablaDeDecisionComponent implements OnInit {
         scales: {
           yAxes: [{
             ticks: {
-              beginAtZero: true
+              beginAtZero: true,
+              callback: function(valor, index, valores) {
+                return Number(valor).toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+              }
             }
           }]
         }
@@ -1078,7 +1087,7 @@ export class TablaDeDecisionComponent implements OnInit {
     });
 
     for (let i = 0; i < this.numeroBimestre; i++) {
-      this.LineChart3.data.datasets[1].data.push(this.promedioPrecioUnitarios[i]);
+      this.LineChart3.data.datasets[1].data.push(Math.round(this.promedioPrecioUnitarios[i]));
       this.LineChart3.data.labels.push("Bimestre " + (i + 1));
       this.LineChart3.update();
     }
@@ -1086,7 +1095,7 @@ export class TablaDeDecisionComponent implements OnInit {
     for (let i = 0; i < this.numeroBimestre; i++) {
       //this.LineChart3.data.labels.push("Bimestre "+this.produccionIndustriaBimestres[i].numero);
       if (this.produccionIndustriaBimestres[i].costeMedioUnitarioActual != 0) {
-        this.LineChart3.data.datasets[0].data.push(this.produccionIndustriaBimestres[i].costeMedioUnitarioActual);
+        this.LineChart3.data.datasets[0].data.push(Math.round(this.produccionIndustriaBimestres[i].costeMedioUnitarioActual));
         this.LineChart3.update();
       }
     }
@@ -1122,7 +1131,7 @@ export class TablaDeDecisionComponent implements OnInit {
         labels: ["Bimestre inicial"],
         datasets: [{
           label: 'Capacidad de producción',
-          data: [],
+          data: [3750],
           fill: false,
           lineTension: 0.2,
           borderColor: "green",
@@ -1146,21 +1155,24 @@ export class TablaDeDecisionComponent implements OnInit {
         scales: {
           yAxes: [{
             ticks: {
-              beginAtZero: true
+             beginAtZero: true,
+              callback: function(valor, index, valores) {
+                return Number(valor).toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+              }
             }
           }]
         }
       }
     });
 
-    for (let i = 0; i <=this.numeroBimestre; i++) {
-      this.LineChart4.data.datasets[0].data.push(this.sumatoriaCapacidadProduccion[i]);
+    for (let i = 0; i <this.numeroBimestre; i++) {
+      this.LineChart4.data.datasets[0].data.push(Math.round(this.sumatoriaCapacidadProduccion[i]));
       this.LineChart4.data.labels.push("Bimestre " + (i + 1));
       this.LineChart4.update();
     }
 
     for (let i = 0; i < this.numeroBimestre; i++) {
-        this.LineChart4.data.datasets[1].data.push(this.produccionTotalIndustriaBimestres[i]);
+        this.LineChart4.data.datasets[1].data.push(Math.round(this.produccionTotalIndustriaBimestres[i]));
         this.LineChart4.update();
     }
   }
@@ -1220,7 +1232,10 @@ export class TablaDeDecisionComponent implements OnInit {
         scales: {
           yAxes: [{
             ticks: {
-              beginAtZero: true
+              beginAtZero: true,
+              callback: function(valor, index, valores) {
+                return Number(valor).toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+              }
             }
           }]
         }
@@ -1228,12 +1243,12 @@ export class TablaDeDecisionComponent implements OnInit {
     });
 
     for (let i = 0; i < this.numeroBimestre; i++) {
-      this.LineChart5.data.datasets[1].data.push(this.promedioERUtilidadNeta[i]);
+      this.LineChart5.data.datasets[1].data.push(Math.round(this.promedioERUtilidadNeta[i]));
       this.LineChart5.data.labels.push("Bimestre " + (i + 1));
       this.LineChart5.update();
     }
     for (let i = 0; i < this.numeroBimestre; i++) {
-      this.LineChart5.data.datasets[0].data.push(this.estadoResultados[i].utilidadNeta);
+      this.LineChart5.data.datasets[0].data.push(Math.round(this.estadoResultados[i].utilidadNeta));
       //this.LineChart5.data.labels.push("Bimestre "+(i+1));
       this.LineChart5.update();
     }
