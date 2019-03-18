@@ -2,7 +2,7 @@
     <div class="backgrounds">
     </div>
 
-
+   
 <div class="box">
     <img src="/imagenes/Logo-business-simulator-(blanco).png" alt="" class="logo-cba1">
 
@@ -28,7 +28,7 @@
               <label>Edad</label>
 
           </div>
-          <br>
+          
         </div>
         <div class="select-style">
             <select  formControlName="ciudad" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.ciudad.errors }"required>
@@ -77,7 +77,6 @@
         <br>
 
         <input type="submit" name="" value="Unirse a un juego" (click)="jugar()">
-        <br>
         <br>
         <input type="submit" name="" value="Crear un juego" (click)="moderador()">
 </form>

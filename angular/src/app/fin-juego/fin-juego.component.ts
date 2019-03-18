@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpService } from './../../services/http.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { VisionGeneral } from './../../models/visionGeneral';
+import { Subscription, timer } from 'rxjs';
 
 
 @Component({
@@ -20,6 +21,7 @@ export class FinJuegoComponent implements OnInit {
   resultadosFinales:number[];
     //tab manager
   tap_position: number = 1;
+  subscription: Subscription;
 
   constructor(private http:HttpService,     private route:ActivatedRoute) {
     this.visionGeneralUno= [];
@@ -37,7 +39,7 @@ export class FinJuegoComponent implements OnInit {
     {
       this.http.game.getVisionGeneral(1,(response) => {
               console.log("getVisionGeneral front", response)
-              this.visionGeneralUno=response
+              this.visionGeneralUno=response.visionGeneral
               console.log("visionGeneralUno front", this.visionGeneralUno)
 
             });
@@ -50,21 +52,21 @@ export class FinJuegoComponent implements OnInit {
     {
       this.http.game.getVisionGeneral(2,(response) => {
               console.log("getVisionGeneral front", response)
-              this.visionGeneralDos=response
+              this.visionGeneralDos=response.visionGeneral
               console.log("visionGeneralDos front", this.visionGeneralDos)
 
             });
       for (let i = 0; i < this.visionGeneralDos.length; i++) {
           this.resultadosFinales[i]=this.resultadosFinales[i]+this.visionGeneralDos[i].puntajeBeneficio+this.visionGeneralDos[i].puntajeMercado;
       }
-      console.log("resultados fianles hasta bim 2 => ",this.resultadosFinales)    
+      console.log("resultados fianles hasta bim 2 => ",this.resultadosFinales)
 
     }
     if(this.http.game.bimestre_tres_c==0)
     {
       this.http.game.getVisionGeneral(3,(response) => {
               console.log("getVisionGeneral front", response)
-              this.visionGeneralTres=response
+              this.visionGeneralTres=response.visionGeneral
               console.log("visionGeneralTres front", this.visionGeneralTres)
 
             });
@@ -75,19 +77,17 @@ export class FinJuegoComponent implements OnInit {
     }
 }
 
-  ngOnInit() {
-    /*this.route.params.subscribe(params=>{
-      if( params['numeroBimestre']!=null){
-          this.numeroBimestre=params['numeroBimestre'];
-      }
-      this.numeroBimestre=params['numeroBimestre']
-      });*/
-  }
-  
+ngOnInit() {
+  this.subscription = timer(0, 15000).subscribe(result => this.cargar());
+}
+
+ngOnDestroy() {
+  this.subscription.unsubscribe();
+}
   parciales() {
     this.tap_position = 1;
     this.cargar();
-    
+
   }
   finales() {
     this.tap_position = 2;

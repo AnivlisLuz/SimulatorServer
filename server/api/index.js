@@ -258,21 +258,9 @@ exports.setSocket = io => {
             let _mercado = mercados[data.codigo]
             if (_mercado) {
                 _mercado.getEstadoResultados(data).then(result => {
-                    result.ingresos = Math.round(result.ingresos) 
-                    result.ventas = Math.round(result.ventas) 
-                    result.otrosIngresos = Math.round(result.otrosIngresos) 
-                    result.capitalAnterior = Math.round(result.capitalAnterior) 
-                    result.costos = Math.round(result.costos) 
-                    result.materiaPrima = Math.round(result.materiaPrima) 
-                    result.manoObra = Math.round(result.manoObra) 
-                    result.costosIndirectos = Math.round(result.costosIndirectos) 
-                    result.utilidadBruta = Math.round(result.utilidadBruta) 
-                    result.gastosOperativos = Math.round(result.gastosOperativos) 
-                    result.inversionMarketing = Math.round(result.inversionMarketing) 
-                    result.inversionInvestigacion = Math.round(result.inversionInvestigacion) 
-                    result.inversionActivos = Math.round(result.inversionActivos) 
-                    result.utilidadNeta = Math.round(result.utilidadNeta)
+                
                     client(result)
+                    console.log(result);
                     io.sockets.emit("getEstadoResultados(data)", result)
                 }).catch(error => {
                     client("error con el socket")
@@ -287,9 +275,7 @@ exports.setSocket = io => {
             let _mercado = mercados[data.codigo]
             if (_mercado) {
                 _mercado.getVisionGeneral(data).then(result => {
-                    result.precioUnitario= Math.round(result.precioUnitario)
-                    result.beneficio= Math.round(result.beneficio)
-                    result.ventas= Math.round(result.ventas)
+
                     client(result)
                     io.sockets.emit("getVisionGeneral(data)", result)
                 }).catch(error => {
@@ -622,6 +608,22 @@ class Mercado {
             //console.log("getEstadoResultados socket =>", estadoResultados)
             estadoResultados= await  db.getAllEstadoResultadosPorCodigoDeJuegoNombre(data.codigo,data.player_name)
             console.log("getEstadoResultados socket =>", estadoResultados)
+            for(let i=0;i<estadoResultados.length;i++){
+                estadoResultados[i].ingresos = Math.round(estadoResultados[i].ingresos) 
+                estadoResultados[i].ventas = Math.round(estadoResultados[i].ventas) 
+                estadoResultados[i].otrosIngresos = Math.round(estadoResultados[i].otrosIngresos) 
+                estadoResultados[i].capitalAnterior = Math.round(estadoResultados[i].capitalAnterior) 
+                estadoResultados[i].costos = Math.round(estadoResultados[i].costos) 
+                estadoResultados[i].materiaPrima = Math.round(estadoResultados[i].materiaPrima) 
+                estadoResultados[i].manoObra = Math.round(estadoResultados[i].manoObra) 
+                estadoResultados[i].costosIndirectos = Math.round(estadoResultados[i].costosIndirectos) 
+                estadoResultados[i].utilidadBruta = Math.round(estadoResultados[i].utilidadBruta) 
+                estadoResultados[i].gastosOperativos = Math.round(estadoResultados[i].gastosOperativos) 
+                estadoResultados[i].inversionMarketing = Math.round(estadoResultados[i].inversionMarketing) 
+                estadoResultados[i].inversionInvestigacion = Math.round(estadoResultados[i].inversionInvestigacion) 
+                estadoResultados[i].inversionActivos = Math.round(estadoResultados[i].inversionActivos) 
+                estadoResultados[i].utilidadNeta = Math.round(estadoResultados[i].utilidadNeta)
+            }
             //console.log("estadoResultadosJugadores socket =>", estadoResultadosJugadores)
             estadoResultadosJugadores=await db.getEstadoResultadosAllJugadoresPorCodigoDeJuegoNumero(data.codigo,data.numeroBimestre)
             console.log("estadoResultadosJugadores socket =>", estadoResultadosJugadores)
@@ -632,6 +634,7 @@ class Mercado {
             for(let i=0; i<estadoResultadosJugadores.length;i++)
             {
                 estadoResultadosJugadoresElement=estadoResultadosJugadores[i]
+
                 console.log("estadoResultadosJugadoresElement  =>", estadoResultadosJugadoresElement.utilidadNeta)
                 if(estadoResultadosJugadoresElement.utilidadNeta<0)
                 {
@@ -672,6 +675,9 @@ class Mercado {
         for (let j=0;j<visionGeneral.length;j++)
         {
             visionGeneralElement=visionGeneral[j]
+            visionGeneralElement.precioUnitario= Math.round(visionGeneralElement.precioUnitario)
+            visionGeneralElement.beneficio= Math.round(visionGeneralElement.beneficio)
+            visionGeneralElement.ventas= Math.round(visionGeneralElement.ventas)
             if(visionGeneralElement.porcentajeDeMercado>85){
                 existeGanadorPorcentajeMercado=true
             }
@@ -1006,7 +1012,7 @@ class Empresa {
 //console.log("llego calcular FORMULA MAESTRA =>",precioUnitario,marketing, investigacion, activos, inventarioUnidadesAnterior)        
         let suma = 0
         for (let i = 0; i < players.length; i++) {
-            if (players[i].name != this.name)
+            if (players[i].jugador != this.name)
                 suma = suma + players[i].produccion
         }
 //console.log("suma =>",suma)
@@ -1201,8 +1207,8 @@ class VentasIndustria {
         this.ventasIndustriaMonetarioAnterior = 450000
         this.precioUnitarioPromedioActual = 150
         this.precioUnitarioPromedioAnterior = 150
-        this.inventarioPromediosActual = 1
-        this.inventarioPromediosAnterior = 1
+        this.inventarioPromediosActual = 0
+        this.inventarioPromediosAnterior = 0
         this.numero = numeroBimestre
         this.codigo = codigo
         this.jugador = jugador
@@ -1325,7 +1331,7 @@ async function calcularTodo(codigoJuego, numeroBimestre) {
         player = await db.getEmpresaPorCodigoDeJuegoYNombre(codigoJuego, bimestre.jugador)
 //console.log("player =>",player,player.name, player.codigo, player.cantidadIdealTotal, bimestre.produccion, player.cantidadRealVendida, player.cantidadIdeal)                        
         empresa = new Empresa(player.name, player.codigo, player.cantidadIdealTotal, bimestre.produccion, player.cantidadRealVendida, player.cantidadIdeal)
-        empresa.calcular(empresas, bimestre.precioUnitario, bimestre.inversionEnMarketing, bimestre.inversionEnInvestigacion, bimestre.inversionEnActivos, ventasUnidades)
+        empresa.calcular(bimestres, bimestre.precioUnitario, bimestre.inversionEnMarketing, bimestre.inversionEnInvestigacion, bimestre.inversionEnActivos, ventasUnidades)
 //console.log("empresa =>",empresa)                
         db.updateEmpresa(empresa)
         cantidadRealVendida = 500
@@ -1424,7 +1430,7 @@ async function calcularTodo(codigoJuego, numeroBimestre) {
                 visionGeneralElement.puntajeBeneficio = puntaje
                 puntaje -= 2;
             } else {
-                visionGeneralList[i].puntajeBeneficio = puntaje
+                visionGeneralElement.puntajeBeneficio = puntaje
             }
             db.updateVisionGeneral(visionGeneralElement)
         }
