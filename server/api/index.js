@@ -676,9 +676,9 @@ class Mercado {
         {
             visionGeneralElement=visionGeneral[j]
             visionGeneralElement.precioUnitario= Math.round(visionGeneralElement.precioUnitario)
-            visionGeneralElement.beneficio= Math.round(visionGeneralElement.beneficio)
+            visionGeneralElement.beneficio= Math.trunc(visionGeneralElement.beneficio)
             visionGeneralElement.ventas= Math.round(visionGeneralElement.ventas)
-            visionGeneralElement.porcentajeDeMercado= Math.round(visionGeneralElement.porcentajeDeMercado)
+            visionGeneralElement.porcentajeDeMercado= Math.trunc(visionGeneralElement.porcentajeDeMercado)
             if(visionGeneralElement.porcentajeDeMercado>85){
                 existeGanadorPorcentajeMercado=true
             }
