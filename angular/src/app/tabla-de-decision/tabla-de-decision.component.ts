@@ -36,7 +36,7 @@ export class TablaDeDecisionComponent implements OnInit {
   section_tap_4: number = 0;
 
   precioUnitario: number = 150;
-  produccion: number = 500;
+  produccion: number = 600;
   inversionEnMarketings: number[] = [0, 500, 1800, 3100, 8300];
   inversionEnMarketing: number = this.inversionEnMarketings[0];
   inversionEnInvestigacions: number[] = [0,1000, 2000, 3000, 4000];

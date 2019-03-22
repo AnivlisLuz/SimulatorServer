@@ -129,7 +129,7 @@
                 <div style="text-align: center; font-size: 25px;">
                   <pre>
 “Somos una empresa rentable que ofrece poleras
-exclusivas de alta calidad con diseños innovadores 
+exclusivas de alta calidad con diseños innovadores
 para personas que aprecian el buen vestir.”
                 </pre>
                 </div>
@@ -255,7 +255,7 @@ por su excelente trato al cliente y productos de alta calidad.”
                   <td>{{(http.game.player&&http.game.player.bimestre_dos)?http.game.player.bimestre_dos.precioUnitario:""}}</td>
                   <td>{{(http.game.player&&http.game.player.bimestre_tres)?http.game.player.bimestre_tres.precioUnitario:""}}</td>
                   <td id="precioUnitarioTD"> <input class="input-width" type="number" id="precioUnitario" name="precioUnitario"
-                      [(ngModel)]="precioUnitario" min="96" max="300" value="bimestreActual.precioUnitario" onkeydown=" return false">
+                      [(ngModel)]="precioUnitario" min="96" max="300" value=150 onkeydown=" return false">
 
                   </td>
                 </tr>
@@ -271,7 +271,7 @@ por su excelente trato al cliente y productos de alta calidad.”
                     thousandPipe):""}}</td>
                   <td id="produccionTD">
                     <input class="input-width" type="number" id="produccion" name="produccion" [(ngModel)]="produccion"
-                      min="0" max="600" value=500 onkeydown=" return false" (change)="calcularLimitePrecioUnitario($event.target.value)"></td>
+                      min="0" max="600" value=600 onkeydown=" return false" (change)="calcularLimitePrecioUnitario($event.target.value)"></td>
                 </tr>
                 <tr>
                   <td>INVERSIÓN EN MARKETING</td>
