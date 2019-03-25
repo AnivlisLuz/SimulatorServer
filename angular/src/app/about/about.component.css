@@ -1,0 +1,27 @@
+.card-text
+{
+text-align: center;
+color: crimson;
+}
+.cuadro
+{
+   margin: 0;
+    padding: 0;
+    text-align: center;
+
+}
+.foto
+{
+    width: 200px;
+}
+.navbar
+{
+    background: transparent !important;
+    transition: 0.5s;
+}
+.navbar.scrolled
+{
+    background:#fff !important;
+    transition: 0.5s;
+
+}
