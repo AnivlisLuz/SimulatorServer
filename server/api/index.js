@@ -195,7 +195,7 @@ exports.setSocket = io => {
                 _mercado.getCostosProduccion(data).then(result => {
                     result.materiaPrima= Math.round(result.materiaPrima)
                     result.costoTotal= Math.round(result.costoTotal)
-                    result.costoUnitario= result.costoUnitario.toFixed(2)
+                    result.costoUnitario= result.costoUnitario
                     client(result)
                     io.sockets.emit("getCostosProduccion(data)", result)
                 }).catch(error => {
@@ -573,8 +573,14 @@ class Mercado {
         let player_tmp = this.players[data.player_name]
         if (player_tmp) {
             let costosProduccion = new CostosProduccion(data.numeroBimestre, data.codigo, data.player_name);
-            console.log("getCostosProduccion socket =>", costosProduccion)
+            console.log("getCostosProduccion socket =>", costosProduccion.costoUnitario)
             costosProduccion = await db.getCostoProduccionPorCodigoDeJuegoNombreNumeroF(data.codigo, data.player_name, data.numeroBimestre)
+            console.log("getCostosProduccion socket =>", costosProduccion.costoUnitario)
+            console.log(new Intl.NumberFormat('de-DE', { minimumFractionDigits: 2,maximumFractionDigits: 2}).format(costosProduccion.costoUnitario))
+            //costosProduccion.costoUnitario=costosProduccion.costoUnitario.toLocaleString('de-DE', {minimumFractionDigits: 2,maximumFractionDigits: 2})
+console.log("getCostosProduccion socket ============================>", costosProduccion.costoUnitario.toLocaleString(2))
+var n =123456789
+console.log("======+++++++++++++= ",new Intl.NumberFormat('de-DE').format(n))
             return costosProduccion
         }
     }
@@ -676,9 +682,9 @@ class Mercado {
         {
             visionGeneralElement=visionGeneral[j]
             visionGeneralElement.precioUnitario= Math.round(visionGeneralElement.precioUnitario)
-            visionGeneralElement.beneficio= Math.trunc(visionGeneralElement.beneficio)
+            visionGeneralElement.beneficio= Math.round(visionGeneralElement.beneficio)
             visionGeneralElement.ventas= Math.round(visionGeneralElement.ventas)
-            visionGeneralElement.porcentajeDeMercado= Math.trunc(visionGeneralElement.porcentajeDeMercado)
+            visionGeneralElement.porcentajeDeMercado= Math.round(visionGeneralElement.porcentajeDeMercado)
             if(visionGeneralElement.porcentajeDeMercado>85){
                 existeGanadorPorcentajeMercado=true
             }

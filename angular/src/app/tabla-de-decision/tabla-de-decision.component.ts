@@ -18,7 +18,7 @@ import { delay } from 'rxjs/operators';
 import { Chart } from 'chart.js';
 import { Alert } from 'selenium-webdriver';
 
-
+import 'chartjs-plugin-labels';
 
 
 @Component({
@@ -756,6 +756,12 @@ export class TablaDeDecisionComponent implements OnInit {
         tooltips: {
           mode: 'index',
           intersect: false,
+          callbacks: {
+                label: function(tooltipItem, data) {
+                    var value = data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index];
+                    return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+                }
+          }
         },
         hover: {
           mode: 'nearest',
@@ -1102,6 +1108,12 @@ export class TablaDeDecisionComponent implements OnInit {
         tooltips: {
           mode: 'index',
           intersect: false,
+          callbacks: {
+                label: function(tooltipItem, data,) {
+                    var value = data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index];
+                    return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+                }
+          }
         },
         hover: {
           mode: 'nearest',
@@ -1189,6 +1201,12 @@ export class TablaDeDecisionComponent implements OnInit {
         tooltips: {
           mode: 'index',
           intersect: false,
+          callbacks: {
+                label: function(tooltipItem, data) {
+                    var value = data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index];
+                    return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+                }
+          }
         },
         hover: {
           mode: 'nearest',
@@ -1274,6 +1292,12 @@ export class TablaDeDecisionComponent implements OnInit {
         tooltips: {
           mode: 'index',
           intersect: false,
+          callbacks: {
+                label: function(tooltipItem, data) {
+                    var value = data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index];
+                    return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+                }
+          }
         },
         hover: {
           mode: 'nearest',
@@ -1422,21 +1446,36 @@ export class TablaDeDecisionComponent implements OnInit {
           text: "Gráfica Utilidad Neta",
           display: true
         },
-        scales: {
-          yAxes: [{
-            ticks: {
-              beginAtZero: true
-            }
-          }]
-        },
-        tooltips: {
-          mode: 'index',
-          intersect: false,
-        },
         hover: {
           mode: 'nearest',
           intersect: true
-        }
+        },
+        responsive: true,
+        maintainAspectRatio: false,
+        tooltips: {
+          mode: 'index',
+          intersect: false,
+          callbacks: {
+                label: function(tooltipItem, data) {
+                    var value = data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index];
+                    return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+                }
+          } // end callbacks:
+        }, //end tooltips                
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero:true,
+                        callback: function(value, index, values) {
+                            if(parseInt(value) >= 1000){
+                               return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+                            } else {
+                               return value;
+                            }
+                       }                            
+                    }
+                }]
+            }
       }
     });
 
@@ -1522,11 +1561,11 @@ export class TablaDeDecisionComponent implements OnInit {
   PorcentajeMercado() {
     this.section_tap_2 = 3;
     //cargar visionGeneral
-    this.http.get('http://localhost:8080/visionGeneral/' + this.codigo + '/' + this.numeroBimestre).subscribe(
-      (response: any) => {
-        console.log(response);
-        this.visionGeneral = response;
-      });
+    //this.http.get('http://localhost:8080/visionGeneral/' + //this.codigo + '/' + this.numeroBimestre).subscribe(
+    //(response: any) => {
+    //console.log(response);
+    //this.visionGeneral = response;
+    //});
 
     // document.getElementById("VisionGeneralID").style.display = "none";
     // document.getElementById("ProduccionTablaAnalisisID").style.display = "none";
@@ -1556,6 +1595,21 @@ export class TablaDeDecisionComponent implements OnInit {
           text: "% Mercado",
           display: true,
           responsive: false
+        },
+        plugins:{
+          labels: [
+              {
+                render: 'label',
+                position: 'outside',
+                fontColor: 'black',
+                fontSize: 16
+              },
+              {
+                render: 'percentage',
+                fontColor: 'white',
+                fontSize: 16
+              }
+            ]
         }
       }
     });
