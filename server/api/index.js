@@ -436,6 +436,9 @@ class Mercado {
     addPlayer(name, codigo) {
         let player_tmp = this.players[name]
         if (player_tmp) {
+            if(!this.isFull()){
+                return "Nombre de empresa ocupado. Escoge otro nombre"
+            }
             return {
                 message: "ok"
             }
@@ -573,14 +576,14 @@ class Mercado {
         let player_tmp = this.players[data.player_name]
         if (player_tmp) {
             let costosProduccion = new CostosProduccion(data.numeroBimestre, data.codigo, data.player_name);
-            console.log("getCostosProduccion socket =>", costosProduccion.costoUnitario)
+            //console.log("getCostosProduccion socket =>", costosProduccion.costoUnitario)
             costosProduccion = await db.getCostoProduccionPorCodigoDeJuegoNombreNumeroF(data.codigo, data.player_name, data.numeroBimestre)
             console.log("getCostosProduccion socket =>", costosProduccion.costoUnitario)
-            console.log(new Intl.NumberFormat('de-DE', { minimumFractionDigits: 2,maximumFractionDigits: 2}).format(costosProduccion.costoUnitario))
+            //console.log(new Intl.NumberFormat('de-DE', { minimumFractionDigits: 2,maximumFractionDigits: 2}).format(costosProduccion.costoUnitario))
             //costosProduccion.costoUnitario=costosProduccion.costoUnitario.toLocaleString('de-DE', {minimumFractionDigits: 2,maximumFractionDigits: 2})
-console.log("getCostosProduccion socket ============================>", costosProduccion.costoUnitario.toLocaleString(2))
-var n =123456789
-console.log("======+++++++++++++= ",new Intl.NumberFormat('de-DE').format(n))
+//console.log("getCostosProduccion socket ============================>", costosProduccion.costoUnitario.toLocaleString(2))
+//var n =123456789
+//console.log("======+++++++++++++= ",new Intl.NumberFormat('de-DE').format(n))
             return costosProduccion
         }
     }
