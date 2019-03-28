@@ -18,7 +18,7 @@ import { delay } from 'rxjs/operators';
 import { Chart } from 'chart.js';
 import { Alert } from 'selenium-webdriver';
 
-
+import 'chartjs-plugin-labels';
 
 
 @Component({
@@ -36,7 +36,7 @@ export class TablaDeDecisionComponent implements OnInit {
   section_tap_4: number = 0;
 
   precioUnitario: number = 150;
-  produccion: number = 500;
+  produccion: number = 600;
   inversionEnMarketings: number[] = [0, 500, 1800, 3100, 8300];
   inversionEnMarketing: number = this.inversionEnMarketings[0];
   inversionEnInvestigacions: number[] = [0,1000, 2000, 3000, 4000];
@@ -718,10 +718,10 @@ export class TablaDeDecisionComponent implements OnInit {
     this.LineChart2 = new Chart('lineChart2', {
       type: 'line',
       data: {
-        labels: [],
+        labels: ["Bimestre inicial"],
         datasets: [{
           label: 'Produccion de la industria',
-          data: [],
+          data: [3000],
           fill: false,
           lineTension: 0.2,
           borderColor: "green",
@@ -730,7 +730,7 @@ export class TablaDeDecisionComponent implements OnInit {
         },
         {
           label: 'Ventas de la industria (unidades)',
-          data: [],
+          data: [3000],
           fill: false,
           lineTension: 0.2,
           borderColor: "red",
@@ -746,9 +746,26 @@ export class TablaDeDecisionComponent implements OnInit {
         scales: {
           yAxes: [{
             ticks: {
-              beginAtZero: true
+              beginAtZero: true,
+              callback: function(valor, index, valores) {
+                return Number(valor).toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+              }
             }
           }]
+        },
+        tooltips: {
+          mode: 'index',
+          intersect: false,
+          callbacks: {
+                label: function(tooltipItem, data) {
+                    var value = data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index];
+                    return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+                }
+          }
+        },
+        hover: {
+          mode: 'nearest',
+          intersect: true
         }
       }
     });
@@ -961,10 +978,10 @@ export class TablaDeDecisionComponent implements OnInit {
     this.LineChart2 = new Chart('lineChart2', {
       type: 'line',
       data: {
-        labels: [],
+        labels: ["Bimestre inicial"],
         datasets: [{
           label: 'Produccion de la industria',
-          data: [],
+          data: [3000],
           fill: false,
           lineTension: 0.2,
           borderColor: "green",
@@ -973,7 +990,7 @@ export class TablaDeDecisionComponent implements OnInit {
         },
         {
           label: 'Ventas de la industria (unidades)',
-          data: [],
+          data: [3000],
           fill: false,
           lineTension: 0.2,
           borderColor: "red",
@@ -989,9 +1006,20 @@ export class TablaDeDecisionComponent implements OnInit {
         scales: {
           yAxes: [{
             ticks: {
-              beginAtZero: true
+              beginAtZero: true,
+              callback: function(valor, index, valores) {
+                return Number(valor).toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+              }
             }
           }]
+        },
+        tooltips: {
+          mode: 'index',
+          intersect: false,
+        },
+        hover: {
+          mode: 'nearest',
+          intersect: true
         }
       }
     });
@@ -1001,12 +1029,12 @@ export class TablaDeDecisionComponent implements OnInit {
 
       //this.LineChart2.data.labels.push("Bimestre "+this.produccionIndustriaBimestres[i].numero);
       if (this.produccionIndustriaBimestres[i])
-        this.LineChart2.data.datasets[0].data.push(this.produccionIndustriaBimestres[i].produccionIndustriaValorActual);
+        this.LineChart2.data.datasets[0].data.push(Math.round(this.produccionIndustriaBimestres[i].produccionIndustriaValorActual));
       this.LineChart2.update();
     }
     for (let i = 0; i < this.numeroBimestre; i++) {
       this.LineChart2.data.labels.push("Bimestre " + this.ventasIndustriaBimestres[i].numero);
-      this.LineChart2.data.datasets[1].data.push(this.ventasIndustriaBimestres[i].ventasIndustriaUnidadesActual);
+      this.LineChart2.data.datasets[1].data.push(Math.round(this.ventasIndustriaBimestres[i].ventasIndustriaUnidadesActual));
       this.LineChart2.update();
     }
 
@@ -1043,10 +1071,10 @@ export class TablaDeDecisionComponent implements OnInit {
     this.LineChart3 = new Chart('lineChart3', {
       type: 'line',
       data: {
-        labels: [],
+        labels: ["Bimestre inicial"],
         datasets: [{
           label: 'Costo medio de produccion (unitario)',
-          data: [],
+          data: [101.283],
           fill: false,
           lineTension: 0.2,
           borderColor: "green",
@@ -1054,7 +1082,7 @@ export class TablaDeDecisionComponent implements OnInit {
           borderWidth: 1
         }, {
           label: 'Precio unitario (promedio)',
-          data: [],
+          data: [150],
           fill: false,
           lineTension: 0.2,
           borderColor: "red",
@@ -1070,15 +1098,32 @@ export class TablaDeDecisionComponent implements OnInit {
         scales: {
           yAxes: [{
             ticks: {
-              beginAtZero: true
+              beginAtZero: true,
+              callback: function(valor, index, valores) {
+                return Number(valor).toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+              }
             }
           }]
+        },
+        tooltips: {
+          mode: 'index',
+          intersect: false,
+          callbacks: {
+                label: function(tooltipItem, data,) {
+                    var value = data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index];
+                    return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+                }
+          }
+        },
+        hover: {
+          mode: 'nearest',
+          intersect: true
         }
       }
     });
 
     for (let i = 0; i < this.numeroBimestre; i++) {
-      this.LineChart3.data.datasets[1].data.push(this.promedioPrecioUnitarios[i]);
+      this.LineChart3.data.datasets[1].data.push(Math.round(this.promedioPrecioUnitarios[i]));
       this.LineChart3.data.labels.push("Bimestre " + (i + 1));
       this.LineChart3.update();
     }
@@ -1086,7 +1131,7 @@ export class TablaDeDecisionComponent implements OnInit {
     for (let i = 0; i < this.numeroBimestre; i++) {
       //this.LineChart3.data.labels.push("Bimestre "+this.produccionIndustriaBimestres[i].numero);
       if (this.produccionIndustriaBimestres[i].costeMedioUnitarioActual != 0) {
-        this.LineChart3.data.datasets[0].data.push(this.produccionIndustriaBimestres[i].costeMedioUnitarioActual);
+        this.LineChart3.data.datasets[0].data.push(Math.round(this.produccionIndustriaBimestres[i].costeMedioUnitarioActual));
         this.LineChart3.update();
       }
     }
@@ -1119,7 +1164,7 @@ export class TablaDeDecisionComponent implements OnInit {
     this.LineChart4 = new Chart('lineChart4', {
       type: 'line',
       data: {
-        labels: [],
+        labels: ["Bimestre inicial"],
         datasets: [{
           label: 'Capacidad de producción',
           data: [],
@@ -1130,7 +1175,7 @@ export class TablaDeDecisionComponent implements OnInit {
           borderWidth: 1
         }, {
           label: 'Produccion de la industria',
-          data: [],
+          data: [3000],
           fill: false,
           lineTension: 0.2,
           borderColor: "red",
@@ -1146,21 +1191,38 @@ export class TablaDeDecisionComponent implements OnInit {
         scales: {
           yAxes: [{
             ticks: {
-              beginAtZero: true
+             beginAtZero: true,
+              callback: function(valor, index, valores) {
+                return Number(valor).toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+              }
             }
           }]
+        },
+        tooltips: {
+          mode: 'index',
+          intersect: false,
+          callbacks: {
+                label: function(tooltipItem, data) {
+                    var value = data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index];
+                    return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+                }
+          }
+        },
+        hover: {
+          mode: 'nearest',
+          intersect: true
         }
       }
     });
 
-    for (let i = 0; i < this.numeroBimestre; i++) {
-      this.LineChart4.data.datasets[0].data.push(this.sumatoriaCapacidadProduccion[i]);
-      this.LineChart4.data.labels.push("Bimestre " + (i + 1));
+    for (let i = 0; i <=this.numeroBimestre; i++) {
+      this.LineChart4.data.datasets[0].data.push(Math.round(this.sumatoriaCapacidadProduccion[i]));
       this.LineChart4.update();
     }
 
     for (let i = 0; i < this.numeroBimestre; i++) {
-        this.LineChart4.data.datasets[1].data.push(this.produccionTotalIndustriaBimestres[i]);
+        this.LineChart4.data.datasets[1].data.push(Math.round(this.produccionTotalIndustriaBimestres[i]));
+        this.LineChart4.data.labels.push("Bimestre " + (i + 1));
         this.LineChart4.update();
     }
   }
@@ -1192,10 +1254,10 @@ export class TablaDeDecisionComponent implements OnInit {
     this.LineChart5 = new Chart('lineChart5', {
       type: 'line',
       data: {
-        labels: [],
+        labels: ["Bimestre inicial"],
         datasets: [{
           label: 'Utilidad de la compañia',
-          data: [],
+          data: [5930],
           fill: false,
           lineTension: 0.2,
           borderColor: "green",
@@ -1204,7 +1266,7 @@ export class TablaDeDecisionComponent implements OnInit {
         }, {
           label: 'Utilidad promedio de la industria',
 
-          data: [],
+          data: [5930],
           fill: false,
           lineTension: 0.2,
           borderColor: "red",
@@ -1220,20 +1282,37 @@ export class TablaDeDecisionComponent implements OnInit {
         scales: {
           yAxes: [{
             ticks: {
-              beginAtZero: true
+              beginAtZero: true,
+              callback: function(valor, index, valores) {
+                return Number(valor).toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+              }
             }
           }]
+        },
+        tooltips: {
+          mode: 'index',
+          intersect: false,
+          callbacks: {
+                label: function(tooltipItem, data) {
+                    var value = data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index];
+                    return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+                }
+          }
+        },
+        hover: {
+          mode: 'nearest',
+          intersect: true
         }
       }
     });
 
     for (let i = 0; i < this.numeroBimestre; i++) {
-      this.LineChart5.data.datasets[1].data.push(this.promedioERUtilidadNeta[i]);
+      this.LineChart5.data.datasets[1].data.push(Math.round(this.promedioERUtilidadNeta[i]));
       this.LineChart5.data.labels.push("Bimestre " + (i + 1));
       this.LineChart5.update();
     }
     for (let i = 0; i < this.numeroBimestre; i++) {
-      this.LineChart5.data.datasets[0].data.push(this.estadoResultados[i].utilidadNeta);
+      this.LineChart5.data.datasets[0].data.push(Math.round(this.estadoResultados[i].utilidadNeta));
       //this.LineChart5.data.labels.push("Bimestre "+(i+1));
       this.LineChart5.update();
     }
@@ -1351,10 +1430,10 @@ export class TablaDeDecisionComponent implements OnInit {
     this.LineChart = new Chart('lineChart', {
       type: 'line',
       data: {
-        labels: [],
+        labels: ["Bimestre inicial"],
         datasets: [{
           label: 'Utilidad neta por bimestre',
-          data: [],
+          data: [5930],
           fill: false,
           lineTension: 0.2,
           borderColor: "red",
@@ -1367,13 +1446,36 @@ export class TablaDeDecisionComponent implements OnInit {
           text: "Gráfica Utilidad Neta",
           display: true
         },
-        scales: {
-          yAxes: [{
-            ticks: {
-              beginAtZero: true
+        hover: {
+          mode: 'nearest',
+          intersect: true
+        },
+        responsive: true,
+        maintainAspectRatio: false,
+        tooltips: {
+          mode: 'index',
+          intersect: false,
+          callbacks: {
+                label: function(tooltipItem, data) {
+                    var value = data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index];
+                    return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+                }
+          } // end callbacks:
+        }, //end tooltips                
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero:true,
+                        callback: function(value, index, values) {
+                            if(parseInt(value) >= 1000){
+                               return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+                            } else {
+                               return value;
+                            }
+                       }                            
+                    }
+                }]
             }
-          }]
-        }
       }
     });
 
@@ -1459,11 +1561,11 @@ export class TablaDeDecisionComponent implements OnInit {
   PorcentajeMercado() {
     this.section_tap_2 = 3;
     //cargar visionGeneral
-    this.http.get('http://localhost:8080/visionGeneral/' + this.codigo + '/' + this.numeroBimestre).subscribe(
-      (response: any) => {
-        console.log(response);
-        this.visionGeneral = response;
-      });
+    //this.http.get('http://localhost:8080/visionGeneral/' + //this.codigo + '/' + this.numeroBimestre).subscribe(
+    //(response: any) => {
+    //console.log(response);
+    //this.visionGeneral = response;
+    //});
 
     // document.getElementById("VisionGeneralID").style.display = "none";
     // document.getElementById("ProduccionTablaAnalisisID").style.display = "none";
@@ -1493,6 +1595,21 @@ export class TablaDeDecisionComponent implements OnInit {
           text: "% Mercado",
           display: true,
           responsive: false
+        },
+        plugins:{
+          labels: [
+              {
+                render: 'label',
+                position: 'outside',
+                fontColor: 'black',
+                fontSize: 16
+              },
+              {
+                render: 'percentage',
+                fontColor: 'white',
+                fontSize: 16
+              }
+            ]
         }
       }
     });

@@ -330,7 +330,7 @@ exports.getAllBimestresByCodigo = (codigo,callback) => {
     db.all("select * from bimestre where codigo = ?" ,[codigo], callback)
 }*/
 exports.updateVisionGeneral = (vision) => {
-    db.run("update  visionGeneral set puntajeBeneficio = ?,puntajeMercado= ? where codigo = ? AND numero = ? AND jugador = ?", [vision.puntajeBeneficio, vision.puntajeMercado, vision.codigo, vision.numero, vision.jugador])
+    db.run("update visionGeneral set puntajeBeneficio = ?,puntajeMercado= ? where numero = ? AND codigo = ? AND jugador = ?", [vision.puntajeBeneficio, vision.puntajeMercado, vision.numero, vision.codigo, vision.jugador])
 }
 
 exports.getEstadoResultadosAllJugadoresPorCodigoDeJuegoNumero = async(codigo, numero) => {
@@ -352,5 +352,41 @@ exports.getEstadoResultadosAllJugadoresPorCodigoDeJuegoNumero = async(codigo, nu
 }
 
 exports.updateActivoEmpresa = (empresa) => {
-    db.run("update  player set activo=? where codigo = ? AND name = ?"  ,[empresa.activo,empresa.codigo,empresa.name])
+    db.run("update player set activo=? where codigo = ? AND name = ?"  ,[empresa.activo,empresa.codigo,empresa.name])
+}
+
+exports.getAllVisionGeneralByCodigoYNumeroOrderByPorcentajeDeMercado = async (codigo, numero, callback) => {
+    return new Promise((resolve, reject) => {
+        db.all("select * from visionGeneral where codigo = ?  AND numero = ? order by porcentajeDeMercado", [codigo, numero], (error, res) => {
+            if (error) {
+                reject(error)
+            } else {
+                resolve(res)
+            }
+        })
+    }).then(response => {
+        console.log("esta funcionando getAllVisionGeneralByCodigoYNumeroOrderByPorcentajeDeMercado", response)
+        return response
+    }).catch(error => {
+        console.log("error con funcionando getAllVisionGeneralByCodigoYNumeroOrderByPorcentajeDeMercado", response)
+        return []
+    })
+}
+
+exports.getAllVisionGeneralByCodigoYNumeroOrderByBeneficio = async (codigo, numero, callback) => {
+    return new Promise((resolve, reject) => {
+        db.all("select * from visionGeneral where codigo = ?  AND numero = ? order by beneficio", [codigo, numero], (error, res) => {
+            if (error) {
+                reject(error)
+            } else {
+                resolve(res)
+            }
+        })
+    }).then(response => {
+        console.log("esta funcionando getAllVisionGeneralByCodigoYNumeroOrderByBeneficio", response)
+        return response
+    }).catch(error => {
+        console.log("error con funcionando getAllVisionGeneralByCodigoYNumeroOrderByBeneficio", response)
+        return []
+    })
 }
