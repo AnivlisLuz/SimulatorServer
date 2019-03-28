@@ -6483,7 +6483,7 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 
 
 
-var config = { url: '8.183.129.92:8075', options: {} };
+var config = { url: '68.183.129.92:8075', options: {} };
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }

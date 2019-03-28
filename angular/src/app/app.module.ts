@@ -31,7 +31,7 @@ import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
 import { ThousandsPipe } from './separador-de-miles/thousand.pipe';
 import { AppRoutingModule, routingComponents } from './app-routing.module';
 
-const config: SocketIoConfig = { url: '8.183.129.92:8075', options: {} };
+const config: SocketIoConfig = { url: '68.183.129.92:8075', options: {} };
 @NgModule({
    declarations: [
       AppComponent,
