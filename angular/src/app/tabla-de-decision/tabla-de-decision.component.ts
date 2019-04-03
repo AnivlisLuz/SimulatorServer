@@ -1430,10 +1430,10 @@ export class TablaDeDecisionComponent implements OnInit {
     this.LineChart = new Chart('lineChart', {
       type: 'line',
       data: {
-        labels: ["Bimestre inicial"],
+        labels: [],
         datasets: [{
           label: 'Utilidad neta por bimestre',
-          data: [5930],
+          data: [],
           fill: false,
           lineTension: 0.2,
           borderColor: "red",
@@ -1605,7 +1605,7 @@ export class TablaDeDecisionComponent implements OnInit {
               font: {
                 resizable: true,
                 minSize: 12,
-                maxSize: 18
+                maxSize: 24
                     }
               }
         }

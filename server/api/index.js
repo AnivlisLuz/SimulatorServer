@@ -445,6 +445,11 @@ class Mercado {
         } else if (!this.isFull()) {
             this.players[name] = new Player(name, codigo)
             db.saveEmpresa(this.players[name])
+            if(this.isFull())
+            {
+                //calcularTodoPrueba({codigo: token,numeroBimestre:0})
+                calcularTodo(this.token,0);
+            }
             return {
                 message: "ok"
             }
@@ -1136,7 +1141,7 @@ class Ventas {
         this.inventarioUnidades = this.producidoUnidades + inventarioUnidadesAnterior - this.ventasRealizadasUnidades
         this.inventarioMonetario = this.inventarioUnidades * precioUnitario
         this.ventasRealizadasMonetario = this.ventasRealizadasUnidades * precioUnitario
-        if (cantidadIdeal <= (produccion + inventarioUnidadesAnterior))
+        if (this.numeroBimestre==0 || cantidadIdeal <= (produccion + inventarioUnidadesAnterior))
         {
             this.pedidosNoAtendidosUnidades = 0
         }
@@ -1325,10 +1330,10 @@ async function calcularTodo(codigoJuego, numeroBimestre) {
         bimestre = bimestres[i]
 //console.log("bimestre =>",bimestre)
         ventasUnidades = 0
-        utilidadNeta = 5930
+        utilidadNeta = -15800
         let ventasAnterior={}
         let estadoResultadosAnterior={}
-        if (bimestre.numero != 1) {
+        if (bimestre.numero != 0) {
             ventasAnterior = await db.getVentasPorCodigoDeJuegoNombreNumero(codigoJuego, bimestre.jugador, numeroBimestre - 1)
             //console.log("ventasAnterior ==>",ventasAnterior)
             estadoResultadosAnterior = await db.getEstadoResultadosPorCodigoDeJuegoNombreNumero(codigoJuego, bimestre.jugador, numeroBimestre - 1)
@@ -1390,10 +1395,10 @@ async function calcularTodo(codigoJuego, numeroBimestre) {
 //console.log("visionGeneral =>",visionGeneral)                     
         db.saveVisionGeneral(visionGeneral)
 
-        if (numeroBimestre == 1) {
-            produccion = new Produccion(1, codigoJuego, empresa.name)
+        if (numeroBimestre == 0) {
+            produccion = new Produccion(0, codigoJuego, empresa.name)
             produccion.calcular(bimestres,costosProduccionBimestre)
-            ventasIndustria = new VentasIndustria(1, codigoJuego, empresa.name)
+            ventasIndustria = new VentasIndustria(0, codigoJuego, empresa.name)
             ventasIndustria.calcular(bimestres,ventasBimestre)
             db.saveProduccion(produccion)
             db.saveVentasIndustria(ventasIndustria)
