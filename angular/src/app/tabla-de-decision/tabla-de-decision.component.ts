@@ -19,7 +19,7 @@ import { Chart } from 'chart.js';
 import { Alert } from 'selenium-webdriver';
 
 import 'chartjs-plugin-labels';
-
+import 'chartjs-plugin-piechart-outlabels';
 
 @Component({
   selector: 'app-tabla-de-decision',
@@ -1579,7 +1579,7 @@ export class TablaDeDecisionComponent implements OnInit {
     // document.getElementById("boton-PorcentajeMercadoID").style.backgroundColor = "rgb(0, 139, 208)";
     //Pie chart
     this.myPieChart = new Chart('pieI', {
-      type: 'pie',
+      type: 'outlabeledPie',
       data: {
         labels: [],
         datasets: [
@@ -1597,19 +1597,17 @@ export class TablaDeDecisionComponent implements OnInit {
           responsive: false
         },
         plugins:{
-          labels: [
-              {
-                render: 'label',
-                position: 'outside',
-                fontColor: 'black',
-                fontSize: 16
-              },
-              {
-                render: 'percentage',
-                fontColor: 'white',
-                fontSize: 16
+          legend: false,
+            outlabels: {
+              text: '%l %v' + '%',
+              color: 'white',
+              stretch: 45,
+              font: {
+                resizable: true,
+                minSize: 12,
+                maxSize: 18
+                    }
               }
-            ]
         }
       }
     });
@@ -1620,28 +1618,24 @@ export class TablaDeDecisionComponent implements OnInit {
       this.myPieChart.data.datasets[0].data.push(this.visionGeneral[i].porcentajeDeMercado);
       this.auxiliarMercadoSinAtender += (this.visionGeneral[i].porcentajeDeMercado);
       if (i == 0) {
-        this.myPieChart.data.datasets[0].borderColor.push("blue");
-        this.myPieChart.data.datasets[0].backgroundColor.push("blue");
+        this.myPieChart.data.datasets[0].borderColor.push("#FF3784");
+        this.myPieChart.data.datasets[0].backgroundColor.push("#FF3784");
       }
       if (i == 1) {
-        this.myPieChart.data.datasets[0].borderColor.push("green");
-        this.myPieChart.data.datasets[0].backgroundColor.push("green");
+        this.myPieChart.data.datasets[0].borderColor.push("#36A2EB");
+        this.myPieChart.data.datasets[0].backgroundColor.push("#36A2EB");
       }
       if (i == 2) {
-        this.myPieChart.data.datasets[0].borderColor.push("red");
-        this.myPieChart.data.datasets[0].backgroundColor.push("red");
+        this.myPieChart.data.datasets[0].borderColor.push("#4BC0C0");
+        this.myPieChart.data.datasets[0].backgroundColor.push("#4BC0C0");
       }
       if (i == 3) {
-        this.myPieChart.data.datasets[0].borderColor.push("orange");
-        this.myPieChart.data.datasets[0].backgroundColor.push("orange");
+        this.myPieChart.data.datasets[0].borderColor.push("#F77825");
+        this.myPieChart.data.datasets[0].backgroundColor.push("#F77825");
       }
       if (i == 4) {
-        this.myPieChart.data.datasets[0].borderColor.push("purple");
-        this.myPieChart.data.datasets[0].backgroundColor.push("purple");
-      }
-      if (i > 4) {
-        this.myPieChart.data.datasets[0].borderColor.push("yellow");
-        this.myPieChart.data.datasets[0].backgroundColor.push("yellow");
+        this.myPieChart.data.datasets[0].borderColor.push("#9966FF");
+        this.myPieChart.data.datasets[0].backgroundColor.push("#9966FF");
       }
       this.myPieChart.update();
     }
@@ -1649,8 +1643,8 @@ export class TablaDeDecisionComponent implements OnInit {
       this.mercadoSinAtender = 100 - this.auxiliarMercadoSinAtender;
       this.myPieChart.data.labels.push("Mercado sin atender");
       this.myPieChart.data.datasets[0].data.push(this.mercadoSinAtender);
-      this.myPieChart.data.datasets[0].borderColor.push("black");
-      this.myPieChart.data.datasets[0].backgroundColor.push("black");
+      this.myPieChart.data.datasets[0].borderColor.push("#000000");
+      this.myPieChart.data.datasets[0].backgroundColor.push("#000000");
       this.myPieChart.update();
     }
 
