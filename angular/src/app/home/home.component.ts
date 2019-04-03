@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { RouterLink, Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { HttpService } from './../../services/http.service';
 
 @Component({
   selector: 'app-home',
@@ -9,7 +10,12 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private router: Router, private formBuilder: FormBuilder) { }
+  jugador: string;
+  edad: number;
+  ciudad: string;
+
+
+  constructor(private http: HttpService,private router: Router, private formBuilder: FormBuilder) { }
   registerForm: FormGroup;
   submitted = false;
   ngOnInit() {
@@ -40,7 +46,26 @@ export class HomeComponent implements OnInit {
 
     // stop here if form is invalid
     if (this.registerForm.invalid) { return; }
+
+    this.almacenarDatos();
     this.router.navigateByUrl('/moderador');
+  }
+  almacenarDatos(){
+    this.jugador = this.registerForm.value.jugador
+    this.ciudad = this.registerForm.value.ciudad
+    this.edad = this.registerForm.value.edad
+
+    let json = { jugador: this.jugador, ciudad: this.ciudad, edad: this.edad }
+
+    this.http.post('/api/jugador', json).subscribe(
+     (response: any) => {
+       if (response.status == 2001) {
+         console.log('ok');
+     }
+       else {
+         console.log(response);
+       }
+     });
   }
 
   jugar() {
@@ -49,6 +74,7 @@ export class HomeComponent implements OnInit {
 
     // stop here if form is invalid
     if (this.registerForm.invalid) { return; }
+    this.almacenarDatos();
     this.router.navigateByUrl('/jugar');
   }
 }

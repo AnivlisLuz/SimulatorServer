@@ -420,8 +420,13 @@ exports.setSocket = io => {
         })
     });
 }
-
-class Mercado {
+exports.setApi = app => {
+        app.post('/api/jugador', (req, client) => {
+        client.send(req.body)
+        db.saveDatosJugadores(req.body)
+    })
+}
+class Mercado { 
 
     constructor(nombre, cantidad_judagores, token) {
         this.nombre = nombre
