@@ -32,7 +32,7 @@
         <td class="td2">INVENTARIOS PROMEDIO</td>
         <td class="td2">{{ventasIndustria.inventarioPromediosActual | thousandPipe}}</td>
         <td *ngIf="ventasIndustria.inventarioPromediosAnterior!=0" class="td2">{{Math.round((ventasIndustria.inventarioPromediosActual-ventasIndustria.inventarioPromediosAnterior)/ventasIndustria.inventarioPromediosAnterior*100)}} %</td>
-        <td *ngIf="ventasIndustria.inventarioPromediosAnterior==0" class="td2">{{ventasIndustria.inventarioPromediosActual-ventasIndustria.inventarioPromediosAnterior}}</td>
+        <td *ngIf="ventasIndustria.inventarioPromediosAnterior==0" class="td2">Incremento en {{ventasIndustria.inventarioPromediosActual-ventasIndustria.inventarioPromediosAnterior}} unidades</td>
       </tr>
 
     </tbody>
