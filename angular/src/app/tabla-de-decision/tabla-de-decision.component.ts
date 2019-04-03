@@ -617,6 +617,8 @@ export class TablaDeDecisionComponent implements OnInit {
       console.log("getProduccion front", response)
       if (response)
         this.produccionIndustria = response
+        this.produccionIndustria.costeMedioUnitarioActualDecimal=this.produccionIndustria.costeMedioUnitarioActual.toFixed(2).replace('.', ',').replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.');
+
     });
     this.http.game.getVentasIndustria(this.numeroBimestre, (response) => {
       console.log("getVentasIndustria front", response)
@@ -684,6 +686,8 @@ export class TablaDeDecisionComponent implements OnInit {
       console.log("getCostosProduccion front", response)
       if (response)
         this.costoProduccion = response
+
+        this.costoProduccion.costoUnitarioDecimal=this.costoProduccion.costoUnitario.toFixed(2).replace('.', ',').replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.');
     });
 
     this.actualizarActivo();
@@ -1461,7 +1465,7 @@ export class TablaDeDecisionComponent implements OnInit {
                     return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
                 }
           } // end callbacks:
-        }, //end tooltips                
+        }, //end tooltips
             scales: {
                 yAxes: [{
                     ticks: {
@@ -1472,7 +1476,7 @@ export class TablaDeDecisionComponent implements OnInit {
                             } else {
                                return value;
                             }
-                       }                            
+                       }
                     }
                 }]
             }
