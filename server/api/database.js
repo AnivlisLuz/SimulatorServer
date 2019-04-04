@@ -390,3 +390,9 @@ exports.getAllVisionGeneralByCodigoYNumeroOrderByBeneficio = async (codigo, nume
         return []
     })
 }
+
+
+
+exports.saveDatosJugadores = (datos) => {
+    db.run("insert into datos_jugadores(nombre,ciudad,edad) values(?,?,?)",  [datos.jugador,datos.ciudad,datos.edad])
+}

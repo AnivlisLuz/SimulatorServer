@@ -195,7 +195,6 @@ exports.setSocket = io => {
                 _mercado.getCostosProduccion(data).then(result => {
                     result.materiaPrima= Math.round(result.materiaPrima)
                     result.costoTotal= Math.round(result.costoTotal)
-                    result.costoUnitario= result.costoUnitario.toLocaleString(2)
                     client(result)
                     io.sockets.emit("getCostosProduccion(data)", result)
                 }).catch(error => {
@@ -214,8 +213,7 @@ exports.setSocket = io => {
                     result.produccionIndustriaValorAnterior=Math.round(result.produccionIndustriaValorAnterior)
                     result.costeMedioTotalActual=Math.round(result.costeMedioTotalActual)
                     result.costeMedioTotalAnterior=Math.round(result.costeMedioTotalAnterior)
-                    result.costeMedioUnitarioActual=result.costeMedioUnitarioActual.toFixed(2)
-                    result.costeMedioUnitarioAnterior=result.costeMedioUnitarioAnterior.toFixed(2)
+                   
                     result.capacidadProduccionActual=Math.round(result.capacidadProduccionActual)
                     result.capacidadProduccionAnterior=Math.round(result.capacidadProduccionAnterior)
                    
@@ -420,8 +418,13 @@ exports.setSocket = io => {
         })
     });
 }
-
-class Mercado {
+exports.setApi = app => {
+        app.post('/api/jugador', (req, client) => {
+        client.send(req.body)
+        db.saveDatosJugadores(req.body)
+    })
+}
+class Mercado { 
 
     constructor(nombre, cantidad_judagores, token) {
         this.nombre = nombre

@@ -13,7 +13,10 @@ app.use('/', express.static(__dirname + "/client/static"));
 app.get('/*', (req, res, next) => {
     res.sendFile(__dirname+'/client/static/index.html');
   });
+
+
 api.setSocket(io)
+api.setApi(app)
 
 server.listen(port);
 console.log(`server running at http://localhost:${port}`)
