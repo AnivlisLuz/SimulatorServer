@@ -4,7 +4,7 @@
       <tr>
         <th>DETALLE</th>
         <th>BIMESTRE INICIAL </th>
-        <th *ngFor="let estado of estadoResultados | slice:1;let i=index">BIMESTRE {{i | thousandPipe}}</th>
+        <th *ngFor="let estado of estadoResultados | slice:1;let i=index">BIMESTRE {{i+1 | thousandPipe}}</th>
 
       </tr>
     </thead>
