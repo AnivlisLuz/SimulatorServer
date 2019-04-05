@@ -749,7 +749,7 @@ class Mercado {
                 empresas.push(this.players[player].toString())
             }
             let indice = 0
-            for (let i = 1; i <= data.numeroBimestre; i++) {
+            for (let i = 0; i <= data.numeroBimestre; i++) {
                 let suma = 0
                 for (let j = 0; j < empresas.length; j++) {
                     let estadoResultadosPersonal = {}
@@ -802,7 +802,7 @@ class Mercado {
             console.log("bimestres =>", bimestres)
             bimestres = await db.getAllBimestresByCodigo(data.codigo)
             console.log("bimestres =>", bimestres)
-            for (let i = 1; i < 4; i++) {
+            for (let i = 0; i < 4; i++) {
                 indice = 0
                 //console.log("indice==>",indice)
                 for (let j = 0; j < bimestres.length; j++) {
@@ -830,7 +830,7 @@ console.log(bimestre.precioUnitario,bimestre.numero,bimestre.jugador)
         if (player_tmp) {
             let produccionTotalIndustriaBimestres=[]
             let produccion ={}
-            for (let i = 1; i <=data.numeroBimestre; i++) {
+            for (let i = 0; i <=data.numeroBimestre; i++) {
                 produccion = await db.getProduccionPorCodigoDeJuegoNombreNumeroF(data.codigo, data.player_name, i)
                 produccionTotalIndustriaBimestres.push(produccion.produccionIndustriaValorActual)
             }

@@ -725,7 +725,7 @@ export class TablaDeDecisionComponent implements OnInit {
         labels: ["Bimestre inicial"],
         datasets: [{
           label: 'Produccion de la industria',
-          data: [3000],
+          data: [],
           fill: false,
           lineTension: 0.2,
           borderColor: "green",
@@ -734,7 +734,7 @@ export class TablaDeDecisionComponent implements OnInit {
         },
         {
           label: 'Ventas de la industria (unidades)',
-          data: [3000],
+          data: [],
           fill: false,
           lineTension: 0.2,
           borderColor: "red",
@@ -796,8 +796,11 @@ export class TablaDeDecisionComponent implements OnInit {
       this.ventasIndustriaBimestres = response
 
 
-    for (let i = 0; i < this.numeroBimestre; i++) {
-      this.LineChart2.data.labels.push("Bimestre " + this.ventasIndustriaBimestres[i].numero);
+    for (let i = 0; i <=this.numeroBimestre; i++) {
+      if(this.ventasIndustriaBimestres[i].numero!=0)
+      {
+        this.LineChart2.data.labels.push("Bimestre " + this.ventasIndustriaBimestres[i].numero);
+      }
       this.LineChart2.data.datasets[1].data.push(this.ventasIndustriaBimestres[i].ventasIndustriaUnidadesActual);
       this.LineChart2.update();
     }
@@ -985,7 +988,7 @@ export class TablaDeDecisionComponent implements OnInit {
         labels: ["Bimestre inicial"],
         datasets: [{
           label: 'Produccion de la industria',
-          data: [3000],
+          data: [],
           fill: false,
           lineTension: 0.2,
           borderColor: "green",
@@ -994,7 +997,7 @@ export class TablaDeDecisionComponent implements OnInit {
         },
         {
           label: 'Ventas de la industria (unidades)',
-          data: [3000],
+          data: [],
           fill: false,
           lineTension: 0.2,
           borderColor: "red",
@@ -1036,8 +1039,11 @@ export class TablaDeDecisionComponent implements OnInit {
         this.LineChart2.data.datasets[0].data.push(Math.round(this.produccionIndustriaBimestres[i].produccionIndustriaValorActual));
       this.LineChart2.update();
     }
-    for (let i = 0; i < this.numeroBimestre; i++) {
-      this.LineChart2.data.labels.push("Bimestre " + this.ventasIndustriaBimestres[i].numero);
+    for (let i = 0; i <=this.numeroBimestre; i++) {
+      if(this.ventasIndustriaBimestres[i].numero!=0)
+      {
+        this.LineChart2.data.labels.push("Bimestre " + this.ventasIndustriaBimestres[i].numero);
+      }
       this.LineChart2.data.datasets[1].data.push(Math.round(this.ventasIndustriaBimestres[i].ventasIndustriaUnidadesActual));
       this.LineChart2.update();
     }
@@ -1078,7 +1084,7 @@ export class TablaDeDecisionComponent implements OnInit {
         labels: ["Bimestre inicial"],
         datasets: [{
           label: 'Costo medio de produccion (unitario)',
-          data: [101.283],
+          data: [],
           fill: false,
           lineTension: 0.2,
           borderColor: "green",
@@ -1086,7 +1092,7 @@ export class TablaDeDecisionComponent implements OnInit {
           borderWidth: 1
         }, {
           label: 'Precio unitario (promedio)',
-          data: [150],
+          data: [],
           fill: false,
           lineTension: 0.2,
           borderColor: "red",
@@ -1126,18 +1132,18 @@ export class TablaDeDecisionComponent implements OnInit {
       }
     });
 
-    for (let i = 0; i < this.numeroBimestre; i++) {
+    for (let i = 0; i <=this.numeroBimestre; i++) {
       this.LineChart3.data.datasets[1].data.push(Math.round(this.promedioPrecioUnitarios[i]));
-      this.LineChart3.data.labels.push("Bimestre " + (i + 1));
       this.LineChart3.update();
     }
 
-    for (let i = 0; i < this.numeroBimestre; i++) {
-      //this.LineChart3.data.labels.push("Bimestre "+this.produccionIndustriaBimestres[i].numero);
-      if (this.produccionIndustriaBimestres[i].costeMedioUnitarioActual != 0) {
+    for (let i = 0; i <=this.numeroBimestre; i++) {
+      if(this.produccionIndustriaBimestres[i].numero!=0)
+      {
+        this.LineChart3.data.labels.push("Bimestre "+this.produccionIndustriaBimestres[i].numero);
+      }
         this.LineChart3.data.datasets[0].data.push(Math.round(this.produccionIndustriaBimestres[i].costeMedioUnitarioActual));
         this.LineChart3.update();
-      }
     }
 
 
@@ -1179,7 +1185,7 @@ export class TablaDeDecisionComponent implements OnInit {
           borderWidth: 1
         }, {
           label: 'Produccion de la industria',
-          data: [3000],
+          data: [],
           fill: false,
           lineTension: 0.2,
           borderColor: "red",
@@ -1220,13 +1226,16 @@ export class TablaDeDecisionComponent implements OnInit {
     });
 
     for (let i = 0; i <=this.numeroBimestre; i++) {
-      this.LineChart4.data.datasets[0].data.push(Math.round(this.sumatoriaCapacidadProduccion[i]));
-      this.LineChart4.update();
+        this.LineChart4.data.datasets[0].data.push(Math.round(this.sumatoriaCapacidadProduccion[i]));
+        if(i!=0)
+        {
+          this.LineChart4.data.labels.push("Bimestre " + i);
+        }
+        this.LineChart4.update();
     }
 
-    for (let i = 0; i < this.numeroBimestre; i++) {
+    for (let i = 0; i <=this.numeroBimestre; i++) {   
         this.LineChart4.data.datasets[1].data.push(Math.round(this.produccionTotalIndustriaBimestres[i]));
-        this.LineChart4.data.labels.push("Bimestre " + (i + 1));
         this.LineChart4.update();
     }
   }
@@ -1261,7 +1270,7 @@ export class TablaDeDecisionComponent implements OnInit {
         labels: ["Bimestre inicial"],
         datasets: [{
           label: 'Utilidad de la compañia',
-          data: [5930],
+          data: [],
           fill: false,
           lineTension: 0.2,
           borderColor: "green",
@@ -1270,7 +1279,7 @@ export class TablaDeDecisionComponent implements OnInit {
         }, {
           label: 'Utilidad promedio de la industria',
 
-          data: [5930],
+          data: [],
           fill: false,
           lineTension: 0.2,
           borderColor: "red",
@@ -1310,14 +1319,17 @@ export class TablaDeDecisionComponent implements OnInit {
       }
     });
 
-    for (let i = 0; i < this.numeroBimestre; i++) {
+    for (let i = 0; i <=this.numeroBimestre; i++) {
       this.LineChart5.data.datasets[1].data.push(Math.round(this.promedioERUtilidadNeta[i]));
-      this.LineChart5.data.labels.push("Bimestre " + (i + 1));
+      if(i!=0) 
+      {
+        this.LineChart5.data.labels.push("Bimestre " + i);
+      }
       this.LineChart5.update();
     }
-    for (let i = 0; i < this.numeroBimestre; i++) {
+
+    for (let i = 0; i <=this.numeroBimestre; i++) {
       this.LineChart5.data.datasets[0].data.push(Math.round(this.estadoResultados[i].utilidadNeta));
-      //this.LineChart5.data.labels.push("Bimestre "+(i+1));
       this.LineChart5.update();
     }
   }
