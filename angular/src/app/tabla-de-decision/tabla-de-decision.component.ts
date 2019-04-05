@@ -1023,6 +1023,12 @@ export class TablaDeDecisionComponent implements OnInit {
         tooltips: {
           mode: 'index',
           intersect: false,
+          callbacks: {
+                label: function(tooltipItem, data) {
+                    var value = data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index];
+                    return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+                }
+          }
         },
         hover: {
           mode: 'nearest',
