@@ -1446,7 +1446,7 @@ export class TablaDeDecisionComponent implements OnInit {
     this.LineChart = new Chart('lineChart', {
       type: 'line',
       data: {
-        labels: [],
+        labels: ["Bimestre inicial"],
         datasets: [{
           label: 'Utilidad neta por bimestre',
           data: [],
@@ -1483,11 +1483,7 @@ export class TablaDeDecisionComponent implements OnInit {
                     ticks: {
                         beginAtZero:true,
                         callback: function(value, index, values) {
-                            if(parseInt(value) >= 1000){
                                return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
-                            } else {
-                               return value;
-                            }
                        }
                     }
                 }]
@@ -1497,7 +1493,10 @@ export class TablaDeDecisionComponent implements OnInit {
 
     for (let i = 0; i < this.estadoResultados.length; i++) {
       this.LineChart.data.datasets[0].data.push(this.estadoResultados[i].utilidadNeta);
-      this.LineChart.data.labels.push("Bimestre " + (i + 1));
+      if(i!=0)
+      {
+        this.LineChart.data.labels.push("Bimestre " + i;
+      }
       this.LineChart.update();
     }
   }
