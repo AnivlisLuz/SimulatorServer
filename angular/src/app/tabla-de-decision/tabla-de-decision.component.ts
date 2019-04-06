@@ -1501,7 +1501,7 @@ export class TablaDeDecisionComponent implements OnInit {
       this.LineChart.data.datasets[0].data.push(this.estadoResultados[i].utilidadNeta);
       if(i!=0)
       {
-        this.LineChart.data.labels.push("Bimestre " + i;
+        this.LineChart.data.labels.push("Bimestre " + i);
       }
       this.LineChart.update();
     }
