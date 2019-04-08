@@ -1,8 +1,172 @@
-.card-text
+
+nav
 {
-text-align: center;
-color: crimson;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 70px;
+    background: rgba(0,0,0,0.6);
+    padding: 0 100px;
+    box-sizing: border-box;
 }
+nav .brand
+{
+    float: left;
+    height: 100%;
+    line-height: 70px;
+}
+nav .brand h2{
+    margin: 0;
+    padding: 0;
+    color: #fff;
+
+}
+nav ul
+{
+    float: right;
+    display: flex;
+    margin: 0;
+    padding: 0;
+
+}
+nav ul li
+{
+list-style: none;    
+}
+nav ul li a
+{
+    position: relative;
+    display: block;
+    height: 70px;
+    line-height: 70px;
+    padding: 0 20px;
+    box-sizing: border-box;
+    color: #fff;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: .5s;
+}
+nav ul li a:hover
+{
+    color: #262626;
+}
+nav ul li a:before
+{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    transform-origin: right;
+    z-index: -1;
+    transform: scaleX(0);
+    transition: transform .5s;
+}
+nav ul li a:hover:before
+{
+    transform-origin: left;
+    transform: scaleX(1);
+
+}
+
+.heading
+{
+text-transform: uppercase;
+font-size: 2.5rem;
+letter-spacing: 3px;
+margin-right: -3px;
+margin-bottom: 5rem;
+text-align: center;
+color: #333;
+position: relative;
+}
+.heading::after
+{
+    content: "";
+    width: 10rem;
+    height: .8rem;
+    background-color:#45e19f;
+    position: absolute;
+    bottom: -2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 2rem;
+
+}
+.card-wrapper
+{
+    display: flex;
+    align-items: center;
+    align-content: center;
+    flex-direction: column;
+}
+.card
+{
+    width: 20rem;
+    background-color: #ebeef8;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 2rem 0;
+    box-shadow: .5rem .5rem .3rem rgba(0, 0, 0, 0.2);
+
+}
+.card .card-img
+{
+    width: 100%;
+    height: 20rem;
+    object-fit: cover;
+    -webkit-clip-path: polygon(0 0, 100% 78%, 0% 100%);
+    clip-path: polygon(0 0, 100% 0, 100% 78%, 0 100%);
+}
+.profile-img
+{
+    width: 10rem;
+    height: 10rem;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-top: -11rem;
+    z-index: 999;
+    border: 1rem solid #ebeef8;
+}
+.card h1
+{
+font-size: 13px;
+color: #333;
+margin: 1.5rem 0;
+text-align: center;
+}
+.job-title
+{
+    color: #777;
+    font-size: 12px;
+    font-weight: 300;
+    height: 40px;
+    text-align: center;
+}
+@media screen and (min-width: 700px)
+{
+.card-wrapper
+{
+flex-direction: row;
+flex-wrap: wrap;
+justify-content: center;
+align-items: center;
+}
+.card{
+    margin: 2rem;
+}
+}
+.lyrics
+{
+    font-size: 20px;
+    text-align: center;
+}
+
 .cuadro
 {
    margin: 0;
@@ -13,15 +177,4 @@ color: crimson;
 .foto
 {
     width: 200px;
-}
-.navbar
-{
-    background: transparent !important;
-    transition: 0.5s;
-}
-.navbar.scrolled
-{
-    background:#fff !important;
-    transition: 0.5s;
-
 }
