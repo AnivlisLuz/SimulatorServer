@@ -1495,6 +1495,8 @@ async function calcularTodo(codigoJuego, numeroBimestre) {
         let puntaje = 2 * visionGeneralList.length
         for (let i = visionGeneralList.length - 1; i >= 0; i--) {
             visionGeneralElement = visionGeneralList[i]
+            player = await db.getEmpresaPorNombreYCodigoDeJuego(codigoJuego,visionGeneralElement.jugador)
+            if(player.activo==1){
             if (i > 0 && visionGeneralElement.beneficio != visionGeneralList[i - 1].beneficio) {
                 visionGeneralElement.puntajeBeneficio = puntaje
                 puntaje -= 2;
@@ -1502,6 +1504,7 @@ async function calcularTodo(codigoJuego, numeroBimestre) {
                 visionGeneralElement.puntajeBeneficio = puntaje
             }
             db.updateVisionGeneral(visionGeneralElement)
+            }
             await sleep(300)
         }
 
@@ -1512,6 +1515,8 @@ async function calcularTodo(codigoJuego, numeroBimestre) {
         puntaje = 2 * visionGeneralList.length
         for (let i = visionGeneralList.length - 1; i >= 0; i--) {
             visionGeneralElement = visionGeneralList[i]
+            player = await db.getEmpresaPorNombreYCodigoDeJuego(codigoJuego,visionGeneralElement.jugador)
+            if(player.activo==1){
             if (i > 0 && visionGeneralElement.porcentajeDeMercado != visionGeneralList[i - 1].porcentajeDeMercado) {
                 visionGeneralElement.puntajeMercado = puntaje
                 puntaje -= 2;
@@ -1519,6 +1524,7 @@ async function calcularTodo(codigoJuego, numeroBimestre) {
                 visionGeneralElement.puntajeMercado = puntaje
             }
             db.updateVisionGeneral(visionGeneralElement)
+            }
         }
         console.log("como ordeno final", visionGeneralList)
 }

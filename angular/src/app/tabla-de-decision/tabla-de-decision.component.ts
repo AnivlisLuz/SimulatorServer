@@ -1,4 +1,4 @@
-﻿import { BalanceGeneral } from './../../models/balanceGeneral';
+import { BalanceGeneral } from './../../models/balanceGeneral';
 import { CostosProduccion } from './../../models/costosProduccion';
 import { EstadoResultados } from './../../models/estadoResultados';
 

@@ -396,3 +396,12 @@ exports.getAllVisionGeneralByCodigoYNumeroOrderByBeneficio = async (codigo, nume
 exports.saveDatosJugadores = (datos) => {
     db.run("insert into datos_jugadores(nombre,ciudad,edad) values(?,?,?)",  [datos.jugador,datos.ciudad,datos.edad])
 }
+
+exports.getEmpresaPorNombreYCodigoDeJuego = (codigo,nombre) => {
+    return new Promise((resolve, reject) => {
+        db.get("select * from player where codigo = ? AND name = ?", [codigo,nombre], (error, res) => (error) ? reject(error) : resolve(res))
+    }).catch(error => {
+        console.log("error getEmpresaPorNombreYCodigoDeJuego", error)
+        return {}
+    })
+}
