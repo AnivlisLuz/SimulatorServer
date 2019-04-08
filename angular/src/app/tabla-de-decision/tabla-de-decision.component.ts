@@ -241,7 +241,7 @@ export class TablaDeDecisionComponent implements OnInit {
       let esRetirarse = confirm("¿Seguro de retirarse del juego?");
       if( esRetirarse )
       {
-          this.http.game.retirarseJuego((response) => {
+          this.http.game.retirarseJuego(this.numeroBimestre,(response) => {
             if(response)
             {
               console.log("retirarseJuego front =>", response.esRetirado)

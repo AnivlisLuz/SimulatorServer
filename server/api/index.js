@@ -409,6 +409,7 @@ exports.setSocket = io => {
                _mercado.retirarseJuego(data).then(result=>{
                 client(result)                     
                 io.sockets.emit("retirarseJuego(data)", result)
+                io.sockets.emit("getPlayers", _mercado.getPlayers())
                }) .catch(error=>{        
                 client("error con el socket")
             })              
@@ -573,6 +574,19 @@ class Mercado {
                     {
                         empresa.activo=0
                         db.updateActivoEmpresa(empresa)
+                        player_tmp = this.players[empresa.name]
+                        if(data.numeroBimestre==0){
+                            player_tmp.activo_uno=false
+                            player_tmp.activo_dos=false
+                            player_tmp.activo_tres=false
+                        }
+                        if(data.numeroBimestre==1){
+                            player_tmp.activo_dos=false
+                            player_tmp.activo_tres=false
+                        }
+                        if(data.numeroBimestre==2)
+                            player_tmp.activo_tres=false
+                        player_tmp.activo=0
                     }                   
                 }
             }
@@ -663,6 +677,19 @@ class Mercado {
                         {
                             empresa.activo=0
                             db.updateActivoEmpresa(empresa)
+                            player_tmp = this.players[empresa.name]
+                            if(data.numeroBimestre==0){
+                                player_tmp.activo_uno=false
+                                player_tmp.activo_dos=false
+                                player_tmp.activo_tres=false
+                            }
+                            if(data.numeroBimestre==1){
+                                player_tmp.activo_dos=false
+                                player_tmp.activo_tres=false
+                            }
+                            if(data.numeroBimestre==2)
+                                player_tmp.activo_tres=false
+                            player_tmp.activo=0
                         }                   
                     }
 
@@ -708,6 +735,19 @@ class Mercado {
                     {
                         empresa.activo=0
                         db.updateActivoEmpresa(empresa)
+                        let player_tmp = this.players[empresa.name]
+                        if(data.numeroBimestre==0){
+                            player_tmp.activo_uno=false
+                            player_tmp.activo_dos=false
+                            player_tmp.activo_tres=false
+                        }
+                        if(data.numeroBimestre==1){
+                            player_tmp.activo_dos=false
+                            player_tmp.activo_tres=false
+                        }
+                        if(data.numeroBimestre==2)
+                            player_tmp.activo_tres=false
+                        player_tmp.activo=0
                     }                   
                 }
             }
@@ -883,7 +923,24 @@ console.log(bimestre.precioUnitario,bimestre.numero,bimestre.jugador)
                 {
                     empresa.activo=0
                     db.updateActivoEmpresa(empresa)
+                    player_tmp = this.players[empresa.name]
+                    if(data.numeroBimestre==0){
+                        player_tmp.activo_uno=false
+                        player_tmp.activo_dos=false
+                        player_tmp.activo_tres=false
+                    }
+                    if(data.numeroBimestre==1){
+                        player_tmp.activo_dos=false
+                        player_tmp.activo_tres=false
+                        console.log("+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=");
+                    }
+                    if(data.numeroBimestre==2){
+                        player_tmp.activo_tres=false
+                        console.log("+++++++++++++++++++++++++++++++++");
+                    }
+                    player_tmp.activo=0
                     esRetirado=true
+                    console.log("====================================== RETIRARSE: ",player_tmp);
                 }
             }
             return {esRetirado:esRetirado}
@@ -906,6 +963,9 @@ class Player {
         this.cantidadIdeal = 500
         this.codigo = codigo
         this.activo=1
+        this.activo_uno=true
+        this.activo_dos=true
+        this.activo_tres=true
     }
 
     addBimestreUno(data, codigo) {
@@ -957,6 +1017,9 @@ class Player {
         if (this.bimestre_uno) res.bimestre_uno = this.bimestre_uno.toString()
         if (this.bimestre_dos) res.bimestre_dos = this.bimestre_dos.toString()
         if (this.bimestre_tres) res.bimestre_tres = this.bimestre_tres.toString()
+        res.activo_uno=this.activo_uno
+        res.activo_dos=this.activo_dos
+        res.activo_tres=this.activo_tres
         return res
     }
 
@@ -1386,6 +1449,7 @@ async function calcularTodo(codigoJuego, numeroBimestre) {
     juego = mercados[codigoJuego]
     for (let i = 0; i < empresas.length; i++) {
         player = empresas[i]
+        if(player.activo==1){
         empresa = new Empresa(player.name, player.codigo, player.cantidadIdealTotal, player.produccion, player.cantidadRealVendida, player.cantidadIdeal)
         empresa.calcularPorcentajeMercado(juego.mercado)
 //console.log("empresa =>",empresa)       
@@ -1412,7 +1476,12 @@ async function calcularTodo(codigoJuego, numeroBimestre) {
             calcularVentasIndustria(bimestres, ventasBimestre, ventasIndustria)
         }
 //console.log("produccion =>",produccion)                     
-//console.log("ventasIndustria =>",ventasIndustria)                     
+//console.log("ventasIndustria =>",ventasIndustria)   
+        }
+        else{
+            visionGeneral = new VisionGeneral(0, 0, 0, 0, numeroBimestre, codigoJuego, player.name)
+            db.saveVisionGeneral(visionGeneral)
+        }
     }
 
 //console.log("----------------------------------------------------------------")
