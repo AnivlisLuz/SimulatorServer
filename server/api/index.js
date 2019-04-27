@@ -512,26 +512,7 @@ class Mercado {
         this.porcentajeMercadoDesatendido = Math.floor((this.mercadoDesatendido * 100) / this.mercado)
 
     }
-    //  calcularBalanceGeneralP(data)
-    // {
-    //     let player_tmp = this.players[data.player_name]
-    //     // balance=new BalanceGeneral()
-    //     if (player_tmp) {
-    //         let BalanceGeneralPrueba= new BalanceGeneral(1,data.codigo,data.player_name);
-    //         BalanceGeneralPrueba.calcular(10,10,10,10)
-    //         db.saveBalanceGeneral(BalanceGeneralPrueba)
-    //         console.log("calcularBalanceGeneralP socket =>", BalanceGeneralPrueba)
-    //         db.getBalanceGeneralPorCodigoDeJuegoNombreNumero(data.codigo,data.player_name,1, function(error, res) {
-    //             if (error) {
-    //                 console.log("error")
-    //             } else {
-
-    //                 BalanceGeneralPrueba=res
-    //             }
-    //         })
-    //         return BalanceGeneralPrueba
-    //     }
-    // }
+ 
     calcularTodoPrueba(data) {
         calcularTodo(data.codigo, data.numeroBimestre)
     }
@@ -579,11 +560,7 @@ class Mercado {
             //console.log("getCostosProduccion socket =>", costosProduccion.costoUnitario)
             costosProduccion = await db.getCostoProduccionPorCodigoDeJuegoNombreNumeroF(data.codigo, data.player_name, data.numeroBimestre)
             console.log("getCostosProduccion socket =>", costosProduccion.costoUnitario)
-            //console.log(new Intl.NumberFormat('de-DE', { minimumFractionDigits: 2,maximumFractionDigits: 2}).format(costosProduccion.costoUnitario))
-            //costosProduccion.costoUnitario=costosProduccion.costoUnitario.toLocaleString('de-DE', {minimumFractionDigits: 2,maximumFractionDigits: 2})
-//console.log("getCostosProduccion socket ============================>", costosProduccion.costoUnitario.toLocaleString(2))
-//var n =123456789
-//console.log("======+++++++++++++= ",new Intl.NumberFormat('de-DE').format(n))
+           
             return costosProduccion
         }
     }
@@ -614,7 +591,6 @@ class Mercado {
             let unicaValorPositivo=false
             let estadoResultadosJugadores=[]
             let estadoResultadosJugadoresElement={}
-            //console.log("getEstadoResultados socket =>", estadoResultados)
             estadoResultados= await  db.getAllEstadoResultadosPorCodigoDeJuegoNombre(data.codigo,data.player_name)
             console.log("getEstadoResultados socket =>", estadoResultados)
             for(let i=0;i<estadoResultados.length;i++){
@@ -633,7 +609,6 @@ class Mercado {
                 estadoResultados[i].inversionActivos = Math.round(estadoResultados[i].inversionActivos) 
                 estadoResultados[i].utilidadNeta = Math.round(estadoResultados[i].utilidadNeta)
             }
-            //console.log("estadoResultadosJugadores socket =>", estadoResultadosJugadores)
             estadoResultadosJugadores=await db.getEstadoResultadosAllJugadoresPorCodigoDeJuegoNumero(data.codigo,data.numeroBimestre)
             console.log("estadoResultadosJugadores socket =>", estadoResultadosJugadores)
             let empresa={}
