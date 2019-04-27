@@ -58,7 +58,6 @@ export class TablaDeDecisionComponent implements OnInit {
   balanceGeneral: BalanceGeneral;
   numeroBimestre: number;
 
-  //a partir de aqui
   visionGeneral: VisionGeneral[];
   produccionIndustria: Produccion
   ventasIndustria: VentasIndustria;
@@ -71,7 +70,6 @@ export class TablaDeDecisionComponent implements OnInit {
 
 
 
-  //LineChart=[];
   myPieChart: any;
   LineChart2: any;
   LineChart3: any;
@@ -157,58 +155,8 @@ export class TablaDeDecisionComponent implements OnInit {
   }
   ngOnInit() {
 
-    // this.route.params.subscribe(params => {
-    //   if (params['player_name'] != null && params['codigo'] != null) {
-    //     this.nombreEmpresa = params['player_name'];
-    //     this.codigo = params['codigo'];
-    //   }
-    // });
-    // console.log(this.nombreEmpresa);
-    // console.log(this.codigo);
-    // this.bimestreInicial.codigo = this.codigo;
-    // this.bimestreInicial.nombreEmpresa = this.nombreEmpresa;
-
-    // this.decision();
-
-
-
-    // let json = JSON.stringify(this.bimestreInicial);
-    // let params = 'json' + json;
-    // console.log(json);
-    // this.http.post('http://localhost:8080/bimestre', json).subscribe(
-    //   (response: any) => {
-    //     if (response.status == 201) {
-    //       console.log('ok');
-    // this.cargarDatosSocket();
-    //     }
-    //     else {
-    //       console.log(response);
-    //     }
-    //   });
-
-
   }
 
-  // actualizaProduccionIndustriaBimestres() {
-  //   this.http.get('http://localhost:8080/produccion/PR' + this.nombreEmpresa + '' + this.codigo).subscribe(
-  //     (response: any) => {
-  //       console.log(response);
-  //       this.produccion = response;
-  //     });
-  //   if (this.produccion !== null && this.produccion !== undefined) {
-  //     if (this.produccionIndustriaBimestres.length > 0) {
-  //       if (this.produccionIndustriaBimestres[this.produccionIndustriaBimestres.length - 1].numero != this.produccion.numero) {
-  //         this.produccionIndustriaBimestres.push(this.produccion);
-  //       }
-  //     }
-  //     else {
-  //       this.produccionIndustriaBimestres.push(this.produccion);
-
-  //     }
-
-  //   }
-
-  // }
   bloquear()
   {
     console.log("this.numeroBimestre => ",this.numeroBimestre,"this.existeGanadorPorcentajeMercado =>",this.existeGanadorPorcentajeMercado," this.unicaValorPositivo =>",this.unicaValorPositivo,"this.esActivo =>",this.esActivo,"this.esUnicaEmpresa =>",this.esUnicaEmpresa);
@@ -292,7 +240,6 @@ export class TablaDeDecisionComponent implements OnInit {
     let propuesta_Actual: number = parseInt(data_bimestre.inversionEnActivos + "")
       + parseInt(data_bimestre.inversionEnInvestigacion + "") +
       parseInt(data_bimestre.inversionEnMarketing + "")
-    //alert("presupuesto actual " + propuesta_Actual + " => capital anterior " + this.capitalPeriodoAnterior)
     if (this.http.game.bimestre_inicial_c == 0) {
       if (this.http.game.player.bimestre_uno) {
         if (this.http.game.bimestre_uno_c == 0) {
@@ -465,49 +412,9 @@ export class TablaDeDecisionComponent implements OnInit {
     let json = JSON.stringify(this.bimestreActual);
     let params = 'json' + json;
     console.log(json);
-    // this.http.emit("bimestre", this.bimestreActual, (response) => {
-    //   if (response.message && response.message == "ok")
-    //     this.cargarDatosSocket();
-    //   else {
-    //     alert("error")
-    //   }
-    // })
-    // this.http.post('http://localhost:8080/bimestre', json).subscribe(
-    //   (response: any) => {
-    //     if (response.status == 201) {
-    //       console.log('ok');
-    //       this.cargarDatosSocket();
-
-
-    //     }
-    //     else {
-    //       console.log(response);
-    //     }
-    //   });
-
-    // this.actualizaProduccionIndustriaBimestres();
   }
   cargarDatosSocket() {
     console.log("cargarDatosSocket")
-    // let players = this.http.getPlayers()
-    // if (players)
-    //   for (let player of players) {
-    //     let tmp_player = new VisionGeneral();
-    //     tmp_player.nombreEmpresa = player
-    //     this.visionGeneral.push(tmp_player);
-    //   }
-    // .emit("visionGeneral", { codigo: this.codigo }, (response) => {
-    //   console.log(response);
-    //   if (response.players) {
-    //     this.visionGeneral = []
-    //     for (let player of response.players) {
-    //       let tmp_player = new VisionGeneral();
-    //       tmp_player.nombreEmpresa = player
-    //       this.visionGeneral.push(tmp_player);
-    //     }
-    //   }
-    //   console.log(this.visionGeneral)
-    // })
   }
   cargarDatos() {
     this.http.get('http://localhost:8080/estadoResultadosEmpresa/' + this.nombreEmpresa).subscribe(
@@ -556,47 +463,9 @@ export class TablaDeDecisionComponent implements OnInit {
     this.actualizarActivo();
     this.bloquear();
 
-    // document.getElementById("decisiones").style.display = "none";
-    // document.getElementById("tabla-analisis-industria").style.display = "none";
-    // document.getElementById("informe").style.display = "none";
-    // document.getElementById("analisis").style.display = "none";
-    // document.getElementById("informacion-compania").style.display = "block";
-    // document.getElementById("titulo").innerText = "INFORMACIÓN DE LA COMPAÑIA";
-    // document.getElementById("header").style.backgroundColor = "rgb(8, 25, 43)";
-    // document.getElementById("icono").style.backgroundColor = "rgb(8, 25, 43)";
-    // /*document.getElementById("informacion-compania").style.backgroundColor="rgb(8, 25, 43)";*/
-    // document.getElementById("historiaID").style.display = "block";
-    // document.getElementById("mision-visionID").style.display = "none";
-    // document.getElementById("nuestro-productoID").style.display = "none";
-    // document.getElementById("organigramaID").style.display = "none";
-    // document.getElementById("objetivosID").style.display = "none";
-    // document.getElementById("boton-historiaID").style.backgroundColor = "rgb(8, 25, 43)";
-    // document.getElementById("boton-misionvisionID").style.backgroundColor = "rgb(24, 76, 133)";
-    // document.getElementById("boton-nuestroproductoID").style.backgroundColor = "rgb(24, 76, 133)";
-    // document.getElementById("boton-organigramaID").style.backgroundColor = "rgb(24, 76, 133)";
-    // document.getElementById("boton-objetivosID").style.backgroundColor = "rgb(24, 76, 133)";
-    // document.getElementById("info-informacionCompañia").style.display = "block";
-    // document.getElementById("info-decisiones").style.display = "none";
-    // document.getElementById("info-analisisIndustria").style.display = "none";
-    // document.getElementById("info-informeCompañia").style.display = "none";
-    // document.getElementById("info-analisis").style.display = "none";
-
   }
   decision() {
     this.tap_position = 1;
-    // document.getElementById("decisiones").style.display = "block";
-    // document.getElementById("tabla-analisis-industria").style.display = "none";
-    // document.getElementById("informe").style.display = "none";
-    // document.getElementById("analisis").style.display = "none";
-    // document.getElementById("informacion-compania").style.display = "none";
-    // document.getElementById("titulo").innerText = "MIS DECISIONES";
-    // document.getElementById("header").style.backgroundColor = "rgb(24, 76, 133)";
-    // document.getElementById("icono").style.backgroundColor = "rgb(24, 76, 133)";
-    // document.getElementById("info-informacionCompañia").style.display = "none";
-    // document.getElementById("info-decisiones").style.display = "block";
-    // document.getElementById("info-analisisIndustria").style.display = "none";
-    // document.getElementById("info-informeCompañia").style.display = "none";
-    // document.getElementById("info-analisis").style.display = "none";
     this.actualizarActivo();
     this.bloquear();
   }
@@ -626,29 +495,6 @@ export class TablaDeDecisionComponent implements OnInit {
 
     this.actualizarActivo();
     this.bloquear();
-
-    // document.getElementById("decisiones").style.display = "none";
-    // document.getElementById("tabla-analisis-industria").style.display = "block";
-    // document.getElementById("informe").style.display = "none";
-    // document.getElementById("analisis").style.display = "none";
-    // document.getElementById("informacion-compania").style.display = "none";
-    // document.getElementById("titulo").innerText = "ANALISIS DE LA INDUSTRIA";
-    // document.getElementById("header").style.backgroundColor = "rgb(0, 139, 208)";
-    // document.getElementById("icono").style.backgroundColor = "rgb(0, 139, 208)";
-    // /*document.getElementById("tabla-analisis-industria").style.backgroundColor="rgb(0, 139, 208)";*/
-    // document.getElementById("VisionGeneralID").style.display = "block";
-    // document.getElementById("ProduccionTablaAnalisisID").style.display = "none";
-    // document.getElementById("VentasTablaAnalisisID").style.display = "none";
-    // document.getElementById("PorcentajeMercado").style.display = "none";
-    // document.getElementById("boton-VisionGeneralID").style.backgroundColor = "rgb(0, 139, 208)";
-    // document.getElementById("boton-ProduccionTablaAnalisisID").style.backgroundColor = "rgb(24, 76, 133)";
-    // document.getElementById("boton-VentasTablaAnalisisID").style.backgroundColor = "rgb(24, 76, 133)";
-    // document.getElementById("boton-PorcentajeMercadoID").style.backgroundColor = "rgb(24, 76, 133)";
-    // document.getElementById("info-informacionCompañia").style.display = "none";
-    // document.getElementById("info-decisiones").style.display = "none";
-    // document.getElementById("info-analisisIndustria").style.display = "block";
-    // document.getElementById("info-informeCompañia").style.display = "none";
-    // document.getElementById("info-analisis").style.display = "none";
 
   }
   informe() {
@@ -688,30 +534,6 @@ export class TablaDeDecisionComponent implements OnInit {
 
     this.actualizarActivo();
     this.bloquear();
-    // document.getElementById("decisiones").style.display = "none";
-    // document.getElementById("tabla-analisis-industria").style.display = "none";
-    // document.getElementById("informe").style.display = "block";
-    // document.getElementById("analisis").style.display = "none";
-    // document.getElementById("informacion-compania").style.display = "none";
-    // document.getElementById("titulo").innerText = "INFORMES DE LA COMPAÑIA";
-    // document.getElementById("EstadoDeResultadosID").style.display = "block";
-    // document.getElementById("BalanceGeneralID").style.display = "none";
-    // document.getElementById("VentasID").style.display = "none";
-    // document.getElementById("ProduccionID").style.display = "none";
-    // document.getElementById("CompaniaID").style.display = "none";
-    // document.getElementById("header").style.backgroundColor = "rgb(0, 197, 245)";
-    // document.getElementById("icono").style.backgroundColor = "rgb(0, 197, 245)";
-    // //document.getElementById("informe").style.backgroundColor="rgb(0, 197, 245)";
-    // document.getElementById("boton-EstadoDeResultadosID").style.backgroundColor = "rgb(0, 197, 245)";
-    // document.getElementById("boton-BalanceGeneralID").style.backgroundColor = "rgb(24, 76, 133)";
-    // document.getElementById("boton-VentasID").style.backgroundColor = "rgb(24, 76, 133)";
-    // document.getElementById("boton-ProduccionID").style.backgroundColor = "rgb(24, 76, 133)";
-    // document.getElementById("boton-CompaniaID").style.backgroundColor = "rgb(24, 76, 133)";
-    // document.getElementById("info-informacionCompañia").style.display = "none";
-    // document.getElementById("info-decisiones").style.display = "none";
-    // document.getElementById("info-analisisIndustria").style.display = "none";
-    // document.getElementById("info-informeCompañia").style.display = "block";
-    // document.getElementById("info-analisis").style.display = "none";
   }
   analisis() {
     this.tap_position = 4;
@@ -778,7 +600,6 @@ export class TablaDeDecisionComponent implements OnInit {
     for (let i = 0; i < this.produccionIndustriaBimestres.length; i++) {
       console.log("produccionIndustriaBimestres ==> ", this.produccionIndustriaBimestres[i]);
 
-      //this.LineChart2.data.labels.push("Bimestre "+this.produccionIndustriaBimestres[i].numero);
       if (this.produccionIndustriaBimestres[i])
         this.LineChart2.data.datasets[0].data.push(this.produccionIndustriaBimestres[i].produccionIndustriaValorActual);
       this.LineChart2.update();
@@ -836,145 +657,33 @@ export class TablaDeDecisionComponent implements OnInit {
 
 
 
-    // document.getElementById("decisiones").style.display = "none";
-    // document.getElementById("tabla-analisis-industria").style.display = "none";
-    // document.getElementById("informe").style.display = "none";
-    // document.getElementById("analisis").style.display = "block";
-    // document.getElementById("informacion-compania").style.display = "none";
-    // document.getElementById("titulo").innerText = "ANALISIS";
-    // document.getElementById("produccionvsventasID").style.display = "block";
-    // document.getElementById("costovsprecioID").style.display = "none";
-    // document.getElementById("capacidadvsproduccionID").style.display = "none";
-    // document.getElementById("companiavscompetenciaID").style.display = "none";
-    // document.getElementById("consejosID").style.display = "none";
-    // document.getElementById("header").style.backgroundColor = "rgb(0, 168, 233)";
-    // document.getElementById("icono").style.backgroundColor = "rgb(0, 168, 233)";
-    // /*document.getElementById("analisis").style.backgroundColor="rgb(0, 168, 233)";*/
-    // document.getElementById("boton-produccionvsventasID").style.backgroundColor = "rgb(0, 168, 233)";
-    // document.getElementById("boton-costovsprecioID").style.backgroundColor = "rgb(24, 76, 133)";
-    // document.getElementById("boton-capacidadvsproduccionID").style.backgroundColor = "rgb(24, 76, 133)";
-    // document.getElementById("boton-companiavscompetenciaID").style.backgroundColor = "rgb(24, 76, 133)";
-    // document.getElementById("boton-consejosID").style.backgroundColor = "rgb(24, 76, 133)";
-    // document.getElementById("info-informacionCompañia").style.display = "none";
-    // document.getElementById("info-decisiones").style.display = "none";
-    // document.getElementById("info-analisisIndustria").style.display = "none";
-    // document.getElementById("info-informeCompañia").style.display = "none";
-    // document.getElementById("info-analisis").style.display = "block";
-    //this.produccionvsventas();
-
   }
 
   historia() {
     this.section_tap_1 = 0;
-    // document.getElementById("historiaID").style.display = "block";
-    // document.getElementById("mision-visionID").style.display = "none";
-    // document.getElementById("nuestro-productoID").style.display = "none";
-    // document.getElementById("organigramaID").style.display = "none";
-    // document.getElementById("objetivosID").style.display = "none";
-    // document.getElementById("titulo").innerText = "INFORMACIÓN DE LA COMPAÑIA";
-
-    // document.getElementById("boton-historiaID").style.backgroundColor = "rgb(8, 25, 43)";
-    // document.getElementById("boton-misionvisionID").style.backgroundColor = "rgb(24, 76, 133)";
-    // document.getElementById("boton-nuestroproductoID").style.backgroundColor = "rgb(24, 76, 133)";
-    // document.getElementById("boton-organigramaID").style.backgroundColor = "rgb(24, 76, 133)";
-    // document.getElementById("boton-objetivosID").style.backgroundColor = "rgb(24, 76, 133)";
   }
 
   misionVision() {
     this.section_tap_1 = 1;
-    // document.getElementById("historiaID").style.display = "none";
-    // document.getElementById("mision-visionID").style.display = "block";
-    // document.getElementById("nuestro-productoID").style.display = "none";
-    // document.getElementById("organigramaID").style.display = "none";
-    // document.getElementById("objetivosID").style.display = "none";
-    // document.getElementById("titulo").innerText = "INFORMACIÓN DE LA COMPAÑIA";
-
-    // document.getElementById("boton-historiaID").style.backgroundColor = "rgb(24, 76, 133)";
-    // document.getElementById("boton-misionvisionID").style.backgroundColor = "rgb(8, 25, 43)";
-    // document.getElementById("boton-nuestroproductoID").style.backgroundColor = "rgb(24, 76, 133)";
-    // document.getElementById("boton-organigramaID").style.backgroundColor = "rgb(24, 76, 133)";
-    // document.getElementById("boton-objetivosID").style.backgroundColor = "rgb(24, 76, 133)";
   }
 
   nuestroProducto() {
     this.section_tap_1 = 2;
-    // document.getElementById("historiaID").style.display = "none";
-    // document.getElementById("mision-visionID").style.display = "none";
-    // document.getElementById("nuestro-productoID").style.display = "block";
-    // document.getElementById("organigramaID").style.display = "none";
-    // document.getElementById("objetivosID").style.display = "none";
-    // document.getElementById("titulo").innerText = "INFORMACIÓN DE LA COMPAÑIA";
-
-    // document.getElementById("boton-historiaID").style.backgroundColor = "rgb(24, 76, 133)";
-    // document.getElementById("boton-misionvisionID").style.backgroundColor = "rgb(24, 76, 133)";
-    // document.getElementById("boton-nuestroproductoID").style.backgroundColor = "rgb(8, 25, 43)";
-    // document.getElementById("boton-organigramaID").style.backgroundColor = "rgb(24, 76, 133)";
-    // document.getElementById("boton-objetivosID").style.backgroundColor = "rgb(24, 76, 133)";
   }
   organigrama() {
     this.section_tap_1 = 3;
-    // document.getElementById("historiaID").style.display = "none";
-    // document.getElementById("mision-visionID").style.display = "none";
-    // document.getElementById("nuestro-productoID").style.display = "none";
-    // document.getElementById("organigramaID").style.display = "block";
-    // document.getElementById("objetivosID").style.display = "none";
-    // document.getElementById("titulo").innerText = "INFORMACIÓN DE LA COMPAÑIA";
-
-    // document.getElementById("boton-historiaID").style.backgroundColor = "rgb(24, 76, 133)";
-    // document.getElementById("boton-misionvisionID").style.backgroundColor = "rgb(24, 76, 133)";
-    // document.getElementById("boton-nuestroproductoID").style.backgroundColor = "rgb(24, 76, 133)";
-    // document.getElementById("boton-organigramaID").style.backgroundColor = "rgb(8, 25, 43)";
-    // document.getElementById("boton-objetivosID").style.backgroundColor = "rgb(24, 76, 133)";
   }
   objetivos() {
     this.section_tap_1 = 4;
-    // document.getElementById("historiaID").style.display = "none";
-    // document.getElementById("mision-visionID").style.display = "none";
-    // document.getElementById("nuestro-productoID").style.display = "none";
-    // document.getElementById("organigramaID").style.display = "none";
-    // document.getElementById("objetivosID").style.display = "block";
-    // document.getElementById("titulo").innerText = "INFORMACIÓN DE LA COMPAÑIA";
-
-    // document.getElementById("boton-historiaID").style.backgroundColor = "rgb(24, 76, 133)";
-    // document.getElementById("boton-misionvisionID").style.backgroundColor = "rgb(24, 76, 133)";
-    // document.getElementById("boton-nuestroproductoID").style.backgroundColor = "rgb(24, 76, 133)";
-    // document.getElementById("boton-organigramaID").style.backgroundColor = "rgb(24, 76, 133)";
-    // document.getElementById("boton-objetivosID").style.backgroundColor = "rgb(8, 25, 43)";
   }
 
   maquinaria() {
     this.section_tap_1 = 5;
-    // document.getElementById("historiaID").style.display = "none";
-    // document.getElementById("mision-visionID").style.display = "none";
-    // document.getElementById("nuestro-productoID").style.display = "none";
-    // document.getElementById("organigramaID").style.display = "none";
-    // document.getElementById("objetivosID").style.display = "block";
-    // document.getElementById("titulo").innerText = "INFORMACIÓN DE LA COMPAÑIA";
-
-    // document.getElementById("boton-historiaID").style.backgroundColor = "rgb(24, 76, 133)";
-    // document.getElementById("boton-misionvisionID").style.backgroundColor = "rgb(24, 76, 133)";
-    // document.getElementById("boton-nuestroproductoID").style.backgroundColor = "rgb(24, 76, 133)";
-    // document.getElementById("boton-organigramaID").style.backgroundColor = "rgb(24, 76, 133)";
-    // document.getElementById("boton-objetivosID").style.backgroundColor = "rgb(8, 25, 43)";
   }
 
 
   produccionvsventas() {
     this.section_tap_4 = 0;
-    // document.getElementById("produccionvsventasID").style.display = "block";
-    // document.getElementById("costovsprecioID").style.display = "none";
-    // document.getElementById("capacidadvsproduccionID").style.display = "none";
-    // document.getElementById("companiavscompetenciaID").style.display = "none";
-    // document.getElementById("consejosID").style.display = "none";
-    // document.getElementById("titulo").innerText = "ANALISIS";
-
-    // document.getElementById("boton-produccionvsventasID").style.backgroundColor = "rgb(0, 168, 233)";
-    // document.getElementById("boton-costovsprecioID").style.backgroundColor = "rgb(24, 76, 133)";
-    // document.getElementById("boton-capacidadvsproduccionID").style.backgroundColor = "rgb(24, 76, 133)";
-    // document.getElementById("boton-companiavscompetenciaID").style.backgroundColor = "rgbrgb(24, 76, 133)";
-    // document.getElementById("boton-consejosID").style.backgroundColor = "rgb(24, 76, 133)";
-
-    //Line chart2:
     this.LineChart2 = new Chart('lineChart2', {
       type: 'line',
       data: {
@@ -1045,29 +754,6 @@ export class TablaDeDecisionComponent implements OnInit {
   costovsprecio() {
 
     this.section_tap_4 = 1;
-    /*this.http.get('http://localhost:8080/precioUnitarioBimestres/' + this.codigo).subscribe(
-      (response: any) => {
-        console.log(this.codigo);
-        console.log(response);
-        this.promedioPrecioUnitarios = response;
-
-      });*/
-
-
-    // document.getElementById("produccionvsventasID").style.display = "none";
-    // document.getElementById("costovsprecioID").style.display = "block";
-    // document.getElementById("capacidadvsproduccionID").style.display = "none";
-    // document.getElementById("companiavscompetenciaID").style.display = "none";
-    // document.getElementById("consejosID").style.display = "none";
-    // document.getElementById("titulo").innerText = "ANALISIS";
-
-    // document.getElementById("boton-produccionvsventasID").style.backgroundColor = "rgb(24, 76, 133)";
-    // document.getElementById("boton-costovsprecioID").style.backgroundColor = "rgb(0, 168, 233)";
-    // document.getElementById("boton-capacidadvsproduccionID").style.backgroundColor = "rgb(24, 76, 133)";
-    // document.getElementById("boton-companiavscompetenciaID").style.backgroundColor = "rgb(24, 76, 133)";
-    // document.getElementById("boton-consejosID").style.backgroundColor = "rgb(24, 76, 133)";
-
-    //Line chart3:
     this.LineChart3 = new Chart('lineChart3', {
       type: 'line',
       data: {
@@ -1142,25 +828,6 @@ export class TablaDeDecisionComponent implements OnInit {
   capacidadvsproduccion() {
 
     this.section_tap_4 = 2;
-    /*this.http.get('http://localhost:8080/produccionBimestres/' + this.codigo).subscribe(
-      (response: any) => {
-        console.log(this.codigo);
-        console.log(response);
-        this.sumatoriaCapacidadProduccion = response;
-      });*/
-    // document.getElementById("produccionvsventasID").style.display = "none";
-    // document.getElementById("costovsprecioID").style.display = "none";
-    // document.getElementById("capacidadvsproduccionID").style.display = "block";
-    // document.getElementById("companiavscompetenciaID").style.display = "none";
-    // document.getElementById("consejosID").style.display = "none";
-    // document.getElementById("titulo").innerText = "ANALISIS";
-
-    // document.getElementById("boton-produccionvsventasID").style.backgroundColor = "rgb(24, 76, 133)";
-    // document.getElementById("boton-costovsprecioID").style.backgroundColor = "rgb(24, 76, 133)";
-    // document.getElementById("boton-capacidadvsproduccionID").style.backgroundColor = "rgb(0, 168, 233)";
-    // document.getElementById("boton-companiavscompetenciaID").style.backgroundColor = "rgb(24, 76, 133)";
-    // document.getElementById("boton-consejosID").style.backgroundColor = "rgb(24, 76, 133)";
-    //Line chart4:
     this.LineChart4 = new Chart('lineChart4', {
       type: 'line',
       data: {
@@ -1230,27 +897,7 @@ export class TablaDeDecisionComponent implements OnInit {
 
 
     this.section_tap_4 = 3;
-    /*this.http.get('http://localhost:8080/utilidadNetaBimestres/' + this.codigo + '/' + this.nombreEmpresa).subscribe(
-      (response: any) => {
-        console.log(this.codigo);
-        console.log(response);
-        this.promedioERUtilidadNeta = response;
-      });
-    */
-    // document.getElementById("produccionvsventasID").style.display = "none";
-    // document.getElementById("costovsprecioID").style.display = "none";
-    // document.getElementById("capacidadvsproduccionID").style.display = "none";
-    // document.getElementById("companiavscompetenciaID").style.display = "block";
-    // document.getElementById("consejosID").style.display = "none";
-    // document.getElementById("titulo").innerText = "ANALISIS";
 
-    // document.getElementById("boton-produccionvsventasID").style.backgroundColor = "rgb(24, 76, 133)";
-    // document.getElementById("boton-costovsprecioID").style.backgroundColor = "rgb(24, 76, 133)";
-    // document.getElementById("boton-capacidadvsproduccionID").style.backgroundColor = "rgb(24, 76, 133)";
-    // document.getElementById("boton-companiavscompetenciaID").style.backgroundColor = "rgb(0, 168, 233)";
-    // document.getElementById("boton-consejosID").style.backgroundColor = "rgb(24, 76, 133)";
-
-    //Line chart5:
     this.LineChart5 = new Chart('lineChart5', {
       type: 'line',
       data: {
@@ -1321,112 +968,31 @@ export class TablaDeDecisionComponent implements OnInit {
   consejos() {
 
     this.section_tap_4 = 4;
-    /*this.http.get('http://localhost:8080/visionGeneral/' + this.codigo + '/' + this.numeroBimestre).subscribe(
-      (response: any) => {
-        console.log(response);
-        this.visionGeneral = response;
-      });*/
-
-    // document.getElementById("produccionvsventasID").style.display = "none";
-    // document.getElementById("costovsprecioID").style.display = "none";
-    // document.getElementById("capacidadvsproduccionID").style.display = "none";
-    // document.getElementById("companiavscompetenciaID").style.display = "none";
-    // document.getElementById("consejosID").style.display = "block";
-    // document.getElementById("titulo").innerText = "ANALISIS";
-
-    // document.getElementById("boton-produccionvsventasID").style.backgroundColor = "rgb(24, 76, 133)";
-    // document.getElementById("boton-costovsprecioID").style.backgroundColor = "rgb(24, 76, 133)";
-    // document.getElementById("boton-capacidadvsproduccionID").style.backgroundColor = "rgb(24, 76, 133)";
-    // document.getElementById("boton-companiavscompetenciaID").style.backgroundColor = "rgb(24, 76, 133)";
-    // document.getElementById("boton-consejosID").style.backgroundColor = "rgb(0, 168, 233)";
-  }
+     }
 
 
   EstadoDeResultados() {
     this.section_tap_3 = 0;
 
 
-    // document.getElementById("EstadoDeResultadosID").style.display = "block";
-    // document.getElementById("BalanceGeneralID").style.display = "none";
-    // document.getElementById("VentasID").style.display = "none";
-    // document.getElementById("ProduccionID").style.display = "none";
-    // document.getElementById("CompaniaID").style.display = "none";
-    // document.getElementById("titulo").innerText = "INFORMES DE LA COMPAÑIA";
-
-    // document.getElementById("boton-EstadoDeResultadosID").style.backgroundColor = "rgb(0, 197, 245)";
-    // document.getElementById("boton-BalanceGeneralID").style.backgroundColor = "rgb(24, 76, 133)";
-    // document.getElementById("boton-VentasID").style.backgroundColor = "rgb(24, 76, 133)";
-    // document.getElementById("boton-ProduccionID").style.backgroundColor = "rgb(24, 76, 133)";
-    // document.getElementById("boton-CompaniaID").style.backgroundColor = "rgb(24, 76, 133)";
-
   }
 
   BalanceGeneral() {
     this.section_tap_3 = 1;
-
-    // document.getElementById("EstadoDeResultadosID").style.display = "none";
-    // document.getElementById("BalanceGeneralID").style.display = "block";
-    // document.getElementById("VentasID").style.display = "none";
-    // document.getElementById("ProduccionID").style.display = "none";
-    // document.getElementById("CompaniaID").style.display = "none";
-    // document.getElementById("titulo").innerText = "INFORMES DE LA COMPAÑIA";
-
-    // document.getElementById("boton-EstadoDeResultadosID").style.backgroundColor = "rgb(24, 76, 133)";
-    // document.getElementById("boton-BalanceGeneralID").style.backgroundColor = "rgb(0, 197, 245)";
-    // document.getElementById("boton-VentasID").style.backgroundColor = "rgb(24, 76, 133)";
-    // document.getElementById("boton-ProduccionID").style.backgroundColor = "rgb(24, 76, 133)";
-    // document.getElementById("boton-CompaniaID").style.backgroundColor = "rgb(24, 76, 133)";
   }
   Ventas() {
 
     this.section_tap_3 = 2;
-
-    // document.getElementById("EstadoDeResultadosID").style.display = "none";
-    // document.getElementById("BalanceGeneralID").style.display = "none";
-    // document.getElementById("VentasID").style.display = "block";
-    // document.getElementById("ProduccionID").style.display = "none";
-    // document.getElementById("CompaniaID").style.display = "none";
-    // document.getElementById("titulo").innerText = "INFORMES DE LA COMPAÑIA";
-
-    // document.getElementById("boton-EstadoDeResultadosID").style.backgroundColor = "rgb(24, 76, 133)";
-    // document.getElementById("boton-BalanceGeneralID").style.backgroundColor = "rgb(24, 76, 133)";
-    // document.getElementById("boton-VentasID").style.backgroundColor = "rgb(0, 197, 245)";
-    // document.getElementById("boton-ProduccionID").style.backgroundColor = "rgb(24, 76, 133)";
-    // document.getElementById("boton-CompaniaID").style.backgroundColor = "rgb(24, 76, 133)";
   }
 
   Produccion() {
     this.section_tap_3 = 3;
-    // document.getElementById("EstadoDeResultadosID").style.display = "none";
-    // document.getElementById("BalanceGeneralID").style.display = "none";
-    // document.getElementById("VentasID").style.display = "none";
-    // document.getElementById("ProduccionID").style.display = "block";
-    // document.getElementById("CompaniaID").style.display = "none";
-    // document.getElementById("titulo").innerText = "INFORMES DE LA COMPAÑIA";
-
-    // document.getElementById("boton-EstadoDeResultadosID").style.backgroundColor = "rgb(24, 76, 133)";
-    // document.getElementById("boton-BalanceGeneralID").style.backgroundColor = "rgb(24, 76, 133)";
-    // document.getElementById("boton-VentasID").style.backgroundColor = "rgb(24, 76, 133)";
-    // document.getElementById("boton-ProduccionID").style.backgroundColor = "rgb(0, 197, 245)";
-    // document.getElementById("boton-CompaniaID").style.backgroundColor = "rgb(24, 76, 133)";
   }
 
   Compania() {
 
     this.section_tap_3 = 4;
-    // document.getElementById("EstadoDeResultadosID").style.display = "none";
-    // document.getElementById("BalanceGeneralID").style.display = "none";
-    // document.getElementById("VentasID").style.display = "none";
-    // document.getElementById("ProduccionID").style.display = "none";
-    // document.getElementById("CompaniaID").style.display = "block";
-    // document.getElementById("titulo").innerText = "INFORMES DE LA COMPAÑIA";
 
-    // document.getElementById("boton-EstadoDeResultadosID").style.backgroundColor = "rgb(24, 76, 133)";
-    // document.getElementById("boton-BalanceGeneralID").style.backgroundColor = "rgb(24, 76, 133)";
-    // document.getElementById("boton-VentasID").style.backgroundColor = "rgb(24, 76, 133)";
-    // document.getElementById("boton-ProduccionID").style.backgroundColor = "rgb(24, 76, 133)";
-    // document.getElementById("boton-CompaniaID").style.backgroundColor = "rgb(0, 197, 245)";
-    //Line chart:
     this.LineChart = new Chart('lineChart', {
       type: 'line',
       data: {
@@ -1461,7 +1027,7 @@ export class TablaDeDecisionComponent implements OnInit {
                     return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
                 }
           } // end callbacks:
-        }, //end tooltips                
+        }, //end tooltips
             scales: {
                 yAxes: [{
                     ticks: {
@@ -1472,7 +1038,7 @@ export class TablaDeDecisionComponent implements OnInit {
                             } else {
                                return value;
                             }
-                       }                            
+                       }
                     }
                 }]
             }
@@ -1489,95 +1055,20 @@ export class TablaDeDecisionComponent implements OnInit {
 
   VisionGeneral() {
     this.section_tap_2 = 0;
-    // let players_tmp = this.http.getPlayers()
-    // if (players_tmp)
-    //   for (let player of players_tmp) {
-    //     let tmp_player = new VisionGeneral();
-    //     tmp_player.nombreEmpresa = player
-    //     this.visionGeneral.push(tmp_player);
-    //   }
-    // this.http.emit("visionGeneral", { codigo: this.codigo }, (response) => {
-    //   console.log(response);
-    //   if (response.players) {
-    //     this.visionGeneral = []
-    //     for (let player of response.players) {
-    //       let tmp_player = new VisionGeneral();
-    //       tmp_player.nombreEmpresa = player
-    //       this.visionGeneral.push(tmp_player);
-    //     }
-    //   }
-    //   console.log(this.visionGeneral)
-    // })
-    //cargar visionGeneral
-    // this.http.get('http://localhost:8080/visionGeneral/' + this.codigo + '/' + this.numeroBimestre).subscribe(
-    //   (response: any) => {
-    //     console.log(response);
-    //     this.visionGeneral = response;
-    //   });
-
-    // document.getElementById("VisionGeneralID").style.display = "block";
-    // document.getElementById("ProduccionTablaAnalisisID").style.display = "none";
-    // document.getElementById("VentasTablaAnalisisID").style.display = "none";
-    // document.getElementById("PorcentajeMercado").style.display = "none";
-    // document.getElementById("titulo").innerText = "ANALISIS DE LA INDUSTRIA";
-
-    // document.getElementById("boton-VisionGeneralID").style.backgroundColor = "rgb(0, 139, 208)";
-    // document.getElementById("boton-ProduccionTablaAnalisisID").style.backgroundColor = "rgb(24, 76, 133)";
-    // document.getElementById("boton-VentasTablaAnalisisID").style.backgroundColor = "rgb(24, 76, 133)";
-    // document.getElementById("boton-PorcentajeMercadoID").style.backgroundColor = "rgb(24, 76, 133)";
   }
 
   ProduccionTablaAnalisis() {
     this.section_tap_2 = 1;
-
-    // document.getElementById("VisionGeneralID").style.display = "none";
-    // document.getElementById("ProduccionTablaAnalisisID").style.display = "block";
-    // document.getElementById("VentasTablaAnalisisID").style.display = "none";
-    // document.getElementById("PorcentajeMercado").style.display = "none";
-    // document.getElementById("titulo").innerText = "ANALISIS DE LA INDUSTRIA";
-
-    // document.getElementById("boton-VisionGeneralID").style.backgroundColor = "rgb(24, 76, 133)";
-    // document.getElementById("boton-ProduccionTablaAnalisisID").style.backgroundColor = "rgb(0, 139, 208)";
-    // document.getElementById("boton-VentasTablaAnalisisID").style.backgroundColor = "rgb(24, 76, 133)";
-    // document.getElementById("boton-PorcentajeMercadoID").style.backgroundColor = "rgb(24, 76, 133)";
   }
 
   VentasTablaAnalisis() {
 
     this.section_tap_2 = 2;
-    // document.getElementById("VisionGeneralID").style.display = "none";
-    // document.getElementById("ProduccionTablaAnalisisID").style.display = "none";
-    // document.getElementById("VentasTablaAnalisisID").style.display = "block";
-    // document.getElementById("PorcentajeMercado").style.display = "none";
-    // document.getElementById("titulo").innerText = "ANALISIS DE LA INDUSTRIA";
-
-    // document.getElementById("boton-VisionGeneralID").style.backgroundColor = "rgb(24, 76, 133)";
-    // document.getElementById("boton-ProduccionTablaAnalisisID").style.backgroundColor = "rgb(24, 76, 133)";
-    // document.getElementById("boton-VentasTablaAnalisisID").style.backgroundColor = "rgb(0, 139, 208)";
-    // document.getElementById("boton-PorcentajeMercadoID").style.backgroundColor = "rgb(24, 76, 133)";
   }
 
 
   PorcentajeMercado() {
     this.section_tap_2 = 3;
-    //cargar visionGeneral
-    //this.http.get('http://localhost:8080/visionGeneral/' + //this.codigo + '/' + this.numeroBimestre).subscribe(
-    //(response: any) => {
-    //console.log(response);
-    //this.visionGeneral = response;
-    //});
-
-    // document.getElementById("VisionGeneralID").style.display = "none";
-    // document.getElementById("ProduccionTablaAnalisisID").style.display = "none";
-    // document.getElementById("VentasTablaAnalisisID").style.display = "none";
-    // document.getElementById("PorcentajeMercado").style.display = "block";
-    // document.getElementById("titulo").innerText = "ANALISIS DE LA INDUSTRIA";
-
-    // document.getElementById("boton-VisionGeneralID").style.backgroundColor = "rgb(24, 76, 133)";
-    // document.getElementById("boton-ProduccionTablaAnalisisID").style.backgroundColor = "rgb(24, 76, 133)";
-    // document.getElementById("boton-VentasTablaAnalisisID").style.backgroundColor = "rgb(24, 76, 133)";
-    // document.getElementById("boton-PorcentajeMercadoID").style.backgroundColor = "rgb(0, 139, 208)";
-    //Pie chart
     this.myPieChart = new Chart('pieI', {
       type: 'pie',
       data: {
