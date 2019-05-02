@@ -346,3 +346,13 @@ font-size: 14px;
   width: 800px;
   height: 400px;
 }
+
+#jerarquia-inferior{
+  float:right;
+  padding-right:25%;
+}
+
+#jerarquia-superior{
+  float:right;
+  padding-right:5%;
+}

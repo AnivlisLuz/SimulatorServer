@@ -350,32 +350,29 @@ por su excelente trato al cliente y productos de alta calidad.”
                 <ul style="list-style-type:none">
                   <li> <span> <i class="material-icons" (click)="general()" style="font-size:18px; color:blue;cursor: pointer">
                         arrow_right</i></span> CAPITAL PERIODO
-                    ANTERIOR
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    ANTERIOR<span id="jerarquia-superior">
                     {{capitalPeriodoAnterior
-                    | thousandPipe}}</li>
+                    | thousandPipe}}</span></li>
                   <li><span> <i class="material-icons" (click)="ingresoDiv()" style="font-size:18px; color:blue;cursor: pointer">arrow_drop_down</i></span>
-                    INGRESOS&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    {{precioUnitario*produccion | thousandPipe}}</li>
+                    INGRESOS<span id="jerarquia-superior">{{precioUnitario*produccion | thousandPipe}}</span></li>
                   <div id="div-ingresos" style="padding-left: 20%">
-                    <pre>VENTAS                                        {{precioUnitario*produccion | thousandPipe}} </pre>
-                    <pre>OTROS INGRESOS                              {{ 0 | thousandPipe}}</pre>
+                    <pre>VENTAS<span id="jerarquia-inferior">{{precioUnitario*produccion | thousandPipe}}</span></pre>
+                    <pre>OTROS INGRESOS<span id="jerarquia-inferior">{{ 0 | thousandPipe}}</span></pre>
                   </div>
-                  <li><span> <i class="material-icons" (click)="gastosDiv()" style="font-size:18px; color:blue ;cursor: pointer">arrow_drop_down</i></span>GASTOS&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    {{inversionEnMarketing + inversionEnActivos+inversionEnInvestigacion+produccion*50 +30770 |
-                    thousandPipe}}</li>
+                  <li><span> <i class="material-icons" (click)="gastosDiv()" style="font-size:18px; color:blue ;cursor: pointer">arrow_drop_down</i></span>GASTOS<span id="jerarquia-superior">{{inversionEnMarketing + inversionEnActivos+inversionEnInvestigacion+produccion*50 +30770 |
+                    thousandPipe}}</span></li>
                   <div id="div-gastos" style="padding-left: 20%">
-                    <pre>COSTOS DE PRODUCCIÓN         {{produccion*50 +30770 | thousandPipe}}</pre>
-                    <pre>INV. MARKETING                            {{inversionEnMarketing | thousandPipe}}</pre>
-                    <pre>INV. INVESTIGACIÓN                     {{inversionEnInvestigacion | thousandPipe}}</pre>
-                    <pre>INV. ACTIVOS                                 {{inversionEnActivos | thousandPipe}}</pre>
+                    <pre>COSTOS DE PRODUCCIÓN<span id="jerarquia-inferior">{{produccion*50 +30770 | thousandPipe}}</span></pre>
+                    <pre>INV. MARKETING<span id="jerarquia-inferior">{{inversionEnMarketing | thousandPipe}}</span></pre>
+                    <pre>INV. INVESTIGACIÓN<span id="jerarquia-inferior">{{inversionEnInvestigacion | thousandPipe}}</span></pre>
+                    <pre>INV. ACTIVOS<span id="jerarquia-inferior">{{inversionEnActivos | thousandPipe}}</span></pre>
 
                   </div>
                   <li><span> <i class="material-icons" (click)="resultadosDiv()" style="font-size:18px; color:blue;cursor: pointer">arrow_drop_down</i></span>RESULTADO
                   </li>
                   <div id="div-resultados" style="padding-left: 20%">
-                    <pre>EFECTIVO DISPONIBLE            {{capitalPeriodoAnterior+precioUnitario*produccion-(produccion*50 +30770+inversionEnMarketing + inversionEnActivos+inversionEnInvestigacion) | thousandPipe}} </pre>
-                    <pre>UTILIDAD ESPERADA                {{(precioUnitario*produccion)-(inversionEnMarketing + inversionEnActivos+inversionEnInvestigacion+produccion*50 +30770) | thousandPipe}}</pre>
+                    <pre>EFECTIVO DISPONIBLE<span id="jerarquia-inferior">{{capitalPeriodoAnterior+precioUnitario*produccion-(produccion*50 +30770+inversionEnMarketing + inversionEnActivos+inversionEnInvestigacion) | thousandPipe}}</span></pre>
+                    <pre>UTILIDAD ESPERADA<span id="jerarquia-inferior">{{(precioUnitario*produccion)-(inversionEnMarketing + inversionEnActivos+inversionEnInvestigacion+produccion*50 +30770) | thousandPipe}}</span></pre>
                   </div>
                 </ul>
               </div>
