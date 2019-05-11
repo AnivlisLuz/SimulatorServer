@@ -156,6 +156,7 @@ export class TablaDeDecisionComponent implements OnInit {
 
   }
   ngOnInit() {
+    document.getElementById("puntajes").style.display = "none";
 
     // this.route.params.subscribe(params => {
     //   if (params['player_name'] != null && params['codigo'] != null) {
@@ -222,6 +223,8 @@ export class TablaDeDecisionComponent implements OnInit {
       document.getElementById("inversionEnMarketingTD").style.display = "none";
       document.getElementById("inversionEnInvestigacionTD").style.display = "none";
       document.getElementById("inversionEnActivosTD").style.display = "none";
+      document.getElementById("puntajes").style.display = "block";
+
     }
   }
   actualizarActivo()
@@ -584,6 +587,8 @@ export class TablaDeDecisionComponent implements OnInit {
   }
   decision() {
     this.tap_position = 1;
+    document.getElementById("puntajes").style.display = "none";
+
     // document.getElementById("decisiones").style.display = "block";
     // document.getElementById("tabla-analisis-industria").style.display = "none";
     // document.getElementById("informe").style.display = "none";
@@ -1461,7 +1466,7 @@ export class TablaDeDecisionComponent implements OnInit {
                     return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
                 }
           } // end callbacks:
-        }, //end tooltips                
+        }, //end tooltips
             scales: {
                 yAxes: [{
                     ticks: {
@@ -1472,7 +1477,7 @@ export class TablaDeDecisionComponent implements OnInit {
                             } else {
                                return value;
                             }
-                       }                            
+                       }
                     }
                 }]
             }
