@@ -1,4 +1,4 @@
-import { BalanceGeneral } from './../../models/balanceGeneral';
+﻿import { BalanceGeneral } from './../../models/balanceGeneral';
 import { CostosProduccion } from './../../models/costosProduccion';
 import { EstadoResultados } from './../../models/estadoResultados';
 
@@ -156,6 +156,7 @@ export class TablaDeDecisionComponent implements OnInit {
 
   }
   ngOnInit() {
+    document.getElementById("puntajes").style.display = "none";
 
     // this.route.params.subscribe(params => {
     //   if (params['player_name'] != null && params['codigo'] != null) {
@@ -222,6 +223,8 @@ export class TablaDeDecisionComponent implements OnInit {
       document.getElementById("inversionEnMarketingTD").style.display = "none";
       document.getElementById("inversionEnInvestigacionTD").style.display = "none";
       document.getElementById("inversionEnActivosTD").style.display = "none";
+      document.getElementById("puntajes").style.display = "block";
+
     }
   }
   actualizarActivo()
@@ -584,6 +587,8 @@ export class TablaDeDecisionComponent implements OnInit {
   }
   decision() {
     this.tap_position = 1;
+    document.getElementById("puntajes").style.display = "none";
+
     // document.getElementById("decisiones").style.display = "block";
     // document.getElementById("tabla-analisis-industria").style.display = "none";
     // document.getElementById("informe").style.display = "none";
@@ -1240,7 +1245,7 @@ export class TablaDeDecisionComponent implements OnInit {
         this.LineChart4.update();
     }
 
-    for (let i = 0; i <=this.numeroBimestre; i++) {   
+    for (let i = 0; i <=this.numeroBimestre; i++) {
         this.LineChart4.data.datasets[1].data.push(Math.round(this.produccionTotalIndustriaBimestres[i]));
         this.LineChart4.update();
     }
@@ -1327,7 +1332,7 @@ export class TablaDeDecisionComponent implements OnInit {
 
     for (let i = 0; i <=this.numeroBimestre; i++) {
       this.LineChart5.data.datasets[1].data.push(Math.round(this.promedioERUtilidadNeta[i]));
-      if(i!=0) 
+      if(i!=0)
       {
         this.LineChart5.data.labels.push("Bimestre " + i);
       }
