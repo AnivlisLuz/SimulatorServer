@@ -10,4 +10,6 @@ export class Produccion {
     public jugador: String;
     public numero: number;
     public codigo: String;
+    public costeMedioUnitarioActualDecimal: string;
+
 }

@@ -12,7 +12,7 @@ aside {
   color: white;
   text-align: center;
   overflow-y: hidden;
-  
+
 }
 
 #logo_container {
@@ -80,7 +80,7 @@ aside {
   height: 100%;
   width: 100%;
   overflow: hidden;
-  
+
 }
 
 .section_title {
@@ -327,7 +327,7 @@ pre {
   line-height: 100px;
   color: white
 }
-.centro 
+.centro
 {
   text-align: center;
 }
@@ -337,12 +337,12 @@ font-size: 14px;
 }
 .maquinaria
 {
-  
+
   text-align: center;
 }
 
 .maquinaria-foto
 {
-  width: 1000px; 
-  height: 395px;
+  width: 800px;
+  height: 400px;
 }

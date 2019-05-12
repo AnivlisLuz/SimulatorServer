@@ -195,7 +195,6 @@ exports.setSocket = io => {
                 _mercado.getCostosProduccion(data).then(result => {
                     result.materiaPrima= Math.round(result.materiaPrima)
                     result.costoTotal= Math.round(result.costoTotal)
-                    result.costoUnitario= result.costoUnitario.toLocaleString(2)
                     client(result)
                     io.sockets.emit("getCostosProduccion(data)", result)
                 }).catch(error => {
@@ -214,8 +213,7 @@ exports.setSocket = io => {
                     result.produccionIndustriaValorAnterior=Math.round(result.produccionIndustriaValorAnterior)
                     result.costeMedioTotalActual=Math.round(result.costeMedioTotalActual)
                     result.costeMedioTotalAnterior=Math.round(result.costeMedioTotalAnterior)
-                    result.costeMedioUnitarioActual=result.costeMedioUnitarioActual.toFixed(2)
-                    result.costeMedioUnitarioAnterior=result.costeMedioUnitarioAnterior.toFixed(2)
+                   
                     result.capacidadProduccionActual=Math.round(result.capacidadProduccionActual)
                     result.capacidadProduccionAnterior=Math.round(result.capacidadProduccionAnterior)
                    
@@ -411,6 +409,7 @@ exports.setSocket = io => {
                _mercado.retirarseJuego(data).then(result=>{
                 client(result)                     
                 io.sockets.emit("retirarseJuego(data)", result)
+                io.sockets.emit("getPlayers", _mercado.getPlayers())
                }) .catch(error=>{        
                 client("error con el socket")
             })              
@@ -420,8 +419,13 @@ exports.setSocket = io => {
         })
     });
 }
-
-class Mercado {
+exports.setApi = app => {
+        app.post('/api/jugador', (req, client) => {
+        client.send(req.body)
+        db.saveDatosJugadores(req.body)
+    })
+}
+class Mercado { 
 
     constructor(nombre, cantidad_judagores, token) {
         this.nombre = nombre
@@ -445,6 +449,11 @@ class Mercado {
         } else if (!this.isFull()) {
             this.players[name] = new Player(name, codigo)
             db.saveEmpresa(this.players[name])
+            if(this.isFull())
+            {
+                //calcularTodoPrueba({codigo: token,numeroBimestre:0})
+                calcularTodo(this.token,0);
+            }
             return {
                 message: "ok"
             }
@@ -565,6 +574,19 @@ class Mercado {
                     {
                         empresa.activo=0
                         db.updateActivoEmpresa(empresa)
+                        player_tmp = this.players[empresa.name]
+                        if(data.numeroBimestre==0){
+                            player_tmp.activo_uno=false
+                            player_tmp.activo_dos=false
+                            player_tmp.activo_tres=false
+                        }
+                        if(data.numeroBimestre==1){
+                            player_tmp.activo_dos=false
+                            player_tmp.activo_tres=false
+                        }
+                        if(data.numeroBimestre==2)
+                            player_tmp.activo_tres=false
+                        player_tmp.activo=0
                     }                   
                 }
             }
@@ -655,6 +677,19 @@ class Mercado {
                         {
                             empresa.activo=0
                             db.updateActivoEmpresa(empresa)
+                            player_tmp = this.players[empresa.name]
+                            if(data.numeroBimestre==0){
+                                player_tmp.activo_uno=false
+                                player_tmp.activo_dos=false
+                                player_tmp.activo_tres=false
+                            }
+                            if(data.numeroBimestre==1){
+                                player_tmp.activo_dos=false
+                                player_tmp.activo_tres=false
+                            }
+                            if(data.numeroBimestre==2)
+                                player_tmp.activo_tres=false
+                            player_tmp.activo=0
                         }                   
                     }
 
@@ -700,6 +735,19 @@ class Mercado {
                     {
                         empresa.activo=0
                         db.updateActivoEmpresa(empresa)
+                        let player_tmp = this.players[empresa.name]
+                        if(data.numeroBimestre==0){
+                            player_tmp.activo_uno=false
+                            player_tmp.activo_dos=false
+                            player_tmp.activo_tres=false
+                        }
+                        if(data.numeroBimestre==1){
+                            player_tmp.activo_dos=false
+                            player_tmp.activo_tres=false
+                        }
+                        if(data.numeroBimestre==2)
+                            player_tmp.activo_tres=false
+                        player_tmp.activo=0
                     }                   
                 }
             }
@@ -741,7 +789,7 @@ class Mercado {
                 empresas.push(this.players[player].toString())
             }
             let indice = 0
-            for (let i = 1; i <= data.numeroBimestre; i++) {
+            for (let i = 0; i <= data.numeroBimestre; i++) {
                 let suma = 0
                 for (let j = 0; j < empresas.length; j++) {
                     let estadoResultadosPersonal = {}
@@ -794,7 +842,7 @@ class Mercado {
             console.log("bimestres =>", bimestres)
             bimestres = await db.getAllBimestresByCodigo(data.codigo)
             console.log("bimestres =>", bimestres)
-            for (let i = 1; i < 4; i++) {
+            for (let i = 0; i < 4; i++) {
                 indice = 0
                 //console.log("indice==>",indice)
                 for (let j = 0; j < bimestres.length; j++) {
@@ -822,7 +870,7 @@ console.log(bimestre.precioUnitario,bimestre.numero,bimestre.jugador)
         if (player_tmp) {
             let produccionTotalIndustriaBimestres=[]
             let produccion ={}
-            for (let i = 1; i <=data.numeroBimestre; i++) {
+            for (let i = 0; i <=data.numeroBimestre; i++) {
                 produccion = await db.getProduccionPorCodigoDeJuegoNombreNumeroF(data.codigo, data.player_name, i)
                 produccionTotalIndustriaBimestres.push(produccion.produccionIndustriaValorActual)
             }
@@ -875,7 +923,24 @@ console.log(bimestre.precioUnitario,bimestre.numero,bimestre.jugador)
                 {
                     empresa.activo=0
                     db.updateActivoEmpresa(empresa)
+                    player_tmp = this.players[empresa.name]
+                    if(data.numeroBimestre==0){
+                        player_tmp.activo_uno=false
+                        player_tmp.activo_dos=false
+                        player_tmp.activo_tres=false
+                    }
+                    if(data.numeroBimestre==1){
+                        player_tmp.activo_dos=false
+                        player_tmp.activo_tres=false
+                        console.log("+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=");
+                    }
+                    if(data.numeroBimestre==2){
+                        player_tmp.activo_tres=false
+                        console.log("+++++++++++++++++++++++++++++++++");
+                    }
+                    player_tmp.activo=0
                     esRetirado=true
+                    console.log("====================================== RETIRARSE: ",player_tmp);
                 }
             }
             return {esRetirado:esRetirado}
@@ -898,6 +963,9 @@ class Player {
         this.cantidadIdeal = 500
         this.codigo = codigo
         this.activo=1
+        this.activo_uno=true
+        this.activo_dos=true
+        this.activo_tres=true
     }
 
     addBimestreUno(data, codigo) {
@@ -949,6 +1017,9 @@ class Player {
         if (this.bimestre_uno) res.bimestre_uno = this.bimestre_uno.toString()
         if (this.bimestre_dos) res.bimestre_dos = this.bimestre_dos.toString()
         if (this.bimestre_tres) res.bimestre_tres = this.bimestre_tres.toString()
+        res.activo_uno=this.activo_uno
+        res.activo_dos=this.activo_dos
+        res.activo_tres=this.activo_tres
         return res
     }
 
@@ -1136,7 +1207,7 @@ class Ventas {
         this.inventarioUnidades = this.producidoUnidades + inventarioUnidadesAnterior - this.ventasRealizadasUnidades
         this.inventarioMonetario = this.inventarioUnidades * precioUnitario
         this.ventasRealizadasMonetario = this.ventasRealizadasUnidades * precioUnitario
-        if (cantidadIdeal <= (produccion + inventarioUnidadesAnterior))
+        if (this.numeroBimestre==0 || cantidadIdeal <= (produccion + inventarioUnidadesAnterior))
         {
             this.pedidosNoAtendidosUnidades = 0
         }
@@ -1325,10 +1396,10 @@ async function calcularTodo(codigoJuego, numeroBimestre) {
         bimestre = bimestres[i]
 //console.log("bimestre =>",bimestre)
         ventasUnidades = 0
-        utilidadNeta = 5930
+        utilidadNeta = -15800
         let ventasAnterior={}
         let estadoResultadosAnterior={}
-        if (bimestre.numero != 1) {
+        if (bimestre.numero != 0) {
             ventasAnterior = await db.getVentasPorCodigoDeJuegoNombreNumero(codigoJuego, bimestre.jugador, numeroBimestre - 1)
             //console.log("ventasAnterior ==>",ventasAnterior)
             estadoResultadosAnterior = await db.getEstadoResultadosPorCodigoDeJuegoNombreNumero(codigoJuego, bimestre.jugador, numeroBimestre - 1)
@@ -1378,6 +1449,7 @@ async function calcularTodo(codigoJuego, numeroBimestre) {
     juego = mercados[codigoJuego]
     for (let i = 0; i < empresas.length; i++) {
         player = empresas[i]
+        if(player.activo==1){
         empresa = new Empresa(player.name, player.codigo, player.cantidadIdealTotal, player.produccion, player.cantidadRealVendida, player.cantidadIdeal)
         empresa.calcularPorcentajeMercado(juego.mercado)
 //console.log("empresa =>",empresa)       
@@ -1390,10 +1462,10 @@ async function calcularTodo(codigoJuego, numeroBimestre) {
 //console.log("visionGeneral =>",visionGeneral)                     
         db.saveVisionGeneral(visionGeneral)
 
-        if (numeroBimestre == 1) {
-            produccion = new Produccion(1, codigoJuego, empresa.name)
+        if (numeroBimestre == 0) {
+            produccion = new Produccion(0, codigoJuego, empresa.name)
             produccion.calcular(bimestres,costosProduccionBimestre)
-            ventasIndustria = new VentasIndustria(1, codigoJuego, empresa.name)
+            ventasIndustria = new VentasIndustria(0, codigoJuego, empresa.name)
             ventasIndustria.calcular(bimestres,ventasBimestre)
             db.saveProduccion(produccion)
             db.saveVentasIndustria(ventasIndustria)
@@ -1404,7 +1476,12 @@ async function calcularTodo(codigoJuego, numeroBimestre) {
             calcularVentasIndustria(bimestres, ventasBimestre, ventasIndustria)
         }
 //console.log("produccion =>",produccion)                     
-//console.log("ventasIndustria =>",ventasIndustria)                     
+//console.log("ventasIndustria =>",ventasIndustria)   
+        }
+        else{
+            visionGeneral = new VisionGeneral(0, 0, 0, 0, numeroBimestre, codigoJuego, player.name)
+            db.saveVisionGeneral(visionGeneral)
+        }
     }
 
 //console.log("----------------------------------------------------------------")
@@ -1418,6 +1495,8 @@ async function calcularTodo(codigoJuego, numeroBimestre) {
         let puntaje = 2 * visionGeneralList.length
         for (let i = visionGeneralList.length - 1; i >= 0; i--) {
             visionGeneralElement = visionGeneralList[i]
+            player = await db.getEmpresaPorNombreYCodigoDeJuego(codigoJuego,visionGeneralElement.jugador)
+            if(player.activo==1){
             if (i > 0 && visionGeneralElement.beneficio != visionGeneralList[i - 1].beneficio) {
                 visionGeneralElement.puntajeBeneficio = puntaje
                 puntaje -= 2;
@@ -1425,6 +1504,7 @@ async function calcularTodo(codigoJuego, numeroBimestre) {
                 visionGeneralElement.puntajeBeneficio = puntaje
             }
             db.updateVisionGeneral(visionGeneralElement)
+            }
             await sleep(300)
         }
 
@@ -1435,6 +1515,8 @@ async function calcularTodo(codigoJuego, numeroBimestre) {
         puntaje = 2 * visionGeneralList.length
         for (let i = visionGeneralList.length - 1; i >= 0; i--) {
             visionGeneralElement = visionGeneralList[i]
+            player = await db.getEmpresaPorNombreYCodigoDeJuego(codigoJuego,visionGeneralElement.jugador)
+            if(player.activo==1){
             if (i > 0 && visionGeneralElement.porcentajeDeMercado != visionGeneralList[i - 1].porcentajeDeMercado) {
                 visionGeneralElement.puntajeMercado = puntaje
                 puntaje -= 2;
@@ -1442,6 +1524,7 @@ async function calcularTodo(codigoJuego, numeroBimestre) {
                 visionGeneralElement.puntajeMercado = puntaje
             }
             db.updateVisionGeneral(visionGeneralElement)
+            }
         }
         console.log("como ordeno final", visionGeneralList)
 }

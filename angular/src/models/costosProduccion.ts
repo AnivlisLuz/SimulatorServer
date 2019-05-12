@@ -7,5 +7,7 @@ export class CostosProduccion {
   public codigo: string;
   public jugador: String;
   public numeroBimestre: number = 0;
+  public costoUnitarioDecimal: string ;
+
 
 }

@@ -127,23 +127,42 @@ class Game {
         let bimestre_uno_count = 0
         let bimestre_dos_count = 0
         let bimestre_tres_count = 0
+        let bimestre_uno_activos = 0
+        let bimestre_dos_activos = 0
+        let bimestre_tres_activos = 0
         for (let i of data.players) {
           let tmp_player = new Player(i)
           if (tmp_player.name == this.name)
             this.player = tmp_player
-
+console.log(i.activo_uno,"+++++++++++++++++++++ 1--> ",tmp_player.activo_uno);
+console.log(i.activo_dos,"+++++++++++++++++++++ 2--> ",tmp_player.activo_dos);
+console.log(i.activo_tres,"+++++++++++++++++++++ 3--> ",tmp_player.activo_tres);
+console.log("/\| ==>" ,i);
           this.players.push(tmp_player)
-          if (tmp_player.bimestre_uno)
-            bimestre_uno_count++
-          if (tmp_player.bimestre_dos)
-            bimestre_dos_count++
-          if (tmp_player.bimestre_tres)
-            bimestre_tres_count++
+          if(tmp_player.activo_uno==true){
+console.log("entro uno");
+            bimestre_uno_activos++
+            if (tmp_player.bimestre_uno)
+              bimestre_uno_count++
+          }
+          if(tmp_player.activo_dos==true){
+console.log("entro dos");
+            bimestre_dos_activos++
+            if (tmp_player.bimestre_dos)
+              bimestre_dos_count++
+          }
+          if(tmp_player.activo_tres==true){
+console.log("entro tres");
+            bimestre_tres_activos++
+            if (tmp_player.bimestre_tres)
+              bimestre_tres_count++
+          }
         }
+console.log("CALCULO =>",bimestre_uno_activos,bimestre_dos_activos,bimestre_tres_activos,bimestre_uno_count,bimestre_dos_count,bimestre_tres_count);
         this.bimestre_inicial_c = data.size - this.players.length
-        this.bimestre_uno_c = data.size - bimestre_uno_count
-        this.bimestre_dos_c = data.size - bimestre_dos_count
-        this.bimestre_tres_c = data.size - bimestre_tres_count
+        this.bimestre_uno_c = bimestre_uno_activos - bimestre_uno_count
+        this.bimestre_dos_c = bimestre_dos_activos - bimestre_dos_count
+        this.bimestre_tres_c = bimestre_tres_activos - bimestre_tres_count
         this.cantidadTotalJugadores = data.size
         this.moderator = this.codigo
         console.log(this.bimestre_inicial_c, this.bimestre_uno_c, this.bimestre_dos_c, this.bimestre_tres_c)
@@ -278,8 +297,8 @@ class Game {
     console.log("getActivo", send_Data)
     this.socket.emit("getActivo", send_Data, callback);
   }
-  public retirarseJuego(callback){
-    let send_Data = { codigo: this.codigo, player_name: this.player.name }
+  public retirarseJuego(data,callback){
+    let send_Data = { numeroBimestre: data,codigo: this.codigo, player_name: this.player.name }
     console.log("retirarseJuego", send_Data)
     this.socket.emit("retirarseJuego", send_Data, callback);
   }
@@ -291,6 +310,9 @@ class Player {
   bimestre_dos: Bimestre
   bimestre_tres: Bimestre
   bimestre_anterior: Bimestre
+  activo_uno:boolean
+  activo_dos:boolean
+  activo_tres:boolean 
   constructor(data) {
     this.name = data.name
     if (data.bimestre_inicial) {
@@ -309,6 +331,9 @@ class Player {
       this.bimestre_tres = new Bimestre(data.bimestre_tres)
       this.bimestre_anterior = this.bimestre_tres
     }
+    this.activo_uno=data.activo_uno
+    this.activo_dos=data.activo_dos
+    this.activo_tres=data.activo_tres
   }
 }
 class Bimestre {

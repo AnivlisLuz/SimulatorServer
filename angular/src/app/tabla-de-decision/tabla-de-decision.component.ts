@@ -1,4 +1,4 @@
-﻿import { BalanceGeneral } from './../../models/balanceGeneral';
+import { BalanceGeneral } from './../../models/balanceGeneral';
 import { CostosProduccion } from './../../models/costosProduccion';
 import { EstadoResultados } from './../../models/estadoResultados';
 
@@ -19,7 +19,7 @@ import { Chart } from 'chart.js';
 import { Alert } from 'selenium-webdriver';
 
 import 'chartjs-plugin-labels';
-
+import 'chartjs-plugin-piechart-outlabels';
 
 @Component({
   selector: 'app-tabla-de-decision',
@@ -241,7 +241,7 @@ export class TablaDeDecisionComponent implements OnInit {
       let esRetirarse = confirm("¿Seguro de retirarse del juego?");
       if( esRetirarse )
       {
-          this.http.game.retirarseJuego((response) => {
+          this.http.game.retirarseJuego(this.numeroBimestre,(response) => {
             if(response)
             {
               console.log("retirarseJuego front =>", response.esRetirado)
@@ -617,6 +617,8 @@ export class TablaDeDecisionComponent implements OnInit {
       console.log("getProduccion front", response)
       if (response)
         this.produccionIndustria = response
+        this.produccionIndustria.costeMedioUnitarioActualDecimal=this.produccionIndustria.costeMedioUnitarioActual.toFixed(2).replace('.', ',').replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.');
+
     });
     this.http.game.getVentasIndustria(this.numeroBimestre, (response) => {
       console.log("getVentasIndustria front", response)
@@ -684,6 +686,8 @@ export class TablaDeDecisionComponent implements OnInit {
       console.log("getCostosProduccion front", response)
       if (response)
         this.costoProduccion = response
+
+        this.costoProduccion.costoUnitarioDecimal=this.costoProduccion.costoUnitario.toFixed(2).replace('.', ',').replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.');
     });
 
     this.actualizarActivo();
@@ -721,7 +725,7 @@ export class TablaDeDecisionComponent implements OnInit {
         labels: ["Bimestre inicial"],
         datasets: [{
           label: 'Produccion de la industria',
-          data: [3000],
+          data: [],
           fill: false,
           lineTension: 0.2,
           borderColor: "green",
@@ -730,7 +734,7 @@ export class TablaDeDecisionComponent implements OnInit {
         },
         {
           label: 'Ventas de la industria (unidades)',
-          data: [3000],
+          data: [],
           fill: false,
           lineTension: 0.2,
           borderColor: "red",
@@ -792,8 +796,11 @@ export class TablaDeDecisionComponent implements OnInit {
       this.ventasIndustriaBimestres = response
 
 
-    for (let i = 0; i < this.numeroBimestre; i++) {
-      this.LineChart2.data.labels.push("Bimestre " + this.ventasIndustriaBimestres[i].numero);
+    for (let i = 0; i <=this.numeroBimestre; i++) {
+      if(this.ventasIndustriaBimestres[i].numero!=0)
+      {
+        this.LineChart2.data.labels.push("Bimestre " + this.ventasIndustriaBimestres[i].numero);
+      }
       this.LineChart2.data.datasets[1].data.push(this.ventasIndustriaBimestres[i].ventasIndustriaUnidadesActual);
       this.LineChart2.update();
     }
@@ -981,7 +988,7 @@ export class TablaDeDecisionComponent implements OnInit {
         labels: ["Bimestre inicial"],
         datasets: [{
           label: 'Produccion de la industria',
-          data: [3000],
+          data: [],
           fill: false,
           lineTension: 0.2,
           borderColor: "green",
@@ -990,7 +997,7 @@ export class TablaDeDecisionComponent implements OnInit {
         },
         {
           label: 'Ventas de la industria (unidades)',
-          data: [3000],
+          data: [],
           fill: false,
           lineTension: 0.2,
           borderColor: "red",
@@ -1016,6 +1023,12 @@ export class TablaDeDecisionComponent implements OnInit {
         tooltips: {
           mode: 'index',
           intersect: false,
+          callbacks: {
+                label: function(tooltipItem, data) {
+                    var value = data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index];
+                    return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+                }
+          }
         },
         hover: {
           mode: 'nearest',
@@ -1032,8 +1045,11 @@ export class TablaDeDecisionComponent implements OnInit {
         this.LineChart2.data.datasets[0].data.push(Math.round(this.produccionIndustriaBimestres[i].produccionIndustriaValorActual));
       this.LineChart2.update();
     }
-    for (let i = 0; i < this.numeroBimestre; i++) {
-      this.LineChart2.data.labels.push("Bimestre " + this.ventasIndustriaBimestres[i].numero);
+    for (let i = 0; i <=this.numeroBimestre; i++) {
+      if(this.ventasIndustriaBimestres[i].numero!=0)
+      {
+        this.LineChart2.data.labels.push("Bimestre " + this.ventasIndustriaBimestres[i].numero);
+      }
       this.LineChart2.data.datasets[1].data.push(Math.round(this.ventasIndustriaBimestres[i].ventasIndustriaUnidadesActual));
       this.LineChart2.update();
     }
@@ -1074,7 +1090,7 @@ export class TablaDeDecisionComponent implements OnInit {
         labels: ["Bimestre inicial"],
         datasets: [{
           label: 'Costo medio de produccion (unitario)',
-          data: [101.283],
+          data: [],
           fill: false,
           lineTension: 0.2,
           borderColor: "green",
@@ -1082,7 +1098,7 @@ export class TablaDeDecisionComponent implements OnInit {
           borderWidth: 1
         }, {
           label: 'Precio unitario (promedio)',
-          data: [150],
+          data: [],
           fill: false,
           lineTension: 0.2,
           borderColor: "red",
@@ -1122,18 +1138,18 @@ export class TablaDeDecisionComponent implements OnInit {
       }
     });
 
-    for (let i = 0; i < this.numeroBimestre; i++) {
+    for (let i = 0; i <=this.numeroBimestre; i++) {
       this.LineChart3.data.datasets[1].data.push(Math.round(this.promedioPrecioUnitarios[i]));
-      this.LineChart3.data.labels.push("Bimestre " + (i + 1));
       this.LineChart3.update();
     }
 
-    for (let i = 0; i < this.numeroBimestre; i++) {
-      //this.LineChart3.data.labels.push("Bimestre "+this.produccionIndustriaBimestres[i].numero);
-      if (this.produccionIndustriaBimestres[i].costeMedioUnitarioActual != 0) {
+    for (let i = 0; i <=this.numeroBimestre; i++) {
+      if(this.produccionIndustriaBimestres[i].numero!=0)
+      {
+        this.LineChart3.data.labels.push("Bimestre "+this.produccionIndustriaBimestres[i].numero);
+      }
         this.LineChart3.data.datasets[0].data.push(Math.round(this.produccionIndustriaBimestres[i].costeMedioUnitarioActual));
         this.LineChart3.update();
-      }
     }
 
 
@@ -1175,7 +1191,7 @@ export class TablaDeDecisionComponent implements OnInit {
           borderWidth: 1
         }, {
           label: 'Produccion de la industria',
-          data: [3000],
+          data: [],
           fill: false,
           lineTension: 0.2,
           borderColor: "red",
@@ -1216,13 +1232,16 @@ export class TablaDeDecisionComponent implements OnInit {
     });
 
     for (let i = 0; i <=this.numeroBimestre; i++) {
-      this.LineChart4.data.datasets[0].data.push(Math.round(this.sumatoriaCapacidadProduccion[i]));
-      this.LineChart4.update();
+        this.LineChart4.data.datasets[0].data.push(Math.round(this.sumatoriaCapacidadProduccion[i]));
+        if(i!=0)
+        {
+          this.LineChart4.data.labels.push("Bimestre " + i);
+        }
+        this.LineChart4.update();
     }
 
-    for (let i = 0; i < this.numeroBimestre; i++) {
+    for (let i = 0; i <=this.numeroBimestre; i++) {   
         this.LineChart4.data.datasets[1].data.push(Math.round(this.produccionTotalIndustriaBimestres[i]));
-        this.LineChart4.data.labels.push("Bimestre " + (i + 1));
         this.LineChart4.update();
     }
   }
@@ -1257,7 +1276,7 @@ export class TablaDeDecisionComponent implements OnInit {
         labels: ["Bimestre inicial"],
         datasets: [{
           label: 'Utilidad de la compañia',
-          data: [5930],
+          data: [],
           fill: false,
           lineTension: 0.2,
           borderColor: "green",
@@ -1266,7 +1285,7 @@ export class TablaDeDecisionComponent implements OnInit {
         }, {
           label: 'Utilidad promedio de la industria',
 
-          data: [5930],
+          data: [],
           fill: false,
           lineTension: 0.2,
           borderColor: "red",
@@ -1306,14 +1325,17 @@ export class TablaDeDecisionComponent implements OnInit {
       }
     });
 
-    for (let i = 0; i < this.numeroBimestre; i++) {
+    for (let i = 0; i <=this.numeroBimestre; i++) {
       this.LineChart5.data.datasets[1].data.push(Math.round(this.promedioERUtilidadNeta[i]));
-      this.LineChart5.data.labels.push("Bimestre " + (i + 1));
+      if(i!=0) 
+      {
+        this.LineChart5.data.labels.push("Bimestre " + i);
+      }
       this.LineChart5.update();
     }
-    for (let i = 0; i < this.numeroBimestre; i++) {
+
+    for (let i = 0; i <=this.numeroBimestre; i++) {
       this.LineChart5.data.datasets[0].data.push(Math.round(this.estadoResultados[i].utilidadNeta));
-      //this.LineChart5.data.labels.push("Bimestre "+(i+1));
       this.LineChart5.update();
     }
   }
@@ -1433,7 +1455,7 @@ export class TablaDeDecisionComponent implements OnInit {
         labels: ["Bimestre inicial"],
         datasets: [{
           label: 'Utilidad neta por bimestre',
-          data: [5930],
+          data: [],
           fill: false,
           lineTension: 0.2,
           borderColor: "red",
@@ -1461,18 +1483,14 @@ export class TablaDeDecisionComponent implements OnInit {
                     return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
                 }
           } // end callbacks:
-        }, //end tooltips                
+        }, //end tooltips
             scales: {
                 yAxes: [{
                     ticks: {
                         beginAtZero:true,
                         callback: function(value, index, values) {
-                            if(parseInt(value) >= 1000){
                                return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
-                            } else {
-                               return value;
-                            }
-                       }                            
+                       }
                     }
                 }]
             }
@@ -1481,7 +1499,10 @@ export class TablaDeDecisionComponent implements OnInit {
 
     for (let i = 0; i < this.estadoResultados.length; i++) {
       this.LineChart.data.datasets[0].data.push(this.estadoResultados[i].utilidadNeta);
-      this.LineChart.data.labels.push("Bimestre " + (i + 1));
+      if(i!=0)
+      {
+        this.LineChart.data.labels.push("Bimestre " + i);
+      }
       this.LineChart.update();
     }
   }
@@ -1579,7 +1600,7 @@ export class TablaDeDecisionComponent implements OnInit {
     // document.getElementById("boton-PorcentajeMercadoID").style.backgroundColor = "rgb(0, 139, 208)";
     //Pie chart
     this.myPieChart = new Chart('pieI', {
-      type: 'pie',
+      type: 'outlabeledPie',
       data: {
         labels: [],
         datasets: [
@@ -1597,19 +1618,17 @@ export class TablaDeDecisionComponent implements OnInit {
           responsive: false
         },
         plugins:{
-          labels: [
-              {
-                render: 'label',
-                position: 'outside',
-                fontColor: 'black',
-                fontSize: 16
-              },
-              {
-                render: 'percentage',
-                fontColor: 'white',
-                fontSize: 16
+          legend: false,
+            outlabels: {
+              text: '%l %v' + '%',
+              color: 'white',
+              stretch: 45,
+              font: {
+                resizable: true,
+                minSize: 12,
+                maxSize: 24
+                    }
               }
-            ]
         }
       }
     });
@@ -1620,28 +1639,24 @@ export class TablaDeDecisionComponent implements OnInit {
       this.myPieChart.data.datasets[0].data.push(this.visionGeneral[i].porcentajeDeMercado);
       this.auxiliarMercadoSinAtender += (this.visionGeneral[i].porcentajeDeMercado);
       if (i == 0) {
-        this.myPieChart.data.datasets[0].borderColor.push("blue");
-        this.myPieChart.data.datasets[0].backgroundColor.push("blue");
+        this.myPieChart.data.datasets[0].borderColor.push("#FF3784");
+        this.myPieChart.data.datasets[0].backgroundColor.push("#FF3784");
       }
       if (i == 1) {
-        this.myPieChart.data.datasets[0].borderColor.push("green");
-        this.myPieChart.data.datasets[0].backgroundColor.push("green");
+        this.myPieChart.data.datasets[0].borderColor.push("#36A2EB");
+        this.myPieChart.data.datasets[0].backgroundColor.push("#36A2EB");
       }
       if (i == 2) {
-        this.myPieChart.data.datasets[0].borderColor.push("red");
-        this.myPieChart.data.datasets[0].backgroundColor.push("red");
+        this.myPieChart.data.datasets[0].borderColor.push("#4BC0C0");
+        this.myPieChart.data.datasets[0].backgroundColor.push("#4BC0C0");
       }
       if (i == 3) {
-        this.myPieChart.data.datasets[0].borderColor.push("orange");
-        this.myPieChart.data.datasets[0].backgroundColor.push("orange");
+        this.myPieChart.data.datasets[0].borderColor.push("#F77825");
+        this.myPieChart.data.datasets[0].backgroundColor.push("#F77825");
       }
       if (i == 4) {
-        this.myPieChart.data.datasets[0].borderColor.push("purple");
-        this.myPieChart.data.datasets[0].backgroundColor.push("purple");
-      }
-      if (i > 4) {
-        this.myPieChart.data.datasets[0].borderColor.push("yellow");
-        this.myPieChart.data.datasets[0].backgroundColor.push("yellow");
+        this.myPieChart.data.datasets[0].borderColor.push("#9966FF");
+        this.myPieChart.data.datasets[0].backgroundColor.push("#9966FF");
       }
       this.myPieChart.update();
     }
@@ -1649,8 +1664,8 @@ export class TablaDeDecisionComponent implements OnInit {
       this.mercadoSinAtender = 100 - this.auxiliarMercadoSinAtender;
       this.myPieChart.data.labels.push("Mercado sin atender");
       this.myPieChart.data.datasets[0].data.push(this.mercadoSinAtender);
-      this.myPieChart.data.datasets[0].borderColor.push("black");
-      this.myPieChart.data.datasets[0].backgroundColor.push("black");
+      this.myPieChart.data.datasets[0].borderColor.push("#000000");
+      this.myPieChart.data.datasets[0].backgroundColor.push("#000000");
       this.myPieChart.update();
     }
 

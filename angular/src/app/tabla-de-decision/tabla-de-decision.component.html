@@ -6,11 +6,11 @@
     </div>
     <div class="button_tab_container" style="background-color: #092B3A;">
       <button (click)="informacion()" class="boton-infomacion-compania tab_menu_button" style="background-color: #092B3A;">
-        DATOS SOBRE LA COMPAÑÍA
+        DATOS SOBRE LA EMPRESA
       </button>
 
       <div class="{{tap_position==0 ? '' : 'tap_menu_hidden'}} tab_menu_description">
-        Como nuevo gerente general es necesario que conozcas a detalle todo acerca de la compañía que ahora
+        Como nuevo gerente general es necesario que conozcas a detalle todo acerca de la empresa que ahora
         diriges.
         En esta seción te brindamos toda la información necesaria para que conozcas el negocio.
       </div>
@@ -36,12 +36,12 @@
     </div>
     <div class="button_tab_container" style="background-color: #2EC3EC;">
       <button (click)="informe()" class="boton-informe tab_menu_button" style="background-color: #2EC3EC;">
-        INFORMES DE LA COMPAÑÍA
+        INFORMES DE LA EMPRESA
       </button>
       <div class="{{tap_position==3 ? '' : 'tap_menu_hidden'}} tab_menu_description">
         En esta sección puedes ver y analizar las decisiones y resultados de tus decisiones así como el
         estado de tu
-        compañía.
+        empresa.
       </div>
     </div>
     <div class="button_tab_container" style="background-color: #36A9E1;">
@@ -58,7 +58,7 @@
       <div class="section_container_body">
         <div class="section_title">
           <div class="material-icons section_title_icon" style="background-color: #092B3A;">help_outline</div>
-          <div class="section_title_desc"> DATOS SOBRE LA COMPAÑÍA</div>
+          <div class="section_title_desc"> DATOS SOBRE LA EMPRESA</div>
         </div>
         <div class="section_body">
 
@@ -174,8 +174,10 @@ por su excelente trato al cliente y productos de alta calidad.”
 
               <div class="section_body_content  {{section_tap_1==5 ? '' : 'tap_menu_hidden'}}">
                 <div class="maquinaria">
-                  <br>
-                  <img src="/imagenes/maquinaria.png" class="maquinaria-foto">
+                  <div style="padding: 15px; text-align: justify; font-size: 17px">
+                    &nbsp;&nbsp;&nbsp;&nbsp;Como nuevo gerente es importante que conozcas el proceso de serigraftía textil y la maquinaria que utiliza la empresa para producir.
+                </div>
+                  <img src="/imagenes/maquinaria-sin-intro.png" class="maquinaria-foto">
                 </div>
               </div>
 
@@ -442,7 +444,7 @@ por su excelente trato al cliente y productos de alta calidad.”
       <div class="section_container_body">
         <div class="section_title">
           <div class="material-icons section_title_icon" style="background-color: #2EC3EC;">business_center</div>
-          <div class="section_title_desc">INFORMES DE LA COMPAÑÍA</div>
+          <div class="section_title_desc">INFORMES DE LA EMPRESA</div>
         </div>
         <div class="section_body">
           <div class="section_body_main">
@@ -455,7 +457,7 @@ por su excelente trato al cliente y productos de alta calidad.”
               <button (click)="Ventas()" class="section_body_tab_button  {{section_tap_3==2 ? '' : 'tap_selected'}}">VENTAS</button>
               <button (click)="Produccion()" class="section_body_tab_button  {{section_tap_3==3 ? '' : 'tap_selected'}}">COSTOS
                 DE PRODUCCIÓN</button>
-              <button (click)="Compania()" class="section_body_tab_button  {{section_tap_3==4 ? '' : 'tap_selected'}}">COMPAÑÍA</button>
+              <button (click)="Compania()" class="section_body_tab_button  {{section_tap_3==4 ? '' : 'tap_selected'}}">EMPRESA</button>
 
             </div>
             <div class="section_body_container">
@@ -508,7 +510,7 @@ por su excelente trato al cliente y productos de alta calidad.”
                 VS PRECIO</button>
               <button (click)="capacidadvsproduccion()" class="section_body_tab_button  {{section_tap_4==2 ? '' : 'tap_selected'}}">CAPACIDAD
                 VS PRODUCCIÓN</button>
-              <button (click)="companiavscompetencia()" class="section_body_tab_button  {{section_tap_4==3 ? '' : 'tap_selected'}}">COMPAÑÍA
+              <button (click)="companiavscompetencia()" class="section_body_tab_button  {{section_tap_4==3 ? '' : 'tap_selected'}}">EMPRESA
                 VS COMPETENCIA</button>
               <button (click)="consejos()" class="section_body_tab_button  {{section_tap_4==4 ? '' : 'tap_selected'}}">CONSEJOS</button>
 
