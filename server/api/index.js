@@ -213,7 +213,8 @@ exports.setSocket = io => {
                     result.produccionIndustriaValorAnterior=Math.round(result.produccionIndustriaValorAnterior)
                     result.costeMedioTotalActual=Math.round(result.costeMedioTotalActual)
                     result.costeMedioTotalAnterior=Math.round(result.costeMedioTotalAnterior)
-                   
+                    result.costeMedioUnitarioActual=Math.round(result.costeMedioUnitarioActual)
+                    result.costeMedioUnitarioAnterior=Math.round(result.costeMedioUnitarioAnterior)
                     result.capacidadProduccionActual=Math.round(result.capacidadProduccionActual)
                     result.capacidadProduccionAnterior=Math.round(result.capacidadProduccionAnterior)
                    
