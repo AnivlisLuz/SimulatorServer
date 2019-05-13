@@ -30,6 +30,9 @@ import { FinJuegoComponent } from './fin-juego/fin-juego.component';
 import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
 import { ThousandsPipe } from './separador-de-miles/thousand.pipe';
 import { AppRoutingModule, routingComponents } from './app-routing.module';
+import { InViewportModule } from '@thisissoon/angular-inviewport';
+import { ScrollSpyModule } from './scroll-spy';
+
 
 const config: SocketIoConfig = { url: 'localhost:8080', options: {} };
 @NgModule({
@@ -61,7 +64,8 @@ const config: SocketIoConfig = { url: 'localhost:8080', options: {} };
       HttpModule,
       ReactiveFormsModule,
       SocketIoModule.forRoot(config),
-      AppRoutingModule
+      AppRoutingModule,
+      InViewportModule, ScrollSpyModule.forRoot()
 
    ],
    providers: [AuthService],
