@@ -175,7 +175,7 @@ por su excelente trato al cliente y productos de alta calidad.”
               <div class="section_body_content  {{section_tap_1==5 ? '' : 'tap_menu_hidden'}}">
                 <div class="maquinaria">
                   <div style="padding: 15px; text-align: justify; font-size: 17px">
-                    &nbsp;&nbsp;&nbsp;&nbsp;Como nuevo gerente es importante que conozcas el proceso de serigraftía textil y la maquinaria que utiliza la empresa para producir.
+                    &nbsp;&nbsp;&nbsp;&nbsp;Como nuevo gerente es importante que conozcas el proceso de serigrafía textil y la maquinaria que utiliza la empresa para producir.
                 </div>
                   <img src="/imagenes/maquinaria-sin-intro.png" class="maquinaria-foto">
                 </div>
@@ -230,7 +230,7 @@ por su excelente trato al cliente y productos de alta calidad.”
             <li class="material-icons">apps
             </li>
             <div class="left">
-              <div (click)="fin()">Puntajes</div>
+              <div id="puntajes" (click)="fin()">Puntajes</div>
               <div (click)="retirarseJuego()">Retirarse del juego</div>
             </div>
           </div>
@@ -380,9 +380,11 @@ por su excelente trato al cliente y productos de alta calidad.”
           </div>
           <div style="display: flex; justify-content: center;padding-top: 50px" id="boton-decisionID">
             <button (click)="iniciar()" style="width:300px">
-              {{http.game.bimestre_inicial_c==0?
-              "ENVIAR MIS DECISIONES":
-              "Aún faltan "+http.game.bimestre_inicial_c+" jugadores"}}
+              {{((http.game.bimestre_inicial_c==0&&numeroBimestre==00&&esFinCalculo)||(numeroBimestre==1&&http.game.bimestre_uno_c==0&&esFinCalculo)||(numeroBimestre==2&&http.game.bimestre_dos_c==0&&esFinCalculo))?
+                "ENVIAR MIS DECISIONES":
+                (((numeroBimestre==0&&http.game.bimestre_inicial_c==0&&!esFinCalculo)||(numeroBimestre==1&&http.game.bimestre_uno_c==0&&!esFinCalculo)||(numeroBimestre==2&&http.game.bimestre_dos_c==0&&!esFinCalculo)||(numeroBimestre==3&&bimestre_tres_c==0&&!esFinCalculo))?
+                "CALCULANDO..":((numeroBimestre==1&&http.game.bimestre_uno_c!=0)||(numeroBimestre==2&&http.game.bimestre_dos_c!=0)||(numeroBimestre==3&&http.game.bimestre_tres_c!=0))?"Faltan que los demás jugadores envien sus decisiones.":
+                "Aún faltan conectarse "+http.game.bimestre_inicial_c+" jugadores")}}
             </button></div>
         </div>
       </div>
@@ -549,7 +551,9 @@ por su excelente trato al cliente y productos de alta calidad.”
                     estrategias para ganar clientes.</p>
                   <!-- <p>Una empresa en el mercado cerró. Te aconsejamos idear estrategias para aumentar tu competitividad.</p>
                 <p *ngIf="generarConsejo1()==false&&generarConsejo2()==false&&generarConsejo3()==false&&generarConsejo4()==false">Tus decisiones nos están llevando por buen camino, sigue así.</p> -->
-
+                <p *ngIf="generarConsejo5()">Una empresa en el mercado cerró. Te aconsejamos idear estrategias
+para aumentar tu competitividad.</p>
+                <p *ngIf="generarConsejo6()">Tus decisiones nos están llevando por buen camino, sigue así.</p>
                 </div>
 
               </div>

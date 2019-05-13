@@ -1,4 +1,4 @@
-import { BalanceGeneral } from './../../models/balanceGeneral';
+﻿import { BalanceGeneral } from './../../models/balanceGeneral';
 import { CostosProduccion } from './../../models/costosProduccion';
 import { EstadoResultados } from './../../models/estadoResultados';
 
@@ -20,6 +20,7 @@ import { Alert } from 'selenium-webdriver';
 
 import 'chartjs-plugin-labels';
 import 'chartjs-plugin-piechart-outlabels';
+import { Subscription, timer } from "rxjs";
 
 @Component({
   selector: 'app-tabla-de-decision',
@@ -90,6 +91,8 @@ export class TablaDeDecisionComponent implements OnInit {
   esActivo:number=1;
   esUnicaEmpresa:boolean=false;
 
+  subscription: Subscription;
+  esFinCalculo:boolean=false;
 
   constructor(private http: HttpService, private route: ActivatedRoute, private router: Router) {
     this.bimestreInicial = new Bimestre();
@@ -156,6 +159,9 @@ export class TablaDeDecisionComponent implements OnInit {
 
   }
   ngOnInit() {
+    this.subscription = timer(0, 7000).subscribe(result => this.cargarInforme());
+    this.subscription = timer(0, 7000).subscribe(result => this.cargarTAnalisis());
+    document.getElementById("puntajes").style.display = "none";
 
     // this.route.params.subscribe(params => {
     //   if (params['player_name'] != null && params['codigo'] != null) {
@@ -222,6 +228,8 @@ export class TablaDeDecisionComponent implements OnInit {
       document.getElementById("inversionEnMarketingTD").style.display = "none";
       document.getElementById("inversionEnInvestigacionTD").style.display = "none";
       document.getElementById("inversionEnActivosTD").style.display = "none";
+      document.getElementById("puntajes").style.display = "block";
+
     }
   }
   actualizarActivo()
@@ -305,6 +313,7 @@ export class TablaDeDecisionComponent implements OnInit {
                   console.log("addBimestreTres", response)
                 })
                 this.numeroBimestre = 3;
+                this.esFinCalculo=false;
                 if (this.http.game.bimestre_tres_c == 1) {
                   this.obtenerTodosLosDatos();
                 }
@@ -318,6 +327,7 @@ export class TablaDeDecisionComponent implements OnInit {
               console.log("addBimestreDos", response)
             })
             this.numeroBimestre = 2;
+            this.esFinCalculo=false;
             if (this.http.game.bimestre_dos_c == 1) {
               this.obtenerTodosLosDatos();
             }
@@ -331,6 +341,7 @@ export class TablaDeDecisionComponent implements OnInit {
           console.log("addBimestreUno", response)
         })
         this.numeroBimestre = 1;
+        this.esFinCalculo=false;
         if (this.http.game.bimestre_uno_c == 1) {
           this.obtenerTodosLosDatos();
         }
@@ -459,7 +470,8 @@ export class TablaDeDecisionComponent implements OnInit {
     document.getElementById("numero-bimestre-siguiente").innerText = this.nombreBimestre;
     this.numeroBimestre = this.numeroBimestre + 1;
     this.bimestreActual.numero = this.numeroBimestre;
-    this.bimestreActual.jugador = this.nombreEmpresa;
+    this.bimestreActual.jugador = this.http.game.player.name;
+    this.nombreEmpresa = this.http.game.player.name;
     this.bimestreActual.codigo = this.codigo;
 
     let json = JSON.stringify(this.bimestreActual);
@@ -584,6 +596,8 @@ export class TablaDeDecisionComponent implements OnInit {
   }
   decision() {
     this.tap_position = 1;
+    document.getElementById("puntajes").style.display = "none";
+
     // document.getElementById("decisiones").style.display = "block";
     // document.getElementById("tabla-analisis-industria").style.display = "none";
     // document.getElementById("informe").style.display = "none";
@@ -601,8 +615,7 @@ export class TablaDeDecisionComponent implements OnInit {
     this.bloquear();
   }
 
-  tanalisis() {
-    this.tap_position = 2
+  cargarTAnalisis(){
     this.http.game.getVisionGeneral(this.numeroBimestre, (response) => {
       console.log("getVisionGeneral front", response)
       if (response){
@@ -617,17 +630,32 @@ export class TablaDeDecisionComponent implements OnInit {
       console.log("getProduccion front", response)
       if (response)
         this.produccionIndustria = response
-        this.produccionIndustria.costeMedioUnitarioActualDecimal=this.produccionIndustria.costeMedioUnitarioActual.toFixed(2).replace('.', ',').replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.');
-
     });
     this.http.game.getVentasIndustria(this.numeroBimestre, (response) => {
       console.log("getVentasIndustria front", response)
-      if (response)
+      if (response != 'error con el socket'){
         this.ventasIndustria = response
+        console.log("----------------------------------- front", response)
+        if(this.esFinCalculo==false)
+        {
+          alert("Calculos finalizados para el bimestre "+this.numeroBimestre+". Ya puede acceder a las demás pestañas.")
+        }
+        this.esFinCalculo=true;
+      }
     });
 
     this.actualizarActivo();
     this.bloquear();
+  }
+
+  tanalisis() {
+    if(this.esFinCalculo){
+      this.tap_position = 2
+    }
+    else{
+      alert("Aún falta calcular")
+    }
+    this.cargarTAnalisis();
 
     // document.getElementById("decisiones").style.display = "none";
     // document.getElementById("tabla-analisis-industria").style.display = "block";
@@ -653,9 +681,9 @@ export class TablaDeDecisionComponent implements OnInit {
     // document.getElementById("info-analisis").style.display = "none";
 
   }
-  informe() {
-    this.tap_position = 3;
-    this.http.game.getEstadoResultados(this.numeroBimestre,(response) => {
+
+  cargarInforme(){
+      this.http.game.getEstadoResultados(this.numeroBimestre,(response) => {
       console.log("getEstadoResultados front", response)
       if (response){
         this.estadoResultados = response.estadoResultados
@@ -686,12 +714,21 @@ export class TablaDeDecisionComponent implements OnInit {
       console.log("getCostosProduccion front", response)
       if (response)
         this.costoProduccion = response
-
-        this.costoProduccion.costoUnitarioDecimal=this.costoProduccion.costoUnitario.toFixed(2).replace('.', ',').replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.');
     });
 
     this.actualizarActivo();
     this.bloquear();
+  }
+
+  informe() {
+    if(this.esFinCalculo){
+      this.tap_position = 3;
+    }
+    else{
+      alert("Aún falta calcular")
+    }
+    this.cargarInforme();
+
     // document.getElementById("decisiones").style.display = "none";
     // document.getElementById("tabla-analisis-industria").style.display = "none";
     // document.getElementById("informe").style.display = "block";
@@ -718,7 +755,8 @@ export class TablaDeDecisionComponent implements OnInit {
     // document.getElementById("info-analisis").style.display = "none";
   }
   analisis() {
-    this.tap_position = 4;
+    if(this.esFinCalculo){
+      this.tap_position = 4;
     this.LineChart2 = new Chart('lineChart2', {
       type: 'line',
       data: {
@@ -838,6 +876,10 @@ export class TablaDeDecisionComponent implements OnInit {
     });
     this.actualizarActivo();
     this.bloquear();
+    }
+    else{
+      alert("Aún falta calcular")
+    }
 
 
 
@@ -1240,7 +1282,7 @@ export class TablaDeDecisionComponent implements OnInit {
         this.LineChart4.update();
     }
 
-    for (let i = 0; i <=this.numeroBimestre; i++) {   
+    for (let i = 0; i <=this.numeroBimestre; i++) {
         this.LineChart4.data.datasets[1].data.push(Math.round(this.produccionTotalIndustriaBimestres[i]));
         this.LineChart4.update();
     }
@@ -1327,7 +1369,7 @@ export class TablaDeDecisionComponent implements OnInit {
 
     for (let i = 0; i <=this.numeroBimestre; i++) {
       this.LineChart5.data.datasets[1].data.push(Math.round(this.promedioERUtilidadNeta[i]));
-      if(i!=0) 
+      if(i!=0)
       {
         this.LineChart5.data.labels.push("Bimestre " + i);
       }
@@ -1717,7 +1759,8 @@ export class TablaDeDecisionComponent implements OnInit {
   }
   generarConsejo3(): boolean {
     for (let i = 0; i < this.visionGeneral.length; i++) {
-      if (this.visionGeneral[i].jugador === this.nombreEmpresa) {
+    this.nombreEmpresa=this.http.game.player.name;
+      if (this.visionGeneral[i].jugador == this.nombreEmpresa) {
         if (this.visionGeneral[i].porcentajeDeMercado < 5)
           return true;
       }
@@ -1735,8 +1778,27 @@ export class TablaDeDecisionComponent implements OnInit {
     else
       return false;
   }
+  generarConsejo5(): boolean{
+    if((this.numeroBimestre==0 && this.http.game.cantidadTotalJugadores!=this.http.game.bimestre_uno_c) || (this.numeroBimestre==1 && this.http.game.cantidadTotalJugadores!=this.http.game.bimestre_dos_c) || (this.numeroBimestre==2 && this.http.game.cantidadTotalJugadores!=this.http.game.bimestre_tres_c))
+    {
+      return true;
+    }
+    else
+      return false
+  }
+  generarConsejo6(): boolean{
+    if(!this.generarConsejo1()&&!this.generarConsejo2()&&!this.generarConsejo3()&&!this.generarConsejo4()&&!this.generarConsejo5()){
+      return true;
+    }
+    else
+      return false;
+
+  }
   fin() {
     let numerito = this.numeroBimestre
     this.router.navigateByUrl('/fin');
+  }
+    ngOnDestroy() {
+    this.subscription.unsubscribe();
   }
 }
