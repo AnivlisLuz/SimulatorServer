@@ -34,7 +34,7 @@ import { InViewportModule } from '@thisissoon/angular-inviewport';
 import { ScrollSpyModule } from './scroll-spy';
 
 
-const config: SocketIoConfig = { url: 'localhost:8080', options: {} };
+const config: SocketIoConfig = { url: '204.48.27.202:8063', options: {} };
 @NgModule({
    declarations: [
       AppComponent,

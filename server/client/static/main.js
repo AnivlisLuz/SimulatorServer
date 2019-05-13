@@ -6222,6 +6222,112 @@ webpackEmptyAsyncContext.id = "./src/$$_lazy_route_resource lazy recursive";
 
 /***/ }),
 
+/***/ "./src/app/about/about.component.css":
+/*!*******************************************!*\
+  !*** ./src/app/about/about.component.css ***!
+  \*******************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ":host {\r\n    display: block;\r\n    font-family: Arial, sans-serif;\r\n    padding-top: 40px;\r\n  }\r\n  \r\n  .section {\r\n    align-items: center;\r\n    color: black;\r\n    display: flex;\r\n    font-size: 4rem;\r\n    justify-content: center;\r\n    min-height: 101vh;\r\n  }\r\n  \r\n  .nav {\r\n    background-color: #3061FF;\r\n    display: flex;\r\n    left: 0;\r\n    list-style: none;\r\n    margin: 0;\r\n    padding: 0;\r\n    position: fixed;\r\n    right: 0;\r\n    top: 0;\r\n    z-index: 9;\r\n    float: right;\r\n  }\r\n  \r\n  .nav-item > a {\r\n      display: inline-block;\r\n      padding: 1rem;\r\n      text-decoration: none;\r\n      color: #fff;\r\n      \r\n    }\r\n  \r\n  .nav-item > li\r\n  {\r\nfloat: right;\r\n  }\r\n  \r\n  .nav-link.active {\r\n    background-color: #007bff;\r\n    color: blue;\r\n  }\r\n  \r\n  .heading\r\n  {\r\n  font-family: Arial, sans-serif;\r\n  text-transform: uppercase;\r\n  font-size: 2.5rem;\r\n  letter-spacing: 3px;\r\n  margin-right: -3px;\r\n  margin-bottom: 5rem;\r\n  text-align: center;\r\n  color: #333;\r\n  position: relative;\r\n  }\r\n  \r\n  .heading::after\r\n  {\r\n      content: \"\";\r\n      width: 10rem;\r\n      height: .8rem;\r\n      background-color:#3061FF;\r\n      position: absolute;\r\n      bottom: -2rem;\r\n      left: 50%;\r\n      -webkit-transform: translateX(-50%);\r\n              transform: translateX(-50%);\r\n      border-radius: 2rem;\r\n  \r\n  }\r\n  \r\n  .card-wrapper\r\n  {\r\n      display: flex;\r\n      align-items: center;\r\n      align-content: center;\r\n      flex-direction: column;\r\n  }\r\n  \r\n  .card\r\n  {\r\n      width: 20rem;\r\n      background-color: #ebeef8;\r\n      display: flex;\r\n      flex-direction: column;\r\n      align-items: center;\r\n      justify-content: center;\r\n      margin: 2rem 0;\r\n      box-shadow: .5rem .5rem .3rem rgba(0, 0, 0, 0.2);\r\n  \r\n  }\r\n  \r\n  .card .card-img\r\n  {\r\n      width: 100%;\r\n      height: 20rem;\r\n      -o-object-fit: cover;\r\n         object-fit: cover;\r\n      -webkit-clip-path: polygon(0 0, 100% 78%, 0% 100%);\r\n      clip-path: polygon(0 0, 100% 0, 100% 78%, 0 100%);\r\n  }\r\n  \r\n  .profile-img\r\n  {\r\n      width: 10rem;\r\n      height: 10rem;\r\n      -o-object-fit: cover;\r\n         object-fit: cover;\r\n      border-radius: 50%;\r\n      margin-top: -11rem;\r\n      z-index: 1;\r\n      border: 1rem solid #ebeef8;\r\n  }\r\n  \r\n  .card h1\r\n  {\r\n  font-family: Arial, sans-serif;\r\n  font-size: 13px;\r\n  color: #333;\r\n  margin: 1.5rem 0;\r\n  text-align: center;\r\n  }\r\n  \r\n  .job-title\r\n  {\r\n      color: #777;\r\n      font-size: 12px;\r\n      font-weight: 300;\r\n      height: 40px;\r\n      text-align: center;\r\n  }\r\n  \r\n  @media screen and (min-width: 700px)\r\n  {\r\n  .card-wrapper\r\n  {\r\n  flex-direction: row;\r\n  flex-wrap: wrap;\r\n  justify-content: center;\r\n  align-items: center;\r\n  }\r\n  .card{\r\n      margin: 2rem;\r\n  }\r\n  }\r\n  \r\n  .lyrics\r\n  {\r\n      font-family: Arial, sans-serif;\r\n      font-size: 20px;\r\n      text-align: center;\r\n  }\r\n  \r\n  .cuadro\r\n  {\r\n    width: 100%;\r\n      margin: 0;\r\n      padding: 0;\r\n      text-align: center;\r\n      display: flex;\r\n      justify-content:space-around;\r\n  }\r\n  \r\n  .caja1\r\n  {\r\n    background: #333;\r\n    width: 300px;\r\n    height: 200px;\r\n  }\r\n  \r\n  .caja2\r\n  {\r\n    background:blue;\r\n    width: 300px;\r\n    height: 200px;\r\n  }\r\n  \r\n  .caja3\r\n  {\r\n    background: green;\r\n    width: 300px;\r\n    height: 200px;\r\n  }"
+
+/***/ }),
+
+/***/ "./src/app/about/about.component.html":
+/*!********************************************!*\
+  !*** ./src/app/about/about.component.html ***!
+  \********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<ul class=\"nav\" snScrollSpy id=\"foo\">\r\n    <li class=\"nav-item\"><a snScrollSpyItem for=\"foo\" class=\"nav-link\" href=\"./about#autores\">Autores</a></li>\r\n    <li class=\"nav-item\"><a snScrollSpyItem for=\"foo\" class=\"nav-link\" href=\"./about#equipo\">Equipo</a></li>\r\n    <li class=\"nav-item\"><a snScrollSpyItem for=\"foo\" class=\"nav-link\" href=\"./about#mentores\">Mentores</a></li>\r\n    <li class=\"nav-item\"><a snScrollSpyItem for=\"foo\" class=\"nav-link\" href=\"./about#agradecimientos\">Agradecimientos</a></li>\r\n    <li class=\"nav-item\"><a snScrollSpyItem for=\"foo\" class=\"nav-link\" href=\"./about#auspiciadores\">Auspiciadores</a></li>\r\n  </ul>\r\n  \r\n  <app-scroll-spy-section id=\"autores\" for=\"foo\">\r\n    <section class=\"sec1\" id=\"autores\">\r\n    </section>\r\n    <br>\r\n    <br>\r\n    <br>\r\n    <br>\r\n    <h1 class=\"heading\">Autores y agradecimientos</h1>\r\n    <pre class=\"lyrics\">\r\n        El software, los documentos y todos los materiales asociados al proyecto \"BUSINESS SIMULATOR\"\r\n        son obra colectiva planteada, diseñada y desarrollada por un equipo de becarios de los programas\r\n        Twentypreneur y Steem. El proyecto se llevó a cabo bajo la supervisión de mentores asignados\r\n        por nuestro benefactores; La Embajada de los Estados Unidos, American Space y CBA-Cochabamba.</pre>\r\n    \r\n  </app-scroll-spy-section>\r\n  \r\n  <app-scroll-spy-section id=\"equipo\" for=\"foo\">\r\n  <section class=\"sec2\">\r\n        <div class=\"container\">\r\n                <h1 class=\"heading\">Equipo de Desarrollo</h1>\r\n                \r\n  <div class=\"card-wrapper\">\r\n       <div class=\"card\">\r\n       <img src=\"../../../imagenes/picture1.jpg\" alt=\"card background\" class=\"card-img\">\r\n       <img src=\"../../../imagenes/picture2.jpg\" alt=\"profile image\" class=\"profile-img\">\r\n       <h1>Jaime Eduardo Clavijo Escobar</h1>    \r\n       <p class=\"job-title\">Dirección General</p>\r\n       </div>\r\n            \r\n       <div class=\"card\">\r\n        <img src=\"../../../imagenes/picture1.jpg\" alt=\"card background\" class=\"card-img\">\r\n        <img src=\"../../../imagenes/picture2.jpg\" alt=\"profile image\" class=\"profile-img\">\r\n        \r\n        <h1>Julia Valentina Gutiérrez Munzón</h1>    \r\n       <p class=\"job-title\">Encargada del equipo de programación</p>\r\n       </div> \r\n            \r\n            \r\n        <div class=\"card\">\r\n          <img src=\"../../../imagenes/picture1.jpg\" alt=\"card background\" class=\"card-img\">\r\n          <img src=\"../../../imagenes/picture2.jpg\" alt=\"profile image\" class=\"profile-img\">\r\n        \r\n          <h1>Jhoselin Luizaga Rodriguez</h1>    \r\n        <p class=\"job-title\">Encargada del equipo de investigación e implementación</p>\r\n        </div>\r\n                  \r\n        <div class=\"card\">\r\n          <img src=\"../../../imagenes/picture1.jpg\" alt=\"card background\" class=\"card-img\">\r\n          <img src=\"../../../imagenes/picture2.jpg\" alt=\"profile image\" class=\"profile-img\">\r\n        \r\n          <h1>Ana Corina Mamani Choque</h1>    \r\n        <p class=\"job-title\">Secretaria General</p>\r\n        </div> \r\n  \r\n        <div class=\"card\">\r\n          <img src=\"../../../imagenes/picture1.jpg\" alt=\"card background\" class=\"card-img\">\r\n          <img src=\"../../../imagenes/picture2.jpg\" alt=\"profile image\" class=\"profile-img\">\r\n        \r\n          <h1>Ely Fernandez Macia</h1>    \r\n        <p class=\"job-title\">Secretaria equipo de investigación e implementación</p>\r\n        </div> \r\n  \r\n        <div class=\"card\">\r\n          <img src=\"../../../imagenes/picture1.jpg\" alt=\"card background\" class=\"card-img\">\r\n          <img src=\"../../../imagenes/picture2.jpg\" alt=\"profile image\" class=\"profile-img\">\r\n        \r\n          <h1>Jeraldin Villanueva Cardozo</h1>    \r\n        <p class=\"job-title\">Equipo de investigación e implementación</p>\r\n        </div> \r\n  \r\n        <div class=\"card\">\r\n          <img src=\"../../../imagenes/picture1.jpg\" alt=\"card background\" class=\"card-img\">\r\n          <img src=\"../../../imagenes/picture2.jpg\" alt=\"profile image\" class=\"profile-img\">\r\n        \r\n          <h1>Ivy Saskia Sejas Rocabado</h1>    \r\n        <p class=\"job-title\">Analista de Programación</p>\r\n        </div> \r\n  \r\n        <div class=\"card\">\r\n          <img src=\"../../../imagenes/picture1.jpg\" alt=\"card background\" class=\"card-img\">\r\n          <img src=\"../../../imagenes/picture2.jpg\" alt=\"profile image\" class=\"profile-img\">\r\n        \r\n          <h1>Luz Silvina Choque Jacinto</h1>    \r\n        <p class=\"job-title\">Control de calidad</p>\r\n        </div> \r\n  \r\n        <div class=\"card\">\r\n          <img src=\"../../../imagenes/picture1.jpg\" alt=\"card background\" class=\"card-img\">\r\n          <img src=\"../../../imagenes/picture2.jpg\" alt=\"profile image\" class=\"profile-img\">\r\n        \r\n          <h1>David Gallo Roca</h1>    \r\n        <p class=\"job-title\">Equipo de Programación</p>\r\n        </div> \r\n  \r\n        <div class=\"card\">\r\n          <img src=\"../../../imagenes/picture1.jpg\" alt=\"card background\" class=\"card-img\">\r\n          <img src=\"../../../imagenes/picture2.jpg\" alt=\"profile image\" class=\"profile-img\">\r\n        \r\n          <h1>Rosario Mireya CHuquimia Saavedra</h1>    \r\n        <p class=\"job-title\">Equipo de Programación</p>\r\n        </div> \r\n  \r\n    </div>\r\n  \r\n  </div>\r\n  </section>\r\n  </app-scroll-spy-section>\r\n  <app-scroll-spy-section id=\"mentores\" for=\"foo\">\r\n  <section class=\"sec3\">\r\n        <div class=\"container\">\r\n                <h1 class=\"heading\">Mentores</h1>\r\n                \r\n  <div class=\"card-wrapper\">\r\n       <div class=\"card\">\r\n        <img src=\"../../../imagenes/picture1.jpg\" alt=\"card background\" class=\"card-img\">\r\n        <img src=\"../../../imagenes/picture2.jpg\" alt=\"profile image\" class=\"profile-img\">\r\n     \r\n        <h1>Mgr. Luis Fernando Ruiz</h1>    \r\n       <p class=\"job-title\">Supervisor General</p>\r\n       </div>\r\n            \r\n       <div class=\"card\">\r\n        <img src=\"../../../imagenes/picture1.jpg\" alt=\"card background\" class=\"card-img\">\r\n        <img src=\"../../../imagenes/picture2.jpg\" alt=\"profile image\" class=\"profile-img\">\r\n      \r\n        <h1>Mgr. Carlos Eduardo Camargo Arce</h1>    \r\n       <p class=\"job-title\">Mentor General</p>\r\n       </div> \r\n            \r\n            \r\n        <div class=\"card\">\r\n          <img src=\"../../../imagenes/picture1.jpg\" alt=\"card background\" class=\"card-img\">\r\n          <img src=\"../../../imagenes/picture2.jpg\" alt=\"profile image\" class=\"profile-img\">\r\n        \r\n          <h1>Mgr. Paula Denice Lujan Lopez</h1>    \r\n        <p class=\"job-title\">Mentora Twentyprenuer</p>\r\n        </div>\r\n                  \r\n        <div class=\"card\">\r\n          <img src=\"../../../imagenes/picture1.jpg\" alt=\"card background\" class=\"card-img\">\r\n          <img src=\"../../../imagenes/picture2.jpg\" alt=\"profile image\" class=\"profile-img\">\r\n        \r\n          <h1>Lic. Siamak Marjouei</h1>    \r\n        <p class=\"job-title\">Mentor Steem</p>\r\n        </div> \r\n  \r\n    </div>\r\n  \r\n  </div>\r\n  </section>\r\n  </app-scroll-spy-section>\r\n  <app-scroll-spy-section id=\"diseño\" for=\"foo\">\r\n  <section class=\"sec4\">\r\n        <div class=\"container\">\r\n                <h1 class=\"heading\">Diseño</h1>\r\n                \r\n  <div class=\"card-wrapper\">\r\n       <div class=\"card\">\r\n        <img src=\"../../../imagenes/picture1.jpg\" alt=\"card background\" class=\"card-img\">\r\n        <img src=\"../../../imagenes/picture2.jpg\" alt=\"profile image\" class=\"profile-img\">\r\n      \r\n        <h1>Jaime Eduardo Clavijo Escobar</h1>    \r\n       <p class=\"job-title\">Diseñador Gráfico</p>\r\n       </div>\r\n            \r\n    </div>\r\n  \r\n  </div>\r\n  </section>\r\n  </app-scroll-spy-section>\r\n  <app-scroll-spy-section id=\"agradecimientos\" for=\"foo\">\r\n    <br>\r\n    <br>\r\n  <section class=\"sec5\">\r\n        <h1 class=\"heading\">Agradecimientos</h1>\r\n        <pre class=\"lyrics\">\r\n        Todos los miembros del equipo de becarios involucrados en el proyecto deseamos agradecer a nuestros\r\n        mentores y supervisores por los aportes, seguimiento y ayuda que nos han otorgado durante las\r\n        jornadas de trabajo. Asi mismo, deseamos agradecer a las instituciones que nos han brindado los recursos\r\n        y la confianza durante todo el proceso de desarrollo del software, documentos y materiales asociados\r\n        al proyecto \"BUSINESS SIMULATOR.\"\r\n             </pre>    \r\n  </section>\r\n  </app-scroll-spy-section>\r\n  <app-scroll-spy-section id=\"auspiciadores\" for=\"foo\">\r\n  <section class=\"sec6\">\r\n  <h1 class=\"heading\">Auspiciadores</h1>\r\n  <div class=\"cuadro\">\r\n    \r\n    <img src=\"../../../imagenes/logo embajada USA.png\" style=\"width:250px; height: 200px\">\r\n  \r\n    \r\n    <img src=\"../../../imagenes/logo american spaces.png\" style=\"width:250px; height: 200px\">\r\n  \r\n  \r\n    <img src=\"../../../imagenes/LOGO CBA mediano(color).png\" style=\"width:250px; height: 200px\">\r\n  \r\n   </div>\r\n</section>\r\n  </app-scroll-spy-section>\r\n      "
+
+/***/ }),
+
+/***/ "./src/app/about/about.component.ts":
+/*!******************************************!*\
+  !*** ./src/app/about/about.component.ts ***!
+  \******************************************/
+/*! exports provided: AboutComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AboutComponent", function() { return AboutComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var AboutComponent = /** @class */ (function () {
+    function AboutComponent() {
+    }
+    AboutComponent.prototype.ngOnInit = function () {
+    };
+    AboutComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-about',
+            template: __webpack_require__(/*! ./about.component.html */ "./src/app/about/about.component.html"),
+            styles: [__webpack_require__(/*! ./about.component.css */ "./src/app/about/about.component.css")]
+        }),
+        __metadata("design:paramtypes", [])
+    ], AboutComponent);
+    return AboutComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/app-routing.module.ts":
+/*!***************************************!*\
+  !*** ./src/app/app-routing.module.ts ***!
+  \***************************************/
+/*! exports provided: AppRoutingModule, routingComponents */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AppRoutingModule", function() { return AppRoutingModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "routingComponents", function() { return routingComponents; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _about_about_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./about/about.component */ "./src/app/about/about.component.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+
+
+var routes = [
+    { path: 'about', component: _about_about_component__WEBPACK_IMPORTED_MODULE_2__["AboutComponent"] }
+];
+var AppRoutingModule = /** @class */ (function () {
+    function AppRoutingModule() {
+    }
+    AppRoutingModule = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["NgModule"])({
+            imports: [_angular_router__WEBPACK_IMPORTED_MODULE_1__["RouterModule"].forRoot(routes)],
+            exports: [_angular_router__WEBPACK_IMPORTED_MODULE_1__["RouterModule"]]
+        })
+    ], AppRoutingModule);
+    return AppRoutingModule;
+}());
+
+var routingComponents = [_about_about_component__WEBPACK_IMPORTED_MODULE_2__["AboutComponent"]];
+
+
+/***/ }),
+
 /***/ "./src/app/app.component.css":
 /*!***********************************!*\
   !*** ./src/app/app.component.css ***!
@@ -6240,7 +6346,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<router-outlet></router-outlet>\n"
+module.exports = "<router-outlet></router-outlet>\r\n"
 
 /***/ }),
 
@@ -6343,6 +6449,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _fin_juego_fin_juego_component__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./fin-juego/fin-juego.component */ "./src/app/fin-juego/fin-juego.component.ts");
 /* harmony import */ var ngx_socket_io__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ngx-socket-io */ "./node_modules/ngx-socket-io/index.js");
 /* harmony import */ var _separador_de_miles_thousand_pipe__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./separador-de-miles/thousand.pipe */ "./src/app/separador-de-miles/thousand.pipe.ts");
+/* harmony import */ var _app_routing_module__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./app-routing.module */ "./src/app/app-routing.module.ts");
+/* harmony import */ var _thisissoon_angular_inviewport__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! @thisissoon/angular-inviewport */ "./node_modules/@thisissoon/angular-inviewport/fesm5/thisissoon-angular-inviewport.js");
+/* harmony import */ var _scroll_spy__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ./scroll-spy */ "./src/app/scroll-spy/index.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -6375,7 +6484,10 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 
 
 
-var config = { url: 'http://159.89.225.48', options: {} };
+
+
+
+var config = { url: '204.48.27.202:8063', options: {} };
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }
@@ -6397,7 +6509,8 @@ var AppModule = /** @class */ (function () {
                 _tablas_AI_tabla_vision_general_tabla_vision_general_component__WEBPACK_IMPORTED_MODULE_22__["TablaVisionGeneralComponent"],
                 _tablas_AI_tabla_ventas_tabla_ventas_component__WEBPACK_IMPORTED_MODULE_21__["TablaVentasComponent"],
                 _fin_juego_fin_juego_component__WEBPACK_IMPORTED_MODULE_23__["FinJuegoComponent"],
-                _separador_de_miles_thousand_pipe__WEBPACK_IMPORTED_MODULE_25__["ThousandsPipe"]
+                _separador_de_miles_thousand_pipe__WEBPACK_IMPORTED_MODULE_25__["ThousandsPipe"],
+                _app_routing_module__WEBPACK_IMPORTED_MODULE_26__["routingComponents"]
             ],
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"],
@@ -6407,7 +6520,9 @@ var AppModule = /** @class */ (function () {
                 _app_routes__WEBPACK_IMPORTED_MODULE_8__["APP_ROUTER"],
                 _angular_http__WEBPACK_IMPORTED_MODULE_19__["HttpModule"],
                 _angular_forms__WEBPACK_IMPORTED_MODULE_7__["ReactiveFormsModule"],
-                ngx_socket_io__WEBPACK_IMPORTED_MODULE_24__["SocketIoModule"].forRoot(config)
+                ngx_socket_io__WEBPACK_IMPORTED_MODULE_24__["SocketIoModule"].forRoot(config),
+                _app_routing_module__WEBPACK_IMPORTED_MODULE_26__["AppRoutingModule"],
+                _thisissoon_angular_inviewport__WEBPACK_IMPORTED_MODULE_27__["InViewportModule"], _scroll_spy__WEBPACK_IMPORTED_MODULE_28__["ScrollSpyModule"].forRoot()
             ],
             providers: [_auth_service__WEBPACK_IMPORTED_MODULE_6__["AuthService"]],
             bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_2__["AppComponent"]]
@@ -6538,7 +6653,7 @@ var AuthService = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "#main_container {\n  position: absolute;\n  height: 100vh;\n  width: 100vw;\n  background-color: #135A82;\n  display: flex;\n}\n\naside {\n  height: 100%;\n  width: 270px;\n  color: white;\n  text-align: center;\n  overflow-y: hidden;\n}\n\n#logo_container {\n  background-color: rgb(111, 110, 110);\n}\n\n#logo_image {\n  margin-top: 20px;\n  height: 200px;\n  width: 200px;\n  background-color: white;\n  border-radius: 100%;\n}\n\n#nombre_empresa {\n  padding-top: 20px;\n  padding-bottom: 30px;\n  font-size: 20px;\n}\n\n#body_container {\n  width: calc(100% - 270px);\n  height: 100%;\n}\n\n.tap_menu_hidden {\n  display: none;\n}\n\n.tab_menu_description {\n  font-size: 15px;\n  margin-top: -65px;\n  padding: 0 15px;\n  padding-top: 50px;\n  padding-bottom: 30px;\n}\n\n.tab_menu_button {\n  margin-top: -31px;\n  height: 50px;\n  width: 210px;\n  border-radius: 15px;\n  margin-bottom: 30px;\n  font-size: 16px;\n}\n\n.tab_menu_button:focus {\n  outline: none;\n}\n\n.tab_menu_button:hover {\n  opacity: 1;\n}\n\n.section_container {\n  position: relative;\n  height: 100%;\n  width: calc(100% - 20px);\n  padding-left: 20px;\n}\n\n.section_container_body {\n  position: relative;\n  height: 100%;\n  width: 100%;\n}\n\n.section_title {\n  display: flex;\n  height: 100px;\n}\n\n.section_title_icon {\n  font-size: 100px;\n  color: white;\n  height: 130px;\n  line-height: 130px;\n  padding: 0 60px;\n  border-radius: 0 0 30px 0;\n}\n\n.section_title_desc {\n  position: relative;\n  font-size: 40px;\n  color: white;\n  line-height: 100px;\n  text-align: center;\n  width: 100%;\n}\n\n.section_body {\n  padding-top: 60px;\n  height: calc(100% - 160px);\n  width: 100%;\n  background-color: white;\n}\n\n.section_body_main {\n  margin: 0 50px;\n  background-color: rgb(90, 116, 165);\n  height: calc(100% - 100px);\n}\n\n.section_body_tab {\n  display: flex;\n}\n\n.section_body_tab_button:focus {\n  outline: none;\n}\n\n.section_body_tab_button {\n  padding: 0;\n  margin: 0;\n  height: 50px;\n  background-color: #092B3A;\n}\n\n.tap_selected {\n  background-color: #135A82;\n}\n\n.section_body_container {\n  height: calc(100% - 20px);\n  width: calc(100% - 20px);\n  padding: 10px;\n  background-color: #092B3A;\n}\n\n.section_body_content {\n  width: 100%;\n  height: 100%;\n  background-color: white;\n}\n\n.section_body_content_title {\n  width: 500px;\n  background-color: #092B3A;\n  line-height: 50px;\n  text-align: center;\n  color: white;\n}\n\n.tabla-decision {\n  text-align: center;\n  color: white;\n  font-family: \"arial\";\n  background-color: rgb(255, 255, 255);\n}\n\ntable {\n  width: 100%;\n  color: black;\n\n}\n\ntable,th,td {\n  border: 1px solid black;\n  border-collapse: collapse;\n}\n\n.th1 {\n  width: 10%;\n  border: 1px solid white;\n\n}\n\n.th2 {\n  width: 200%;\n\n}\n\n.tr1 {\n  width: 10%;\n  border: 1px solid white;\n\n}\n\ntable#t01 tr {\n  height: 60px;\n}\n\n/*table#t01 tr:nth-child(odd) {\n  background-color: #fff;\n\n}\n\ntable#t01 tr:nth-child(even) {\n  background-color: rgb(116, 197, 233);\n\n}*/\n\ntable#t01 th {\n  background-color: rgb(24, 76, 133);\n  color: white;\n}"
+module.exports = "#main_container {\r\n  position: absolute;\r\n  height: 100vh;\r\n  width: 100vw;\r\n  background-color: #135A82;\r\n  display: flex;\r\n}\r\n\r\naside {\r\n  height: 100%;\r\n  width: 270px;\r\n  color: white;\r\n  text-align: center;\r\n  overflow-y: hidden;\r\n}\r\n\r\n#logo_container {\r\n  background-color: rgb(111, 110, 110);\r\n}\r\n\r\n#logo_image {\r\n  margin-top: 20px;\r\n  height: 200px;\r\n  width: 200px;\r\n  background-color: white;\r\n  border-radius: 100%;\r\n}\r\n\r\n#nombre_empresa {\r\n  padding-top: 20px;\r\n  padding-bottom: 30px;\r\n  font-size: 20px;\r\n}\r\n\r\n#body_container {\r\n  width: calc(100% - 270px);\r\n  height: 100%;\r\n}\r\n\r\n.tap_menu_hidden {\r\n  display: none;\r\n}\r\n\r\n.tab_menu_description {\r\n  font-size: 15px;\r\n  margin-top: -65px;\r\n  padding: 0 15px;\r\n  padding-top: 50px;\r\n  padding-bottom: 30px;\r\n}\r\n\r\n.tab_menu_button {\r\n  margin-top: -31px;\r\n  height: 50px;\r\n  width: 210px;\r\n  border-radius: 15px;\r\n  margin-bottom: 30px;\r\n  font-size: 16px;\r\n}\r\n\r\n.tab_menu_button:focus {\r\n  outline: none;\r\n}\r\n\r\n.tab_menu_button:hover {\r\n  opacity: 1;\r\n}\r\n\r\n.section_container {\r\n  position: relative;\r\n  height: 100%;\r\n  width: calc(100% - 20px);\r\n  padding-left: 20px;\r\n}\r\n\r\n.section_container_body {\r\n  position: relative;\r\n  height: 100%;\r\n  width: 100%;\r\n}\r\n\r\n.section_title {\r\n  display: flex;\r\n  height: 100px;\r\n}\r\n\r\n.section_title_icon {\r\n  font-size: 100px;\r\n  color: white;\r\n  height: 130px;\r\n  line-height: 130px;\r\n  padding: 0 60px;\r\n  border-radius: 0 0 30px 0;\r\n}\r\n\r\n.section_title_desc {\r\n  position: relative;\r\n  font-size: 40px;\r\n  color: white;\r\n  line-height: 100px;\r\n  text-align: center;\r\n  width: 100%;\r\n}\r\n\r\n.section_body {\r\n  padding-top: 60px;\r\n  height: calc(100% - 160px);\r\n  width: 100%;\r\n  background-color: white;\r\n}\r\n\r\n.section_body_main {\r\n  margin: 0 50px;\r\n  background-color: rgb(90, 116, 165);\r\n  height: calc(100% - 100px);\r\n}\r\n\r\n.section_body_tab {\r\n  display: flex;\r\n}\r\n\r\n.section_body_tab_button:focus {\r\n  outline: none;\r\n}\r\n\r\n.section_body_tab_button {\r\n  padding: 0;\r\n  margin: 0;\r\n  height: 50px;\r\n  background-color: #092B3A;\r\n}\r\n\r\n.tap_selected {\r\n  background-color: #135A82;\r\n}\r\n\r\n.section_body_container {\r\n  height: calc(100% - 20px);\r\n  width: calc(100% - 20px);\r\n  padding: 10px;\r\n  background-color: #092B3A;\r\n}\r\n\r\n.section_body_content {\r\n  width: 100%;\r\n  height: 100%;\r\n  background-color: white;\r\n}\r\n\r\n.section_body_content_title {\r\n  width: 500px;\r\n  background-color: #092B3A;\r\n  line-height: 50px;\r\n  text-align: center;\r\n  color: white;\r\n}\r\n\r\n.tabla-decision {\r\n  text-align: center;\r\n  color: white;\r\n  font-family: \"arial\";\r\n  background-color: rgb(255, 255, 255);\r\n}\r\n\r\ntable {\r\n  width: 80%;\r\n  color: black;\r\n  margin: auto;\r\n  padding: auto;\r\n}\r\n\r\ntable,\r\nth,\r\ntd {\r\n  border: 3px solid black;\r\n  border-collapse: collapse;\r\n}\r\n\r\n.th1 {\r\n  width: 10%;\r\n  border: 1px solid white;\r\n\r\n}\r\n\r\n.th2 {\r\n  width: 200%;\r\n\r\n}\r\n\r\n.tr1 {\r\n  width: 10%;\r\n  border: 1px solid white;\r\n\r\n}\r\n\r\ntable#t01 tr {\r\n  height: 30px;\r\n}\r\n\r\n/*table#t01 tr:nth-child(odd) {\r\n  background-color: #fff;\r\n\r\n}\r\n\r\ntable#t01 tr:nth-child(even) {\r\n  background-color: rgb(116, 197, 233);\r\n\r\n}*/\r\n\r\ntable#t01 th {\r\n  background-color: rgb(24, 76, 133);\r\n  color: white;\r\n}\r\n\r\n\r\n"
 
 /***/ }),
 
@@ -6549,7 +6664,7 @@ module.exports = "#main_container {\n  position: absolute;\n  height: 100vh;\n  
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div id=\"main_container\">\n  <aside>\n    <div id=\"logo_container\">\n      <img id=\"logo_image\" src=\"/imagenes/LOGO SIMULADOR FINAL.png\">\n      <div id=\"nombre_empresa\"> Codigo de Juego: {{(http.game)?http.game.codigo:\"\"}}</div>\n    </div>\n    <div class=\"button_tab_container\" style=\"background-color: #135A82;\">\n      <button (click)=\"parciales()\" class=\"boton-decision tab_menu_button\" style=\"background-color: #135A82;\">\n        RESULTADOS PARCIALES\n      </button>\n      <div class=\"{{tap_position==1 ? '' : 'tap_menu_hidden'}}  tab_menu_description\">\n        En esta secci&#243;n puede observar los resultados parciales del juego.\n      </div>\n    </div>\n    <div class=\"button_tab_container\" style=\"background-color: #0D8EC8;\">\n      <button (click)=\"finales()\" class=\"boton-t-analisi tab_menu_button\" style=\"background-color: #0D8EC8;\">\n        RESULTADOS FINALES\n      </button>\n      <div class=\"{{tap_position==2? '' : 'tap_menu_hidden'}}  tab_menu_description\">\n        En esta secci&#243;n puede observar los resultados parciales del juego.\n      </div>\n    </div>\n  </aside>\n  <div id=\"body_container\">\n    <div class=\"section_container {{tap_position==1 ? '' : 'tap_menu_hidden'}}\" style=\"background-color: #135A82;\">\n      <div class=\"section_container_body\">\n        <div class=\"section_title\">\n          <div class=\"material-icons section_title_icon\" style=\"background-color: #135A82;\">person</div>\n          <div class=\"section_title_desc\"> PUNTAJES PARCIALES </div>\n        </div>\n\n        <div class=\"section_body\">\n          <div style=\"display: flex; justify-content: center;\">\n            <div class=\"tabla-decision\">\n               <table id=\"t01\">\n                <thead>\n                <tr>\n                  <th class=\"th1\" colspan=7>BENEFICIO</th>\n                </tr>\n                  <tr>\n                  <th >COMPAÑIA</th>\n                  <th >Bimestre 1</th>\n                  <th >Puntaje</th>\n                  <th >Bimestre 2</th>\n                  <th >Puntaje</th>\n                  <th >Bimestre 3</th>\n                  <th >Puntaje</th>\n                  </tr>\n                </thead>\n\n            <tbody >\n              <td><tr *ngFor=\"let visionG of http.game.players\">{{visionG.name}}</tr></td>\n              <td><tr *ngFor=\"let visionG of visionGeneralUno\">{{visionG.beneficio}}</tr></td>\n              <td><tr *ngFor=\"let visionG of visionGeneralUno\">{{visionG.puntajeBeneficio}}</tr></td>\n              <td><tr *ngFor=\"let visionG of visionGeneralDos\">{{visionG.beneficio}}</tr></td>\n              <td><tr *ngFor=\"let visionG of visionGeneralDos\">{{visionG.puntajeBeneficio}}</tr></td>\n              <td><tr *ngFor=\"let visionG of visionGeneralTres\">{{visionG.beneficio}}</tr></td>\n              <td><tr *ngFor=\"let visionG of visionGeneralTres\">{{visionG.puntajeBeneficio}}</tr></td>\n            </tbody>\n              </table>\n\n              <table id=\"t01\">\n                <thead>\n                <tr>\n                  <th class=\"th1\" colspan=7>% DE MERCADO</th>\n                </tr>\n                  <tr>\n                  <th >COMPAÑIA</th>\n                  <th >Bimestre 1</th>\n                  <th >Puntaje</th>\n                  <th >Bimestre 2</th>\n                  <th >Puntaje</th>\n                  <th >Bimestre 3</th>\n                  <th >Puntaje</th>\n\n                  <!-- <th *ngFor=\"let visionG of visionGeneral;let i=index\">BIMESTRE {{i+1}}</th> -->\n                  </tr>\n                </thead>\n\n            <tbody >\n              <td><tr *ngFor=\"let visionG of http.game.players\">{{visionG.name}}</tr></td>\n              <td><tr *ngFor=\"let visionG of visionGeneralUno\">{{visionG.porcentajeDeMercado}}</tr></td>\n              <td><tr *ngFor=\"let visionG of visionGeneralUno\">{{visionG.puntajeMercado}}</tr></td>\n              <td><tr *ngFor=\"let visionG of visionGeneralDos\">{{visionG.porcentajeDeMercado}}</tr></td>\n              <td><tr *ngFor=\"let visionG of visionGeneralDos\">{{visionG.puntajeMercado}}</tr></td>\n              <td><tr *ngFor=\"let visionG of visionGeneralTres\">{{visionG.porcentajeDeMercado}}</tr></td>\n              <td><tr *ngFor=\"let visionG of visionGeneralTres\">{{visionG.puntajeMercado}}</tr></td>\n            </tbody>\n              </table>\n            </div>\n          </div>\n        </div>\n      </div>\n    </div>\n        <div class=\"section_container {{tap_position==2 ? '' : 'tap_menu_hidden'}}\" style=\"background-color: #0D8EC8;\">\n      <div class=\"section_container_body\">\n        <div class=\"section_title\">\n          <div class=\"material-icons section_title_icon\" style=\"background-color: #0D8EC8;\">person</div>\n          <div class=\"section_title_desc\"> PUNTAJES TOTALES</div>\n        </div>\n        <div class=\"section_body\">\n          <div style=\"display: flex; justify-content: center;\">\n            <div class=\"tabla-decision\">\n               <table id=\"t01\">\n                <thead>\n                <tr>\n                  <th class=\"th1\" colspan=5>PUNTAJES TOTALES</th>\n                </tr>\n                  <tr>\n                  <th >COMPAÑIA</th>\n                  <th >Puntaje total</th>\n                  </tr>\n                </thead>\n\n            <tbody >\n              <td><tr *ngFor=\"let visionG of http.game.players\">{{visionG.name}}</tr></td>\n              <td><tr *ngFor=\"let resultados of resultadosFinales\" >{{resultados}}</tr></td>\n            </tbody>\n              </table>\n            </div>\n          </div>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>\n"
+module.exports = "<div id=\"main_container\">\r\n  <aside>\r\n    <div id=\"logo_container\">\r\n      <img id=\"logo_image\" src=\"/imagenes/LOGO SIMULADOR FINAL.png\">\r\n      <div id=\"nombre_empresa\"> Código de Juego: {{(http.game)?http.game.codigo:\"\"}}</div>\r\n    </div>\r\n    <div class=\"button_tab_container\" style=\"background-color: #135A82;\">\r\n      <button (click)=\"parciales()\" class=\"boton-decision tab_menu_button\" style=\"background-color: #135A82;\">\r\n        PUNTAJES PARCIALES\r\n      </button>\r\n      <div class=\"{{tap_position==1 ? '' : 'tap_menu_hidden'}}  tab_menu_description\">\r\n        En esta sección puede observar los puntajes parciales del juego.\r\n      </div>\r\n    </div>\r\n    <div class=\"button_tab_container\" style=\"background-color: #0D8EC8;\">\r\n      <button (click)=\"finales()\" class=\"boton-t-analisi tab_menu_button\" style=\"background-color: #0D8EC8;\">\r\n        PUNTAJES FINALES\r\n      </button>\r\n      <div class=\"{{tap_position==2? '' : 'tap_menu_hidden'}}  tab_menu_description\">\r\n        En esta sección puede observar los puntajes finales del juego.\r\n      </div>\r\n    </div>\r\n  </aside>\r\n  <div id=\"body_container\">\r\n    <div class=\"section_container {{tap_position==1 ? '' : 'tap_menu_hidden'}}\" style=\"background-color: #135A82;\">\r\n      <div class=\"section_container_body\">\r\n        <div class=\"section_title\">\r\n          <div class=\"material-icons section_title_icon\" style=\"background-color: #135A82;\">person</div>\r\n          <div class=\"section_title_desc\"> PUNTAJES PARCIALES </div>\r\n        </div>\r\n\r\n        <div class=\"section_body\">\r\n          <div style=\"display: flex; justify-content: center;\">\r\n            <div class=\"tabla-decision\">\r\n              <table id=\"t01\">\r\n                <thead>\r\n                  <tr>\r\n                    <th class=\"th1\" colspan=7>RENTABILIDAD</th>\r\n                  </tr>\r\n                  <tr>\r\n                    <th>EMPRESA</th>\r\n                    <th>Bimestre 1</th>\r\n                    <th>Puntaje</th>\r\n                    <th>Bimestre 2</th>\r\n                    <th>Puntaje</th>\r\n                    <th>Bimestre 3</th>\r\n                    <th>Puntaje</th>\r\n                  </tr>\r\n                </thead>\r\n\r\n                <tbody>\r\n                  <td>\r\n                    <tr *ngFor=\"let visionG of http.game.players\">{{visionG.name | thousandPipe}}</tr>\r\n                  </td>\r\n                  <td>\r\n                    <tr *ngFor=\"let visionG of visionGeneralUno\" class=\"color\">{{visionG.beneficio | thousandPipe}}</tr>\r\n                  </td>\r\n                  <td>\r\n                    <tr *ngFor=\"let visionG of visionGeneralUno\">{{visionG.puntajeBeneficio | thousandPipe}}</tr>\r\n                  </td>\r\n                  <td>\r\n                    <tr *ngFor=\"let visionG of visionGeneralDos\" class=\"color\">{{visionG.beneficio | thousandPipe}}</tr>\r\n                  </td>\r\n                  <td>\r\n                    <tr *ngFor=\"let visionG of visionGeneralDos\">{{visionG.puntajeBeneficio | thousandPipe}}</tr>\r\n                  </td>\r\n                  <td>\r\n                    <tr *ngFor=\"let visionG of visionGeneralTres\" class=\"color\">{{visionG.beneficio | thousandPipe}}</tr>\r\n                  </td>\r\n                  <td>\r\n                    <tr *ngFor=\"let visionG of visionGeneralTres\">{{visionG.puntajeBeneficio | thousandPipe}}</tr>\r\n                  </td>\r\n                </tbody>\r\n              </table>\r\n<br>\r\n<br>\r\n              <table id=\"t01\">\r\n                <thead>\r\n                  <tr>\r\n                    <th class=\"th1\" colspan=7>% DE MERCADO</th>\r\n                  </tr>\r\n                  <tr>\r\n                    <th>EMPRESA</th>\r\n                    <th>Bimestre 1</th>\r\n                    <th>Puntaje</th>\r\n                    <th>Bimestre 2</th>\r\n                    <th>Puntaje</th>\r\n                    <th>Bimestre 3</th>\r\n                    <th>Puntaje</th>\r\n\r\n                    <!-- <th *ngFor=\"let visionG of visionGeneral;let i=index\">BIMESTRE {{i+1}}</th> -->\r\n                  </tr>\r\n                </thead>\r\n\r\n                <tbody>\r\n                  <td>\r\n                    <tr *ngFor=\"let visionG of http.game.players\">{{visionG.name}}</tr>\r\n                  </td>\r\n                  <td>\r\n                    <tr *ngFor=\"let visionG of visionGeneralUno\" class=\"color\">{{visionG.porcentajeDeMercado}}  %</tr>\r\n                  </td>\r\n                  <td>\r\n                    <tr *ngFor=\"let visionG of visionGeneralUno\">{{visionG.puntajeMercado}}</tr>\r\n                  </td>\r\n                  <td>\r\n                    <tr *ngFor=\"let visionG of visionGeneralDos\" class=\"color\">{{visionG.porcentajeDeMercado}}  %</tr>\r\n                  </td>\r\n                  <td>\r\n                    <tr *ngFor=\"let visionG of visionGeneralDos\">{{visionG.puntajeMercado}}</tr>\r\n                  </td>\r\n                  <td>\r\n                    <tr *ngFor=\"let visionG of visionGeneralTres\" class=\"color\">{{visionG.porcentajeDeMercado}}  %</tr>\r\n                  </td>\r\n                  <td>\r\n                    <tr *ngFor=\"let visionG of visionGeneralTres\">{{visionG.puntajeMercado}}</tr>\r\n                  </td>\r\n                </tbody>\r\n              </table>\r\n            </div>\r\n          </div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n    <div class=\"section_container {{tap_position==2 ? '' : 'tap_menu_hidden'}}\" style=\"background-color: #0D8EC8;\">\r\n      <div class=\"section_container_body\">\r\n        <div class=\"section_title\">\r\n          <div class=\"material-icons section_title_icon\" style=\"background-color: #0D8EC8;\">person</div>\r\n          <div class=\"section_title_desc\"> PUNTAJES TOTALES</div>\r\n        </div>\r\n        <div class=\"section_body\">\r\n          <div style=\"display: flex; justify-content: center;\">\r\n            <div class=\"tabla-decision\">\r\n              <table id=\"t01\">\r\n                <thead>\r\n                  <tr>\r\n                    <th class=\"th1\" colspan=5>PUNTAJES TOTALES</th>\r\n                  </tr>\r\n                  <tr>\r\n                    <th>EMPRESA</th>\r\n                    <th>Puntaje total</th>\r\n                  </tr>\r\n                </thead>\r\n\r\n                <tbody>\r\n                  <td>\r\n                    <tr *ngFor=\"let visionG of http.game.players\">{{visionG.name}}</tr>\r\n                  </td>\r\n                  <td>\r\n                    <tr *ngFor=\"let resultados of resultadosFinales\">{{resultados}}</tr>\r\n                  </td>\r\n                </tbody>\r\n              </table>\r\n            </div>\r\n          </div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -6566,6 +6681,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _services_http_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../../services/http.service */ "./src/services/http.service.ts");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm5/index.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -6575,6 +6691,7 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 var __metadata = (undefined && undefined.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+
 
 
 
@@ -6598,44 +6715,50 @@ var FinJuegoComponent = /** @class */ (function () {
         if (this.http.game.bimestre_uno_c == 0) {
             this.http.game.getVisionGeneral(1, function (response) {
                 console.log("getVisionGeneral front", response);
-                _this.visionGeneralUno = response;
+                _this.visionGeneralUno = response.visionGeneral;
                 console.log("visionGeneralUno front", _this.visionGeneralUno);
             });
             for (var i = 0; i < this.visionGeneralUno.length; i++) {
-                this.resultadosFinales.push(this.visionGeneralUno[i].puntajeBeneficio + this.visionGeneralUno[i].puntajeMercado);
+                this.resultadosFinales.push(this.visionGeneralUno[i].puntajeBeneficio +
+                    this.visionGeneralUno[i].puntajeMercado);
             }
             console.log("resultados fianles hasta bim 1 => ", this.resultadosFinales);
         }
         if (this.http.game.bimestre_dos_c == 0) {
             this.http.game.getVisionGeneral(2, function (response) {
                 console.log("getVisionGeneral front", response);
-                _this.visionGeneralDos = response;
+                _this.visionGeneralDos = response.visionGeneral;
                 console.log("visionGeneralDos front", _this.visionGeneralDos);
             });
             for (var i = 0; i < this.visionGeneralDos.length; i++) {
-                this.resultadosFinales[i] = this.resultadosFinales[i] + this.visionGeneralDos[i].puntajeBeneficio + this.visionGeneralDos[i].puntajeMercado;
+                this.resultadosFinales[i] =
+                    this.resultadosFinales[i] +
+                        this.visionGeneralDos[i].puntajeBeneficio +
+                        this.visionGeneralDos[i].puntajeMercado;
             }
             console.log("resultados fianles hasta bim 2 => ", this.resultadosFinales);
         }
         if (this.http.game.bimestre_tres_c == 0) {
             this.http.game.getVisionGeneral(3, function (response) {
                 console.log("getVisionGeneral front", response);
-                _this.visionGeneralTres = response;
+                _this.visionGeneralTres = response.visionGeneral;
                 console.log("visionGeneralTres front", _this.visionGeneralTres);
             });
             for (var i = 0; i < this.visionGeneralTres.length; i++) {
-                this.resultadosFinales[i] = this.resultadosFinales[i] + this.visionGeneralTres[i].puntajeBeneficio + this.visionGeneralTres[i].puntajeMercado;
+                this.resultadosFinales[i] =
+                    this.resultadosFinales[i] +
+                        this.visionGeneralTres[i].puntajeBeneficio +
+                        this.visionGeneralTres[i].puntajeMercado;
             }
             console.log("resultados fianles hasta bim 3 => ", this.resultadosFinales);
         }
     };
     FinJuegoComponent.prototype.ngOnInit = function () {
-        /*this.route.params.subscribe(params=>{
-          if( params['numeroBimestre']!=null){
-              this.numeroBimestre=params['numeroBimestre'];
-          }
-          this.numeroBimestre=params['numeroBimestre']
-          });*/
+        var _this = this;
+        this.subscription = Object(rxjs__WEBPACK_IMPORTED_MODULE_3__["timer"])(0, 7000).subscribe(function (result) { return _this.cargar(); });
+    };
+    FinJuegoComponent.prototype.ngOnDestroy = function () {
+        this.subscription.unsubscribe();
     };
     FinJuegoComponent.prototype.parciales = function () {
         this.tap_position = 1;
@@ -6647,7 +6770,7 @@ var FinJuegoComponent = /** @class */ (function () {
     };
     FinJuegoComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
-            selector: 'app-fin-juego',
+            selector: "app-fin-juego",
             template: __webpack_require__(/*! ./fin-juego.component.html */ "./src/app/fin-juego/fin-juego.component.html"),
             styles: [__webpack_require__(/*! ./fin-juego.component.css */ "./src/app/fin-juego/fin-juego.component.css")]
         }),
@@ -6667,7 +6790,7 @@ var FinJuegoComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "h2\n{\n    text-align: right;\n}\n.box\n{\n    position: absolute;\n    top: 50%;\n    left: 50%;\n    -webkit-transform: translate(-50%, -50%);\n            transform: translate(-50%, -50%);\n    width: 400px;\n    padding: 40px;\n    background: rgba(0,0,0,.8);\n    box-sizing: border-box;\n    box-shadow: 0 15px 25px rgba(0, 0, 0,.5);\n    border-left: 10px;\n\n}\n.box h2\n{\nmargin: 0 0 30px;\npadding: 0;\ncolor: #fff;\ntext-align: center;\n}\n.box .inputBox\n{\n    position: relative;\n}\n.box .inputBox input\n{\n    width: 100%;\n    padding: 10px 0;\n    font-size: 16px;\n    color: #fff;\n    margin-bottom: 30px;\n    border: none;\n    border-bottom: 1px solid #fff;\n    outline: none;\n    background: transparent;\n\n}\n.box .inputBox label\n{\n    position: absolute;\n    top: 0;\n    left: 0;\n    padding: 10px 0;\n    font-size: 16px;\n    color: #fff;\n    pointer-events: none;\n    transition: .5s;\n\n}\n.box .inputBox input:focus ~ label,\n.box .inputBox input:valid ~ label\n{\n    top: -14px;\n    left: 0;\n    color: #03a9f4;\n    font-size: 12px;\n\n}\n.box input[type=\"submit\"]\n{\n    background: transparent;\n    border: none;\n    outline: none;\n    color: #fff;\n    background: #03a9f4;\n    padding: 10px 20px;\n    cursor: pointer;\n    border-radius: 5px; \n\n}\n.backgrounds\n{\n    background: url(\"/imagenes/imagen_lite.jpg\")center no-repeat;\n    background-size: cover;\nwidth: 100vw;\nheight: 100vh; \n}\n.logo-cba\n{\n    width: 70%;\n    display: block;\n    margin-left: auto;\n    margin-right: auto\n        \n}\n.ng-valid[required], .ng-valid.required  {\n  border-left: 3px solid rgb(0, 139, 208);\n}\n.ng-invalid:not(form)  {\n  border-left: 3px solid #a94442;\n}"
+module.exports = "h2 {\r\n  text-align: right;\r\n}\r\n\r\n\r\n\r\n.background\r\n{\r\n  overflow-x: none;\r\n  overflow-y: none;\r\n}\r\n\r\n\r\n\r\n.box {\r\n  \r\n  position: absolute;\r\n  top: 50%;\r\n  left: 50%;\r\n  -webkit-transform: translate(-50%, -50%);\r\n          transform: translate(-50%, -50%);\r\n  width: 400px;\r\n  padding: 40px;\r\n  background: rgba(0, 0, 0, .8);\r\n  box-sizing: border-box;\r\n  box-shadow: 0 15px 25px rgba(0, 0, 0, .5);\r\n  border-left: 10px;\r\n  \r\n}\r\n\r\n\r\n\r\n.box h2 {\r\n  margin: 0 0 30px;\r\n  padding: 0;\r\n  color: #fff;\r\n  text-align: center;\r\n}\r\n\r\n\r\n\r\n.box .inputBox {\r\n  position: relative;\r\n}\r\n\r\n\r\n\r\n.box .inputBox input {\r\n  width: 100%;\r\n  padding: 10px 0;\r\n  font-size: 16px;\r\n  color: #fff;\r\n  margin-bottom: 30px;\r\n  border: none;\r\n  border-bottom: 1px solid #fff;\r\n  outline: none;\r\n  background: transparent;\r\n\r\n}\r\n\r\n\r\n\r\n.box .inputBox label {\r\n  position: absolute;\r\n  top: 0;\r\n  left: 0;\r\n  padding: 10px 0;\r\n  font-size: 16px;\r\n  color: #fff;\r\n  pointer-events: none;\r\n  transition: .5s;\r\n\r\n}\r\n\r\n\r\n\r\n.box .inputBox input:focus~label,\r\n.box .inputBox input:valid~label {\r\n  top: -14px;\r\n  left: 0;\r\n  color: #03a9f4;\r\n  font-size: 12px;\r\n\r\n}\r\n\r\n\r\n\r\n.box input[type=\"submit\"] {\r\n  background: transparent;\r\n  border: none;\r\n  outline: none;\r\n  color: #fff;\r\n  background: #03a9f4;\r\n  padding: 10px 20px;\r\n  cursor: pointer;\r\n  border-radius: 5px;\r\n\r\n}\r\n\r\n\r\n\r\n.backgrounds {\r\n  background: url(\"/imagenes/imagen_lite.jpg\")center no-repeat;\r\n  background-size: cover;\r\n  width: 100vw;\r\n  height: 100vh;\r\n  display: flexbox;\r\n \r\n}\r\n\r\n\r\n\r\n.logo-cba {\r\n  width: 50%;\r\n  display: block;\r\n  margin-left: auto;\r\n  margin-right: auto\r\n}\r\n\r\n\r\n\r\n.ng-valid[required],\r\n.ng-valid.required {\r\n  border-left: 3px solid rgb(0, 139, 208);\r\n}\r\n\r\n\r\n\r\n.ng-invalid:not(form) {\r\n  border-left: 3px solid #a94442;\r\n}\r\n\r\n\r\n\r\n.select-style\r\n{\r\nmargin: 0;\r\npadding: 0;\r\n}\r\n\r\n\r\n\r\n.select-style select\r\n{\r\n  \r\n  background: rgba(0, 0, 0, .5);\r\n  color: #fff;\r\n  padding:10px;\r\n  width: 320px;\r\n  height: 40px;\r\n  border: none;\r\n  font-size: 11px;\r\n  box-shadow: 0 5px 25px rgb(0,0,0,.5);\r\n  cursor: pointer;\r\n  \r\n}\r\n\r\n\r\n\r\n.logo-cba1 \r\n{\r\n  width: 96%;\r\n  display: block;\r\n  margin-left: auto;\r\n  margin-right: auto\r\n}\r\n\r\n\r\n\r\n.color\r\n{\r\n  background-color: #4c92ff;\r\n}\r\n"
 
 /***/ }),
 
@@ -6678,7 +6801,7 @@ module.exports = "h2\n{\n    text-align: right;\n}\n.box\n{\n    position: absol
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"background\">\n    <div class=\"backgrounds\">\n    </div>\n    \n\n<div class=\"box\">\n   <img src=\"/imagenes/logo-oficial.png\" alt=\"\" class=\"logo-cba\">\n   <br> \n   <h2>Business Simulator</h2>\n    \n<form [formGroup]=\"registerForm\" class=\"formularioJugar\"  #form=\"ngForm\">\n          <div class=\"inputBox\">\n              <input type=\"text\" formControlName=\"jugador\" class=\"form-control\" [ngClass]=\"{ 'is-invalid': submitted && f.jugador.errors }\"required/>\n              <div *ngIf=\"submitted && f.jugador.errors\" class=\"invalid-feedback\">\n                  <div *ngIf=\"f.jugador.errors.required\" style=\"color: red;font-size: 12px\">Jugador es requerido</div>\n              </div>\n          <label>Jugador</label>\n\n          </div>\n          <div class=\"inputBox\">\n              <input type=\"text\" formControlName=\"ciudad\" class=\"form-control\" [ngClass]=\"{ 'is-invalid': submitted && f.ciudad.errors }\"required/>\n              <div *ngIf=\"submitted && f.ciudad.errors\" class=\"invalid-feedback\">\n                  <div *ngIf=\"f.ciudad.errors.required\" style=\"color: red;font-size: 12px\">Ciudad es requerido</div>\n              </div>\n              <label>Ciudad</label>\n          </div>          \n          <div class=\"inputBox\">\n              <input type=\"text\" formControlName=\"edad\" class=\"form-control\" [ngClass]=\"{ 'is-invalid': submitted && f.edad.errors }\"required/>\n              <div *ngIf=\"submitted && f.edad.errors\" class=\"invalid-feedback\">\n                  <div *ngIf=\"f.edad.errors.required\" style=\"color: red;font-size: 12px\">Edad es requerido</div>\n              </div>\n              <label>Edad</label>\n\n          </div>                  \n        <input type=\"submit\" name=\"\" value=\"Unirse a un juego\" (click)=\"jugar()\">\n        <br>\n        <br>\n        <input type=\"submit\" name=\"\" value=\"Crear un juego\" (click)=\"moderador()\">\n</form>\n        </div>\n</div>"
+module.exports = "<div class=\"background\">\r\n    <div class=\"backgrounds\">\r\n    </div>\r\n\r\n   \r\n<div class=\"box\">\r\n    <img src=\"/imagenes/Logo-business-simulator-(blanco).png\" alt=\"\" class=\"logo-cba1\">\r\n\r\n  \r\n   <br>\r\n   <div>\r\n   <img src=\"/imagenes/logo-oficial.png\" class=\"logo-cba\">\r\n   </div>\r\n\r\n<form [formGroup]=\"registerForm\" class=\"formularioJugar\"  #form=\"ngForm\">\r\n          <div class=\"inputBox\">\r\n              <input type=\"text\" formControlName=\"jugador\" class=\"form-control\" [ngClass]=\"{ 'is-invalid': submitted && f.jugador.errors }\"required/>\r\n              <div *ngIf=\"submitted && f.jugador.errors\" class=\"invalid-feedback\">\r\n                  <div *ngIf=\"f.jugador.errors.required\" style=\"color: red;font-size: 12px\">Jugador es requerido</div>\r\n              </div>\r\n          <label>Jugador</label>\r\n\r\n          <div class=\"inputBox\">\r\n              <input type=\"number\" formControlName=\"edad\" class=\"form-control\" [ngClass]=\"{ 'is-invalid': submitted && f.edad.errors }\" min=\"0\" max=\"100\" required/>\r\n              <div *ngIf=\"submitted && f.edad.errors\" class=\"invalid-feedback\">\r\n                  <div *ngIf=\"f.edad.errors.required\" style=\"color: red;font-size: 12px\">Edad es requerido</div>\r\n              </div>\r\n              <label>Edad</label>\r\n\r\n          </div>\r\n          \r\n        </div>\r\n        <div class=\"select-style\">\r\n            <select  formControlName=\"ciudad\" class=\"form-control\" [ngClass]=\"{ 'is-invalid': submitted && f.ciudad.errors }\"required>\r\n              <option value=\"\" disabled selected>Elige tu pais</option>\r\n              <option value=\"ANTIGUA Y BARBUDA\">ANTIGUA Y BARBUDA</option>\r\n              <option value=\"ARGENTINA\">ARGENTINA</option>\r\n              <option value=\"BAHAMAS\">BAHAMAS</option>\r\n              <option value=\"BARBADOS\">BARBADOS</option>\r\n              <option value=\"BELICE\">BELICE</option>\r\n              <option value=\"BOLIVIA\">BOLIVIA</option>\r\n              <option value=\"BRASIL\">BRASIL</option>\r\n              <option value=\"CÁNADA\">CÁNADA</option>\r\n              <option value=\"CHILE\">CHILE</option>\r\n              <option value=\"COLOMBIA\">COLOMBIA</option>\r\n              <option value=\"COSTA RICA\">COSTA RICA</option>\r\n              <option value=\"CUBA\">CUBA</option>\r\n              <option value=\"DOMINICA\">DOMINICA</option>\r\n              <option value=\"ECUADOR\">ECUADOR</option>\r\n              <option value=\"EL SALVADOR\">EL SALVADOR</option>\r\n              <option value=\"UNITED STATES\">ESTADOS UNIDOS</option>\r\n              <option value=\"GRANADA\">GRANADA</option>\r\n              <option value=\"GUATEMALA\">GUATEMALA</option>\r\n              <option value=\"GUYANA\">GUYANA</option>\r\n              <option value=\"HAITI\">HAITI</option>\r\n              <option value=\"HONDURAS\">HONDURAS</option>\r\n              <option value=\"JAMAICA\">JAMAICA</option>\r\n              <option value=\"MÉXICO\">MÉXICO</option>\r\n              <option value=\"NICARAGUA\">NICARAGUA</option>\r\n              <option value=\"PANAMÁ\">PANAMÁ</option>\r\n              <option value=\"PARAGUAY\">PARAGUAY</option>\r\n              <option value=\"PERÚ\">PERÚ</option>\r\n              <option value=\"RÉPUBLICA DOMINICANA\">RÉPUBLICA DOMINICANA</option>\r\n              <option value=\"SAN CRISTÓBAL\">SAN CRITÓBAL</option>\r\n              <option value=\"SAN VICENTE Y LAS GRANADINAS\">SAN VICENTE Y LAS GRANADINAS</option>\r\n              <option value=\"SANTA LUCIA\">SANTA LUCIA</option>\r\n              <option value=\"SURINAM\">SURINAM</option>\r\n              <option value=\"TRINIDAD Y TOBAGO\">TRINIDAD Y TOBAGO</option>\r\n              <option value=\"URUGUAY\">URUGUAY</option>\r\n              <option value=\"VENEZUELA\">VENEZUELA</option>\r\n           \r\n            </select>\r\n        </div>\r\n        <div *ngIf=\"submitted && f.ciudad.errors\" class=\"invalid-feedback\">\r\n            <div *ngIf=\"f.ciudad.errors.required\" style=\"color: red;font-size: 12px\">Ciudad es requerido</div>\r\n        </div>\r\n        <br>\r\n\r\n        <input type=\"submit\" name=\"\" value=\"Unirse a un juego\" (click)=\"jugar()\">\r\n        <br>\r\n        <input type=\"submit\" name=\"\" value=\"Crear un juego\" (click)=\"moderador()\">\r\n<nav>\r\n    <a [routerLink]=\"['/about']\" routerLinkActive=\"router-link-active\"  style=\"color: #fff\">Acerca de nosotros</a>\r\n</nav>\r\n    </form>\r\n        </div>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -6695,6 +6818,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
+/* harmony import */ var _services_http_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./../../services/http.service */ "./src/services/http.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -6707,8 +6831,10 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
+
 var HomeComponent = /** @class */ (function () {
-    function HomeComponent(router, formBuilder) {
+    function HomeComponent(http, router, formBuilder) {
+        this.http = http;
         this.router = router;
         this.formBuilder = formBuilder;
         this.submitted = false;
@@ -6745,7 +6871,22 @@ var HomeComponent = /** @class */ (function () {
         if (this.registerForm.invalid) {
             return;
         }
+        this.almacenarDatos();
         this.router.navigateByUrl('/moderador');
+    };
+    HomeComponent.prototype.almacenarDatos = function () {
+        this.jugador = this.registerForm.value.jugador;
+        this.ciudad = this.registerForm.value.ciudad;
+        this.edad = this.registerForm.value.edad;
+        var json = { jugador: this.jugador, ciudad: this.ciudad, edad: this.edad };
+        this.http.post('/api/jugador', json).subscribe(function (response) {
+            if (response.status == 2001) {
+                console.log('ok');
+            }
+            else {
+                console.log(response);
+            }
+        });
     };
     HomeComponent.prototype.jugar = function () {
         { }
@@ -6754,6 +6895,7 @@ var HomeComponent = /** @class */ (function () {
         if (this.registerForm.invalid) {
             return;
         }
+        this.almacenarDatos();
         this.router.navigateByUrl('/jugar');
     };
     HomeComponent = __decorate([
@@ -6762,7 +6904,7 @@ var HomeComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./home.component.html */ "./src/app/home/home.component.html"),
             styles: [__webpack_require__(/*! ./home.component.css */ "./src/app/home/home.component.css")]
         }),
-        __metadata("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_1__["Router"], _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormBuilder"]])
+        __metadata("design:paramtypes", [_services_http_service__WEBPACK_IMPORTED_MODULE_3__["HttpService"], _angular_router__WEBPACK_IMPORTED_MODULE_1__["Router"], _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormBuilder"]])
     ], HomeComponent);
     return HomeComponent;
 }());
@@ -6778,7 +6920,7 @@ var HomeComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\nheader{\n  width: 100%;\n  padding-top: 2rem;\n  -webkit-padding-after: 2rem;\n          padding-block-end: 2rem;\n  background-color: #125A82;\n  color: white;\n  text-align: center;\n  font-family: \"arial\";\n  font-size: 19px;\n}\n\n.formularioJugar{\n  width: 50%;\n  margin-left: 25%;\n  margin-top: 5%;\n  padding: 2rem;\n  border-radius: 5px;\n  font-family: \"arial\";\n  background-color: #f2f2f2;\n  padding: 20px;\n\n}\n\n.ng-valid[required], .ng-valid.required  {\n  border-left: 5px solid rgb(0, 139, 208);\n}\n\n.ng-invalid:not(form)  {\n  border-left: 5px solid #a94442;\n}\n\n"
+module.exports = "header {\r\n  width: 100%;\r\n  padding-top: 2rem;\r\n  -webkit-padding-after: 2rem;\r\n          padding-block-end: 2rem;\r\n  background-color: #125A82;\r\n  color: white;\r\n  text-align: center;\r\n  font-family: \"arial\";\r\n  font-size: 19px;\r\n}\r\n\r\n.formularioJugar {\r\n  width: 50%;\r\n  margin-left: 25%;\r\n  margin-top: 5%;\r\n  padding: 2rem;\r\n  border-radius: 5px;\r\n  font-family: \"arial\";\r\n  background-color: #f2f2f2;\r\n  padding: 20px;\r\n\r\n}\r\n\r\n.ng-valid[required],\r\n.ng-valid.required {\r\n  border-left: 5px solid rgb(0, 139, 208);\r\n}\r\n\r\n.ng-invalid:not(form) {\r\n  border-left: 5px solid #a94442;\r\n}\r\n"
 
 /***/ }),
 
@@ -6789,7 +6931,7 @@ module.exports = "\nheader{\n  width: 100%;\n  padding-top: 2rem;\n  -webkit-pad
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<form [formGroup]=\"registerForm\" class=\"formularioJugar\"  #form=\"ngForm\">\n    <header>  Unirse a un juego</header>\n        <div class=\"form-group\">\n            <label>Nombre empresa</label>\n                <input type=\"text\" formControlName=\"nombreE\" class=\"form-control\" [ngClass]=\"{ 'is-invalid': submitted && f.nombreE.errors }\" placeholder=\"Nombre de tu empresa\"/>\n                    <div *ngIf=\"submitted && f.nombreE.errors\" class=\"invalid-feedback\">\n                        <div *ngIf=\"f.nombreE.errors.required\" style=\"color: red\">Nonbre de empresa es requerido</div>\n                    </div>\n                </div>\n        <div class=\"form-group\">\n            <label>Codigo</label>\n                <input type=\"text\" formControlName=\"codigo\" class=\"form-control\" [ngClass]=\"{ 'is-invalid': submitted && f.codigo.errors }\" placeholder=\"Codigo\"/>\n                    <div *ngIf=\"submitted && f.codigo.errors\" class=\"invalid-feedback\">\n                        <div *ngIf=\"f.codigo.errors.required\" style=\"color: red\">Codigo es requerido</div>\n                    </div>\n        </div>\n    <button type=\"submit\" (click)=\"onClickMe()\">JUGAR</button>\n</form>"
+module.exports = "<form [formGroup]=\"registerForm\" class=\"formularioJugar\" #form=\"ngForm\">\r\n  <header> Unirse a un juego</header>\r\n  <div class=\"form-group\">\r\n    <label>Nombre empresa</label>\r\n    <input type=\"text\" formControlName=\"nombreE\" class=\"form-control\" [ngClass]=\"{ 'is-invalid': submitted && f.nombreE.errors }\"\r\n      placeholder=\"Nombre de tu empresa\" />\r\n    <div *ngIf=\"submitted && f.nombreE.errors\" class=\"invalid-feedback\">\r\n      <div *ngIf=\"f.nombreE.errors.required\" style=\"color: red\">Nombre de empresa es requerido</div>\r\n    </div>\r\n  </div>\r\n  <div class=\"form-group\">\r\n    <label>Código</label>\r\n    <input type=\"text\" formControlName=\"codigo\" class=\"form-control\" [ngClass]=\"{ 'is-invalid': submitted && f.codigo.errors }\"\r\n      placeholder=\"Código\" />\r\n    <div *ngIf=\"submitted && f.codigo.errors\" class=\"invalid-feedback\">\r\n      <div *ngIf=\"f.codigo.errors.required\" style=\"color: red\">Código es requerido</div>\r\n    </div>\r\n  </div>\r\n  <button type=\"submit\" (click)=\"onClickMe()\">JUGAR</button>\r\n</form>\r\n"
 
 /***/ }),
 
@@ -6885,7 +7027,7 @@ var JugarComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "header{\n  width: 100%;\n  padding-top: 2rem;\n  -webkit-padding-after: 2rem;\n          padding-block-end: 2rem;\n  background-color: #125A82;\n  color: white;\n  text-align: center;\n  font-family: \"arial\";\n  font-size: 19px;\n}\n"
+module.exports = "header {\r\n  width: 100%;\r\n  padding-top: 2rem;\r\n  -webkit-padding-after: 2rem;\r\n          padding-block-end: 2rem;\r\n  background-color: #125A82;\r\n  color: white;\r\n  text-align: center;\r\n  font-family: \"arial\";\r\n  font-size: 19px;\r\n}\r\n"
 
 /***/ }),
 
@@ -6896,7 +7038,7 @@ module.exports = "header{\n  width: 100%;\n  padding-top: 2rem;\n  -webkit-paddi
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\n\n\n<div class=\"formulario\" *ngIf=\"true\">\n  <!-- <h1 *ngIf=\"authService.user | async\">Welcome {{ (authService.user | async)?.email }}!</h1> -->\n  <button (click)=\"moderador()\" >\n    Crear juego\n  </button>\n  <br>\n  <button (click)=\"jugar()\" >\n    Unirse a un juego\n  </button>\n  <br>\n  <!-- <button (click)=\"logout()\" >\n      Logout\n  </button> -->\n  <br>\n</div>\n"
+module.exports = "<div class=\"formulario\" *ngIf=\"true\">\r\n  <!-- <h1 *ngIf=\"authService.user | async\">Welcome {{ (authService.user | async)?.email }}!</h1> -->\r\n  <button (click)=\"moderador()\">\r\n    Crear juego\r\n  </button>\r\n  <br>\r\n  <button (click)=\"jugar()\">\r\n    Unirse a un juego\r\n  </button>\r\n  <br>\r\n  <!-- <button (click)=\"logout()\" >\r\n      Logout\r\n  </button> -->\r\n  <br>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -6978,7 +7120,7 @@ var LoginComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "header{\n  width: 100%;\n  padding-top: 2rem;\n  -webkit-padding-after: 2rem;\n          padding-block-end: 2rem;\n  background-color: #125A82;\n  color: white;\n  text-align: center;\n  font-family: \"arial\";\n  font-size: 19px;\n}\n\n.formularioModerador{\n  width: 50%;\n  margin-left: 25%;\n  margin-top: 5%;\n  padding: 2rem;\n  border-radius: 5px;\n  font-family: \"arial\";\n  background-color: #f2f2f2;\n  padding: 20px;\n\n}\n\n.ng-valid[required], .ng-valid.required  {\n  border-left: 5px solid rgb(0, 139, 208);\n}\n\n.ng-invalid:not(form)  {\n  border-left: 5px solid #a94442;\n}\n\n.styled-select {\n  height: 29px;\n  border: ridge;\n  overflow: hidden;\n  width: 240px;\n}\n\n.styled-select select {\n  background: transparent;\n  border: none;\n  font-size: 14px;\n  height: 29px;\n  padding: 5px; /* If you add too much padding here, the options won't show in IE */\n  width: 268px;\n}\n\n.styled-select.jugadores {\n  background: white;\n  height: 34px;\n  width: 240px;\n}"
+module.exports = "header {\r\n  width: 100%;\r\n  padding-top: 2rem;\r\n  -webkit-padding-after: 2rem;\r\n          padding-block-end: 2rem;\r\n  background-color: #125A82;\r\n  color: white;\r\n  text-align: center;\r\n  font-family: \"arial\";\r\n  font-size: 19px;\r\n}\r\n\r\n.formularioModerador {\r\n  width: 50%;\r\n  margin-left: 25%;\r\n  margin-top: 5%;\r\n  padding: 2rem;\r\n  border-radius: 5px;\r\n  font-family: \"arial\";\r\n  background-color: #f2f2f2;\r\n  padding: 20px;\r\n\r\n}\r\n\r\n.ng-valid[required],\r\n.ng-valid.required {\r\n  border-left: 5px solid rgb(0, 139, 208);\r\n}\r\n\r\n.ng-invalid:not(form) {\r\n  border-left: 5px solid #a94442;\r\n}\r\n\r\n.styled-select {\r\n  height: 29px;\r\n  border: ridge;\r\n  overflow: hidden;\r\n  width: 240px;\r\n}\r\n\r\n.styled-select select {\r\n  background: transparent;\r\n  border: none;\r\n  font-size: 14px;\r\n  height: 29px;\r\n  padding: 5px;\r\n  /* If you add too much padding here, the options won't show in IE */\r\n  width: 268px;\r\n}\r\n\r\n.styled-select.jugadores {\r\n  background: white;\r\n  height: 34px;\r\n  width: 240px;\r\n}\r\n"
 
 /***/ }),
 
@@ -6989,7 +7131,7 @@ module.exports = "header{\n  width: 100%;\n  padding-top: 2rem;\n  -webkit-paddi
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<form  class=\"formularioModerador\" [formGroup]=\"registerForm\"   #form=\"ngForm\" >\n  <header>MODERADOR </header>\n  <br>\n  <br>\n  <div class=\"form-group\">\n    <label>Nombre del Juego</label>\n    <input type=\"text\" formControlName=\"nombreMercado\" class=\"form-control\" [ngClass]=\"{ 'is-invalid': submitted && f.nombreMercado.errors }\" placeholder=\"Nombre de tu juego\"/>\n    <div *ngIf=\"submitted && f.nombreMercado.errors\" class=\"invalid-feedback\">\n        <div *ngIf=\"f.nombreMercado.errors.required\" style=\"color: red\">Nombre del juego es requerido</div>\n    </div>\n  </div>\n  <br>\n\n  <label>Cantidad de Jugadores</label>\n  <br>\n  <div class=\"form-group\">\n    <div class=\"styled-select jugadores\">\n      <select formControlName=\"cantidadJugadores\"  >\n          <option value=\"2\" selected>2</option>\n          <option value=\"3\">3</option>\n          <option value=\"4\">4</option>\n          <option value=\"5\">5</option>\n      </select>\n    </div>\n  </div>\n\n  <button type=\"submit\"  (click)=\"onClickMe()\">Hecho</button>\n\n</form>\n"
+module.exports = "<form class=\"formularioModerador\" [formGroup]=\"registerForm\" #form=\"ngForm\">\r\n  <header>MODERADOR </header>\r\n  <br>\r\n  <br>\r\n  <div class=\"form-group\">\r\n    <label>Nombre del Juego</label>\r\n    <input type=\"text\" formControlName=\"nombreMercado\" class=\"form-control\" [ngClass]=\"{ 'is-invalid': submitted && f.nombreMercado.errors }\"\r\n      placeholder=\"Nombre de tu juego\" />\r\n    <div *ngIf=\"submitted && f.nombreMercado.errors\" class=\"invalid-feedback\">\r\n      <div *ngIf=\"f.nombreMercado.errors.required\" style=\"color: red\">Nombre del juego es requerido</div>\r\n    </div>\r\n  </div>\r\n  <br>\r\n\r\n  <label>Cantidad de Jugadores</label>\r\n  <br>\r\n  <div class=\"form-group\">\r\n    <div class=\"styled-select jugadores\">\r\n      <select formControlName=\"cantidadJugadores\">\r\n        <option value=\"2\" selected>2</option>\r\n        <option value=\"3\">3</option>\r\n        <option value=\"4\">4</option>\r\n        <option value=\"5\">5</option>\r\n      </select>\r\n    </div>\r\n  </div>\r\n\r\n  <button type=\"submit\" (click)=\"onClickMe()\">Hecho</button>\r\n\r\n</form>\r\n"
 
 /***/ }),
 
@@ -7086,7 +7228,7 @@ var ModeradorComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\nheader{\n  width: 100%;\n  padding-top: 2rem;\n  -webkit-padding-after: 2rem;\n          padding-block-end: 2rem;\n  background-color: #125A82;\n  color: white;\n  text-align: center;\n  font-family: \"arial\";\n  font-size: 19px;\n}\n"
+module.exports = "header {\r\n  width: 100%;\r\n  padding-top: 2rem;\r\n  -webkit-padding-after: 2rem;\r\n          padding-block-end: 2rem;\r\n  background-color: #125A82;\r\n  color: white;\r\n  text-align: center;\r\n  font-family: \"arial\";\r\n  font-size: 19px;\r\n}\r\n"
 
 /***/ }),
 
@@ -7097,7 +7239,7 @@ module.exports = "\nheader{\n  width: 100%;\n  padding-top: 2rem;\n  -webkit-pad
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\n<div class=\"formulario\" >\n  <header>Simulador de Negocios </header>\n\n  <div >\n      <label for=\"email\">Ingrese su email</label>\n      <input type=\"email\" [(ngModel)]=\"email\" placeholder=\"email\" required>\n      <label for=\"password\">Ingrese un password</label>\n      <input type=\"password\" [(ngModel)]=\"password\" placeholder=\"password\" required>\n      <button (click)=\"signup()\" [disabled]=\"!email || !password\">\n        Signup\n      </button>\n\n</div>\n\n\n\n\n"
+module.exports = "<div class=\"formulario\">\r\n  <header>Simulador de Negocios </header>\r\n\r\n  <div>\r\n    <label for=\"email\">Ingrese su email</label>\r\n    <input type=\"email\" [(ngModel)]=\"email\" placeholder=\"email\" required>\r\n    <label for=\"password\">Ingrese un password</label>\r\n    <input type=\"password\" [(ngModel)]=\"password\" placeholder=\"password\" required>\r\n    <button (click)=\"signup()\" [disabled]=\"!email || !password\">\r\n      Signup\r\n    </button>\r\n\r\n  </div>\r\n"
 
 /***/ }),
 
@@ -7159,6 +7301,551 @@ var RegisterComponent = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/scroll-spy/index.ts":
+/*!*************************************!*\
+  !*** ./src/app/scroll-spy/index.ts ***!
+  \*************************************/
+/*! exports provided: ScrollSpyModule, ScrollSpyDirective, ScrollSpyItemDirective, ScrollSpySectionComponent, ScrollSpyService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _scroll_spy_module__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./scroll-spy.module */ "./src/app/scroll-spy/scroll-spy.module.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ScrollSpyModule", function() { return _scroll_spy_module__WEBPACK_IMPORTED_MODULE_0__["ScrollSpyModule"]; });
+
+/* harmony import */ var _scroll_spy__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./scroll-spy */ "./src/app/scroll-spy/scroll-spy/index.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ScrollSpyDirective", function() { return _scroll_spy__WEBPACK_IMPORTED_MODULE_1__["ScrollSpyDirective"]; });
+
+/* harmony import */ var _scroll_spy_item__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./scroll-spy-item */ "./src/app/scroll-spy/scroll-spy-item/index.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ScrollSpyItemDirective", function() { return _scroll_spy_item__WEBPACK_IMPORTED_MODULE_2__["ScrollSpyItemDirective"]; });
+
+/* harmony import */ var _scroll_spy_section__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./scroll-spy-section */ "./src/app/scroll-spy/scroll-spy-section/index.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ScrollSpySectionComponent", function() { return _scroll_spy_section__WEBPACK_IMPORTED_MODULE_3__["ScrollSpySectionComponent"]; });
+
+/* harmony import */ var _scroll_spy_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./scroll-spy-service */ "./src/app/scroll-spy/scroll-spy-service/index.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ScrollSpyService", function() { return _scroll_spy_service__WEBPACK_IMPORTED_MODULE_4__["ScrollSpyService"]; });
+
+
+
+
+
+
+
+
+/***/ }),
+
+/***/ "./src/app/scroll-spy/scroll-spy-item/index.ts":
+/*!*****************************************************!*\
+  !*** ./src/app/scroll-spy/scroll-spy-item/index.ts ***!
+  \*****************************************************/
+/*! exports provided: ScrollSpyItemDirective */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _scroll_spy_item_directive__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./scroll-spy-item.directive */ "./src/app/scroll-spy/scroll-spy-item/scroll-spy-item.directive.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ScrollSpyItemDirective", function() { return _scroll_spy_item_directive__WEBPACK_IMPORTED_MODULE_0__["ScrollSpyItemDirective"]; });
+
+
+
+
+/***/ }),
+
+/***/ "./src/app/scroll-spy/scroll-spy-item/scroll-spy-item.directive.ts":
+/*!*************************************************************************!*\
+  !*** ./src/app/scroll-spy/scroll-spy-item/scroll-spy-item.directive.ts ***!
+  \*************************************************************************/
+/*! exports provided: ScrollSpyItemDirective */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ScrollSpyItemDirective", function() { return ScrollSpyItemDirective; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+/**
+ * A directive used to add an `active` class to a nav item
+ * when the section is in the viewport
+ *
+ * @example
+ * ```html
+ * <a snScrollSpyItem for="foo" href="#section1">Section 1</a>
+ * ```
+ *
+ */
+var ScrollSpyItemDirective = /** @class */ (function () {
+    /**
+     * Creates an instance of ScrollSpyItemDirective.
+     * @memberof ScrollSpyItemDirective
+     */
+    function ScrollSpyItemDirective(cdRef) {
+        this.cdRef = cdRef;
+        /**
+         * True if the nav item is the active item in the `items` list
+         * for `ScrollSpyDirective` instance
+         *
+         * @memberof ScrollSpyItemDirective
+         */
+        this.active = false;
+        /**
+         * If true means the section is in the viewport
+         *
+         * @memberof ScrollSpyItemDirective
+         */
+        this.inViewport = false;
+    }
+    Object.defineProperty(ScrollSpyItemDirective.prototype, "section", {
+        /**
+         * Id of section that links navigates to
+         *
+         * @readonly
+         * @memberof ScrollSpyItemDirective
+         */
+        get: function () {
+            return this.href.replace('#', '');
+        },
+        enumerable: true,
+        configurable: true
+    });
+    /**
+     * Manually trigger change detection
+     *
+     * @memberof ScrollSpyItemDirective
+     */
+    ScrollSpyItemDirective.prototype.detectChanges = function () {
+        this.cdRef.detectChanges();
+    };
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["HostBinding"])('class.active'),
+        __metadata("design:type", Object)
+    ], ScrollSpyItemDirective.prototype, "active", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", String)
+    ], ScrollSpyItemDirective.prototype, "for", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", String)
+    ], ScrollSpyItemDirective.prototype, "href", void 0);
+    ScrollSpyItemDirective = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Directive"])({
+            selector: '[snScrollSpyItem]',
+        }),
+        __metadata("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_0__["ChangeDetectorRef"]])
+    ], ScrollSpyItemDirective);
+    return ScrollSpyItemDirective;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/scroll-spy/scroll-spy-section/index.ts":
+/*!********************************************************!*\
+  !*** ./src/app/scroll-spy/scroll-spy-section/index.ts ***!
+  \********************************************************/
+/*! exports provided: ScrollSpySectionComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _scroll_spy_section_component__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./scroll-spy-section.component */ "./src/app/scroll-spy/scroll-spy-section/scroll-spy-section.component.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ScrollSpySectionComponent", function() { return _scroll_spy_section_component__WEBPACK_IMPORTED_MODULE_0__["ScrollSpySectionComponent"]; });
+
+
+
+
+/***/ }),
+
+/***/ "./src/app/scroll-spy/scroll-spy-section/scroll-spy-section.component.css":
+/*!********************************************************************************!*\
+  !*** ./src/app/scroll-spy/scroll-spy-section/scroll-spy-section.component.css ***!
+  \********************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ":host {\r\n  display: block;\r\n  position: relative;\r\n}\r\n\r\n.sn-hidden {\r\n  bottom: 0;\r\n  left: 0;\r\n  opacity: 0;\r\n  position: absolute;\r\n  right: 0;\r\n  top: 0;\r\n  z-index: -1;\r\n}\r\n"
+
+/***/ }),
+
+/***/ "./src/app/scroll-spy/scroll-spy-section/scroll-spy-section.component.html":
+/*!*********************************************************************************!*\
+  !*** ./src/app/scroll-spy/scroll-spy-section/scroll-spy-section.component.html ***!
+  \*********************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div\r\n  class=\"sn-hidden\"\r\n  snInViewport\r\n  (inViewportChange)=\"onInViewportChange($event)\">\r\n</div>\r\n<ng-content></ng-content>\r\n"
+
+/***/ }),
+
+/***/ "./src/app/scroll-spy/scroll-spy-section/scroll-spy-section.component.ts":
+/*!*******************************************************************************!*\
+  !*** ./src/app/scroll-spy/scroll-spy-section/scroll-spy-section.component.ts ***!
+  \*******************************************************************************/
+/*! exports provided: ScrollSpySectionComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ScrollSpySectionComponent", function() { return ScrollSpySectionComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _scroll_spy_service_scroll_spy_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../scroll-spy-service/scroll-spy.service */ "./src/app/scroll-spy/scroll-spy-service/scroll-spy.service.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+/**
+ * A component to wrap section content within that will update the
+ * `ScrollSpyService` when it's in view
+ *
+ * @example
+ * ```html
+ *  <sn-scroll-spy-section id="section1" for="foo">
+ *    ...
+ *  </sn-scroll-spy-section>
+ * ```
+ */
+var ScrollSpySectionComponent = /** @class */ (function () {
+    /**
+     * Creates an instance of ScrollSpySectionComponent.
+     * @memberof ScrollSpySectionComponent
+     */
+    function ScrollSpySectionComponent(scrollSpySvc) {
+        this.scrollSpySvc = scrollSpySvc;
+    }
+    /**
+     * Updates `ScrollSpy` section when element enters/leaves viewport
+     *
+     * @memberof ScrollSpySectionComponent
+     */
+    ScrollSpySectionComponent.prototype.onInViewportChange = function (inViewport) {
+        this.scrollSpySvc.setSpySectionStatus(this.id, this.for, inViewport);
+    };
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", String)
+    ], ScrollSpySectionComponent.prototype, "id", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", String)
+    ], ScrollSpySectionComponent.prototype, "for", void 0);
+    ScrollSpySectionComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-scroll-spy-section',
+            template: __webpack_require__(/*! ./scroll-spy-section.component.html */ "./src/app/scroll-spy/scroll-spy-section/scroll-spy-section.component.html"),
+            styles: [__webpack_require__(/*! ./scroll-spy-section.component.css */ "./src/app/scroll-spy/scroll-spy-section/scroll-spy-section.component.css")],
+        }),
+        __metadata("design:paramtypes", [_scroll_spy_service_scroll_spy_service__WEBPACK_IMPORTED_MODULE_1__["ScrollSpyService"]])
+    ], ScrollSpySectionComponent);
+    return ScrollSpySectionComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/scroll-spy/scroll-spy-service/index.ts":
+/*!********************************************************!*\
+  !*** ./src/app/scroll-spy/scroll-spy-service/index.ts ***!
+  \********************************************************/
+/*! exports provided: ScrollSpyService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _scroll_spy_service__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./scroll-spy.service */ "./src/app/scroll-spy/scroll-spy-service/scroll-spy.service.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ScrollSpyService", function() { return _scroll_spy_service__WEBPACK_IMPORTED_MODULE_0__["ScrollSpyService"]; });
+
+
+
+
+/***/ }),
+
+/***/ "./src/app/scroll-spy/scroll-spy-service/scroll-spy.service.ts":
+/*!*********************************************************************!*\
+  !*** ./src/app/scroll-spy/scroll-spy-service/scroll-spy.service.ts ***!
+  \*********************************************************************/
+/*! exports provided: ScrollSpyService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ScrollSpyService", function() { return ScrollSpyService; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+/**
+ * Service that stores a list of `Spy`'s and the state
+ * of their nav items `inViewport` and `active` state
+ *
+ */
+var ScrollSpyService = /** @class */ (function () {
+    function ScrollSpyService() {
+        /**
+         * List of `Spy`'s
+         *
+         * @memberof ScrollSpyService
+         */
+        this.spys = [];
+        /**
+         * Stores requests to add items to spy when spy hasn't been created
+         * yet. Once spy has been added then request will be made again.
+         *
+         * @memberof ScrollSpyService
+         */
+        this.buffer = [];
+    }
+    /**
+     * Add spy to list of `spys`
+     *
+     * @memberof ScrollSpyService
+     */
+    ScrollSpyService.prototype.addSpy = function (id, items) {
+        var _this = this;
+        this.spys.push({ id: id, items: items });
+        var buffer = this.buffer.filter(function (i) { return i.spyId === id; });
+        this.buffer = this.buffer.filter(function (i) { return i.spyId !== id; });
+        buffer.forEach(function (i) {
+            return _this.setSpySectionStatus(i.sectionId, i.spyId, i.inViewport);
+        });
+    };
+    /**
+     * Remove spy from list of `spys`
+     *
+     * @memberof ScrollSpyService
+     */
+    ScrollSpyService.prototype.removeSpy = function (id) {
+        var i = this.spys.findIndex(function (s) { return s.id === id; });
+        this.spys.splice(i, 1);
+    };
+    /**
+     * Set the `inViewport` status for a spy item then sets the active
+     * to true for the first item in the list that has `inViewport`
+     * set to true
+     *
+     * @memberof ScrollSpyService
+     */
+    ScrollSpyService.prototype.setSpySectionStatus = function (sectionId, spyId, inViewport) {
+        var spy = this.spys.find(function (s) { return s.id === spyId; });
+        if (!spy) {
+            this.buffer.push({ sectionId: sectionId, spyId: spyId, inViewport: inViewport });
+            return;
+        }
+        var item = spy.items.find(function (i) { return i.section === sectionId; });
+        if (!item) {
+            return;
+        }
+        item.inViewport = inViewport;
+        var firstInViewport = spy.items.filter(function (i) { return i.inViewport; })[0];
+        spy.items.forEach(function (i) { return (i.active = false); });
+        if (firstInViewport) {
+            firstInViewport.active = true;
+            firstInViewport.detectChanges();
+        }
+    };
+    ScrollSpyService = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])()
+    ], ScrollSpyService);
+    return ScrollSpyService;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/scroll-spy/scroll-spy.module.ts":
+/*!*************************************************!*\
+  !*** ./src/app/scroll-spy/scroll-spy.module.ts ***!
+  \*************************************************/
+/*! exports provided: ScrollSpyModule */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ScrollSpyModule", function() { return ScrollSpyModule; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _thisissoon_angular_inviewport__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @thisissoon/angular-inviewport */ "./node_modules/@thisissoon/angular-inviewport/fesm5/thisissoon-angular-inviewport.js");
+/* harmony import */ var _scroll_spy_scroll_spy_directive__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./scroll-spy/scroll-spy.directive */ "./src/app/scroll-spy/scroll-spy/scroll-spy.directive.ts");
+/* harmony import */ var _scroll_spy_section_scroll_spy_section_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./scroll-spy-section/scroll-spy-section.component */ "./src/app/scroll-spy/scroll-spy-section/scroll-spy-section.component.ts");
+/* harmony import */ var _scroll_spy_item_scroll_spy_item_directive__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./scroll-spy-item/scroll-spy-item.directive */ "./src/app/scroll-spy/scroll-spy-item/scroll-spy-item.directive.ts");
+/* harmony import */ var _scroll_spy_service_scroll_spy_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./scroll-spy-service/scroll-spy.service */ "./src/app/scroll-spy/scroll-spy-service/scroll-spy.service.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+
+
+
+
+
+var directives = [_scroll_spy_scroll_spy_directive__WEBPACK_IMPORTED_MODULE_2__["ScrollSpyDirective"], _scroll_spy_item_scroll_spy_item_directive__WEBPACK_IMPORTED_MODULE_4__["ScrollSpyItemDirective"]];
+var components = [_scroll_spy_section_scroll_spy_section_component__WEBPACK_IMPORTED_MODULE_3__["ScrollSpySectionComponent"]];
+var providers = [_scroll_spy_service_scroll_spy_service__WEBPACK_IMPORTED_MODULE_5__["ScrollSpyService"]];
+/**
+ * A simple lightweight library for Angular which automatically
+ * updates links to indicate the currently active section in the viewport
+ *
+ */
+var ScrollSpyModule = /** @class */ (function () {
+    function ScrollSpyModule() {
+    }
+    ScrollSpyModule_1 = ScrollSpyModule;
+    /**
+     * Specify a static method for root module to ensure providers are
+     * only provided once but allows the module to still be imported
+     * into other modules without reproviding services.
+     *
+     * @memberof ScrollSpyModule
+     */
+    ScrollSpyModule.forRoot = function () {
+        return {
+            ngModule: ScrollSpyModule_1,
+            providers: providers.slice(),
+        };
+    };
+    ScrollSpyModule = ScrollSpyModule_1 = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["NgModule"])({
+            imports: [_thisissoon_angular_inviewport__WEBPACK_IMPORTED_MODULE_1__["InViewportModule"]],
+            declarations: directives.concat(components),
+            exports: directives.concat(components),
+        })
+    ], ScrollSpyModule);
+    return ScrollSpyModule;
+    var ScrollSpyModule_1;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/scroll-spy/scroll-spy/index.ts":
+/*!************************************************!*\
+  !*** ./src/app/scroll-spy/scroll-spy/index.ts ***!
+  \************************************************/
+/*! exports provided: ScrollSpyDirective */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _scroll_spy_directive__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./scroll-spy.directive */ "./src/app/scroll-spy/scroll-spy/scroll-spy.directive.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ScrollSpyDirective", function() { return _scroll_spy_directive__WEBPACK_IMPORTED_MODULE_0__["ScrollSpyDirective"]; });
+
+
+
+
+/***/ }),
+
+/***/ "./src/app/scroll-spy/scroll-spy/scroll-spy.directive.ts":
+/*!***************************************************************!*\
+  !*** ./src/app/scroll-spy/scroll-spy/scroll-spy.directive.ts ***!
+  \***************************************************************/
+/*! exports provided: ScrollSpyDirective */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ScrollSpyDirective", function() { return ScrollSpyDirective; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _scroll_spy_item_scroll_spy_item_directive__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../scroll-spy-item/scroll-spy-item.directive */ "./src/app/scroll-spy/scroll-spy-item/scroll-spy-item.directive.ts");
+/* harmony import */ var _scroll_spy_service_scroll_spy_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../scroll-spy-service/scroll-spy.service */ "./src/app/scroll-spy/scroll-spy-service/scroll-spy.service.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+/**
+ * Adds `active` class to navigation links when section is in the viewport.
+ * Used in conjuction with `snScrollItem` directive which should be added
+ * to anchor links in the nav
+ *
+ * @example
+ * ```
+ * <ul role="navigation" snScrollSpy id="foo">
+ *  <li><a snScrollSpyItem for="foo" href="#section1">Section 1</a></li>
+ *  <li><a snScrollSpyItem for="foo" href="#section2">Section 2</a></li>
+ *  <li><a snScrollSpyItem for="foo" href="#section3">Section 3</a></li>
+ *  <li><a snScrollSpyItem for="foo" href="#section4">Section 4</a></li>
+ * </ul>
+ * ```
+ *
+ */
+var ScrollSpyDirective = /** @class */ (function () {
+    /**
+     * Creates an instance of ScrollSpyDirective.
+     * @memberof ScrollSpyDirective
+     */
+    function ScrollSpyDirective(scrollSpySvc) {
+        this.scrollSpySvc = scrollSpySvc;
+    }
+    /**
+     * Adds spy to list of spys in `ScrollSpyService`
+     *
+     * @memberof ScrollSpyDirective
+     */
+    ScrollSpyDirective.prototype.ngAfterViewInit = function () {
+        this.scrollSpySvc.addSpy(this.id, this.items);
+    };
+    /**
+     * Remove spy from list of spys when directive is destroyed
+     *
+     * @memberof ScrollSpyDirective
+     */
+    ScrollSpyDirective.prototype.ngOnDestroy = function () {
+        this.scrollSpySvc.removeSpy(this.id);
+    };
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ContentChildren"])(_scroll_spy_item_scroll_spy_item_directive__WEBPACK_IMPORTED_MODULE_1__["ScrollSpyItemDirective"]),
+        __metadata("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_0__["QueryList"])
+    ], ScrollSpyDirective.prototype, "items", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", String)
+    ], ScrollSpyDirective.prototype, "id", void 0);
+    ScrollSpyDirective = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Directive"])({
+            selector: '[snScrollSpy]',
+        }),
+        __metadata("design:paramtypes", [_scroll_spy_service_scroll_spy_service__WEBPACK_IMPORTED_MODULE_2__["ScrollSpyService"]])
+    ], ScrollSpyDirective);
+    return ScrollSpyDirective;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/separador-de-miles/thousand.pipe.ts":
 /*!*****************************************************!*\
   !*** ./src/app/separador-de-miles/thousand.pipe.ts ***!
@@ -7183,11 +7870,14 @@ var ThousandsPipe = /** @class */ (function () {
     ThousandsPipe.prototype.transform = function (value) {
         // console.log(value)
         var res = value;
-        try {
+        if (value) {
             res = value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.');
         }
-        catch (e) {
-            console.log(e);
+        else {
+            if (value == 0)
+                res = 0;
+            else
+                res = '';
         }
         return res;
     };
@@ -7210,7 +7900,7 @@ var ThousandsPipe = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "#main-container{\n\n  margin: 7px;\n\n\twidth: auto;\n\tcolor: black;\n\n}\n\ntable{\n\n  font-family: \"arial\";\n  font-size: 14px;\n\tbackground-color: white;\n\ttext-align: left;\n\tborder-collapse: collapse;\n\twidth: 100%;\n\n\n\n}\n\n/*\nthead{\n\tbackground-color: #0064FF;\n\tborder-bottom: solid 5px #4c92ff;\n\tcolor: white;\n\n}*/\n\ntr{\n\tborder-color:black;\n}\n\ntable,th{\n    border: 2px solid black;\n}\n\ntable td + td {\n\tborder-left:2px solid black;\n}\n\nth{\n\ttext-align:center;\n}\n\n#itemTipoNum{\n\tpadding-left: 4%;\n}\n\n#subItemTipo1{\n\tpadding-left: 5%\n}\n\n#subItemTipo2{\n\tpadding-left: 8%\n}\n\n/*\ntr:nth-child(even){\nbackground-color:  #ddd;\n}*/\n\ntr:hover td{\n\tbackground-color: #4c92ff;\n  color: white;\n}\n"
+module.exports = "#main-container {\r\n\r\n  margin: 7px;\r\n\r\n  width: auto;\r\n  color: black;\r\n\r\n}\r\n\r\ntable {\r\n\r\n  font-family: \"arial\";\r\n  font-size: 14px;\r\n  background-color: white;\r\n  text-align: left;\r\n  border-collapse: collapse;\r\n  width: 100%;\r\n\r\n\r\n\r\n}\r\n\r\n/*\r\nthead{\r\n\tbackground-color: #0064FF;\r\n\tborder-bottom: solid 5px #4c92ff;\r\n\tcolor: white;\r\n\r\n}*/\r\n\r\ntr {\r\n  border-color: black;\r\n}\r\n\r\ntable,\r\nth {\r\n  border: 2px solid black;\r\n}\r\n\r\ntable td+td {\r\n  border-left: 2px solid black;\r\n}\r\n\r\nth {\r\n  text-align: center;\r\n}\r\n\r\n#itemTipoNum {\r\n  padding-left: 4%;\r\n}\r\n\r\n#subItemTipo1 {\r\n  padding-left: 5%\r\n}\r\n\r\n#subItemTipo2 {\r\n  padding-left: 8%\r\n}\r\n\r\n/*\r\ntr:nth-child(even){\r\nbackground-color:  #ddd;\r\n}*/\r\n\r\ntr:hover td {\r\n  background-color: #4c92ff;\r\n  color: white;\r\n}\r\n"
 
 /***/ }),
 
@@ -7221,7 +7911,7 @@ module.exports = "#main-container{\n\n  margin: 7px;\n\n\twidth: auto;\n\tcolor:
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div id=\"main-container\">\n  <table id=\"success\">\n          <thead>\n            <tr>\n                <th >DETALLE</th>\n                <th >BIMESTRE INICIAL </th>\n                <th *ngFor=\"let estado of estadoResultados;let i=index\">BIMESTRE {{i+1 | thousandPipe}}</th>\n            \n            </tr>\n          </thead>\n\n          <tbody >\n            <tr>\n              <td > + INGRESOS</td>\n              <td id=\"itemTipoNum\">{{95000 | thousandPipe}}</td>\n              <td  *ngFor=\"let estado of estadoResultados\" id=\"itemTipoNum\">{{estado.ingresos | thousandPipe}}</td>\n\n            </tr>\n            <tr >\n              <td>VENTAS</td>\n              <td >{{75000 | thousandPipe}}</td>\n              <td *ngFor=\"let estado of estadoResultados\">{{estado.ventas | thousandPipe}}</td>\n\n            </tr>\n            <tr  >\n              <td  id=\"subItemTipo1\">OTROS INGRESOS</td>\n              <td >{{10000 | thousandPipe}}</td>\n              <td *ngFor=\"let estado of estadoResultados\" >{{estado.otrosIngresos}}</td>\n\n            </tr>\n\n            <tr >\n              <td  id=\"subItemTipo1\">CAPITAL PERIODO ANTERIOR</td>\n              <td >{{10000 | thousandPipe}}</td>\n              <td *ngFor=\"let estado of estadoResultados\" >{{estado.capitalAnterior}}</td>\n\n            </tr>\n\n            <tr >\n              <td >- COSTOS</td>\n              <td id=\"itemTipoNum\">{{48270 | thousandPipe}}</td>\n              <td *ngFor=\"let estado of estadoResultados\" id=\"itemTipoNum\">{{estado.costos}}</td>\n\n            </tr>\n\n            <tr >\n\n              <td  id=\"subItemTipo2\">MATERIA PRIMA</td>\n              <td >{{17500 | thousandPipe}}</td>\n              <td  *ngFor=\"let estado of estadoResultados\" >{{estado.materiaPrima}}</td>\n\n            </tr>\n\n            <tr >\n              <td id=\"subItemTipo2\">MANO DE OBRA</td>\n              <td >{{8000 | thousandPipe}}</td>\n              <td *ngFor=\"let estado of estadoResultados\" >{{estado.manoObra | thousandPipe}}</td>\n\n            </tr>\n            <tr >\n              <td id=\"subItemTipo2\">COSTOS INDIRECTOS</td>\n              <td >{{17500 | thousandPipe}}</td>\n              <td *ngFor=\"let estado of estadoResultados\" >{{estado.costosIndirectos | thousandPipe}}</td>\n\n            </tr >\n\n            <tr  style=\"background-color:rgb(14, 187, 230); \">\n              <td >UTILIDAD BRUTA</td>\n              <td id=\"itemTipoNum\">{{46730 | thousandPipe}}</td>\n              <td *ngFor=\"let estado of estadoResultados\" id=\"itemTipoNum\">{{estado.utilidadBruta | thousandPipe}}</td>\n            </tr>\n\n            <tr >\n              <td >-GASTOS OPERATIVOS</td>\n              <td id=\"itemTipoNum\">{{8500 | thousandPipe}}</td>\n              <td *ngFor=\"let estado of estadoResultados\"  id=\"itemTipoNum\">{{estado.gastosOperativos | thousandPipe}}</td>\n\n            </tr>\n\n            <tr >\n\n              <td id=\"subItemTipo1\">INV. MARKETING</td>\n              <td >{{3500 | thousandPipe}}</td>\n              <td *ngFor=\"let estado of estadoResultados\"> {{estado.inversionMarketing | thousandPipe}}</td>\n            </tr>\n\n            <tr >\n\n              <td id=\"subItemTipo1\">INV. INVESTIGACIÓN</td>\n              <td >{{1500 | thousandPipe}}</td>\n              <td *ngFor=\"let estado of estadoResultados\" >{{estado.inversionInvestigacion | thousandPipe}}</td>\n\n            </tr>\n\n            <tr >\n              <td id=\"subItemTipo1\">INV. ACTIVOS</td>\n              <td >{{3500 | thousandPipe}}</td>\n              <td *ngFor=\"let estado of estadoResultados\" >{{estado.inversionActivos | thousandPipe}}</td>\n            </tr>\n\n            <tr  style=\"background-color:rgb(14, 187, 230); \">\n              <td >UTILIDAD NETA DEL EJERCICO</td>\n              <td id=\"itemTipoNum\">{{38230 | thousandPipe}}</td>\n              <td *ngFor=\"let estado of estadoResultados\" id=\"itemTipoNum\">{{estado.utilidadNeta | thousandPipe}}</td>\n\n            </tr>\n          </tbody>\n    </table>\n</div>\n"
+module.exports = "<div id=\"main-container\">\r\n  <table id=\"success\">\r\n    <thead>\r\n      <tr>\r\n        <th>DETALLE</th>\r\n        <th>BIMESTRE INICIAL </th>\r\n        <th *ngFor=\"let estado of estadoResultados | slice:1;let i=index\">BIMESTRE {{i+1 | thousandPipe}}</th>\r\n\r\n      </tr>\r\n    </thead>\r\n\r\n    <tbody>\r\n      <tr>\r\n        <td> + INGRESOS</td>\r\n        <td *ngFor=\"let estado of estadoResultados\" id=\"itemTipoNum\">{{estado.ingresos | thousandPipe}}</td>\r\n\r\n      </tr>\r\n      <tr>\r\n        <td>VENTAS</td>\r\n        <td *ngFor=\"let estado of estadoResultados\">{{estado.ventas | thousandPipe}}</td>\r\n\r\n      </tr>\r\n      <tr>\r\n        <td id=\"subItemTipo1\">OTROS INGRESOS</td>\r\n        <td *ngFor=\"let estado of estadoResultados\">0</td>\r\n\r\n      </tr>\r\n\r\n      <tr>\r\n        <td id=\"subItemTipo1\">CAPITAL PERIODO ANTERIOR</td>\r\n        <td *ngFor=\"let estado of estadoResultados\">{{estado.capitalAnterior | thousandPipe}}</td>\r\n\r\n      </tr>\r\n\r\n      <tr>\r\n        <td>- COSTOS</td>\r\n        <td *ngFor=\"let estado of estadoResultados\" id=\"itemTipoNum\">{{estado.costos | thousandPipe}}</td>\r\n\r\n      </tr>\r\n\r\n      <tr>\r\n\r\n        <td id=\"subItemTipo2\">MATERIA PRIMA</td>\r\n        <td *ngFor=\"let estado of estadoResultados\">{{estado.materiaPrima | thousandPipe}}</td>\r\n\r\n      </tr>\r\n\r\n      <tr>\r\n        <td id=\"subItemTipo2\">MANO DE OBRA</td>\r\n        <td *ngFor=\"let estado of estadoResultados\">{{estado.manoObra | thousandPipe}}</td>\r\n\r\n      </tr>\r\n      <tr>\r\n        <td id=\"subItemTipo2\">COSTOS INDIRECTOS</td>\r\n        <td *ngFor=\"let estado of estadoResultados\">{{estado.costosIndirectos | thousandPipe}}</td>\r\n\r\n      </tr>\r\n\r\n      <tr style=\"background-color:rgb(14, 187, 230); \">\r\n        <td>UTILIDAD BRUTA</td>\r\n        <td *ngFor=\"let estado of estadoResultados\" id=\"itemTipoNum\">{{estado.utilidadBruta | thousandPipe}}</td>\r\n      </tr>\r\n\r\n      <tr>\r\n        <td>-GASTOS OPERATIVOS</td>\r\n        <td *ngFor=\"let estado of estadoResultados\" id=\"itemTipoNum\">{{estado.gastosOperativos | thousandPipe}}</td>\r\n\r\n      </tr>\r\n\r\n      <tr>\r\n\r\n        <td id=\"subItemTipo1\">INV. MARKETING</td>\r\n        <td *ngFor=\"let estado of estadoResultados\"> {{estado.inversionMarketing | thousandPipe}}</td>\r\n      </tr>\r\n\r\n      <tr>\r\n\r\n        <td id=\"subItemTipo1\">INV. INVESTIGACIÓN</td>\r\n        <td *ngFor=\"let estado of estadoResultados\">{{estado.inversionInvestigacion | thousandPipe}}</td>\r\n\r\n      </tr>\r\n\r\n      <tr>\r\n        <td id=\"subItemTipo1\">INV. ACTIVOS</td>\r\n        <td *ngFor=\"let estado of estadoResultados\">{{estado.inversionActivos | thousandPipe}}</td>\r\n      </tr>\r\n\r\n      <tr style=\"background-color:rgb(14, 187, 230); \">\r\n        <td>UTILIDAD NETA DEL EJERCICO</td>\r\n        <td *ngFor=\"let estado of estadoResultados\" id=\"itemTipoNum\">{{estado.utilidadNeta | thousandPipe}}</td>\r\n\r\n      </tr>\r\n    </tbody>\r\n  </table>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -7277,7 +7967,7 @@ var TablResultadosComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "#main_container {\n  position: absolute;\n  height: 100vh;\n  width: 100vw;\n  background-color: #36a9e1;\n  display: flex;\n}\n\naside {\n  height: 100%;\n  width: 270px;\n  color: white;\n  text-align: center;\n  overflow-y: hidden;\n}\n\n#logo_container {\n  background-color: rgb(111, 110, 110);\n}\n\n#logo_image {\n  margin-top: 20px;\n  height: 200px;\n  width: 200px;\n  background-color: white;\n  border-radius: 100%;\n}\n\n#nombre_empresa {\n  padding-top: 20px;\n  padding-bottom: 30px;\n  font-size: 20px;\n}\n\n#body_container {\n  width: calc(100% - 270px);\n  height: 100%;\n  background-color: red;\n}\n\n.tap_menu_hidden {\n  display: none;\n}\n\n.tab_menu_description {\n  font-size: 15px;\n  margin-top: -65px;\n  padding: 0 15px;\n  padding-top: 50px;\n  padding-bottom: 30px;\n}\n\n.tab_menu_button {\n  margin-top: -31px;\n  height: 50px;\n  width: 210px;\n  border-radius: 15px;\n  margin-bottom: 30px;\n  font-size: 16px;\n}\n\n.tab_menu_button:focus {\n  outline: none;\n}\n\n.tab_menu_button:hover {\n  opacity: 1;\n}\n\n.section_container {\n  position: relative;\n  height: 100%;\n  width: calc(100% - 20px);\n  padding-left: 20px;\n}\n\n.section_container_body {\n  position: relative;\n  height: 100%;\n  width: 100%;\n}\n\n.section_title {\n  display: flex;\n  height: 100px;\n}\n\n.section_title_icon {\n  font-size: 100px;\n  color: white;\n  height: 130px;\n  line-height: 130px;\n  padding: 0 60px;\n  border-radius: 0 0 30px 0;\n}\n\n.section_title_desc {\n  position: relative;\n  font-size: 3vw;\n  color: white;\n  line-height: 100px;\n  text-align: center;\n  width: 100%;\n  overflow: hidden;\n}\n\n.section_body {\n  padding-top: 40px;\n  height: calc(100% - 140px);\n  width: 100%;\n  background-color: white;\n  overflow: hidden;\n}\n\n.section_body_main {\n  margin: 0 50px;\n  background-color: rgb(90, 116, 165);\n  height: calc(100% - 100px);\n}\n\n.section_body_tab {\n  display: flex;\n}\n\n.section_body_tab_button:focus {\n  outline: none;\n}\n\n.section_body_tab_button {\n  padding: 0;\n  margin: 0;\n  height: 50px;\n  background-color: #092b3a;\n}\n\n.tap_selected {\n  background-color: #135a82;\n}\n\n.section_body_container {\n  height: calc(100% - 20px);\n  width: calc(100% - 20px);\n  padding: 10px;\n  background-color: #092b3a;\n}\n\n.section_body_content {\n  width: 100%;\n  height: 100%;\n  background-color: white;\n  overflow-y: scroll;\n}\n\n.section_body_content_title {\n  width: 500px;\n  background-color: #092b3a;\n  line-height: 50px;\n  text-align: center;\n  color: white;\n}\n\n.input-width {\n  width: calc(100% - 20px);\n}\n\n.tabla-decision {\n  text-align: center;\n  color: white;\n  font-family: \"arial\";\n  background-color: rgb(255, 255, 255);\n}\n\ntable {\n  width: 100%;\n  color: black;\n}\n\ntable,\nth,\ntd {\n  border: 1px solid black;\n  border-collapse: collapse;\n}\n\n.th1 {\n  width: 10%;\n  border: 1px solid white;\n}\n\n.th2 {\n  width: 200%;\n}\n\n.tr1 {\n  width: 10%;\n  border: 1px solid white;\n}\n\ntable#t01 tr {\n  height: 60px;\n}\n\ntable#t01 tr:nth-child(odd) {\n  background-color: #fff;\n}\n\ntable#t01 tr:nth-child(even) {\n  background-color: rgb(116, 197, 233);\n}\n\ntable#t01 th {\n  background-color: rgb(24, 76, 133);\n  color: white;\n}\n\n.tabla-proyecciones {\n  width: 500px;\n  border-radius: 5px;\n  text-align: center;\n  color: white;\n  font-family: \"arial\";\n  background-color: rgb(255, 255, 255);\n  margin-left: 20px;\n  font-size: 14px;\n}\n\n.header-proyecciones {\n  background-color: rgb(24, 76, 133);\n  text-align-last: center;\n  height: 30px;\n  line-height: 30px;\n  color: white;\n  font-size: 20px;\n  padding: 3%;\n}\n\n.proyecciones {\n  color: black;\n  text-align: left;\n  background-color: white;\n  border: 1px solid black;\n}\n\n.fuente {\n  font-size: 16px;\n  font-weight: bold;\n}\n\npre {\n  font-family: \"arial\";\n  color: black;\n}\n\n/* Tooltip container */\n\n.tooltip {\n  display: inline-block;\n  position: relative;\n  border-bottom: 1px dotted #666;\n  text-align: left;\n}\n\n.tooltip .left {\n  min-width: 200px;\n  top: 50%;\n  right: 100%;\n  margin-right: 20px;\n  -webkit-transform: translate(50%, 40%);\n          transform: translate(50%, 40%);\n  padding: 0px;\n  color: #ffffff;\n  background-color: #092B3A;\n  font-weight: normal;\n  font-size: 13px;\n  border-radius: 3px;\n  position: absolute;\n  z-index: 99999999;\n  box-sizing: border-box;\n  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.5);\n  display: none;\n}\n\n.tooltip .left div{\n  font-size: 15px;\n  padding: 20px;\n  cursor: pointer;\n}\n\n.tooltip .left div:hover{\n  background-color: #50515c;\n}\n\n.tooltip:hover .left {\n  display: block;\n}\n\n.tooltip .left i {\n  position: absolute;\n  top: 50%;\n  left: 100%;\n  margin-top: -12px;\n  width: 12px;\n  height: 24px;\n  overflow: hidden;\n}\n\n.tooltip .left i::after {\n  content: \"\";\n  position: absolute;\n  width: 12px;\n  height: 12px;\n  left: 0;\n  top: 50%;\n  -webkit-transform: translate(-50%, -50%) rotate(-45deg);\n          transform: translate(-50%, -50%) rotate(-45deg);\n  background-color: #eeeeee;\n  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.5);\n}\n\n.tooltip .material-icons{\n  height: 100px;\n  width: 100px;\n  font-size: 100px;\n  text-align: center;\n  line-height: 100px;\n  color: white\n}\n"
+module.exports = "#main_container {\r\n  position: absolute;\r\n  height: 100vh;\r\n  width: 100vw;\r\n  background-color: #36a9e1;\r\n  display: flex;\r\n}\r\n\r\naside {\r\n  height: 100%;\r\n  width: 270px;\r\n  color: white;\r\n  text-align: center;\r\n  overflow-y: hidden;\r\n\r\n}\r\n\r\n#logo_container {\r\n  background-color: rgb(111, 110, 110);\r\n}\r\n\r\n#logo_image {\r\n  margin-top: 20px;\r\n  height: 200px;\r\n  width: 200px;\r\n  background-color: white;\r\n  border-radius: 100%;\r\n}\r\n\r\n#nombre_empresa {\r\n  padding-top: 20px;\r\n  padding-bottom: 30px;\r\n  font-size: 20px;\r\n}\r\n\r\n#body_container {\r\n  width: calc(100% - 270px);\r\n  height: 100%;\r\n  background-color: red;\r\n}\r\n\r\n.tap_menu_hidden {\r\n  display: none;\r\n}\r\n\r\n.tab_menu_description {\r\n  font-size: 15px;\r\n  margin-top: -65px;\r\n  padding: 0 15px;\r\n  padding-top: 50px;\r\n  padding-bottom: 30px;\r\n}\r\n\r\n.tab_menu_button {\r\n  margin-top: -31px;\r\n  height: 50px;\r\n  width: 210px;\r\n  border-radius: 15px;\r\n  margin-bottom: 30px;\r\n  font-size: 16px;\r\n}\r\n\r\n.tab_menu_button:focus {\r\n  outline: none;\r\n}\r\n\r\n.tab_menu_button:hover {\r\n  opacity: 1;\r\n}\r\n\r\n.section_container {\r\n  position: relative;\r\n  height: 100%;\r\n  width: calc(100% - 20px);\r\n  padding-left: 20px;\r\n}\r\n\r\n.section_container_body {\r\n  position: relative;\r\n  height: 100%;\r\n  width: 100%;\r\n  overflow: hidden;\r\n\r\n}\r\n\r\n.section_title {\r\n  display: flex;\r\n  height: 100px;\r\n}\r\n\r\n.section_title_icon {\r\n  font-size: 100px;\r\n  color: white;\r\n  height: 130px;\r\n  line-height: 130px;\r\n  padding: 0 60px;\r\n  border-radius: 0 0 30px 0;\r\n}\r\n\r\n.section_title_desc {\r\n  position: relative;\r\n  font-size: 3vw;\r\n  color: white;\r\n  line-height: 100px;\r\n  text-align: center;\r\n  width: 100%;\r\n  overflow: hidden;\r\n}\r\n\r\n.section_body {\r\n  padding-top: 40px;\r\n  height: calc(100% - 140px);\r\n  width: 100%;\r\n  background-color: white;\r\n  overflow-x: hidden;\r\n  overflow-y: scroll;\r\n}\r\n\r\n.section_body_main {\r\n  margin: 0 50px;\r\n  background-color: rgb(90, 116, 165);\r\n  height: calc(100% - 100px);\r\n}\r\n\r\n.section_body_tab {\r\n  display: flex;\r\n}\r\n\r\n.section_body_tab_button:focus {\r\n  outline: none;\r\n}\r\n\r\n.section_body_tab_button {\r\n  padding: 0;\r\n  margin: 0;\r\n  height: 50px;\r\n  background-color: #092b3a;\r\n}\r\n\r\n.tap_selected {\r\n  background-color: #135a82;\r\n}\r\n\r\n.section_body_container {\r\n  height: calc(100% - 20px);\r\n  width: calc(100% - 20px);\r\n  padding: 10px;\r\n  background-color: #092b3a;\r\n}\r\n\r\n.section_body_content {\r\n  width: 100%;\r\n  height: 100%;\r\n  background-color: white;\r\n  overflow-y: scroll;\r\n}\r\n\r\n.section_body_content_title {\r\n  width: 500px;\r\n  background-color: #092b3a;\r\n  line-height: 50px;\r\n  text-align: center;\r\n  color: white;\r\n  font-size: 20px;\r\n}\r\n\r\n.input-width {\r\n  width: 60px;\r\n}\r\n\r\n.tabla-decision {\r\n  text-align: center;\r\n  color: white;\r\n  font-family: \"arial\";\r\n  background-color: rgb(255, 255, 255);\r\n}\r\n\r\ntable {\r\n  width: 100%;\r\n  color: black;\r\n}\r\n\r\ntable,\r\nth,\r\ntd {\r\n  border: 1px solid black;\r\n  border-collapse: collapse;\r\n}\r\n\r\n.th1 {\r\n  width: 10%;\r\n  border: 1px solid white;\r\n}\r\n\r\n.th2 {\r\n  width: 200%;\r\n}\r\n\r\n.tr1 {\r\n  width: 10%;\r\n  border: 1px solid white;\r\n}\r\n\r\ntable#t01 tr {\r\n  height: 60px;\r\n}\r\n\r\ntable#t01 tr:nth-child(odd) {\r\n  background-color: #fff;\r\n}\r\n\r\ntable#t01 tr:nth-child(even) {\r\n  background-color: rgb(116, 197, 233);\r\n}\r\n\r\ntable#t01 th {\r\n  background-color: rgb(24, 76, 133);\r\n  color: white;\r\n}\r\n\r\n.tabla-proyecciones {\r\n  width: 500px;\r\n  border-radius: 5px;\r\n  text-align: center;\r\n  color: white;\r\n  font-family: \"arial\";\r\n  background-color: rgb(255, 255, 255);\r\n  margin-left: 20px;\r\n  font-size: 14px;\r\n}\r\n\r\n.header-proyecciones {\r\n  background-color: rgb(24, 76, 133);\r\n  text-align-last: center;\r\n  height: 30px;\r\n  line-height: 30px;\r\n  color: white;\r\n  font-size: 20px;\r\n  padding: 3%;\r\n}\r\n\r\n.proyecciones {\r\n  color: black;\r\n  text-align: left;\r\n  background-color: white;\r\n  border: 1px solid black;\r\n}\r\n\r\n.fuente {\r\n  font-size: 16px;\r\n  font-weight: bold;\r\n}\r\n\r\npre {\r\n  font-family: \"arial\";\r\n  color: black;\r\n}\r\n\r\n/* Tooltip container */\r\n\r\n.tooltip {\r\n  display: inline-block;\r\n  position: relative;\r\n  border-bottom: 1px dotted #666;\r\n  text-align: left;\r\n}\r\n\r\n.tooltip .left {\r\n  min-width: 200px;\r\n  top: 50%;\r\n  right: 100%;\r\n  margin-right: 20px;\r\n  -webkit-transform: translate(50%, 40%);\r\n          transform: translate(50%, 40%);\r\n  padding: 0px;\r\n  color: #ffffff;\r\n  background-color: #092B3A;\r\n  font-weight: normal;\r\n  font-size: 13px;\r\n  border-radius: 3px;\r\n  position: absolute;\r\n  z-index: 99999999;\r\n  box-sizing: border-box;\r\n  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.5);\r\n  display: none;\r\n}\r\n\r\n.tooltip .left div {\r\n  font-size: 15px;\r\n  padding: 20px;\r\n  cursor: pointer;\r\n}\r\n\r\n.tooltip .left div:hover {\r\n  background-color: #50515c;\r\n}\r\n\r\n.tooltip:hover .left {\r\n  display: block;\r\n}\r\n\r\n.tooltip .left i {\r\n  position: absolute;\r\n  top: 50%;\r\n  left: 100%;\r\n  margin-top: -12px;\r\n  width: 12px;\r\n  height: 24px;\r\n  overflow: hidden;\r\n}\r\n\r\n.tooltip .left i::after {\r\n  content: \"\";\r\n  position: absolute;\r\n  width: 12px;\r\n  height: 12px;\r\n  left: 0;\r\n  top: 50%;\r\n  -webkit-transform: translate(-50%, -50%) rotate(-45deg);\r\n          transform: translate(-50%, -50%) rotate(-45deg);\r\n  background-color: #eeeeee;\r\n  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.5);\r\n}\r\n\r\n.tooltip .material-icons {\r\n  height: 100px;\r\n  width: 100px;\r\n  font-size: 100px;\r\n  text-align: center;\r\n  line-height: 100px;\r\n  color: white\r\n}\r\n\r\n.centro\r\n{\r\n  text-align: center;\r\n}\r\n\r\n.lower-case\r\n{\r\nfont-size: 14px;\r\n}\r\n\r\n.maquinaria\r\n{\r\n\r\n  text-align: center;\r\n}\r\n\r\n.maquinaria-foto\r\n{\r\n  width: 800px;\r\n  height: 400px;\r\n  \r\n  \r\n}\r\n\r\n#jerarquia-inferior{\r\n  float:right;\r\n  padding-right:25%;\r\n}\r\n\r\n#jerarquia-superior{\r\n  float:right;\r\n  padding-right:5%;\r\n}\r\n"
 
 /***/ }),
 
@@ -7288,7 +7978,7 @@ module.exports = "#main_container {\n  position: absolute;\n  height: 100vh;\n  
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div id=\"main_container\">\n  <aside>\n    <div id=\"logo_container\">\n      <img id=\"logo_image\" src=\"/imagenes/LOGO SIMULADOR FINAL.png\">\n      <div id=\"nombre_empresa\">{{(http.game)?http.game.name:\"\"}}</div>\n    </div>\n    <div class=\"button_tab_container\" style=\"background-color: #092B3A;\">\n      <button (click)=\"informacion()\" class=\"boton-infomacion-compania tab_menu_button\" style=\"background-color: #092B3A;\">\n        INFORMACI&#211;N SOBRE LA COMPA&#209;&#205;A\n      </button>\n\n      <div class=\"{{tap_position==0 ? '' : 'tap_menu_hidden'}} tab_menu_description\">\n        Como nuevo gerente general es necesario que conozcas a detalle todo acerca de la compañ&#237;a que ahora\n        diriges.\n        En esta secci&#243;n te brindamos toda la informaci&#243;n necesaria para que conozcas el negocio.\n      </div>\n    </div>\n    <div class=\"button_tab_container\" style=\"background-color: #135A82;\">\n      <button (click)=\"decision()\" class=\"boton-decision tab_menu_button\" style=\"background-color: #135A82;\">\n        MIS DECISIONES\n      </button>\n      <div class=\"{{tap_position==1 ? '' : 'tap_menu_hidden'}}  tab_menu_description\">\n        En esta secci&#243;n puedo tomar las decisiones que afectaran el desenvolvimiento de mi empresa en los\n        siguientes\n        2\n        meses.\n      </div>\n    </div>\n    <div class=\"button_tab_container\" style=\"background-color: #0D8EC8;\">\n      <button (click)=\"tanalisis()\" class=\"boton-t-analisi tab_menu_button\" style=\"background-color: #0D8EC8;\">\n        AN&#193;LISIS DE LA INDUSTRIA\n      </button>\n      <div class=\"{{tap_position==2? '' : 'tap_menu_hidden'}}  tab_menu_description\">\n        En esta secci&#243;n puedes ver y analizar las decisiones y resultados de tu competencia y la industria.\n      </div>\n    </div>\n    <div class=\"button_tab_container\" style=\"background-color: #2EC3EC;\">\n      <button (click)=\"informe()\" class=\"boton-informe tab_menu_button\" style=\"background-color: #2EC3EC;\">\n        INFORMES DE LA COMPA&#209;&#205;A\n      </button>\n      <div class=\"{{tap_position==3 ? '' : 'tap_menu_hidden'}} tab_menu_description\">\n        En esta secci&#243;n puedes ver y analizar las decisiones y resultados de tus decisiones as&#237; como el\n        estado de tu\n        compañ&#237;a.\n      </div>\n    </div>\n    <div class=\"button_tab_container\" style=\"background-color: #36A9E1;\">\n      <button (click)=\"analisis()\" class=\"boton-analisis tab_menu_button\" style=\"background-color: #36A9E1;\">\n        AN&#193;LISIS\n      </button>\n      <div class=\"{{tap_position==4 ? '' : 'tap_menu_hidden'}} tab_menu_description\">\n        En esta secci&#243;n puedes comparar variables para tener un panorama más claro de tus decisiones.\n      </div>\n    </div>\n  </aside>\n  <div id=\"body_container\">\n    <div class=\"section_container {{tap_position==0 ? '' : 'tap_menu_hidden'}}\" style=\"background-color: #092B3A;\">\n      <div class=\"section_container_body\">\n        <div class=\"section_title\">\n          <div class=\"material-icons section_title_icon\" style=\"background-color: #092B3A;\">help_outline</div>\n          <div class=\"section_title_desc\"> INFORMACI&#211;N SOBRE LA COMPA&#209;&#205;A</div>\n        </div>\n        <div class=\"section_body\">\n\n          <div class=\"section_body_main\">\n            <div class=\"section_body_tab\">\n              <button (click)=\"historia()\" class=\"section_body_tab_button  {{section_tap_1==0 ? '' : 'tap_selected'}}\"\n                id=\"\">\n                HISTORIA\n              </button>\n              <button (click)=\"misionVision()\" class=\"section_body_tab_button  {{section_tap_1==1 ? '' : 'tap_selected'}}\"\n                id=\"\">\n                MISIÓN - VISIÓN\n              </button>\n              <button (click)=\"nuestroProducto()\" class=\"section_body_tab_button   {{section_tap_1==2 ? '' : 'tap_selected'}}\"\n                id=\"\">\n                NUESTRO PRODUCTO\n              </button>\n              <button (click)=\"organigrama()\" class=\"section_body_tab_button  {{section_tap_1==3 ? '' : 'tap_selected'}}\"\n                id=\"\">\n                ORGANIGRAMA\n              </button>\n              <button (click)=\"objetivos()\" class=\"section_body_tab_button  {{section_tap_1==4 ? '' : 'tap_selected'}}\"\n                id=\"D\">\n                OBJETIVOS\n              </button>\n            </div>\n            <div class=\"section_body_container\">\n              <div class=\"section_body_content  {{section_tap_1==0 ? '' : 'tap_menu_hidden'}}\">\n                <div style=\"padding: 20px;\">\n                  <img src=\"/imagenes/LOGO SIMULADOR FINAL.png\" style=\"float: right; width: 250px;\"><br /><br /><br />\n                  UNA BREVE HISTORIA SOBRE NOSOTROS\n                  <br /><br /><br /><br />\n                  La empresa \"{{(http.game)?http.game.name:\"\"}}\", inicio sus actividades en el año 2005.\n                  <br /><br />Desde el comienzo de nuestras actividades, nos especializamos en la venta de poleras de\n                  alta\n                  calidad con diseños innovadores y que están en constante actualización según las tendencias del\n                  mercado.\n                  <br /><br />Con el transcurso de los años hemos incorporado nuevas líneas de productos con el\n                  objetivo de\n                  proveer a nuestros clientes una solución integral a sus necesidades. Contamos con un excelente\n                  grupo humano el cual se capacita en forma permanente a fin de estar actualizado en los cambios e\n                  innovaciones\n                  tecnológicas que se presentan en nuestro ámbito.\n                  <br /><br />La calidad de nuestros productos y la excelencia en nuestro servicio nos han permitido\n                  posicionarnos en el mercado en muy poco tiempo, llegando a alcanzar a nuestros principales\n                  competidores.\n                  <br /><br />Pretendemos convertirnos en la empresa líder en nuestro sector a través de decisiones que\n                  nos\n                  permitan aprovechar nuestras ventajas competitivas.\n                </div>\n              </div>\n              <div class=\"section_body_content  {{section_tap_1==1 ? '' : 'tap_menu_hidden'}}\">\n                <div style=\"display: flex; width: 100%;\">\n                  <div style=\"width: calc(100% - 200px);\">\n                    <br /><br />\n                    <div class=\"section_body_content_title\" style=\"font-weight: bold; font-size: 22px;\"> MISIÓN</div><br /><br />\n                    <div style=\"text-align: center; font-size: 25px;\">“Somos una empresa rentable que ofrece poleras\n                      exclusivas de alta calidad con diseños\n                      innovadores para personas que aprecian el buen vestir.”\n                    </div><br /><br />\n                  </div>\n                  <img src=\"/imagenes/LOGO SIMULADOR FINAL.png\" style=\" width: 200px;height: 200px;; \">\n                </div>\n                <div>\n                  <div class=\"section_body_content_title\" style=\" float: right; font-weight: bold; font-size: 22px; \">VISIÓN\n                  </div><br /><br /><br /><br /><br />\n                  <div style=\"text-align: center; font-size: 25px;\">“Ser una empresa referente en nuestro sector,\n                    reconocida por su excelente trato al\n                    cliente\n                    y productos de alta calidad”\n                  </div>\n                </div>\n\n              </div>\n              <div class=\"section_body_content  {{section_tap_1==2 ? '' : 'tap_menu_hidden'}}\">\n                <img src=\"/imagenes/LOGO SIMULADOR FINAL.png\" style=\"float: right; width: 250px;height: 200px; \">\n                <br /><br />\n                <div style=\"padding: 20px;\">Ofrecemos poleras exclusivasde alta calidad con diseños innovadores para\n                  personas que aprecian el\n                  buen\n                  vestir.\n                  <br /><br />\n                  Contamos con un equipo de diseñadores gráficos que se encarga del arte que nosotros\n                  ponemos en\n                  cada uno de nuestros productos. <br /><br />\n                </div>\n\n                <div>\n                  <div class=\"\" style=\"display: flex;height: 220px;justify-content: center;width: 100%;\">\n                      <div style=\"width: 200px;background: url('/imagenes/polera_1.jpg')center no-repeat;background-size: contain;\"></div>\n                      <div style=\"width: 200px;background: url('/imagenes/polera_2.jpg')center no-repeat;background-size: contain;\"></div>\n                      <div style=\"width: 200px;background: url('/imagenes/polera_3.jpg')center no-repeat;background-size: contain;\"></div>\n                  </div>\n                </div>\n              </div>\n              <div class=\"section_body_content  {{section_tap_1==3 ? '' : 'tap_menu_hidden'}}\" style=\"position: relative;\">\n                <div style=\"background: url('/imagenes/Organigrama.JPG') no-repeat center; background-size: contain;width: calc(110% - 110px);height: calc(110% - 110px);position: absolute;top: 50px;\"></div>\n                <img src=\"/imagenes/LOGO SIMULADOR FINAL.png\" style=\"float: right; width: 200px;height: 200px;position: absolute;right: 0; \">\n              </div>\n              <div class=\"section_body_content  {{section_tap_1==4 ? '' : 'tap_menu_hidden'}}\"><img src=\"/imagenes/LOGO SIMULADOR FINAL.png\"\n                  style=\"float: right; width: 250px; \">\n                <br /> <br /> <br />\n                <div class=\"section_body_content_title\" style=\"font-weight: bold;\"> BIENVENIDO A LA EMPRESA\n                </div><br /> <br />\n                <div style=\"padding-left:50px;\">\n                  Hoy la empresa se encuentra en las mismas condiciones que la competencia y no ha crecido en el\n                  último año.\n                  Es por eso que decidimos NOMBRARTE A TI como el nuevo gerente de {{(http.game)?http.game.name:\"\"}}.\n                  <br /><br />\n                  Esperamos que mediante tus decisiones puedas llevar a la empresa a obtener el MAYOR\n                  PORCENTAJE de\n                  mercado y la mejor rentabilidad en los siguientes bimestres. ¡Confiamos en ti!\n                  <br /><br />\n                  Muchos éxitos.\n                </div>\n              </div>\n            </div>\n          </div>\n        </div>\n      </div>\n    </div>\n    <div class=\"section_container {{tap_position==1 ? '' : 'tap_menu_hidden'}}\" style=\"background-color: #135A82;\">\n      <div class=\"section_container_body\">\n        <div class=\"section_title\">\n          <div class=\"material-icons section_title_icon\" style=\"background-color: #135A82;z-index: 1000;\">person</div>\n          <div class=\"section_title_desc\"> MIS DECISIONES</div>\n          <!-- <nav id=\"colorNav\">\n            <ul>\n                <li class=\"material-icons\">apps\n                    <a class=\"icon-home\"></a>\n                    <ul>\n                        <li><a (click)=\"fin()\">Resultados</a></li>\n                        <li><a (click)=\"fin()\">Retirarse del juego</a></li>\n                    </ul>\n                </li>\n            </ul>\n          </nav> -->\n          <div class=\"btn btn-primary tooltip\">\n            <li class=\"material-icons\">apps\n            </li>\n            <div class=\"left\">\n              <div (click)=\"fin()\">Resultados</div>\n              <div (click)=\"fin()\">Retirarse del juego</div>\n            </div>\n          </div>\n        </div>\n        <div class=\"section_body\">\n          <div style=\"display: flex; justify-content: center;\">\n            <div class=\"tabla-decision\">\n              <table id=\"t01\">\n                <tr>\n                  <th class=\"th1\" rowspan=2>DETALLE</th>\n                  <th class=\"th1\" colspan=5>BIMESTRES</th>\n                </tr>\n                <tr>\n                  <th class=\"tr1\">INICIAL</th>\n                  <th class=\"tr1\" id=\"numero-bimestre1\">B-1</th>\n                  <th class=\"tr1\" id=\"numero-bimestre2\">B-2</th>\n                  <th class=\"tr1\" id=\"numero-bimestre3\">B-3</th>\n                  <th class=\"tr1\" id=\"numero-bimestre-siguiente\"> B </th>\n                </tr>\n                <tr>\n                  <td>PRECIO UNITARIO</td>\n                  <td>{{(http.game.player&&http.game.player.bimestre_inicial)?http.game.player.bimestre_inicial.precioUnitario:\"\"}}</td>\n                  <td>{{(http.game.player&&http.game.player.bimestre_uno)?http.game.player.bimestre_uno.precioUnitario:\"\"}}</td>\n                  <td>{{(http.game.player&&http.game.player.bimestre_dos)?http.game.player.bimestre_dos.precioUnitario:\"\"}}</td>\n                  <td>{{(http.game.player&&http.game.player.bimestre_tres)?http.game.player.bimestre_tres.precioUnitario:\"\"}}</td>\n                  <td id=\"precioUnitarioTD\"><input class=\"input-width\" type=\"number\" id=\"precioUnitario\" name=\"precioUnitario\"\n                      [(ngModel)]=\"precioUnitario\" min=\"0\" max=\"bimestreActual.produccion\" value=\"bimestreActual.produccion\">\n                  </td>\n                </tr>\n                <tr>\n                  <td>PRODUCCIÓN</td>\n                  <td>{{(http.game.player&&http.game.player.bimestre_inicial)?http.game.player.bimestre_inicial.produccion:\"\"}}</td>\n                  <td>{{(http.game.player&&http.game.player.bimestre_uno)?http.game.player.bimestre_uno.produccion:\"\"}}</td>\n                  <td>{{(http.game.player&&http.game.player.bimestre_dos)?http.game.player.bimestre_dos.produccion:\"\"}}</td>\n                  <td>{{(http.game.player&&http.game.player.bimestre_tres)?http.game.player.bimestre_tres.produccion:\"\"}}</td>\n                  <td id=\"produccionTD\">\n                    <input class=\"input-width\" type=\"number\" id=\"produccion\" name=\"produccion\" [(ngModel)]=\"produccion\"\n                      min=\"0\" max=\"850*{{ numeroBimestre }}\" value=500></td>\n                </tr>\n                <tr>\n                  <td>INVERSIÓN EN MARKETING</td>\n                  <td>{{(http.game.player&&http.game.player.bimestre_inicial)?http.game.player.bimestre_inicial.inversionEnMarketing:\"\"}}</td>\n                  <td>{{(http.game.player&&http.game.player.bimestre_uno)?http.game.player.bimestre_uno.inversionEnMarketing:\"\"}}</td>\n                  <td>{{(http.game.player&&http.game.player.bimestre_dos)?http.game.player.bimestre_dos.inversionEnMarketing:\"\"}}</td>\n                  <td>{{(http.game.player&&http.game.player.bimestre_tres)?http.game.player.bimestre_tres.inversionEnMarketing:\"\"}}</td>\n                  <td id=\"inversionEnMarketingTD\">\n                    <select class=\"input-width\" type=\"number\" (change)=\"onChangeinversionEnMarketings($event.target.value)\">\n                      <ng-container *ngFor=\"let inversion of inversionEnMarketings\">\n                        <option *ngIf=\"inversion+inversionEnInvestigacion+inversionEnActivos+(produccion*35)+8000+22770<=capitalPeriodoAnterior+(precioUnitario*produccion)+10000\"\n                          [ngValue]=\"inversion\">\n                          {{inversion}}\n                        </option>\n                      </ng-container>\n                    </select>\n                  </td>\n\n                </tr>\n                <tr>\n                  <td>INVERSIÓN EN INVESTIGACIÓN</td>\n                  <td>{{(http.game.player&&http.game.player.bimestre_inicial)?http.game.player.bimestre_inicial.inversionEnInvestigacion:\"\"\n                    | thousandPipe}}</td>\n                  <td>{{(http.game.player&&http.game.player.bimestre_uno)?http.game.player.bimestre_uno.inversionEnInvestigacion:\"\"\n                    | thousandPipe}}</td>\n                  <td>{{(http.game.player&&http.game.player.bimestre_dos)?http.game.player.bimestre_dos.inversionEnInvestigacion:\"\"\n                    | thousandPipe}}</td>\n                  <td>{{(http.game.player&&http.game.player.bimestre_tres)?http.game.player.bimestre_tres.inversionEnInvestigacion:\"\"\n                    | thousandPipe}}</td>\n                  <td id=\"inversionEnInvestigacionTD\">\n                    <select class=\"input-width\" type=\"number\" (change)=\"onChangeinversionEnInvestigacions($event.target.value)\">\n                      <ng-container *ngFor=\"let inversion of inversionEnInvestigacions\">\n                        <option *ngIf=\"inversionEnMarketing+inversion+inversionEnActivos+(produccion*35)+8000+22770<=capitalPeriodoAnterior+(precioUnitario*produccion)+10000\"\n                          [ngValue]=\"inversion\">\n                          {{inversion}}\n                        </option>\n                      </ng-container>\n                    </select>\n                  </td>\n\n                </tr>\n                <tr>\n                  <td>INVERSIÓN EN ACTIVOS</td>\n                  <td>{{(http.game.player&&http.game.player.bimestre_inicial)?http.game.player.bimestre_inicial.inversionEnActivos:\"\"}}</td>\n                  <td>{{(http.game.player&&http.game.player.bimestre_uno)?http.game.player.bimestre_uno.inversionEnActivos:\"\"}}</td>\n                  <td>{{(http.game.player&&http.game.player.bimestre_dos)?http.game.player.bimestre_dos.inversionEnActivos:\"\"}}</td>\n                  <td>{{(http.game.player&&http.game.player.bimestre_tres)?http.game.player.bimestre_tres.inversionEnActivos:\"\"}}</td>\n                  <td id=\"inversionEnActivosTD\">\n                    <select class=\"input-width\" type=\"number\" (change)=\"onChangeinversionEnActivoss($event.target.value)\">\n                      <ng-container *ngFor=\"let inversion of inversionEnActivoss\">\n                        <option *ngIf=\"inversionEnMarketing+inversionEnInvestigacion+inversion+(produccion*35)+8000+22770<=capitalPeriodoAnterior+(precioUnitario*produccion)+10000\"\n                          [ngValue]=\"inversion\">\n                          {{inversion}}\n                        </option>\n                      </ng-container>\n                    </select>\n                  </td>\n                </tr>\n              </table>\n\n            </div>\n            <div class=\"tabla-proyecciones\" id=\"tabla-proyeccionesID\">\n              <div class=\"proyecciones\">\n                <div class=\"header-proyecciones\">PROYECCIONES</div>\n\n                <ul style=\"list-style-type:none\">\n                  <li> <span> <i class=\"material-icons\" (click)=\"general()\" style=\"font-size:18px; color:blue;cursor: pointer\">\n                        arrow_right</i></span> CAPITAL PERIODO\n                    ANTERIOR&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{capitalPeriodoAnterior\n                    | thousandPipe}}</li>\n                  <li><span> <i class=\"material-icons\" (click)=\"ingresoDiv()\" style=\"font-size:18px; color:blue;cursor: pointer\">arrow_drop_down</i></span>\n                    INGRESOS&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\n                    {{precioUnitario*produccion+10000 | thousandPipe}}</li>\n                  <div id=\"div-ingresos\" style=\"padding-left: 20%\">\n                    <pre>VENTAS                                        {{precioUnitario*produccion | thousandPipe}} </pre>\n                    <pre>OTROS INGRESOS                     {{ 10000 | thousandPipe}}</pre>\n                  </div>\n                  <li><span> <i class=\"material-icons\" (click)=\"gastosDiv()\" style=\"font-size:18px; color:blue ;cursor: pointer\">arrow_drop_down</i></span>GASTOS&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\n                    {{inversionEnMarketing +inversionEnInvestigacion+\n                    inversionEnActivos+produccion*35\n                    +30770 | thousandPipe}}</li>\n                  <div id=\"div-gastos\" style=\"padding-left: 20%\">\n                    <pre>PRODUCCIÓN                             {{produccion*35 +30770 | thousandPipe}}</pre>\n                    <pre>INV. MARKETING                           {{inversionEnMarketing | thousandPipe}}</pre>\n                    <pre>INV. INVESTIGACIÓN                    {{inversionEnInvestigacion | thousandPipe}}</pre>\n                    <pre>INV. ACTIVOS                                {{inversionEnActivos | thousandPipe}}</pre>\n\n                  </div>\n                  <li><span> <i class=\"material-icons\" (click)=\"resultadosDiv()\" style=\"font-size:18px; color:blue;cursor: pointer\">arrow_drop_down</i></span>RESULTADO\n                  </li>\n                  <div id=\"div-resultados\" style=\"padding-left: 20%\">\n                    <pre>EFECTIVO DISPONIBLE            {{capitalPeriodoAnterior+10000+precioUnitario*produccion+10000-(inversionEnMarketing + inversionEnActivos+inversionEnInvestigacion) | thousandPipe}} </pre>\n                    <pre>UTILIDAD ESPERADA                {{(precioUnitario*produccion+10000)-(inversionEnMarketing + inversionEnActivos+inversionEnInvestigacion+produccion*35 +30770) | thousandPipe}}</pre>\n                  </div>\n                </ul>\n              </div>\n            </div>\n          </div>\n          <div style=\"display: flex; justify-content: center;padding-top: 50px\" id=\"boton-decisionID\">\n            <button (click)=\"iniciar()\" style=\"width:300px\">\n              {{http.game.bimestre_inicial_c==0?\n              \"ENVIAR MIS DECISIONES\":\n              \"aun \"+http.game.bimestre_inicial_c+\" falta jugadores\"}}\n            </button></div>\n        </div>\n      </div>\n    </div>\n    <div class=\"section_container {{tap_position==2 ? '' : 'tap_menu_hidden'}}\" style=\"background-color: #0D8EC8;\">\n      <div class=\"section_container_body\">\n        <div class=\"section_title\">\n          <div class=\"material-icons section_title_icon\" style=\"background-color: #0D8EC8;\">attach_money</div>\n          <div class=\"section_title_desc\"> AN&#193;LISIS DE LA INDUSTRIA</div>\n        </div>\n        <div class=\"section_body\">\n          <div class=\"section_body_main\">\n            <div class=\"section_body_tab\">\n\n              <button (click)=\"VisionGeneral()\" class=\"section_body_tab_button  {{section_tap_2==0 ? '' : 'tap_selected'}}\">\n                VISION GENERAL\n              </button>\n              <button (click)=\"ProduccionTablaAnalisis()\" class=\"section_body_tab_button  {{section_tap_2==1 ? '' : 'tap_selected'}}\">\n                PRODUCCION\n              </button>\n              <button (click)=\"VentasTablaAnalisis()\" class=\"section_body_tab_button  {{section_tap_2==2 ? '' : 'tap_selected'}}\">\n                VENTAS\n              </button>\n              <button (click)=\"PorcentajeMercado()\" class=\"section_body_tab_button  {{section_tap_2==3 ? '' : 'tap_selected'}}\">\n                % MERCADO\n              </button>\n            </div>\n            <div class=\"section_body_container\">\n              <div class=\"section_body_content  {{section_tap_2==0 ? '' : 'tap_menu_hidden'}}\">\n                <div id=\"VisionGeneralID\">\n                  <app-tabla-vision-general [visionGeneral]=\"visionGeneral\"></app-tabla-vision-general>\n                </div>\n              </div>\n              <div class=\"section_body_content  {{section_tap_2==1 ? '' : 'tap_menu_hidden'}}\">\n                <div id=\"ProduccionTablaAnalisisID\">\n                  <app-tabla-produccion [produccionIndustria]=\"produccionIndustria\"></app-tabla-produccion>\n                </div>\n\n              </div>\n              <div class=\"section_body_content  {{section_tap_2==2 ? '' : 'tap_menu_hidden'}}\">\n                <div id=\"VentasTablaAnalisisID\">\n                  <app-tabla-ventas [ventasIndustria]=\"ventasIndustria\"></app-tabla-ventas>\n\n                </div>\n              </div>\n              <div class=\"section_body_content  {{section_tap_2==3 ? '' : 'tap_menu_hidden'}}\">\n                <div id=\"PorcentajeMercado\"><canvas id=\"pieI\" height=\"3\" width=\"8\"></canvas>\n                </div>\n              </div>\n            </div>\n          </div>\n        </div>\n      </div>\n    </div>\n    <div class=\"section_container {{tap_position==3 ? '' : 'tap_menu_hidden'}}\" style=\"background-color: #2EC3EC;\">\n      <div class=\"section_container_body\">\n        <div class=\"section_title\">\n          <div class=\"material-icons section_title_icon\" style=\"background-color: #2EC3EC;\">business_center</div>\n          <div class=\"section_title_desc\">INFORMES DE LA COMPA&#209;&#205;A</div>\n        </div>\n        <div class=\"section_body\">\n          <div class=\"section_body_main\">\n            <div class=\"section_body_tab\">\n\n              <button (click)=\"EstadoDeResultados()\" class=\"section_body_tab_button  {{section_tap_3==0 ? '' : 'tap_selected'}}\">\n                ESTADO DE RESULTADOS</button>\n              <button (click)=\"BalanceGeneral()\" class=\"section_body_tab_button  {{section_tap_3==1 ? '' : 'tap_selected'}}\">BALANCE\n                GENERAL</button>\n              <button (click)=\"Ventas()\" class=\"section_body_tab_button  {{section_tap_3==2 ? '' : 'tap_selected'}}\">VENTAS</button>\n              <button (click)=\"Produccion()\" class=\"section_body_tab_button  {{section_tap_3==3 ? '' : 'tap_selected'}}\">COSTOS\n                DE PRODUCCIÓN</button>\n              <button (click)=\"Compania()\" class=\"section_body_tab_button  {{section_tap_3==4 ? '' : 'tap_selected'}}\">COMPAÑIA</button>\n\n            </div>\n            <div class=\"section_body_container\">\n              <div class=\"section_body_content  {{section_tap_3==0 ? '' : 'tap_menu_hidden'}}\">\n                <div id=\"EstadoDeResultadosID\">\n                  <app-tabl-resultados [estadoResultados]=\"estadoResultados\"></app-tabl-resultados>\n                </div>\n              </div>\n              <div class=\"section_body_content  {{section_tap_3==1 ? '' : 'tap_menu_hidden'}}\">\n                <div id=\"BalanceGeneralID\">\n                  <app-tabl-balance-general [balanceGeneral]=\"balanceGeneral\"></app-tabl-balance-general>\n\n                </div>\n\n              </div>\n              <div class=\"section_body_content  {{section_tap_3==2 ? '' : 'tap_menu_hidden'}}\">\n                <div id=\"VentasID\">\n                  <app-tabl-ventas [ventas]=\"ventas\"></app-tabl-ventas>\n\n                </div>\n              </div>\n              <div class=\"section_body_content  {{section_tap_3==3 ? '' : 'tap_menu_hidden'}}\">\n                <div id=\"ProduccionID\">\n                  <app-tabl-costos [costosProduccion]=\"costoProduccion\"></app-tabl-costos>\n                </div>\n              </div>\n              <div class=\"section_body_content  {{section_tap_3==4 ? '' : 'tap_menu_hidden'}}\" style=\"overflow: scroll;\">\n                <canvas id=\"lineChart\" height=\"3\" width=\"8\"></canvas>\n              </div>\n            </div>\n          </div>\n        </div>\n\n      </div>\n    </div>\n    <div class=\"section_container {{tap_position==4 ? '' : 'tap_menu_hidden'}}\" style=\"background-color: #36A9E1;\">\n      <div class=\"section_container_body\">\n        <div class=\"section_title\">\n          <div class=\"material-icons section_title_icon\" style=\"background-color: #36A9E1;\">search</div>\n          <div class=\"section_title_desc\"> AN&#193;LISIS</div>\n        </div>\n        <div class=\"section_body\">\n          <div class=\"section_body_main\">\n            <div class=\"section_body_tab\">\n\n              <button (click)=\"produccionvsventas()\" class=\"section_body_tab_button  {{section_tap_4==0 ? '' : 'tap_selected'}}\">PRODUCCIÓN\n                VS\n                VENTAS</button>\n              <button (click)=\"costovsprecio()\" class=\"section_body_tab_button  {{section_tap_4==1 ? '' : 'tap_selected'}}\">COSTO\n                VS PRECIO</button>\n              <button (click)=\"capacidadvsproduccion()\" class=\"section_body_tab_button  {{section_tap_4==2 ? '' : 'tap_selected'}}\">CAPACIDAD\n                VS PRODUCCION</button>\n              <button (click)=\"companiavscompetencia()\" class=\"section_body_tab_button  {{section_tap_4==3 ? '' : 'tap_selected'}}\">COMPAÑIA\n                VS COMPETENCIA</button>\n              <button (click)=\"consejos()\" class=\"section_body_tab_button  {{section_tap_4==4 ? '' : 'tap_selected'}}\">CONSEJOS</button>\n\n\n\n            </div>\n            <div class=\"section_body_container\">\n              <div class=\"section_body_content  {{section_tap_4==0 ? '' : 'tap_menu_hidden'}}\" style=\"overflow: scroll;\">\n                <canvas id=\"lineChart2\" height=\"3\" width=\"8\"></canvas>\n              </div>\n              <div class=\"section_body_content  {{section_tap_4==1 ? '' : 'tap_menu_hidden'}}\" style=\"overflow: scroll;\">\n                <canvas id=\"lineChart3\" height=\"3\" width=\"8\"></canvas>\n\n\n              </div>\n              <div class=\"section_body_content  {{section_tap_4==2 ? '' : 'tap_menu_hidden'}}\" style=\"overflow: scroll;\">\n                <canvas id=\"lineChart4\" height=\"3\" width=\"8\"></canvas>\n\n              </div>\n              <div class=\"section_body_content  {{section_tap_4==3 ? '' : 'tap_menu_hidden'}}\" style=\"overflow: scroll;\">\n                <canvas id=\"lineChart5\" height=\"3\" width=\"8\"></canvas>\n\n              </div>\n              <div class=\"section_body_content  {{section_tap_4==4 ? '' : 'tap_menu_hidden'}}\" style=\"overflow: scroll;\">\n                <div id=\"consejosID\">\n\n                  <!-- <div *ngIf=\"ventas.inventarioUnidades > 50\">  -->\n                  <p *ngIf=\"generarConsejo1()\">Tus niveles de inventario estas creciendo. Te recomendamos idear\n                    estrategias para\n                    aumentar las ventas o disminuir sla producción.</p>\n                  <p *ngIf=\"generarConsejo2()\">Tu utilidad es muy baja. Te recomendamos idear estrategias para aumentar\n                    las ventas,\n                    aumentar ingresos o reducir los costos y gastos.</p>\n                  <p *ngIf=\"generarConsejo3()\">Tu % de mercado es muy bajo. Te recomendamos idear estrategias para\n                    aumentar las\n                    ventas y gasnar clientes.</p>\n                  <p *ngIf=\"generarConsejo4()\">Existe un gran porcentaje del mercado que no ha sido atendido. Te\n                    recomendamos idear\n                    estrategias para ganar clientes.</p>\n                  <!-- <p>Una empresa en el mercado cerró. Te aconsejamos idear estrategias para aumentar tu competitividad.</p>\n                <p *ngIf=\"generarConsejo1()==false&&generarConsejo2()==false&&generarConsejo3()==false&&generarConsejo4()==false\">Tus decisiones nos están llevando por buen camino, sigue así.</p> -->\n\n                </div>\n\n              </div>\n            </div>\n          </div>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>"
+module.exports = "<div id=\"main_container\">\r\n  <aside>\r\n    <div id=\"logo_container\">\r\n      <img id=\"logo_image\" src=\"/imagenes/LOGO SIMULADOR FINAL.png\">\r\n      <div id=\"nombre_empresa\">{{(http.game)?http.game.name:\"\"}}</div>\r\n    </div>\r\n    <div class=\"button_tab_container\" style=\"background-color: #092B3A;\">\r\n      <button (click)=\"informacion()\" class=\"boton-infomacion-compania tab_menu_button\" style=\"background-color: #092B3A;\">\r\n        DATOS SOBRE LA EMPRESA\r\n      </button>\r\n\r\n      <div class=\"{{tap_position==0 ? '' : 'tap_menu_hidden'}} tab_menu_description\">\r\n        Como nuevo gerente general es necesario que conozcas a detalle todo acerca de la empresa que ahora\r\n        diriges.\r\n        En esta seción te brindamos toda la información necesaria para que conozcas el negocio.\r\n      </div>\r\n    </div>\r\n    <div class=\"button_tab_container\" style=\"background-color: #135A82;\">\r\n      <button (click)=\"decision()\" class=\"boton-decision tab_menu_button\" style=\"background-color: #135A82;\">\r\n        MIS DECISIONES\r\n      </button>\r\n      <div class=\"{{tap_position==1 ? '' : 'tap_menu_hidden'}}  tab_menu_description\">\r\n        En esta sección puedo tomar las decisiones que afectaran el desenvolvimiento de mi empresa en los\r\n        siguientes\r\n        2\r\n        meses.\r\n      </div>\r\n    </div>\r\n    <div class=\"button_tab_container\" style=\"background-color: #0D8EC8;\">\r\n      <button (click)=\"tanalisis()\" class=\"boton-t-analisi tab_menu_button\" style=\"background-color: #0D8EC8;\">\r\n        ANÁLISIS DE LA INDUSTRIA\r\n      </button>\r\n      <div class=\"{{tap_position==2? '' : 'tap_menu_hidden'}}  tab_menu_description\">\r\n        En esta sección puedes ver y analizar las decisiones y resultados de tu competencia y la industria.\r\n      </div>\r\n    </div>\r\n    <div class=\"button_tab_container\" style=\"background-color: #2EC3EC;\">\r\n      <button (click)=\"informe()\" class=\"boton-informe tab_menu_button\" style=\"background-color: #2EC3EC;\">\r\n        INFORMES DE LA EMPRESA\r\n      </button>\r\n      <div class=\"{{tap_position==3 ? '' : 'tap_menu_hidden'}} tab_menu_description\">\r\n        En esta sección puedes ver y analizar las decisiones y resultados de tus decisiones así como el\r\n        estado de tu\r\n        empresa.\r\n      </div>\r\n    </div>\r\n    <div class=\"button_tab_container\" style=\"background-color: #36A9E1;\">\r\n      <button (click)=\"analisis()\" class=\"boton-analisis tab_menu_button\" style=\"background-color: #36A9E1;\">\r\n        ANÁLISIS\r\n      </button>\r\n      <div class=\"{{tap_position==4 ? '' : 'tap_menu_hidden'}} tab_menu_description\">\r\n        En esta sección puedes comparar variables para tener un panorama más claro de tus decisiones.\r\n      </div>\r\n    </div>\r\n  </aside>\r\n  <div id=\"body_container\">\r\n    <div class=\"section_container {{tap_position==0 ? '' : 'tap_menu_hidden'}}\" style=\"background-color: #092B3A;\">\r\n      <div class=\"section_container_body\">\r\n        <div class=\"section_title\">\r\n          <div class=\"material-icons section_title_icon\" style=\"background-color: #092B3A;\">help_outline</div>\r\n          <div class=\"section_title_desc\"> DATOS SOBRE LA EMPRESA</div>\r\n        </div>\r\n        <div class=\"section_body\">\r\n\r\n          <div class=\"section_body_main\">\r\n            <div class=\"section_body_tab\">\r\n              <button (click)=\"historia()\" class=\"section_body_tab_button  {{section_tap_1==0 ? '' : 'tap_selected'}}\"\r\n                id=\"\">\r\n                HISTORIA\r\n              </button>\r\n              <button (click)=\"misionVision()\" class=\"section_body_tab_button  {{section_tap_1==1 ? '' : 'tap_selected'}}\"\r\n                id=\"\">\r\n                MISIÓN - VISIÓN\r\n              </button>\r\n              <button (click)=\"nuestroProducto()\" class=\"section_body_tab_button   {{section_tap_1==2 ? '' : 'tap_selected'}}\"\r\n                id=\"\">\r\n                NUESTRO PRODUCTO\r\n              </button>\r\n              <button (click)=\"organigrama()\" class=\"section_body_tab_button  {{section_tap_1==3 ? '' : 'tap_selected'}}\"\r\n                id=\"\">\r\n                ORGANIGRAMA\r\n              </button>\r\n\r\n              <button (click)=\"maquinaria()\" class=\"section_body_tab_button  {{section_tap_1==5 ? '' : 'tap_selected'}}\"\r\n                id=\"\">\r\n                MAQUINARIA\r\n              </button>\r\n\r\n              <button (click)=\"objetivos()\" class=\"section_body_tab_button  {{section_tap_1==4 ? '' : 'tap_selected'}}\"\r\n                id=\"D\">\r\n                OBJETIVOS\r\n              </button>\r\n            </div>\r\n            <div class=\"section_body_container\">\r\n              <div class=\"section_body_content  {{section_tap_1==0 ? '' : 'tap_menu_hidden'}}\">\r\n                <div style=\"padding: 40px;text-align: justify;\">\r\n                  <img src=\"/imagenes/LOGO SIMULADOR FINAL.png\" style=\"float: right; width: 250px;\"><br /><br /><br />\r\n                  <div class=\"centro\" style=\"font-weight: bold;\">\r\n                    <U>UNA BREVE HISTORIA SOBRE NOSOTROS</U>\r\n                  </div>\r\n                  <br />\r\n                  <br />&nbsp;&nbsp;&nbsp;&nbsp;La empresa \"{{(http.game)?http.game.name:\"\"}}\", inicio sus actividades\r\n                  en el año 2005.<br /><br />\r\n                  &nbsp;&nbsp;&nbsp;Desde el comienzo de nuestras actividades, nos especializamos en la venta de\r\n                  poleras de alta calidad con diseños\r\n                  innovadores y que están en constante actualización según las tendencias del mercado. <br /><br />\r\n                  &nbsp;&nbsp;&nbsp;Con el transcurso de los años hemos incorporado nuevas líneas de productos con el\r\n                  objetivo de proveer a nuestros\r\n                  clientes una solución integral a sus necesidades. Contamos con un excelente grupo humano el cual se\r\n                  capacita en\r\n                  forma permanente a fin de estar actualizado en los cambios e innovaciones tecnológicas que se\r\n                  presentan en nuestro\r\n                  ámbito.<br /><br />\r\n                  &nbsp;&nbsp;&nbsp;La calidad de nuestros productos y la excelencia en nuestro servicio nos han\r\n                  permitido posicionarnos en el mercado\r\n                  en muy poco tiempo, llegando a alcanzar a nuestros principales competidores.<br /><br />\r\n                  &nbsp;&nbsp;&nbsp;Pretendemos convertirnos en la empresa líder en nuestro sector a través de\r\n                  decisiones que nos permitan aprovechar\r\n                  nuestras ventajas competitivas.\r\n                </div>\r\n              </div>\r\n              <div class=\"section_body_content  {{section_tap_1==1 ? '' : 'tap_menu_hidden'}}\">\r\n                <div style=\"display: flex; width: 100%;\">\r\n                  <div style=\"width: calc(100% - 200px);\">\r\n                    <br /><br />\r\n                    <div class=\"section_body_content_title\" style=\"font-weight: bold; font-size: 22px;\"> MISIÓN</div><br>\r\n                  </div>\r\n                </div>\r\n                <div style=\"text-align: center; font-size: 25px;\">\r\n                  <pre>\r\n“Somos una empresa rentable que ofrece poleras\r\nexclusivas de alta calidad con diseños innovadores\r\npara personas que aprecian el buen vestir.”\r\n                </pre>\r\n                </div>\r\n                <div>\r\n                  <div class=\"section_body_content_title\" style=\" float: right; font-weight: bold; font-size: 22px; \">VISIÓN\r\n                  </div>\r\n                  <div style=\"text-align: center; font-size: 25px;\">\r\n                    <br><br>\r\n                    <pre>\r\n“Ser una empresa referente en nuestro sector, reconocida\r\npor su excelente trato al cliente y productos de alta calidad.”\r\n</pre>\r\n                  </div>\r\n                </div>\r\n\r\n              </div>\r\n              <div class=\"section_body_content  {{section_tap_1==2 ? '' : 'tap_menu_hidden'}}\">\r\n                <div style=\"padding: 40px; text-align: justify; font-size: 17px\">\r\n\r\n                  <br />&nbsp;&nbsp;&nbsp;Nuestra empresa ofrece poleras exclusivas y de alta calidad con diseños\r\n                  innovadores para personas\r\n                  que aprecian el buen vestir. <br /><br />\r\n                  &nbsp;&nbsp;&nbsp;Contamos con un equipo de diseñadores gráficos que se encargan de crear el arte que\r\n                  nosotros\r\n                  ponemos en cada uno de nuestros productos. Es importante mencionar que por políticas de la\r\n                  empresa se maneja un precio único para todos nuestros diseños. <br /><br />\r\n                  &nbsp;&nbsp;&nbsp;Aquí te mostramos algunas poleras de nuestra colección actual:\r\n\r\n                </div>\r\n\r\n                <div>\r\n                  <div class=\"\" style=\"display: flex;height: 220px;justify-content: center;width: 100%;\">\r\n                    <div style=\"width: 200px;background: url('/imagenes/polera_1.jpg')center no-repeat;background-size: contain;\"></div>\r\n                    <div style=\"width: 200px;background: url('/imagenes/polera_2.jpg')center no-repeat;background-size: contain;\"></div>\r\n                    <div style=\"width: 200px;background: url('/imagenes/polera_3.jpg')center no-repeat;background-size: contain;\"></div>\r\n                  </div>\r\n                </div>\r\n              </div>\r\n              <div class=\"section_body_content  {{section_tap_1==3 ? '' : 'tap_menu_hidden'}}\" style=\"position: relative;\">\r\n                <div style=\"background: url('/imagenes/organigrama2.jpg') no-repeat center; background-size: contain;width: calc(110% - 110px);height: calc(110% - 110px);position: absolute;top: 50px;\"></div>\r\n              </div>\r\n\r\n              <div class=\"section_body_content  {{section_tap_1==5 ? '' : 'tap_menu_hidden'}}\">\r\n                <div class=\"maquinaria\">\r\n                  <div style=\"padding: 15px; text-align: justify; font-size: 17px\">\r\n                    &nbsp;&nbsp;&nbsp;&nbsp;Como nuevo gerente es importante que conozcas el proceso de serigrafía textil y la maquinaria que utiliza la empresa para producir.\r\n                </div>\r\n                  <img src=\"/imagenes/maquinaria-sin-intro.png\" class=\"maquinaria-foto\">\r\n                </div>\r\n              </div>\r\n\r\n              <div class=\"section_body_content  {{section_tap_1==4 ? '' : 'tap_menu_hidden'}}\">\r\n                <br>\r\n                <div class=\"section_body_content_title\" style=\"font-weight: bold;\"> BIENVENIDO A LA EMPRESA\r\n                </div>\r\n                <div style=\"padding-left:40px; padding-right: 40px ; font-size: 17px; text-align: justify\">\r\n                  <br /><br />&nbsp;&nbsp;&nbsp;Después de unos años de trayectoria nuestra empresa ha logrado igualar\r\n                  a la compentencia y\r\n                  actualmente, según los resultados del último bimestre, todas las empresas que competimos en\r\n                  el mercado nos encontramos en igualdad de condiciones. Sin embargo; es nuestro deseo que\r\n                  \"{{(http.game)?http.game.name:\"\"}}\" se convierta en la líder del mercado y sea un referente de\r\n                  calidad\r\n                  entre nuestros competidores y clientes. Es por tal motivo que hemos decidido contratarte como\r\n                  gerente general de nuestra organización esperando que mediante tus decisiones administrativas nos\r\n                  ayudes a cumplir nuestras metas.<br /><br />\r\n                  &nbsp;&nbsp;&nbsp;Tus principales objetivos como nuevo gerente general de la empresa son:\r\n                  <ul>\r\n                    <li>\r\n                      Obtener el mayor porcentaje del mercado (clientes) posibles en cada bimestre.\r\n                    </li>\r\n                    <li>\r\n                      Obtener la mayor restabilidad posible de cada bimestre.\r\n                    </li>\r\n                  </ul>\r\n                  &nbsp;&nbsp;&nbsp;Te recomendamos analizar los datos e información que se te brinda después de cada\r\n                  bimestre de manera detallada\r\n                  que las siguientes decisiones que tomes nos garanticen el éxito. Confiamos en ti, sabemos que lo\r\n                  harás muy bien.<br /><br /><br /><br />\r\n                  <div class=\"lower-case\">\r\n                    (Consulta la \"GUÍA DEL JUGADOR\" para obtener más información acerca de tus objetivos y estrategias\r\n                    para ganar a tu competencia en la\r\n                    simulación.)\r\n                  </div>\r\n\r\n                </div>\r\n              </div>\r\n            </div>\r\n          </div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n    <div class=\"section_container {{tap_position==1 ? '' : 'tap_menu_hidden'}}\" style=\"background-color: #135A82;\">\r\n      <div class=\"section_container_body\">\r\n        <div class=\"section_title\">\r\n          <div class=\"material-icons section_title_icon\" style=\"background-color: #135A82;z-index: 1000;\">person</div>\r\n          <div class=\"section_title_desc\"> MIS DECISIONES</div>\r\n          <div class=\"btn btn-primary tooltip\">\r\n            <li class=\"material-icons\">apps\r\n            </li>\r\n            <div class=\"left\">\r\n              <div id=\"puntajes\" (click)=\"fin()\">Puntajes</div>\r\n              <div (click)=\"retirarseJuego()\">Retirarse del juego</div>\r\n            </div>\r\n          </div>\r\n        </div>\r\n        <div class=\"section_body\">\r\n          <div style=\"display: flex; justify-content: center;\">\r\n            <div class=\"tabla-decision\">\r\n              <table id=\"t01\">\r\n                <tr>\r\n                  <th class=\"th1\" rowspan=2>DETALLE</th>\r\n                  <th class=\"th1\" colspan=5>BIMESTRES</th>\r\n                </tr>\r\n                <tr>\r\n                  <th class=\"tr1\">INICIAL</th>\r\n                  <th class=\"tr1\" id=\"numero-bimestre1\">B-1</th>\r\n                  <th class=\"tr1\" id=\"numero-bimestre2\">B-2</th>\r\n                  <th class=\"tr1\" id=\"numero-bimestre3\">B-3</th>\r\n                  <th class=\"tr1\" id=\"numero-bimestre-siguiente\"> B </th>\r\n                </tr>\r\n                <tr>\r\n                  <td>PRECIO UNITARIO</td>\r\n                  <td>{{(http.game.player&&http.game.player.bimestre_inicial)?http.game.player.bimestre_inicial.precioUnitario:\"\"}}</td>\r\n                  <td>{{(http.game.player&&http.game.player.bimestre_uno)?http.game.player.bimestre_uno.precioUnitario:\"\"}}</td>\r\n                  <td>{{(http.game.player&&http.game.player.bimestre_dos)?http.game.player.bimestre_dos.precioUnitario:\"\"}}</td>\r\n                  <td>{{(http.game.player&&http.game.player.bimestre_tres)?http.game.player.bimestre_tres.precioUnitario:\"\"}}</td>\r\n                  <td id=\"precioUnitarioTD\"> <input class=\"input-width\" type=\"number\" id=\"precioUnitario\" name=\"precioUnitario\"\r\n                      [(ngModel)]=\"precioUnitario\" min=\"96\" max=\"300\" value=150 onkeydown=\" return false\">\r\n\r\n                  </td>\r\n                </tr>\r\n                <tr>\r\n                  <td>PRODUCCIÓN</td>\r\n                  <td>{{(http.game.player&&http.game.player.bimestre_inicial)?(http.game.player.bimestre_inicial.produccion\r\n                    | thousandPipe):\"\"}}</td>\r\n                  <td>{{(http.game.player&&http.game.player.bimestre_uno)?(http.game.player.bimestre_uno.produccion |\r\n                    thousandPipe):\"\"}}</td>\r\n                  <td>{{(http.game.player&&http.game.player.bimestre_dos)?(http.game.player.bimestre_dos.produccion |\r\n                    thousandPipe):\"\"}}</td>\r\n                  <td>{{(http.game.player&&http.game.player.bimestre_tres)?(http.game.player.bimestre_tres.produccion |\r\n                    thousandPipe):\"\"}}</td>\r\n                  <td id=\"produccionTD\">\r\n                    <input class=\"input-width\" type=\"number\" id=\"produccion\" name=\"produccion\" [(ngModel)]=\"produccion\"\r\n                      min=\"0\" max=\"600\" value=600 onkeydown=\" return false\" (change)=\"calcularLimitePrecioUnitario($event.target.value)\"></td>\r\n                </tr>\r\n                <tr>\r\n                  <td>INVERSIÓN EN MARKETING</td>\r\n                  <td>{{(http.game.player&&http.game.player.bimestre_inicial)?(http.game.player.bimestre_inicial.inversionEnMarketing\r\n                    | thousandPipe):\"\"}}</td>\r\n                  <td>{{(http.game.player&&http.game.player.bimestre_uno)?(http.game.player.bimestre_uno.inversionEnMarketing\r\n                    | thousandPipe):\"\"}}</td>\r\n                  <td>{{(http.game.player&&http.game.player.bimestre_dos)?(http.game.player.bimestre_dos.inversionEnMarketing\r\n                    | thousandPipe):\"\"}}</td>\r\n                  <td>{{(http.game.player&&http.game.player.bimestre_tres)?(http.game.player.bimestre_tres.inversionEnMarketing\r\n                    | thousandPipe):\"\"}}</td>\r\n                  <td id=\"inversionEnMarketingTD\">\r\n                    <select class=\"input-width\" type=\"number\" (change)=\"onChangeinversionEnMarketings($event.target.value)\">\r\n                      <ng-container *ngFor=\"let inversion of inversionEnMarketings\">\r\n                        <option *ngIf=\"inversion+inversionEnInvestigacion+inversionEnActivos+(produccion*35)+8000+22770<=capitalPeriodoAnterior+(precioUnitario*produccion)+10000\"\r\n                          [ngValue]=\"inversion\">\r\n                          {{inversion}}\r\n                        </option>\r\n                      </ng-container>\r\n                    </select>\r\n                  </td>\r\n\r\n                </tr>\r\n                <tr>\r\n                  <td>INVERSIÓN EN INVESTIGACIÓN</td>\r\n                  <td>{{(http.game.player&&http.game.player.bimestre_inicial)?(http.game.player.bimestre_inicial.inversionEnInvestigacion\r\n                    | thousandPipe):\"\"}}</td>\r\n                  <td>{{(http.game.player&&http.game.player.bimestre_uno)?(http.game.player.bimestre_uno.inversionEnInvestigacion\r\n                    | thousandPipe):\"\"}}</td>\r\n                  <td>{{(http.game.player&&http.game.player.bimestre_dos)?(http.game.player.bimestre_dos.inversionEnInvestigacion\r\n                    | thousandPipe ):\"\"}}</td>\r\n                  <td>{{(http.game.player&&http.game.player.bimestre_tres)?(http.game.player.bimestre_tres.inversionEnInvestigacion\r\n                    | thousandPipe):\"\"}}</td>\r\n                  <td id=\"inversionEnInvestigacionTD\">\r\n                    <select class=\"input-width\" type=\"number\" (change)=\"onChangeinversionEnInvestigacions($event.target.value)\">\r\n                      <ng-container *ngFor=\"let inversion of inversionEnInvestigacions\">\r\n                        <option *ngIf=\"inversionEnMarketing+inversion+inversionEnActivos+(produccion*35)+8000+22770<=capitalPeriodoAnterior+(precioUnitario*produccion)+10000\"\r\n                          [ngValue]=\"inversion\">\r\n                          {{inversion}}\r\n                        </option>\r\n                      </ng-container>\r\n                    </select>\r\n                  </td>\r\n\r\n                </tr>\r\n                <tr>\r\n                  <td>INVERSIÓN EN ACTIVOS</td>\r\n                  <td>{{(http.game.player&&http.game.player.bimestre_inicial)?(http.game.player.bimestre_inicial.inversionEnActivos|\r\n                    thousandPipe):\"\"}}</td>\r\n                  <td>{{(http.game.player&&http.game.player.bimestre_uno)?(http.game.player.bimestre_uno.inversionEnActivos\r\n                    | thousandPipe):\"\"}}</td>\r\n                  <td>{{(http.game.player&&http.game.player.bimestre_dos)?(http.game.player.bimestre_dos.inversionEnActivos\r\n                    | thousandPipe):\"\"}}</td>\r\n                  <td>{{(http.game.player&&http.game.player.bimestre_tres)?(http.game.player.bimestre_tres.inversionEnActivos|\r\n                    thousandPipe):\"\"}}</td>\r\n                  <td id=\"inversionEnActivosTD\">\r\n                    <select class=\"input-width\" type=\"number\" (change)=\"onChangeinversionEnActivoss($event.target.value)\">\r\n                      <ng-container *ngFor=\"let inversion of inversionEnActivoss\">\r\n                        <option *ngIf=\"inversionEnMarketing+inversionEnInvestigacion+inversion+(produccion*35)+8000+22770<=capitalPeriodoAnterior+(precioUnitario*produccion)+10000\"\r\n                          [ngValue]=\"inversion\">\r\n                          {{inversion}}\r\n                        </option>\r\n                      </ng-container>\r\n                    </select>\r\n                  </td>\r\n                </tr>\r\n              </table>\r\n\r\n            </div>\r\n            <div class=\"tabla-proyecciones\" id=\"tabla-proyeccionesID\">\r\n              <div class=\"proyecciones\">\r\n                <div class=\"header-proyecciones\">PROYECCIONES</div>\r\n\r\n                <ul style=\"list-style-type:none\">\r\n                  <li> <span> <i class=\"material-icons\" (click)=\"general()\" style=\"font-size:18px; color:blue;cursor: pointer\">\r\n                        arrow_right</i></span> CAPITAL PERIODO\r\n                    ANTERIOR<span id=\"jerarquia-superior\">\r\n                    {{capitalPeriodoAnterior\r\n                    | thousandPipe}}</span></li>\r\n                  <li><span> <i class=\"material-icons\" (click)=\"ingresoDiv()\" style=\"font-size:18px; color:blue;cursor: pointer\">arrow_drop_down</i></span>\r\n                    INGRESOS<span id=\"jerarquia-superior\">{{precioUnitario*produccion | thousandPipe}}</span></li>\r\n                  <div id=\"div-ingresos\" style=\"padding-left: 20%\">\r\n                    <pre>VENTAS<span id=\"jerarquia-inferior\">{{precioUnitario*produccion | thousandPipe}}</span></pre>\r\n                    <pre>OTROS INGRESOS<span id=\"jerarquia-inferior\">{{ 0 | thousandPipe}}</span></pre>\r\n                  </div>\r\n                  <li><span> <i class=\"material-icons\" (click)=\"gastosDiv()\" style=\"font-size:18px; color:blue ;cursor: pointer\">arrow_drop_down</i></span>GASTOS<span id=\"jerarquia-superior\">{{inversionEnMarketing + inversionEnActivos+inversionEnInvestigacion+produccion*50 +30770 |\r\n                    thousandPipe}}</span></li>\r\n                  <div id=\"div-gastos\" style=\"padding-left: 20%\">\r\n                    <pre>COSTOS DE PRODUCCIÓN<span id=\"jerarquia-inferior\">{{produccion*50 +30770 | thousandPipe}}</span></pre>\r\n                    <pre>INV. MARKETING<span id=\"jerarquia-inferior\">{{inversionEnMarketing | thousandPipe}}</span></pre>\r\n                    <pre>INV. INVESTIGACIÓN<span id=\"jerarquia-inferior\">{{inversionEnInvestigacion | thousandPipe}}</span></pre>\r\n                    <pre>INV. ACTIVOS<span id=\"jerarquia-inferior\">{{inversionEnActivos | thousandPipe}}</span></pre>\r\n\r\n                  </div>\r\n                  <li><span> <i class=\"material-icons\" (click)=\"resultadosDiv()\" style=\"font-size:18px; color:blue;cursor: pointer\">arrow_drop_down</i></span>RESULTADO\r\n                  </li>\r\n                  <div id=\"div-resultados\" style=\"padding-left: 20%\">\r\n                    <pre>EFECTIVO DISPONIBLE<span id=\"jerarquia-inferior\">{{capitalPeriodoAnterior+precioUnitario*produccion-(produccion*50 +30770+inversionEnMarketing + inversionEnActivos+inversionEnInvestigacion) | thousandPipe}}</span></pre>\r\n                    <pre>UTILIDAD ESPERADA<span id=\"jerarquia-inferior\">{{(precioUnitario*produccion)-(inversionEnMarketing + inversionEnActivos+inversionEnInvestigacion+produccion*50 +30770) | thousandPipe}}</span></pre>\r\n                  </div>\r\n                </ul>\r\n              </div>\r\n            </div>\r\n          </div>\r\n          <div style=\"display: flex; justify-content: center;padding-top: 50px\" id=\"boton-decisionID\">\r\n            <button (click)=\"iniciar()\" style=\"width:300px\">\r\n              {{((http.game.bimestre_inicial_c==0&&numeroBimestre==00&&esFinCalculo)||(numeroBimestre==1&&http.game.bimestre_uno_c==0&&esFinCalculo)||(numeroBimestre==2&&http.game.bimestre_dos_c==0&&esFinCalculo))?\r\n                \"ENVIAR MIS DECISIONES\":\r\n                (((numeroBimestre==0&&http.game.bimestre_inicial_c==0&&!esFinCalculo)||(numeroBimestre==1&&http.game.bimestre_uno_c==0&&!esFinCalculo)||(numeroBimestre==2&&http.game.bimestre_dos_c==0&&!esFinCalculo)||(numeroBimestre==3&&bimestre_tres_c==0&&!esFinCalculo))?\r\n                \"CALCULANDO..\":((numeroBimestre==1&&http.game.bimestre_uno_c!=0)||(numeroBimestre==2&&http.game.bimestre_dos_c!=0)||(numeroBimestre==3&&http.game.bimestre_tres_c!=0))?\"Faltan que los demás jugadores envien sus decisiones.\":\r\n                \"Aún faltan conectarse \"+http.game.bimestre_inicial_c+\" jugadores\")}}\r\n            </button></div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n    <div class=\"section_container {{tap_position==2 ? '' : 'tap_menu_hidden'}}\" style=\"background-color: #0D8EC8;\">\r\n      <div class=\"section_container_body\">\r\n        <div class=\"section_title\">\r\n          <div class=\"material-icons section_title_icon\" style=\"background-color: #0D8EC8;\">attach_money</div>\r\n          <div class=\"section_title_desc\"> ANÁLISIS DE LA INDUSTRIA</div>\r\n        </div>\r\n        <div class=\"section_body\">\r\n          <div class=\"section_body_main\">\r\n            <div class=\"section_body_tab\">\r\n\r\n              <button (click)=\"VisionGeneral()\" class=\"section_body_tab_button  {{section_tap_2==0 ? '' : 'tap_selected'}}\">\r\n                VISIÓN GENERAL\r\n              </button>\r\n              <button (click)=\"ProduccionTablaAnalisis()\" class=\"section_body_tab_button  {{section_tap_2==1 ? '' : 'tap_selected'}}\">\r\n                PRODUCCIÓN\r\n              </button>\r\n              <button (click)=\"VentasTablaAnalisis()\" class=\"section_body_tab_button  {{section_tap_2==2 ? '' : 'tap_selected'}}\">\r\n                VENTAS\r\n              </button>\r\n              <button (click)=\"PorcentajeMercado()\" class=\"section_body_tab_button  {{section_tap_2==3 ? '' : 'tap_selected'}}\">\r\n                % MERCADO\r\n              </button>\r\n            </div>\r\n            <div class=\"section_body_container\">\r\n              <div class=\"section_body_content  {{section_tap_2==0 ? '' : 'tap_menu_hidden'}}\">\r\n                <div id=\"VisionGeneralID\">\r\n                  <app-tabla-vision-general [visionGeneral]=\"visionGeneral\"></app-tabla-vision-general>\r\n                </div>\r\n              </div>\r\n              <div class=\"section_body_content  {{section_tap_2==1 ? '' : 'tap_menu_hidden'}}\">\r\n                <div id=\"ProduccionTablaAnalisisID\">\r\n                  <app-tabla-produccion [produccionIndustria]=\"produccionIndustria\"></app-tabla-produccion>\r\n                </div>\r\n\r\n              </div>\r\n              <div class=\"section_body_content  {{section_tap_2==2 ? '' : 'tap_menu_hidden'}}\">\r\n                <div id=\"VentasTablaAnalisisID\">\r\n                  <app-tabla-ventas [ventasIndustria]=\"ventasIndustria\"></app-tabla-ventas>\r\n\r\n                </div>\r\n              </div>\r\n              <div class=\"section_body_content  {{section_tap_2==3 ? '' : 'tap_menu_hidden'}}\">\r\n                <div id=\"PorcentajeMercado\"><canvas id=\"pieI\" height=\"3\" width=\"8\"></canvas>\r\n                </div>\r\n              </div>\r\n            </div>\r\n          </div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n    <div class=\"section_container {{tap_position==3 ? '' : 'tap_menu_hidden'}}\" style=\"background-color: #2EC3EC;\">\r\n      <div class=\"section_container_body\">\r\n        <div class=\"section_title\">\r\n          <div class=\"material-icons section_title_icon\" style=\"background-color: #2EC3EC;\">business_center</div>\r\n          <div class=\"section_title_desc\">INFORMES DE LA EMPRESA</div>\r\n        </div>\r\n        <div class=\"section_body\">\r\n          <div class=\"section_body_main\">\r\n            <div class=\"section_body_tab\">\r\n\r\n              <button (click)=\"EstadoDeResultados()\" class=\"section_body_tab_button  {{section_tap_3==0 ? '' : 'tap_selected'}}\">\r\n                ESTADO DE RESULTADOS</button>\r\n              <button (click)=\"BalanceGeneral()\" class=\"section_body_tab_button  {{section_tap_3==1 ? '' : 'tap_selected'}}\">BALANCE\r\n                GENERAL</button>\r\n              <button (click)=\"Ventas()\" class=\"section_body_tab_button  {{section_tap_3==2 ? '' : 'tap_selected'}}\">VENTAS</button>\r\n              <button (click)=\"Produccion()\" class=\"section_body_tab_button  {{section_tap_3==3 ? '' : 'tap_selected'}}\">COSTOS\r\n                DE PRODUCCIÓN</button>\r\n              <button (click)=\"Compania()\" class=\"section_body_tab_button  {{section_tap_3==4 ? '' : 'tap_selected'}}\">EMPRESA</button>\r\n\r\n            </div>\r\n            <div class=\"section_body_container\">\r\n              <div class=\"section_body_content  {{section_tap_3==0 ? '' : 'tap_menu_hidden'}}\">\r\n                <div id=\"EstadoDeResultadosID\">\r\n                  <app-tabl-resultados [estadoResultados]=\"estadoResultados\"></app-tabl-resultados>\r\n                </div>\r\n              </div>\r\n              <div class=\"section_body_content  {{section_tap_3==1 ? '' : 'tap_menu_hidden'}}\">\r\n                <div id=\"BalanceGeneralID\">\r\n                  <app-tabl-balance-general [balanceGeneral]=\"balanceGeneral\"></app-tabl-balance-general>\r\n\r\n                </div>\r\n\r\n              </div>\r\n              <div class=\"section_body_content  {{section_tap_3==2 ? '' : 'tap_menu_hidden'}}\">\r\n                <div id=\"VentasID\">\r\n                  <app-tabl-ventas [ventas]=\"ventas\"></app-tabl-ventas>\r\n\r\n                </div>\r\n              </div>\r\n              <div class=\"section_body_content  {{section_tap_3==3 ? '' : 'tap_menu_hidden'}}\">\r\n                <div id=\"ProduccionID\">\r\n                  <app-tabl-costos [costosProduccion]=\"costoProduccion\"></app-tabl-costos>\r\n                </div>\r\n              </div>\r\n              <div class=\"section_body_content  {{section_tap_3==4 ? '' : 'tap_menu_hidden'}}\" style=\"overflow: scroll;\">\r\n                <canvas id=\"lineChart\" height=\"3\" width=\"8\"></canvas>\r\n              </div>\r\n            </div>\r\n          </div>\r\n        </div>\r\n\r\n      </div>\r\n    </div>\r\n    <div class=\"section_container {{tap_position==4 ? '' : 'tap_menu_hidden'}}\" style=\"background-color: #36A9E1;\">\r\n      <div class=\"section_container_body\">\r\n        <div class=\"section_title\">\r\n          <div class=\"material-icons section_title_icon\" style=\"background-color: #36A9E1;\">search</div>\r\n          <div class=\"section_title_desc\"> ANÁLISIS</div>\r\n        </div>\r\n        <div class=\"section_body\">\r\n          <div class=\"section_body_main\">\r\n            <div class=\"section_body_tab\">\r\n\r\n              <button id=\"prodvsventas\" (click)=\"produccionvsventas()\" class=\"section_body_tab_button  {{section_tap_4==0 ? '' : 'tap_selected'}}\">PRODUCCIÓN\r\n                VS\r\n                VENTAS</button>\r\n              <button (click)=\"costovsprecio()\" class=\"section_body_tab_button  {{section_tap_4==1 ? '' : 'tap_selected'}}\">COSTO\r\n                VS PRECIO</button>\r\n              <button (click)=\"capacidadvsproduccion()\" class=\"section_body_tab_button  {{section_tap_4==2 ? '' : 'tap_selected'}}\">CAPACIDAD\r\n                VS PRODUCCIÓN</button>\r\n              <button (click)=\"companiavscompetencia()\" class=\"section_body_tab_button  {{section_tap_4==3 ? '' : 'tap_selected'}}\">EMPRESA\r\n                VS COMPETENCIA</button>\r\n              <button (click)=\"consejos()\" class=\"section_body_tab_button  {{section_tap_4==4 ? '' : 'tap_selected'}}\">CONSEJOS</button>\r\n\r\n\r\n\r\n            </div>\r\n            <div class=\"section_body_container\">\r\n              <div class=\"section_body_content  {{section_tap_4==0 ? '' : 'tap_menu_hidden'}}\" style=\"overflow: scroll;\">\r\n                <canvas id=\"lineChart2\" height=\"3\" width=\"8\"></canvas>\r\n              </div>\r\n              <div class=\"section_body_content  {{section_tap_4==1 ? '' : 'tap_menu_hidden'}}\" style=\"overflow: scroll;\">\r\n                <canvas id=\"lineChart3\" height=\"3\" width=\"8\"></canvas>\r\n\r\n\r\n              </div>\r\n              <div class=\"section_body_content  {{section_tap_4==2 ? '' : 'tap_menu_hidden'}}\" style=\"overflow: scroll;\">\r\n                <canvas id=\"lineChart4\" height=\"3\" width=\"8\"></canvas>\r\n\r\n              </div>\r\n              <div class=\"section_body_content  {{section_tap_4==3 ? '' : 'tap_menu_hidden'}}\" style=\"overflow: scroll;\">\r\n                <canvas id=\"lineChart5\" height=\"3\" width=\"8\"></canvas>\r\n\r\n              </div>\r\n              <div class=\"section_body_content  {{section_tap_4==4 ? '' : 'tap_menu_hidden'}}\" style=\"overflow: scroll;\">\r\n                <div id=\"consejosID\">\r\n\r\n                  <!-- <div *ngIf=\"ventas.inventarioUnidades > 50\">  -->\r\n                  <p *ngIf=\"generarConsejo1()\">Tus niveles de inventario estan creciendo. Te recomendamos idear\r\n                    estrategias para\r\n                    aumentar las ventas o disminuir la producción.</p>\r\n                  <p *ngIf=\"generarConsejo2()\">Tu utilidad es muy baja. Te recomendamos idear estrategias para aumentar\r\n                    las ventas,\r\n                    aumentar ingresos o reducir los costos y gastos.</p>\r\n                  <p *ngIf=\"generarConsejo3()\">Tu % de mercado es muy bajo. Te recomendamos idear estrategias para\r\n                    aumentar las\r\n                    ventas y gasnar clientes.</p>\r\n                  <p *ngIf=\"generarConsejo4()\">Existe un gran porcentaje del mercado que no ha sido atendido. Te\r\n                    recomendamos idear\r\n                    estrategias para ganar clientes.</p>\r\n                  <!-- <p>Una empresa en el mercado cerró. Te aconsejamos idear estrategias para aumentar tu competitividad.</p>\r\n                <p *ngIf=\"generarConsejo1()==false&&generarConsejo2()==false&&generarConsejo3()==false&&generarConsejo4()==false\">Tus decisiones nos están llevando por buen camino, sigue así.</p> -->\r\n                <p *ngIf=\"generarConsejo5()\">Una empresa en el mercado cerró. Te aconsejamos idear estrategias\r\npara aumentar tu competitividad.</p>\r\n                <p *ngIf=\"generarConsejo6()\">Tus decisiones nos están llevando por buen camino, sigue así.</p>\r\n                </div>\r\n\r\n              </div>\r\n            </div>\r\n          </div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -7311,8 +8001,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
 /* harmony import */ var _services_http_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./../../services/http.service */ "./src/services/http.service.ts");
-/* harmony import */ var chart_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! chart.js */ "./node_modules/chart.js/src/chart.js");
+/* harmony import */ var chart_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! chart.js */ "./node_modules/chart.js/dist/Chart.js");
 /* harmony import */ var chart_js__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(chart_js__WEBPACK_IMPORTED_MODULE_9__);
+/* harmony import */ var chartjs_plugin_labels__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! chartjs-plugin-labels */ "./node_modules/chartjs-plugin-labels/src/chartjs-plugin-labels.js");
+/* harmony import */ var chartjs_plugin_labels__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(chartjs_plugin_labels__WEBPACK_IMPORTED_MODULE_10__);
+/* harmony import */ var chartjs_plugin_piechart_outlabels__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! chartjs-plugin-piechart-outlabels */ "./node_modules/chartjs-plugin-piechart-outlabels/dist/chartjs-plugin-piechart-outlabels.js");
+/* harmony import */ var chartjs_plugin_piechart_outlabels__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(chartjs_plugin_piechart_outlabels__WEBPACK_IMPORTED_MODULE_11__);
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm5/index.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -7322,6 +8017,9 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 var __metadata = (undefined && undefined.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+
+
+
 
 
 
@@ -7344,14 +8042,19 @@ var TablaDeDecisionComponent = /** @class */ (function () {
         this.section_tap_3 = 0;
         this.section_tap_4 = 0;
         this.precioUnitario = 150;
-        this.produccion = 500;
-        this.inversionEnMarketings = [0, 1500, 3000, 4500, 6000];
+        this.produccion = 600;
+        this.inversionEnMarketings = [0, 500, 1800, 3100, 8300];
         this.inversionEnMarketing = this.inversionEnMarketings[0];
-        this.inversionEnInvestigacions = [0, 1500, 3000, 4500, 6000];
+        this.inversionEnInvestigacions = [0, 1000, 2000, 3000, 4000];
         this.inversionEnInvestigacion = this.inversionEnInvestigacions[0];
-        this.inversionEnActivoss = [0, 1500, 3000, 4500, 6000];
+        this.inversionEnActivoss = [0, 6000, 15000, 28000, 40000];
         this.inversionEnActivos = this.inversionEnActivoss[0];
-        this.capitalPeriodoAnterior = 10000;
+        this.capitalPeriodoAnterior = 5930;
+        this.existeGanadorPorcentajeMercado = false;
+        this.unicaValorPositivo = false;
+        this.esActivo = 1;
+        this.esUnicaEmpresa = false;
+        this.esFinCalculo = false;
         this.bimestreInicial = new _models_bimestre__WEBPACK_IMPORTED_MODULE_5__["Bimestre"]();
         this.bimestreActual = new _models_bimestre__WEBPACK_IMPORTED_MODULE_5__["Bimestre"]();
         this.bimestres = [];
@@ -7368,6 +8071,7 @@ var TablaDeDecisionComponent = /** @class */ (function () {
         this.sumatoriaCapacidadProduccion = [];
         this.promedioPrecioUnitarios = [];
         this.promedioERUtilidadNeta = [];
+        this.produccionTotalIndustriaBimestres = [];
         if (!this.http.game)
             this.router.navigateByUrl('/jugar');
     }
@@ -7382,8 +8086,39 @@ var TablaDeDecisionComponent = /** @class */ (function () {
     TablaDeDecisionComponent.prototype.onChangeinversionEnActivoss = function (data) {
         console.log("changed onChangeinversionEnActivoss", data);
         this.inversionEnActivos = parseInt(data);
+        this.calcularLimiteProduccion(parseInt(data));
+    };
+    TablaDeDecisionComponent.prototype.calcularLimiteProduccion = function (inversionActivos) {
+        var produccion = document.getElementById("produccion");
+        var limite = 600;
+        if (inversionActivos === 0)
+            limite = 600;
+        if (inversionActivos === 6000)
+            limite = 750;
+        if (inversionActivos === 15000)
+            limite = 900;
+        if (inversionActivos === 28000)
+            limite = 1140;
+        if (inversionActivos === 40000)
+            limite = 1500;
+        produccion.setAttribute("max", limite.toString());
+        console.log(inversionActivos);
+        console.log(limite);
+        if (parseInt(document.getElementById("produccion").value) > limite)
+            document.getElementById("produccion").value = limite.toString();
+    };
+    TablaDeDecisionComponent.prototype.calcularLimitePrecioUnitario = function (data) {
+        var precioUnitario = document.getElementById("precioUnitario");
+        var limite = Math.round((parseInt(data) * 35 + 30270) / parseInt(data));
+        precioUnitario.setAttribute("min", limite.toString());
+        if (parseInt(document.getElementById("precioUnitario").value) < limite)
+            document.getElementById("precioUnitario").value = limite.toString();
     };
     TablaDeDecisionComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.subscription = Object(rxjs__WEBPACK_IMPORTED_MODULE_12__["timer"])(0, 7000).subscribe(function (result) { return _this.cargarInforme(); });
+        this.subscription = Object(rxjs__WEBPACK_IMPORTED_MODULE_12__["timer"])(0, 7000).subscribe(function (result) { return _this.cargarTAnalisis(); });
+        document.getElementById("puntajes").style.display = "none";
         // this.route.params.subscribe(params => {
         //   if (params['player_name'] != null && params['codigo'] != null) {
         //     this.nombreEmpresa = params['player_name'];
@@ -7426,6 +8161,47 @@ var TablaDeDecisionComponent = /** @class */ (function () {
     //     }
     //   }
     // }
+    TablaDeDecisionComponent.prototype.bloquear = function () {
+        console.log("this.numeroBimestre => ", this.numeroBimestre, "this.existeGanadorPorcentajeMercado =>", this.existeGanadorPorcentajeMercado, " this.unicaValorPositivo =>", this.unicaValorPositivo, "this.esActivo =>", this.esActivo, "this.esUnicaEmpresa =>", this.esUnicaEmpresa);
+        if (this.numeroBimestre == 3 || this.existeGanadorPorcentajeMercado == true || this.unicaValorPositivo == true || this.esActivo == 0 || this.esUnicaEmpresa == true) {
+            document.getElementById("numero-bimestre-siguiente").style.display = "none";
+            document.getElementById("precioUnitarioTD").style.display = "none";
+            document.getElementById("tabla-proyeccionesID").style.display = "none";
+            document.getElementById("boton-decisionID").style.display = "none";
+            document.getElementById("produccionTD").style.display = "none";
+            document.getElementById("inversionEnMarketingTD").style.display = "none";
+            document.getElementById("inversionEnInvestigacionTD").style.display = "none";
+            document.getElementById("inversionEnActivosTD").style.display = "none";
+            document.getElementById("puntajes").style.display = "block";
+        }
+    };
+    TablaDeDecisionComponent.prototype.actualizarActivo = function () {
+        var _this = this;
+        this.http.game.getActivo(function (response) {
+            if (response) {
+                _this.esActivo = response.esActivo;
+                console.log("getActivo front", _this.esActivo);
+                _this.bloquear();
+            }
+        });
+        this.bloquear();
+    };
+    TablaDeDecisionComponent.prototype.retirarseJuego = function () {
+        var _this = this;
+        var esRetirarse = confirm("¿Seguro de retirarse del juego?");
+        if (esRetirarse) {
+            this.http.game.retirarseJuego(this.numeroBimestre, function (response) {
+                if (response) {
+                    console.log("retirarseJuego front =>", response.esRetirado);
+                    _this.bloquear();
+                }
+            });
+            this.bloquear();
+        }
+        this.actualizarActivo();
+        console.log("Ya acabria actualizar activo");
+        this.bloquear();
+    };
     TablaDeDecisionComponent.prototype.actualizarVentasIndustriasBimestre = function () {
         var _this = this;
         this.http.get('http://localhost:8080/ventasIndustria/VI' + this.nombreEmpresa + '' + this.codigo).subscribe(function (response) {
@@ -7473,18 +8249,11 @@ var TablaDeDecisionComponent = /** @class */ (function () {
                                     console.log("addBimestreTres", response);
                                 });
                                 this.numeroBimestre = 3;
+                                this.esFinCalculo = false;
                                 if (this.http.game.bimestre_tres_c == 1) {
                                     this.obtenerTodosLosDatos();
                                 }
-                                console.log("numero Bimestre front => ", this.numeroBimestre);
-                                document.getElementById("numero-bimestre-siguiente").style.display = "none";
-                                document.getElementById("precioUnitarioTD").style.display = "none";
-                                document.getElementById("tabla-proyeccionesID").style.display = "none";
-                                document.getElementById("boton-decisionID").style.display = "none";
-                                document.getElementById("produccionTD").style.display = "none";
-                                document.getElementById("inversionEnMarketingTD").style.display = "none";
-                                document.getElementById("inversionEnInvestigacionTD").style.display = "none";
-                                document.getElementById("inversionEnActivosTD").style.display = "none";
+                                this.bloquear();
                             }
                         }
                         else {
@@ -7496,6 +8265,7 @@ var TablaDeDecisionComponent = /** @class */ (function () {
                             console.log("addBimestreDos", response);
                         });
                         this.numeroBimestre = 2;
+                        this.esFinCalculo = false;
                         if (this.http.game.bimestre_dos_c == 1) {
                             this.obtenerTodosLosDatos();
                         }
@@ -7511,6 +8281,7 @@ var TablaDeDecisionComponent = /** @class */ (function () {
                     console.log("addBimestreUno", response);
                 });
                 this.numeroBimestre = 1;
+                this.esFinCalculo = false;
                 if (this.http.game.bimestre_uno_c == 1) {
                     this.obtenerTodosLosDatos();
                 }
@@ -7624,7 +8395,8 @@ var TablaDeDecisionComponent = /** @class */ (function () {
         document.getElementById("numero-bimestre-siguiente").innerText = this.nombreBimestre;
         this.numeroBimestre = this.numeroBimestre + 1;
         this.bimestreActual.numero = this.numeroBimestre;
-        this.bimestreActual.jugador = this.nombreEmpresa;
+        this.bimestreActual.jugador = this.http.game.player.name;
+        this.nombreEmpresa = this.http.game.player.name;
         this.bimestreActual.codigo = this.codigo;
         var json = JSON.stringify(this.bimestreActual);
         var params = 'json' + json;
@@ -7703,6 +8475,8 @@ var TablaDeDecisionComponent = /** @class */ (function () {
     };
     TablaDeDecisionComponent.prototype.informacion = function () {
         this.tap_position = 0;
+        this.actualizarActivo();
+        this.bloquear();
         // document.getElementById("decisiones").style.display = "none";
         // document.getElementById("tabla-analisis-industria").style.display = "none";
         // document.getElementById("informe").style.display = "none";
@@ -7730,6 +8504,7 @@ var TablaDeDecisionComponent = /** @class */ (function () {
     };
     TablaDeDecisionComponent.prototype.decision = function () {
         this.tap_position = 1;
+        document.getElementById("puntajes").style.display = "none";
         // document.getElementById("decisiones").style.display = "block";
         // document.getElementById("tabla-analisis-industria").style.display = "none";
         // document.getElementById("informe").style.display = "none";
@@ -7743,14 +8518,20 @@ var TablaDeDecisionComponent = /** @class */ (function () {
         // document.getElementById("info-analisisIndustria").style.display = "none";
         // document.getElementById("info-informeCompañia").style.display = "none";
         // document.getElementById("info-analisis").style.display = "none";
+        this.actualizarActivo();
+        this.bloquear();
     };
-    TablaDeDecisionComponent.prototype.tanalisis = function () {
+    TablaDeDecisionComponent.prototype.cargarTAnalisis = function () {
         var _this = this;
-        this.tap_position = 2;
         this.http.game.getVisionGeneral(this.numeroBimestre, function (response) {
             console.log("getVisionGeneral front", response);
-            if (response)
-                _this.visionGeneral = response;
+            if (response) {
+                _this.visionGeneral = response.visionGeneral;
+                console.log("existeGanadorPorcentajeMercado ==>", _this.existeGanadorPorcentajeMercado);
+                _this.existeGanadorPorcentajeMercado = response.existeGanadorPorcentajeMercado;
+                console.log("existeGanadorPorcentajeMercado ==>", _this.existeGanadorPorcentajeMercado);
+                _this.bloquear();
+            }
         });
         this.http.game.getProduccion(this.numeroBimestre, function (response) {
             console.log("getProduccion front", response);
@@ -7759,9 +8540,26 @@ var TablaDeDecisionComponent = /** @class */ (function () {
         });
         this.http.game.getVentasIndustria(this.numeroBimestre, function (response) {
             console.log("getVentasIndustria front", response);
-            if (response)
+            if (response != 'error con el socket') {
                 _this.ventasIndustria = response;
+                console.log("----------------------------------- front", response);
+                if (_this.esFinCalculo == false) {
+                    alert("Calculos finalizados para el bimestre " + _this.numeroBimestre + ". Ya puede acceder a las demás pestañas.");
+                }
+                _this.esFinCalculo = true;
+            }
         });
+        this.actualizarActivo();
+        this.bloquear();
+    };
+    TablaDeDecisionComponent.prototype.tanalisis = function () {
+        if (this.esFinCalculo) {
+            this.tap_position = 2;
+        }
+        else {
+            alert("Aún falta calcular");
+        }
+        this.cargarTAnalisis();
         // document.getElementById("decisiones").style.display = "none";
         // document.getElementById("tabla-analisis-industria").style.display = "block";
         // document.getElementById("informe").style.display = "none";
@@ -7785,14 +8583,20 @@ var TablaDeDecisionComponent = /** @class */ (function () {
         // document.getElementById("info-informeCompañia").style.display = "none";
         // document.getElementById("info-analisis").style.display = "none";
     };
-    TablaDeDecisionComponent.prototype.informe = function () {
+    TablaDeDecisionComponent.prototype.cargarInforme = function () {
         var _this = this;
-        this.tap_position = 3;
-        this.http.game.getEstadoResultados(function (response) {
+        this.http.game.getEstadoResultados(this.numeroBimestre, function (response) {
             console.log("getEstadoResultados front", response);
-            if (response)
-                _this.estadoResultados = response;
+            if (response) {
+                _this.estadoResultados = response.estadoResultados;
+                _this.unicaValorPositivo = response.unicaValorPositivo;
+                console.log("estadoResultados front", _this.estadoResultados);
+                console.log("unicaValorPositivo front", _this.unicaValorPositivo);
+                _this.capitalPeriodoAnterior = _this.estadoResultados[_this.estadoResultados.length - 1].utilidadNeta;
+                _this.bloquear();
+            }
         });
+        this.bloquear();
         this.http.game.getBalanceGeneral(this.numeroBimestre, function (response) {
             console.log("getBalanceGeneral front", response);
             if (response)
@@ -7800,14 +8604,29 @@ var TablaDeDecisionComponent = /** @class */ (function () {
         });
         this.http.game.getVentas(this.numeroBimestre, function (response) {
             console.log("getVentas front", response);
-            if (response)
+            if (response) {
                 _this.ventas = response;
+                _this.actualizarActivo();
+                _this.bloquear();
+            }
         });
+        this.bloquear();
         this.http.game.getCostosProduccion(this.numeroBimestre, function (response) {
             console.log("getCostosProduccion front", response);
             if (response)
                 _this.costoProduccion = response;
         });
+        this.actualizarActivo();
+        this.bloquear();
+    };
+    TablaDeDecisionComponent.prototype.informe = function () {
+        if (this.esFinCalculo) {
+            this.tap_position = 3;
+        }
+        else {
+            alert("Aún falta calcular");
+        }
+        this.cargarInforme();
         // document.getElementById("decisiones").style.display = "none";
         // document.getElementById("tabla-analisis-industria").style.display = "none";
         // document.getElementById("informe").style.display = "block";
@@ -7835,31 +8654,119 @@ var TablaDeDecisionComponent = /** @class */ (function () {
     };
     TablaDeDecisionComponent.prototype.analisis = function () {
         var _this = this;
-        this.tap_position = 4;
-        this.http.game.getAllProduccion(function (response) {
-            console.log("getAllProduccion front", response);
-            _this.produccionIndustriaBimestres = response;
-        });
-        this.http.game.getAllVentasIndustria(function (response) {
-            console.log("getAllVentasIndustria front", response);
-            _this.ventasIndustriaBimestres = response;
-        });
-        this.http.game.getPromedioUtilidadNeta(function (response) {
-            console.log("getPromedioUtilidadNeta front", response);
-            _this.promedioERUtilidadNeta = response;
-        });
-        this.http.game.getEstadoResultados(function (response) {
-            console.log("getEstadoResultados front", response);
-            _this.estadoResultados = response;
-        });
-        this.http.game.getSumatoriaCapacidadProduccion(function (response) {
-            console.log("getSumatoriaCapacidadProduccion  front", response);
-            _this.sumatoriaCapacidadProduccion = response;
-        });
-        this.http.game.getPromedioPrecioUnitarios(function (response) {
-            console.log("getPromedioPrecioUnitarios  front", response);
-            _this.promedioPrecioUnitarios = response;
-        });
+        if (this.esFinCalculo) {
+            this.tap_position = 4;
+            this.LineChart2 = new chart_js__WEBPACK_IMPORTED_MODULE_9__["Chart"]('lineChart2', {
+                type: 'line',
+                data: {
+                    labels: ["Bimestre inicial"],
+                    datasets: [{
+                            label: 'Produccion de la industria',
+                            data: [],
+                            fill: false,
+                            lineTension: 0.2,
+                            borderColor: "green",
+                            backgroundColor: "green",
+                            borderWidth: 1
+                        },
+                        {
+                            label: 'Ventas de la industria (unidades)',
+                            data: [],
+                            fill: false,
+                            lineTension: 0.2,
+                            borderColor: "red",
+                            backgroundColor: "red",
+                            borderWidth: 1
+                        }]
+                },
+                options: {
+                    title: {
+                        text: "",
+                        display: true
+                    },
+                    scales: {
+                        yAxes: [{
+                                ticks: {
+                                    beginAtZero: true,
+                                    callback: function (valor, index, valores) {
+                                        return Number(valor).toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+                                    }
+                                }
+                            }]
+                    },
+                    tooltips: {
+                        mode: 'index',
+                        intersect: false,
+                        callbacks: {
+                            label: function (tooltipItem, data) {
+                                var value = data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index];
+                                return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+                            }
+                        }
+                    },
+                    hover: {
+                        mode: 'nearest',
+                        intersect: true
+                    }
+                }
+            });
+            //produccion vs ventas //costo vs precio
+            this.http.game.getAllProduccion(function (response) {
+                console.log("getAllProduccion front", response);
+                _this.produccionIndustriaBimestres = response;
+                for (var i = 0; i < _this.produccionIndustriaBimestres.length; i++) {
+                    console.log("produccionIndustriaBimestres ==> ", _this.produccionIndustriaBimestres[i]);
+                    //this.LineChart2.data.labels.push("Bimestre "+this.produccionIndustriaBimestres[i].numero);
+                    if (_this.produccionIndustriaBimestres[i])
+                        _this.LineChart2.data.datasets[0].data.push(_this.produccionIndustriaBimestres[i].produccionIndustriaValorActual);
+                    _this.LineChart2.update();
+                }
+            });
+            //produccion vs ventas
+            this.http.game.getAllVentasIndustria(function (response) {
+                console.log("getAllVentasIndustria front", response);
+                _this.ventasIndustriaBimestres = response;
+                for (var i = 0; i <= _this.numeroBimestre; i++) {
+                    if (_this.ventasIndustriaBimestres[i].numero != 0) {
+                        _this.LineChart2.data.labels.push("Bimestre " + _this.ventasIndustriaBimestres[i].numero);
+                    }
+                    _this.LineChart2.data.datasets[1].data.push(_this.ventasIndustriaBimestres[i].ventasIndustriaUnidadesActual);
+                    _this.LineChart2.update();
+                }
+            });
+            //costo vs precio
+            this.http.game.getPromedioPrecioUnitarios(function (response) {
+                console.log("getPromedioPrecioUnitarios  front", response);
+                _this.promedioPrecioUnitarios = response;
+            });
+            //capacidad vs produccion
+            this.http.game.getSumatoriaCapacidadProduccion(function (response) {
+                console.log("getSumatoriaCapacidadProduccion  front", response);
+                _this.sumatoriaCapacidadProduccion = response;
+            });
+            this.http.game.getProduccionTotalIndustriaBimestres(this.numeroBimestre, function (response) {
+                console.log("getProduccionTotalIndustriaBimestres front", response);
+                if (response)
+                    _this.produccionTotalIndustriaBimestres = response;
+            });
+            //compania vs competencia
+            this.http.game.getPromedioUtilidadNeta(this.numeroBimestre, function (response) {
+                console.log("getPromedioUtilidadNeta front", response);
+                _this.promedioERUtilidadNeta = response;
+            });
+            this.http.game.getEstadoResultados(this.numeroBimestre, function (response) {
+                console.log("getEstadoResultados front", response);
+                if (response) {
+                    _this.estadoResultados = response.estadoResultados;
+                    _this.bloquear();
+                }
+            });
+            this.actualizarActivo();
+            this.bloquear();
+        }
+        else {
+            alert("Aún falta calcular");
+        }
         // document.getElementById("decisiones").style.display = "none";
         // document.getElementById("tabla-analisis-industria").style.display = "none";
         // document.getElementById("informe").style.display = "none";
@@ -7956,6 +8863,20 @@ var TablaDeDecisionComponent = /** @class */ (function () {
         // document.getElementById("boton-organigramaID").style.backgroundColor = "rgb(24, 76, 133)";
         // document.getElementById("boton-objetivosID").style.backgroundColor = "rgb(8, 25, 43)";
     };
+    TablaDeDecisionComponent.prototype.maquinaria = function () {
+        this.section_tap_1 = 5;
+        // document.getElementById("historiaID").style.display = "none";
+        // document.getElementById("mision-visionID").style.display = "none";
+        // document.getElementById("nuestro-productoID").style.display = "none";
+        // document.getElementById("organigramaID").style.display = "none";
+        // document.getElementById("objetivosID").style.display = "block";
+        // document.getElementById("titulo").innerText = "INFORMACIÓN DE LA COMPAÑIA";
+        // document.getElementById("boton-historiaID").style.backgroundColor = "rgb(24, 76, 133)";
+        // document.getElementById("boton-misionvisionID").style.backgroundColor = "rgb(24, 76, 133)";
+        // document.getElementById("boton-nuestroproductoID").style.backgroundColor = "rgb(24, 76, 133)";
+        // document.getElementById("boton-organigramaID").style.backgroundColor = "rgb(24, 76, 133)";
+        // document.getElementById("boton-objetivosID").style.backgroundColor = "rgb(8, 25, 43)";
+    };
     TablaDeDecisionComponent.prototype.produccionvsventas = function () {
         this.section_tap_4 = 0;
         // document.getElementById("produccionvsventasID").style.display = "block";
@@ -7973,7 +8894,7 @@ var TablaDeDecisionComponent = /** @class */ (function () {
         this.LineChart2 = new chart_js__WEBPACK_IMPORTED_MODULE_9__["Chart"]('lineChart2', {
             type: 'line',
             data: {
-                labels: [],
+                labels: ["Bimestre inicial"],
                 datasets: [{
                         label: 'Produccion de la industria',
                         data: [],
@@ -8001,9 +8922,26 @@ var TablaDeDecisionComponent = /** @class */ (function () {
                 scales: {
                     yAxes: [{
                             ticks: {
-                                beginAtZero: true
+                                beginAtZero: true,
+                                callback: function (valor, index, valores) {
+                                    return Number(valor).toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+                                }
                             }
                         }]
+                },
+                tooltips: {
+                    mode: 'index',
+                    intersect: false,
+                    callbacks: {
+                        label: function (tooltipItem, data) {
+                            var value = data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index];
+                            return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+                        }
+                    }
+                },
+                hover: {
+                    mode: 'nearest',
+                    intersect: true
                 }
             }
         });
@@ -8011,12 +8949,14 @@ var TablaDeDecisionComponent = /** @class */ (function () {
             console.log("produccionIndustriaBimestres ==> ", this.produccionIndustriaBimestres[i]);
             //this.LineChart2.data.labels.push("Bimestre "+this.produccionIndustriaBimestres[i].numero);
             if (this.produccionIndustriaBimestres[i])
-                this.LineChart2.data.datasets[0].data.push(this.produccionIndustriaBimestres[i].produccionIndustriaValorActual);
+                this.LineChart2.data.datasets[0].data.push(Math.round(this.produccionIndustriaBimestres[i].produccionIndustriaValorActual));
             this.LineChart2.update();
         }
-        for (var i = 0; i < this.numeroBimestre; i++) {
-            this.LineChart2.data.labels.push("Bimestre " + this.ventasIndustriaBimestres[i].numero);
-            this.LineChart2.data.datasets[1].data.push(this.ventasIndustriaBimestres[i].ventasIndustriaUnidadesActual);
+        for (var i = 0; i <= this.numeroBimestre; i++) {
+            if (this.ventasIndustriaBimestres[i].numero != 0) {
+                this.LineChart2.data.labels.push("Bimestre " + this.ventasIndustriaBimestres[i].numero);
+            }
+            this.LineChart2.data.datasets[1].data.push(Math.round(this.ventasIndustriaBimestres[i].ventasIndustriaUnidadesActual));
             this.LineChart2.update();
         }
     };
@@ -8044,9 +8984,9 @@ var TablaDeDecisionComponent = /** @class */ (function () {
         this.LineChart3 = new chart_js__WEBPACK_IMPORTED_MODULE_9__["Chart"]('lineChart3', {
             type: 'line',
             data: {
-                labels: [],
+                labels: ["Bimestre inicial"],
                 datasets: [{
-                        label: 'Costo unitario de la industria (promedio)',
+                        label: 'Costo medio de produccion (unitario)',
                         data: [],
                         fill: false,
                         lineTension: 0.2,
@@ -8054,7 +8994,7 @@ var TablaDeDecisionComponent = /** @class */ (function () {
                         backgroundColor: "green",
                         borderWidth: 1
                     }, {
-                        label: 'Precio unitario de la industria (promedio)',
+                        label: 'Precio unitario (promedio)',
                         data: [],
                         fill: false,
                         lineTension: 0.2,
@@ -8071,23 +9011,39 @@ var TablaDeDecisionComponent = /** @class */ (function () {
                 scales: {
                     yAxes: [{
                             ticks: {
-                                beginAtZero: true
+                                beginAtZero: true,
+                                callback: function (valor, index, valores) {
+                                    return Number(valor).toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+                                }
                             }
                         }]
+                },
+                tooltips: {
+                    mode: 'index',
+                    intersect: false,
+                    callbacks: {
+                        label: function (tooltipItem, data) {
+                            var value = data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index];
+                            return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+                        }
+                    }
+                },
+                hover: {
+                    mode: 'nearest',
+                    intersect: true
                 }
             }
         });
-        for (var i = 0; i < this.numeroBimestre; i++) {
-            this.LineChart3.data.datasets[1].data.push(this.promedioPrecioUnitarios[i]);
-            this.LineChart3.data.labels.push("Bimestre " + (i + 1));
+        for (var i = 0; i <= this.numeroBimestre; i++) {
+            this.LineChart3.data.datasets[1].data.push(Math.round(this.promedioPrecioUnitarios[i]));
             this.LineChart3.update();
         }
-        for (var i = 0; i < this.numeroBimestre; i++) {
-            //this.LineChart3.data.labels.push("Bimestre "+this.produccionIndustriaBimestres[i].numero);
-            if (this.produccionIndustriaBimestres[i].costeMedioUnitarioActual != 0) {
-                this.LineChart3.data.datasets[0].data.push(this.produccionIndustriaBimestres[i].costeMedioUnitarioActual);
-                this.LineChart3.update();
+        for (var i = 0; i <= this.numeroBimestre; i++) {
+            if (this.produccionIndustriaBimestres[i].numero != 0) {
+                this.LineChart3.data.labels.push("Bimestre " + this.produccionIndustriaBimestres[i].numero);
             }
+            this.LineChart3.data.datasets[0].data.push(Math.round(this.produccionIndustriaBimestres[i].costeMedioUnitarioActual));
+            this.LineChart3.update();
         }
     };
     TablaDeDecisionComponent.prototype.capacidadvsproduccion = function () {
@@ -8113,9 +9069,9 @@ var TablaDeDecisionComponent = /** @class */ (function () {
         this.LineChart4 = new chart_js__WEBPACK_IMPORTED_MODULE_9__["Chart"]('lineChart4', {
             type: 'line',
             data: {
-                labels: [],
+                labels: ["Bimestre inicial"],
                 datasets: [{
-                        label: 'Capacidad de producción de la industria',
+                        label: 'Capacidad de producción',
                         data: [],
                         fill: false,
                         lineTension: 0.2,
@@ -8123,7 +9079,7 @@ var TablaDeDecisionComponent = /** @class */ (function () {
                         backgroundColor: "green",
                         borderWidth: 1
                     }, {
-                        label: 'Produccion real de la industria',
+                        label: 'Produccion de la industria',
                         data: [],
                         fill: false,
                         lineTension: 0.2,
@@ -8140,23 +9096,39 @@ var TablaDeDecisionComponent = /** @class */ (function () {
                 scales: {
                     yAxes: [{
                             ticks: {
-                                beginAtZero: true
+                                beginAtZero: true,
+                                callback: function (valor, index, valores) {
+                                    return Number(valor).toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+                                }
                             }
                         }]
+                },
+                tooltips: {
+                    mode: 'index',
+                    intersect: false,
+                    callbacks: {
+                        label: function (tooltipItem, data) {
+                            var value = data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index];
+                            return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+                        }
+                    }
+                },
+                hover: {
+                    mode: 'nearest',
+                    intersect: true
                 }
             }
         });
-        for (var i = 0; i < this.numeroBimestre; i++) {
-            this.LineChart4.data.datasets[1].data.push(this.sumatoriaCapacidadProduccion[i]);
-            this.LineChart4.data.labels.push("Bimestre " + (i + 1));
+        for (var i = 0; i <= this.numeroBimestre; i++) {
+            this.LineChart4.data.datasets[0].data.push(Math.round(this.sumatoriaCapacidadProduccion[i]));
+            if (i != 0) {
+                this.LineChart4.data.labels.push("Bimestre " + i);
+            }
             this.LineChart4.update();
         }
-        for (var i = 0; i < this.numeroBimestre; i++) {
-            //this.LineChart4.data.labels.push("Bimestre "+this.produccionIndustriaBimestres[i].numero);
-            if (this.produccionIndustriaBimestres[i].costeMedioUnitarioActual != 0) {
-                this.LineChart4.data.datasets[0].data.push(this.produccionIndustriaBimestres[i].costeMedioUnitarioActual);
-                this.LineChart4.update();
-            }
+        for (var i = 0; i <= this.numeroBimestre; i++) {
+            this.LineChart4.data.datasets[1].data.push(Math.round(this.produccionTotalIndustriaBimestres[i]));
+            this.LineChart4.update();
         }
     };
     TablaDeDecisionComponent.prototype.companiavscompetencia = function () {
@@ -8183,7 +9155,7 @@ var TablaDeDecisionComponent = /** @class */ (function () {
         this.LineChart5 = new chart_js__WEBPACK_IMPORTED_MODULE_9__["Chart"]('lineChart5', {
             type: 'line',
             data: {
-                labels: [],
+                labels: ["Bimestre inicial"],
                 datasets: [{
                         label: 'Utilidad de la compañia',
                         data: [],
@@ -8210,20 +9182,38 @@ var TablaDeDecisionComponent = /** @class */ (function () {
                 scales: {
                     yAxes: [{
                             ticks: {
-                                beginAtZero: true
+                                beginAtZero: true,
+                                callback: function (valor, index, valores) {
+                                    return Number(valor).toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+                                }
                             }
                         }]
+                },
+                tooltips: {
+                    mode: 'index',
+                    intersect: false,
+                    callbacks: {
+                        label: function (tooltipItem, data) {
+                            var value = data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index];
+                            return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+                        }
+                    }
+                },
+                hover: {
+                    mode: 'nearest',
+                    intersect: true
                 }
             }
         });
-        for (var i = 0; i < this.numeroBimestre; i++) {
-            this.LineChart5.data.datasets[1].data.push(this.promedioERUtilidadNeta[i]);
-            this.LineChart5.data.labels.push("Bimestre " + (i + 1));
+        for (var i = 0; i <= this.numeroBimestre; i++) {
+            this.LineChart5.data.datasets[1].data.push(Math.round(this.promedioERUtilidadNeta[i]));
+            if (i != 0) {
+                this.LineChart5.data.labels.push("Bimestre " + i);
+            }
             this.LineChart5.update();
         }
-        for (var i = 0; i < this.numeroBimestre; i++) {
-            this.LineChart5.data.datasets[0].data.push(this.estadoResultados[i].utilidadNeta);
-            //this.LineChart5.data.labels.push("Bimestre "+(i+1));
+        for (var i = 0; i <= this.numeroBimestre; i++) {
+            this.LineChart5.data.datasets[0].data.push(Math.round(this.estadoResultados[i].utilidadNeta));
             this.LineChart5.update();
         }
     };
@@ -8319,7 +9309,7 @@ var TablaDeDecisionComponent = /** @class */ (function () {
         this.LineChart = new chart_js__WEBPACK_IMPORTED_MODULE_9__["Chart"]('lineChart', {
             type: 'line',
             data: {
-                labels: [],
+                labels: ["Bimestre inicial"],
                 datasets: [{
                         label: 'Utilidad neta por bimestre',
                         data: [],
@@ -8335,10 +9325,29 @@ var TablaDeDecisionComponent = /** @class */ (function () {
                     text: "Gráfica Utilidad Neta",
                     display: true
                 },
+                hover: {
+                    mode: 'nearest',
+                    intersect: true
+                },
+                responsive: true,
+                maintainAspectRatio: false,
+                tooltips: {
+                    mode: 'index',
+                    intersect: false,
+                    callbacks: {
+                        label: function (tooltipItem, data) {
+                            var value = data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index];
+                            return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+                        }
+                    } // end callbacks:
+                },
                 scales: {
                     yAxes: [{
                             ticks: {
-                                beginAtZero: true
+                                beginAtZero: true,
+                                callback: function (value, index, values) {
+                                    return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+                                }
                             }
                         }]
                 }
@@ -8346,7 +9355,9 @@ var TablaDeDecisionComponent = /** @class */ (function () {
         });
         for (var i = 0; i < this.estadoResultados.length; i++) {
             this.LineChart.data.datasets[0].data.push(this.estadoResultados[i].utilidadNeta);
-            this.LineChart.data.labels.push("Bimestre " + (i + 1));
+            if (i != 0) {
+                this.LineChart.data.labels.push("Bimestre " + i);
+            }
             this.LineChart.update();
         }
     };
@@ -8412,13 +9423,13 @@ var TablaDeDecisionComponent = /** @class */ (function () {
         // document.getElementById("boton-PorcentajeMercadoID").style.backgroundColor = "rgb(24, 76, 133)";
     };
     TablaDeDecisionComponent.prototype.PorcentajeMercado = function () {
-        var _this = this;
         this.section_tap_2 = 3;
         //cargar visionGeneral
-        this.http.get('http://localhost:8080/visionGeneral/' + this.codigo + '/' + this.numeroBimestre).subscribe(function (response) {
-            console.log(response);
-            _this.visionGeneral = response;
-        });
+        //this.http.get('http://localhost:8080/visionGeneral/' + //this.codigo + '/' + this.numeroBimestre).subscribe(
+        //(response: any) => {
+        //console.log(response);
+        //this.visionGeneral = response;
+        //});
         // document.getElementById("VisionGeneralID").style.display = "none";
         // document.getElementById("ProduccionTablaAnalisisID").style.display = "none";
         // document.getElementById("VentasTablaAnalisisID").style.display = "none";
@@ -8430,7 +9441,7 @@ var TablaDeDecisionComponent = /** @class */ (function () {
         // document.getElementById("boton-PorcentajeMercadoID").style.backgroundColor = "rgb(0, 139, 208)";
         //Pie chart
         this.myPieChart = new chart_js__WEBPACK_IMPORTED_MODULE_9__["Chart"]('pieI', {
-            type: 'pie',
+            type: 'outlabeledPie',
             data: {
                 labels: [],
                 datasets: [
@@ -8446,6 +9457,19 @@ var TablaDeDecisionComponent = /** @class */ (function () {
                     text: "% Mercado",
                     display: true,
                     responsive: false
+                },
+                plugins: {
+                    legend: false,
+                    outlabels: {
+                        text: '%l %v' + '%',
+                        color: 'white',
+                        stretch: 45,
+                        font: {
+                            resizable: true,
+                            minSize: 12,
+                            maxSize: 24
+                        }
+                    }
                 }
             }
         });
@@ -8455,28 +9479,24 @@ var TablaDeDecisionComponent = /** @class */ (function () {
             this.myPieChart.data.datasets[0].data.push(this.visionGeneral[i].porcentajeDeMercado);
             this.auxiliarMercadoSinAtender += (this.visionGeneral[i].porcentajeDeMercado);
             if (i == 0) {
-                this.myPieChart.data.datasets[0].borderColor.push("blue");
-                this.myPieChart.data.datasets[0].backgroundColor.push("blue");
+                this.myPieChart.data.datasets[0].borderColor.push("#FF3784");
+                this.myPieChart.data.datasets[0].backgroundColor.push("#FF3784");
             }
             if (i == 1) {
-                this.myPieChart.data.datasets[0].borderColor.push("green");
-                this.myPieChart.data.datasets[0].backgroundColor.push("green");
+                this.myPieChart.data.datasets[0].borderColor.push("#36A2EB");
+                this.myPieChart.data.datasets[0].backgroundColor.push("#36A2EB");
             }
             if (i == 2) {
-                this.myPieChart.data.datasets[0].borderColor.push("red");
-                this.myPieChart.data.datasets[0].backgroundColor.push("red");
+                this.myPieChart.data.datasets[0].borderColor.push("#4BC0C0");
+                this.myPieChart.data.datasets[0].backgroundColor.push("#4BC0C0");
             }
             if (i == 3) {
-                this.myPieChart.data.datasets[0].borderColor.push("orange");
-                this.myPieChart.data.datasets[0].backgroundColor.push("orange");
+                this.myPieChart.data.datasets[0].borderColor.push("#F77825");
+                this.myPieChart.data.datasets[0].backgroundColor.push("#F77825");
             }
             if (i == 4) {
-                this.myPieChart.data.datasets[0].borderColor.push("purple");
-                this.myPieChart.data.datasets[0].backgroundColor.push("purple");
-            }
-            if (i > 4) {
-                this.myPieChart.data.datasets[0].borderColor.push("yellow");
-                this.myPieChart.data.datasets[0].backgroundColor.push("yellow");
+                this.myPieChart.data.datasets[0].borderColor.push("#9966FF");
+                this.myPieChart.data.datasets[0].backgroundColor.push("#9966FF");
             }
             this.myPieChart.update();
         }
@@ -8484,8 +9504,8 @@ var TablaDeDecisionComponent = /** @class */ (function () {
             this.mercadoSinAtender = 100 - this.auxiliarMercadoSinAtender;
             this.myPieChart.data.labels.push("Mercado sin atender");
             this.myPieChart.data.datasets[0].data.push(this.mercadoSinAtender);
-            this.myPieChart.data.datasets[0].borderColor.push("black");
-            this.myPieChart.data.datasets[0].backgroundColor.push("black");
+            this.myPieChart.data.datasets[0].borderColor.push("#000000");
+            this.myPieChart.data.datasets[0].backgroundColor.push("#000000");
             this.myPieChart.update();
         }
     };
@@ -8515,7 +9535,7 @@ var TablaDeDecisionComponent = /** @class */ (function () {
         }
     };
     TablaDeDecisionComponent.prototype.generarConsejo1 = function () {
-        if (this.ventas && this.ventas.inventarioUnidades && this.ventas.inventarioUnidades >= 50)
+        if (this.ventas && this.ventas.inventarioUnidades && this.ventas.inventarioUnidades > 100)
             return true;
         else
             return false;
@@ -8523,7 +9543,7 @@ var TablaDeDecisionComponent = /** @class */ (function () {
     TablaDeDecisionComponent.prototype.generarConsejo2 = function () {
         var indice = this.estadoResultados.length;
         if (this.estadoResultados.length > 0) {
-            if (this.estadoResultados[indice - 1].utilidadNeta < 8000)
+            if (this.estadoResultados[indice - 1].utilidadNeta < 5000)
                 return true;
             else
                 return false;
@@ -8533,7 +9553,8 @@ var TablaDeDecisionComponent = /** @class */ (function () {
     };
     TablaDeDecisionComponent.prototype.generarConsejo3 = function () {
         for (var i = 0; i < this.visionGeneral.length; i++) {
-            if (this.visionGeneral[i].jugador === this.nombreEmpresa) {
+            this.nombreEmpresa = this.http.game.player.name;
+            if (this.visionGeneral[i].jugador == this.nombreEmpresa) {
                 if (this.visionGeneral[i].porcentajeDeMercado < 5)
                     return true;
             }
@@ -8550,9 +9571,26 @@ var TablaDeDecisionComponent = /** @class */ (function () {
         else
             return false;
     };
+    TablaDeDecisionComponent.prototype.generarConsejo5 = function () {
+        if ((this.numeroBimestre == 0 && this.http.game.cantidadTotalJugadores != this.http.game.bimestre_uno_c) || (this.numeroBimestre == 1 && this.http.game.cantidadTotalJugadores != this.http.game.bimestre_dos_c) || (this.numeroBimestre == 2 && this.http.game.cantidadTotalJugadores != this.http.game.bimestre_tres_c)) {
+            return true;
+        }
+        else
+            return false;
+    };
+    TablaDeDecisionComponent.prototype.generarConsejo6 = function () {
+        if (!this.generarConsejo1() && !this.generarConsejo2() && !this.generarConsejo3() && !this.generarConsejo4() && !this.generarConsejo5()) {
+            return true;
+        }
+        else
+            return false;
+    };
     TablaDeDecisionComponent.prototype.fin = function () {
         var numerito = this.numeroBimestre;
         this.router.navigateByUrl('/fin');
+    };
+    TablaDeDecisionComponent.prototype.ngOnDestroy = function () {
+        this.subscription.unsubscribe();
     };
     TablaDeDecisionComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_6__["Component"])({
@@ -8576,7 +9614,7 @@ var TablaDeDecisionComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "#main-container{\n\n    margin: 7px;\n  \n      width: 80%;\n      color: black;\n  \n  }\n  \n  table{\n  \n    font-family: \"arial\";\n    font-size: 14px;\n      background-color: white;\n      text-align: left;\n      border-collapse: collapse;\n      width: 120%;\n  \n  \n  \n  }\n  \n  /*\n  thead{\n      background-color: #0064FF;\n      border-bottom: solid 5px #4c92ff;\n      color: white;\n  \n  }*/\n  \n  tr{\n      border-color:black;\n  }\n  \n  table,th{\n      border: 2px solid black;\n  }\n  \n  table td + td {\n      border-left:2px solid black;\n  }\n  \n  th{\n      text-align:center;\n  }\n  \n  #itemTipoNum{\n      padding-left: 4%;\n  }\n  \n  #subItemTipo1{\n      padding-left: 5%\n  }\n  \n  #subItemTipo2{\n      padding-left: 8%\n  }\n  \n  /*\n  tr:nth-child(even){\n  background-color:  #ddd;\n  }*/\n  \n  tr:hover td{\n      background-color: #4c92ff;\n    color: white;\n  }\n  \n  th{\n    background-color:  rgb(24, 76, 133);\n    width: 35px;\n    height: 45px;\n    color: #fff;\n     }\n  \n  td{\n      height: 45px;\n      width: 28px;\n      text-align: center;\n  }\n  \n  .td2{\n      background-color:#81BEF7;\n  }"
+module.exports = "#main-container {\r\n\r\n  margin: 7px;\r\n\r\n  width: 80%;\r\n  color: black;\r\n\r\n}\r\n\r\ntable {\r\n\r\n  font-family: \"arial\";\r\n  font-size: 14px;\r\n  background-color: white;\r\n  text-align: left;\r\n  border-collapse: collapse;\r\n  width: 120%;\r\n\r\n\r\n\r\n}\r\n\r\n/*\r\n  thead{\r\n      background-color: #0064FF;\r\n      border-bottom: solid 5px #4c92ff;\r\n      color: white;\r\n  \r\n  }*/\r\n\r\ntr {\r\n  border-color: black;\r\n}\r\n\r\ntable,\r\nth {\r\n  border: 2px solid black;\r\n}\r\n\r\ntable td+td {\r\n  border-left: 2px solid black;\r\n}\r\n\r\nth {\r\n  text-align: center;\r\n}\r\n\r\n#itemTipoNum {\r\n  padding-left: 4%;\r\n}\r\n\r\n#subItemTipo1 {\r\n  padding-left: 5%\r\n}\r\n\r\n#subItemTipo2 {\r\n  padding-left: 8%\r\n}\r\n\r\n/*\r\n  tr:nth-child(even){\r\n  background-color:  #ddd;\r\n  }*/\r\n\r\ntr:hover td {\r\n  background-color: #4c92ff;\r\n  color: white;\r\n}\r\n\r\nth {\r\n  background-color: rgb(24, 76, 133);\r\n  width: 35px;\r\n  height: 45px;\r\n  color: #fff;\r\n}\r\n\r\ntd {\r\n  height: 45px;\r\n  width: 28px;\r\n  text-align: center;\r\n}\r\n\r\n.td2 {\r\n  background-color: #81BEF7;\r\n}\r\n"
 
 /***/ }),
 
@@ -8587,7 +9625,7 @@ module.exports = "#main-container{\n\n    margin: 7px;\n  \n      width: 80%;\n 
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div id=\"main-container\">\n    <table id=\"success\">\n            <thead>\n              <tr>\n                  <th >DETALLE</th>\n                  <th >VALORES</th>\n                  <th >% VARIACIÓN</th>\n              </tr>\n            </thead>\n\n            <tbody >\n              <tr>\n                <td >PRODUCCIÓN DE LA INDUSTRIA</td>\n                <td >{{produccionIndustria.produccionIndustriaValorActual}}</td>\n                <td>{{(produccionIndustria.produccionIndustriaValorActual-produccionIndustria.produccionIndustriaValorAnterior)/produccionIndustria.produccionIndustriaValorAnterior*100}} %</td>\n\n              </tr>\n              <tr>\n                <td class=\"td2\">COSTE MEDIO DE PRODUCCIÓN (TOTAL)</td>\n                <td class=\"td2\">{{produccionIndustria.costeMedioTotalActual}}</td>\n                <td class=\"td2\">{{(produccionIndustria.costeMedioTotalActual-produccionIndustria.costeMedioTotalAnterior)/produccionIndustria.costeMedioTotalAnterior*100}} %</td>\n\n              </tr>\n              <tr>\n                <td >COSTE MEDIO DE PRODUCCIÓN (UNITARIO)</td>\n                <td >{{produccionIndustria.costeMedioUnitarioActual}}</td>\n                <td>{{(produccionIndustria.costeMedioUnitarioActual-produccionIndustria.costeMedioUnitarioAnterior)/produccionIndustria.costeMedioUnitarioAnterior*100}}%</td>\n              </tr>\n\n              <tr >\n                <td class=\"td2\">CAPACIDAD DE PRODUCCIÓN</td>\n                <td class=\"td2\">{{850+50*produccionIndustria.numero}}</td>\n                <td class=\"td2\">{{((850+50*produccionIndustria.numero)-(850+50*(produccionIndustria.numero-1)))/(850+50*(produccionIndustria.numero-1))*100}}%</td>\n              </tr>\n\n            </tbody>\n      </table>\n\n  </div>\n\n"
+module.exports = "<div id=\"main-container\">\r\n  <table id=\"success\">\r\n    <thead>\r\n      <tr>\r\n        <th>DETALLE</th>\r\n        <th>VALORES</th>\r\n        <th>% VARIACIÓN</th>\r\n      </tr>\r\n    </thead>\r\n\r\n    <tbody>\r\n      <tr>\r\n        <td>PRODUCCIÓN DE LA INDUSTRIA</td>\r\n        <td>{{produccionIndustria.produccionIndustriaValorActual | thousandPipe}}</td>\r\n        <td>{{Math.round((produccionIndustria.produccionIndustriaValorActual-produccionIndustria.produccionIndustriaValorAnterior)/produccionIndustria.produccionIndustriaValorAnterior*100)}}          %</td>\r\n\r\n      </tr>\r\n      <tr>\r\n        <td class=\"td2\">COSTE MEDIO DE PRODUCCIÓN (TOTAL)</td>\r\n        <td class=\"td2\">{{produccionIndustria.costeMedioTotalActual | thousandPipe}}</td>\r\n        <td class=\"td2\">{{Math.round((produccionIndustria.costeMedioTotalActual-produccionIndustria.costeMedioTotalAnterior)/produccionIndustria.costeMedioTotalAnterior*100)}}  %</td>\r\n\r\n      </tr>\r\n      <tr>\r\n        <td>COSTE MEDIO DE PRODUCCIÓN (UNITARIO)</td>\r\n        <td>{{produccionIndustria.costeMedioUnitarioActual}}</td>\r\n        <td>{{Math.round((produccionIndustria.costeMedioUnitarioActual-produccionIndustria.costeMedioUnitarioAnterior)/produccionIndustria.costeMedioUnitarioAnterior*100)}}%</td>\r\n      </tr>\r\n\r\n      <tr>\r\n        <td class=\"td2\">CAPACIDAD DE PRODUCCIÓN</td>\r\n        <td class=\"td2\">{{produccionIndustria.capacidadProduccionActual | thousandPipe }}</td>\r\n        <td class=\"td2\">{{Math.round((produccionIndustria.capacidadProduccionActual-produccionIndustria.capacidadProduccionAnterior)/produccionIndustria.capacidadProduccionAnterior*100)}}%</td>\r\n      </tr>\r\n\r\n    </tbody>\r\n  </table>\r\n\r\n</div>\r\n"
 
 /***/ }),
 
@@ -8616,6 +9654,7 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 var TablaProduccionComponent = /** @class */ (function () {
     function TablaProduccionComponent() {
+        this.Math = Math;
     }
     TablaProduccionComponent.prototype.ngOnInit = function () {
     };
@@ -8645,7 +9684,7 @@ var TablaProduccionComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "#main-container{\n\n    margin: 7px;\n  \n      width: 80%;\n      color: black;\n  \n  }\n  \n  table{\n  \n    font-family: \"arial\";\n    font-size: 16px;\n      background-color: white;\n      text-align: left;\n      border-collapse: collapse;\n      width: 120%;\n  \n  \n  \n  }\n  \n  /*\n  thead{\n      background-color: #0064FF;\n      border-bottom: solid 5px #4c92ff;\n      color: white;\n  \n  }*/\n  \n  tr{\n      border-color:black;\n  }\n  \n  table,th{\n      border: 2px solid black;\n  }\n  \n  table td + td {\n      border-left:2px solid black;\n  }\n  \n  th{\n      text-align:center;\n  }\n  \n  #itemTipoNum{\n      padding-left: 4%;\n  }\n  \n  #subItemTipo1{\n      padding-left: 5%\n  }\n  \n  #subItemTipo2{\n      padding-left: 8%\n  }\n  \n  /*\n  tr:nth-child(even){\n  background-color:  #ddd;\n  }*/\n  \n  tr:hover td{\n      background-color: #4c92ff;\n    color: white;\n  }\n  \n  th{\n    background-color:  rgb(24, 76, 133);\n    width: 28px;\n    height: 45px;\n    color: #fff;\n    \n  }\n  \n  td{\n    height: 45px;\n    width: 28px;\n    text-align: center;\n}\n  \n  .td2{\n  background-color:   #81BEF7\n}"
+module.exports = "#main-container {\r\n\r\n  margin: 7px;\r\n\r\n  width: 80%;\r\n  color: black;\r\n\r\n}\r\n\r\ntable {\r\n\r\n  font-family: \"arial\";\r\n  font-size: 16px;\r\n  background-color: white;\r\n  text-align: left;\r\n  border-collapse: collapse;\r\n  width: 120%;\r\n\r\n\r\n\r\n}\r\n\r\n/*\r\n  thead{\r\n      background-color: #0064FF;\r\n      border-bottom: solid 5px #4c92ff;\r\n      color: white;\r\n  \r\n  }*/\r\n\r\ntr {\r\n  border-color: black;\r\n}\r\n\r\ntable,\r\nth {\r\n  border: 2px solid black;\r\n}\r\n\r\ntable td+td {\r\n  border-left: 2px solid black;\r\n}\r\n\r\nth {\r\n  text-align: center;\r\n}\r\n\r\n#itemTipoNum {\r\n  padding-left: 4%;\r\n}\r\n\r\n#subItemTipo1 {\r\n  padding-left: 5%\r\n}\r\n\r\n#subItemTipo2 {\r\n  padding-left: 8%\r\n}\r\n\r\n/*\r\n  tr:nth-child(even){\r\n  background-color:  #ddd;\r\n  }*/\r\n\r\ntr:hover td {\r\n  background-color: #4c92ff;\r\n  color: white;\r\n}\r\n\r\nth {\r\n  background-color: rgb(24, 76, 133);\r\n  width: 28px;\r\n  height: 45px;\r\n  color: #fff;\r\n\r\n}\r\n\r\ntd {\r\n  height: 45px;\r\n  width: 28px;\r\n  text-align: center;\r\n}\r\n\r\n.td2 {\r\n  background-color: #81BEF7\r\n}\r\n"
 
 /***/ }),
 
@@ -8656,7 +9695,7 @@ module.exports = "#main-container{\n\n    margin: 7px;\n  \n      width: 80%;\n 
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div id=\"main-container\">\n    <table id=\"success\">\n            <thead>\n              <tr>\n                  <th >DETALLE</th>\n                  <th >BIMESTRE</th>\n                  <th >% VARIACIÓN</th>\n              </tr>\n            </thead>\n\n            <tbody >\n              <tr>\n                <td >VENTAS DE LA INDUSTRIA (UNIDADES)</td>\n                <td >{{ventasIndustria.ventasIndustriaUnidadesActual | thousandPipe}}</td>\n                <td >{{(ventasIndustria.ventasIndustriaUnidadesActual-ventasIndustria.ventasIndustriaUnidadesAnterior)/ventasIndustria.ventasIndustriaUnidadesAnterior*100 | thousandPipe}} %</td>\n\n              </tr>\n              <tr>\n                <td class=\"td2\">VENTAS DE LA INDUSTRIA (MONETARIO)</td>\n                <td class=\"td2\">{{ventasIndustria.ventasIndustriaMonetarioActual | thousandPipe}}</td>\n                <td class=\"td2\">{{(ventasIndustria.ventasIndustriaMonetarioActual-ventasIndustria.ventasIndustriaMonetarioAnterior)/ventasIndustria.ventasIndustriaMonetarioAnterior*100 | thousandPipe}} %</td>\n\n              </tr>\n              <tr>\n                <td >PRECIO UNITARIO PROMEDIO</td>\n                <td >{{ventasIndustria.precioUnitarioPromedioActual | thousandPipe}}</td>\n                <td >{{(ventasIndustria.precioUnitarioPromedioActual-ventasIndustria.precioUnitarioPromedioAnterior)/ventasIndustria.precioUnitarioPromedioAnterior*100 | thousandPipe}} %</td>\n\n              </tr>\n\n              <tr >\n                <td class=\"td2\">INVENTARIOS PROMEDIO</td>\n                <td class=\"td2\">{{ventasIndustria.inventarioPromediosActual | thousandPipe}}</td>\n                <td class=\"td2\">{{(ventasIndustria.inventarioPromediosActual-ventasIndustria.invetarioPromediosAnterior)/ventasIndustria.invetarioPromediosAnterior*100 | thousandPipe}} %</td>\n\n              </tr>\n\n            </tbody>\n      </table>\n\n  </div>\n"
+module.exports = "<div id=\"main-container\">\r\n  <table id=\"success\">\r\n    <thead>\r\n      <tr>\r\n        <th>DETALLE</th>\r\n        <th>BIMESTRE</th>\r\n        <th>% VARIACIÓN</th>\r\n      </tr>\r\n    </thead>\r\n\r\n    <tbody>\r\n      <tr>\r\n        <td>VENTAS DE LA INDUSTRIA (UNIDADES)</td>\r\n        <td>{{ventasIndustria.ventasIndustriaUnidadesActual | thousandPipe}}</td>\r\n        <td>{{Math.round((ventasIndustria.ventasIndustriaUnidadesActual-ventasIndustria.ventasIndustriaUnidadesAnterior)/ventasIndustria.ventasIndustriaUnidadesAnterior*100)}} %</td>\r\n\r\n      </tr>\r\n      <tr>\r\n        <td class=\"td2\">VENTAS DE LA INDUSTRIA (MONETARIO)</td>\r\n        <td class=\"td2\">{{ventasIndustria.ventasIndustriaMonetarioActual | thousandPipe}}</td>\r\n        <td class=\"td2\">{{Math.round((ventasIndustria.ventasIndustriaMonetarioActual-ventasIndustria.ventasIndustriaMonetarioAnterior)/ventasIndustria.ventasIndustriaMonetarioAnterior*100)}} %</td>\r\n\r\n      </tr>\r\n      <tr>\r\n        <td>PRECIO UNITARIO PROMEDIO</td>\r\n        <td>{{ventasIndustria.precioUnitarioPromedioActual | thousandPipe}}</td>\r\n        <td>{{Math.round((ventasIndustria.precioUnitarioPromedioActual-ventasIndustria.precioUnitarioPromedioAnterior)/ventasIndustria.precioUnitarioPromedioAnterior*100)}} %</td>\r\n\r\n      </tr>\r\n\r\n      <tr>\r\n        <td class=\"td2\">INVENTARIOS PROMEDIO</td>\r\n        <td class=\"td2\">{{ventasIndustria.inventarioPromediosActual | thousandPipe}}</td>\r\n        <td *ngIf=\"ventasIndustria.inventarioPromediosAnterior!=0\" class=\"td2\">{{Math.round((ventasIndustria.inventarioPromediosActual-ventasIndustria.inventarioPromediosAnterior)/ventasIndustria.inventarioPromediosAnterior*100)}} %</td>\r\n        <td *ngIf=\"ventasIndustria.inventarioPromediosAnterior==0\" class=\"td2\">Incremento en {{ventasIndustria.inventarioPromediosActual-ventasIndustria.inventarioPromediosAnterior}} unidades</td>\r\n      </tr>\r\n\r\n    </tbody>\r\n  </table>\r\n\r\n</div>\r\n"
 
 /***/ }),
 
@@ -8685,6 +9724,7 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 var TablaVentasComponent = /** @class */ (function () {
     function TablaVentasComponent() {
+        this.Math = Math;
     }
     TablaVentasComponent.prototype.ngOnInit = function () {
     };
@@ -8714,7 +9754,7 @@ var TablaVentasComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "#main-container{\n\n    margin: 7px;\n  \n      width: 80%;\n      color: black;\n  \n  }\n  \n  table{\n  \n    font-family: \"arial\";\n    font-size: 14px;\n      background-color: white;\n      text-align: left;\n      border-collapse: collapse;\n      width: 120%;\n  \n  \n  \n  }\n  \n  /* thead{\n      background-color: #0064FF;\n      border-bottom: solid 5px #4c92ff;\n      color: white;\n  \n  }*/\n  \n  tr{\n      border-color:black;\n  }\n  \n  table,th{\n      border: 2px solid black;\n  }\n  \n  table td + td {\n      border-left:2px solid black;\n  }\n  \n  th{\n      text-align:center;\n  }\n  \n  #itemTipoNum{\n      padding-left: 4%;\n  }\n  \n  #subItemTipo1{\n      padding-left: 5%\n  }\n  \n  #subItemTipo2{\n      padding-left: 8%\n  }\n  \n  /*\n  tr:nth-child(even){\n  background-color:  #ddd;\n  }*/\n  \n  tr:hover td{\n      background-color: #81BEF7;\n      color: white;\n    \n  }\n  \n  th{\n    background-color:  rgb(24, 76, 133);\n    width: 28px;\n    height: 45px;\n    color: #fff;\n  }\n  \n  td{\n    height: 45px;\n    width: 28px;\n    \n}\n  \n  .td2{\n    background-color:   #81BEF7\n  }"
+module.exports = "#main-container {\r\n\r\n  margin: 7px;\r\n\r\n  width: 80%;\r\n  color: black;\r\n\r\n}\r\n\r\ntable {\r\n\r\n  font-family: \"arial\";\r\n  font-size: 14px;\r\n  background-color: white;\r\n  text-align: left;\r\n  border-collapse: collapse;\r\n  width: 120%;\r\n\r\n\r\n\r\n}\r\n\r\n/* thead{\r\n      background-color: #0064FF;\r\n      border-bottom: solid 5px #4c92ff;\r\n      color: white;\r\n  \r\n  }*/\r\n\r\ntr {\r\n  border-color: black;\r\n}\r\n\r\ntable,\r\nth {\r\n  border: 2px solid black;\r\n}\r\n\r\ntable td+td {\r\n  border-left: 2px solid black;\r\n}\r\n\r\nth {\r\n  text-align: center;\r\n}\r\n\r\n#itemTipoNum {\r\n  padding-left: 4%;\r\n}\r\n\r\n#subItemTipo1 {\r\n  padding-left: 5%\r\n}\r\n\r\n#subItemTipo2 {\r\n  padding-left: 8%\r\n}\r\n\r\n/*\r\n  tr:nth-child(even){\r\n  background-color:  #ddd;\r\n  }*/\r\n\r\ntr:hover td {\r\n  background-color: #81BEF7;\r\n  color: white;\r\n\r\n}\r\n\r\nth {\r\n  background-color: rgb(24, 76, 133);\r\n  width: 28px;\r\n  height: 45px;\r\n  color: #fff;\r\n}\r\n\r\ntd {\r\n  height: 45px;\r\n  width: 28px;\r\n\r\n}\r\n\r\n.td2 {\r\n  background-color: #81BEF7\r\n}\r\n"
 
 /***/ }),
 
@@ -8725,7 +9765,7 @@ module.exports = "#main-container{\n\n    margin: 7px;\n  \n      width: 80%;\n 
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div id=\"main-container\">\n    <table id=\"success\">\n            <thead>\n              <tr>\n                <th >COMPAÑIA</th>\n                <th >VENTAS</th>\n                <th >BENEFICIO</th>\n                <th>PRECIO U.</th>\n                <th>% MERCADO</th>\n              </tr>\n            </thead>\n\n            <tbody >\n              <td><tr *ngFor=\"let visionG of http.game.players\">{{visionG.name}}</tr></td>\n              <td><tr *ngFor=\"let visionG of visionGeneral\">{{visionG.ventas | thousandPipe}}</tr></td>\n              <td><tr *ngFor=\"let visionG of visionGeneral\">{{visionG.beneficio | thousandPipe}}</tr></td>\n              <td><tr *ngFor=\"let visionG of visionGeneral\">{{visionG.precioUnitario | thousandPipe}}</tr></td>\n              <td><tr *ngFor=\"let visionG of visionGeneral\">{{visionG.porcentajeDeMercado | thousandPipe}} %</tr></td>\n              <tr>\n                <td class=\"td2\">MERCADO DESATENDIDO</td>\n                <td class=\"td2\"></td>\n                <td class=\"td2\"></td>\n                <td class=\"td2\"></td>\n                <td class=\"td2\">{{sumatoriasTotales()}}{{mercadoDesatendido | thousandPipe}} %</td>\n              </tr>\n              <tr>\n                <td>{{sumatoriasTotales() | thousandPipe}}TOTALES</td>\n                <td>{{totalesVentas | thousandPipe}}</td>\n                <td>{{totalesBeneficio | thousandPipe}}</td>\n                <td>PROM. {{totalesPrecioUnitario | thousandPipe}}</td>\n                <td>{{totalesPorcentajeMercado | thousandPipe}} %</td>\n              </tr>\n            </tbody>\n      </table>\n\n  </div>\n\n"
+module.exports = "<div id=\"main-container\">\r\n  <table id=\"success\">\r\n    <thead>\r\n      <tr>\r\n        <th>EMPRESA</th>\r\n        <th>VENTAS</th>\r\n        <th>UTILIDAD</th>\r\n        <th>PRECIO U.</th>\r\n        <th>% MERCADO</th>\r\n      </tr>\r\n    </thead>\r\n\r\n    <tbody>\r\n      <td>\r\n        <tr *ngFor=\"let visionG of visionGeneral\">{{visionG.jugador}}</tr>\r\n      </td>\r\n      <td>\r\n        <tr *ngFor=\"let visionG of visionGeneral\">{{visionG.ventas | thousandPipe}}</tr>\r\n      </td>\r\n      <td>\r\n        <tr *ngFor=\"let visionG of visionGeneral\">{{visionG.beneficio | thousandPipe}}</tr>\r\n      </td>\r\n      <td>\r\n        <tr *ngFor=\"let visionG of visionGeneral\">{{visionG.precioUnitario | thousandPipe}}</tr>\r\n      </td>\r\n      <td>\r\n        <tr *ngFor=\"let visionG of visionGeneral\">{{visionG.porcentajeDeMercado | thousandPipe}} %</tr>\r\n      </td>\r\n      <tr>\r\n        <td class=\"td2\">MERCADO DESATENDIDO</td>\r\n        <td class=\"td2\"></td>\r\n        <td class=\"td2\"></td>\r\n        <td class=\"td2\"></td>\r\n        <td class=\"td2\">{{sumatoriasTotales()}}{{mercadoDesatendido | thousandPipe}} %</td>\r\n      </tr>\r\n      <tr>\r\n        <td>{{sumatoriasTotales() | thousandPipe}}TOTALES</td>\r\n        <td>{{totalesVentas | thousandPipe}}</td>\r\n        <td>{{totalesBeneficio | thousandPipe}}</td>\r\n        <td>PROM. {{totalesPrecioUnitario | thousandPipe}}</td>\r\n        <td>{{totalesPorcentajeMercado | thousandPipe}} %</td>\r\n      </tr>\r\n    </tbody>\r\n  </table>\r\n\r\n</div>\r\n"
 
 /***/ }),
 
@@ -8786,6 +9826,7 @@ var TablaVisionGeneralComponent = /** @class */ (function () {
         if (this.totalesPorcentajeMercado < 100) {
             this.mercadoDesatendido = 100 - this.totalesPorcentajeMercado;
         }
+        this.totalesPorcentajeMercado += this.mercadoDesatendido;
     };
     __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
@@ -8813,7 +9854,7 @@ var TablaVisionGeneralComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "#main-containerBalance{\n\n\tmargin: 7px;\n    width: auto;\n\tcolor: black;\n\n\n\n\n}\n\ntable{\n  font-family: \"arial\";\n  font-size: 14px;\n  background-color: white;\n  text-align: left;\n  border-collapse: collapse;\n  width: 100%;\n}\n\nth, td{\n\tpadding: 5px;\n}\n\nthead{\n\tbackground-color: #0064FF;\n\tborder-bottom: solid 5px #4c92ff;\n\tcolor: white;\n\n}\n\nth{\n\n\tfont-size: 14px;\n\tborder-style:solid solid solid solid;\n\ttext-align:center;\n}\n\ntable,th {\n    border: 2px solid black;\n}\n\n#primero-Izq{\n\tborder-style:solid hidden hidden solid;\n}\n\n#medio-Izq{\n\tborder-style:hidden hidden hidden solid;\n}\n\n#ultimo-Izq{\n\tborder-style:hidden hidden solid solid;\n}\n\n#ultimo-Izq-Final{\n\tborder-style:solid hidden solid solid;\n}\n\n#pintar{\n\tbackground-color:rgb(0, 197, 245);\n\tborder-style:solid solid solid solid;\n}\n\n/*\ntr:nth-child(even){\nbackground-color:  #ddd;\n}\n/* preguntar si se queda*/\n\ntr:hover td{\n\tbackground-color: #4c92ff;\n\tcolor: white;\n}\n\n"
+module.exports = "#main-containerBalance {\r\n\r\n  margin: 7px;\r\n  width: auto;\r\n  color: black;\r\n\r\n\r\n\r\n\r\n}\r\n\r\ntable {\r\n  font-family: \"arial\";\r\n  font-size: 14px;\r\n  background-color: white;\r\n  text-align: left;\r\n  border-collapse: collapse;\r\n  width: 100%;\r\n}\r\n\r\nth,\r\ntd {\r\n  padding: 5px;\r\n}\r\n\r\nthead {\r\n  background-color: #0064FF;\r\n  border-bottom: solid 5px #4c92ff;\r\n  color: white;\r\n\r\n}\r\n\r\nth {\r\n\r\n  font-size: 14px;\r\n  border-style: solid solid solid solid;\r\n  text-align: center;\r\n}\r\n\r\ntable,\r\nth {\r\n  border: 2px solid black;\r\n}\r\n\r\n#primero-Izq {\r\n  border-style: solid hidden hidden solid;\r\n}\r\n\r\n#medio-Izq {\r\n  border-style: hidden hidden hidden solid;\r\n}\r\n\r\n#ultimo-Izq {\r\n  border-style: hidden hidden solid solid;\r\n}\r\n\r\n#ultimo-Izq-Final {\r\n  border-style: solid hidden solid solid;\r\n}\r\n\r\n#pintar {\r\n  background-color: rgb(0, 197, 245);\r\n  border-style: solid solid solid solid;\r\n}\r\n\r\n/*\r\ntr:nth-child(even){\r\nbackground-color:  #ddd;\r\n}\r\n/* preguntar si se queda*/\r\n\r\ntr:hover td {\r\n  background-color: #4c92ff;\r\n  color: white;\r\n}\r\n"
 
 /***/ }),
 
@@ -8824,7 +9865,7 @@ module.exports = "#main-containerBalance{\n\n\tmargin: 7px;\n    width: auto;\n\
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div id=\"main-containerBalance\">\n  <table id=\"success\">\n    <tbody>\n        <tr>\n                <th colspan=\"4\">Activo</th>\n                <th colspan=\"4\">Pasivo</th>\n\n            </tr>\n\n\n          <tr>\n              <td colspan=\"4\"></td>\n              <td id=\"primero-Izq\">Corriente</td>\n              <td colspan=\"2\"></td>\n              <td> 0</td>\n          </tr>\n\n              <td>Corriente</td>\n              <td colspan=\"2\"></td>\n              <td>{{balanceGeneral.corriente | thousandPipe}}</td>\n              <td id=\"medio-Izq\"></td>\n              <td>Cuenta por Cobrar</td>\n              <td>0</td>\n              <td></td>\n\n\n\n\n            <tr>\n\n            </tr>\n            <tr>\n              <td></td>\n              <td>Caja</td>\n              <td>{{balanceGeneral.caja | thousandPipe}}</td>\n              <td></td>\n              <td id=\"medio-Izq\">no corriente</td>\n              <td colspan=\"2\"></td>\n              <td>{{1300 | thousandPipe}}</td>\n\n            </tr>\n            <tr>\n              <td></td>\n              <td>Bancos</td>\n              <td>{{balanceGeneral.bancos | thousandPipe}}</td>\n              <td></td>\n              <td id=\"medio-Izq\"></td>\n              <td>Alquiler</td>\n              <td>{{1300 | thousandPipe}}</td>\n              <td></td>\n\n            </tr>\n\n              <tr>\n              <td></td>\n              <td>Inventario</td>\n              <td>{{balanceGeneral.inventario | thousandPipe}}</td>\n              <td></td>\n              <td id=\"ultimo-Izq\">Total pasivo</td>\n              <td colspan=\"2\" id=\"ultimo\"></td>\n              <td>{{1300 | thousandPipe}}</td>\n\n            </tr>\n\n            <tr>\n              <td>No corriente</td>\n              <td colspan=\"2\"></td>\n              <td>{{8500 | thousandPipe}}</td>\n              <th colspan=\"4\">Patrimonio</th>\n\n            </tr>\n\n            <tr>\n              <td></td>\n              <td>Herramientas</td>\n              <td>{{1500 | thousandPipe}}</td>\n              <td></td>\n              <td id=\"primero-Izq\">Capital</td>\n              <td colspan=\"2\"></td>\n              <td>{{balanceGeneral.capital | thousandPipe}}</td>\n\n            </tr>\n\n            <tr>\n              <td></td>\n              <td>Maquinaria</td>\n              <td>{{7000 | thousandPipe}}</td>\n              <td></td>\n              <td id=\"medio-Izq\">Utilidad del ejercicio</td>\n              <td colspan=\"2\"></td>\n              <td>{{balanceGeneral.utilidadEjercicio | thousandPipe}}</td>\n\n            </tr>\n\n            <tr>\n              <td colspan=\"4\"></td>\n              <td id=\"ultimo-Izq\">Total patrimonio</td>\n              <td colspan=\"2\"></td>\n              <td>{{balanceGeneral.totalPatrimonio | thousandPipe}}</td>\n\n            </tr>\n\n            <tr id=\"pintar\">\n              <td>Total activos</td>\n              <td></td>\n              <td></td>\n              <td>{{balanceGeneral.totalActivos | thousandPipe}}</td>\n              <td id=\"ultimo-Izq-Final\">Total pasivo + patrimonio</td>\n              <td colspan=\"2\"></td>\n              <td>{{balanceGeneral.totalPasivoPatrimonio | thousandPipe}}</td>\n\n            </tr>\n\n            </tbody>\n        </table>\n      </div>\n"
+module.exports = "<div id=\"main-containerBalance\">\r\n  <table id=\"success\">\r\n    <tbody>\r\n      <tr>\r\n        <th colspan=\"4\">Activo</th>\r\n        <th colspan=\"4\">Pasivo</th>\r\n\r\n      </tr>\r\n\r\n\r\n      <tr>\r\n        <td colspan=\"4\"></td>\r\n        <td id=\"primero-Izq\">Corriente</td>\r\n        <td colspan=\"2\"></td>\r\n        <td> 0</td>\r\n      </tr>\r\n\r\n      <td>Corriente</td>\r\n      <td colspan=\"2\"></td>\r\n      <td>{{balanceGeneral.corriente | thousandPipe}}</td>\r\n      <td id=\"medio-Izq\"></td>\r\n      <td>Cuenta por Cobrar</td>\r\n      <td>0</td>\r\n      <td></td>\r\n\r\n\r\n\r\n\r\n      <tr>\r\n\r\n      </tr>\r\n      <tr>\r\n        <td></td>\r\n        <td>Caja</td>\r\n        <td>{{balanceGeneral.caja | thousandPipe}}</td>\r\n        <td></td>\r\n        <td id=\"medio-Izq\">No corriente</td>\r\n        <td colspan=\"2\"></td>\r\n        <td>{{1300 | thousandPipe}}</td>\r\n\r\n      </tr>\r\n      <tr>\r\n        <td></td>\r\n        <td>Bancos</td>\r\n        <td>{{balanceGeneral.bancos | thousandPipe}}</td>\r\n        <td></td>\r\n        <td id=\"medio-Izq\"></td>\r\n        <td>Alquiler</td>\r\n        <td>{{1300 | thousandPipe}}</td>\r\n        <td></td>\r\n\r\n      </tr>\r\n\r\n      <tr>\r\n        <td></td>\r\n        <td>Inventario</td>\r\n        <td>{{balanceGeneral.inventario | thousandPipe}}</td>\r\n        <td></td>\r\n        <td id=\"ultimo-Izq\">Total pasivo</td>\r\n        <td colspan=\"2\" id=\"ultimo\"></td>\r\n        <td>{{1300 | thousandPipe}}</td>\r\n\r\n      </tr>\r\n\r\n      <tr>\r\n        <td>No corriente</td>\r\n        <td colspan=\"2\"></td>\r\n        <td>{{8500 | thousandPipe}}</td>\r\n        <th colspan=\"4\">Patrimonio</th>\r\n\r\n      </tr>\r\n\r\n      <tr>\r\n        <td></td>\r\n        <td>Herramientas</td>\r\n        <td>{{1500 | thousandPipe}}</td>\r\n        <td></td>\r\n        <td id=\"primero-Izq\">Capital</td>\r\n        <td colspan=\"2\"></td>\r\n        <td>{{balanceGeneral.capital | thousandPipe}}</td>\r\n\r\n      </tr>\r\n\r\n      <tr>\r\n        <td></td>\r\n        <td>Maquinaria</td>\r\n        <td>{{7000 | thousandPipe}}</td>\r\n        <td></td>\r\n        <td id=\"medio-Izq\">Utilidad del ejercicio</td>\r\n        <td colspan=\"2\"></td>\r\n        <td>{{balanceGeneral.utilidadEjercicio | thousandPipe}}</td>\r\n\r\n      </tr>\r\n\r\n      <tr>\r\n        <td colspan=\"4\"></td>\r\n        <td id=\"ultimo-Izq\">Total patrimonio</td>\r\n        <td colspan=\"2\"></td>\r\n        <td>{{balanceGeneral.totalPatrimonio | thousandPipe}}</td>\r\n\r\n      </tr>\r\n\r\n      <tr id=\"pintar\">\r\n        <td>Total activos</td>\r\n        <td></td>\r\n        <td></td>\r\n        <td>{{balanceGeneral.totalActivos | thousandPipe}}</td>\r\n        <td id=\"ultimo-Izq-Final\">Total pasivo + patrimonio</td>\r\n        <td colspan=\"2\"></td>\r\n        <td>{{balanceGeneral.totalPasivoPatrimonio | thousandPipe}}</td>\r\n\r\n      </tr>\r\n\r\n    </tbody>\r\n  </table>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -8882,7 +9923,7 @@ var TablBalanceGeneralComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "#main-containerCostos{\n\n\tmargin: 7px;\n    width: auto;\n\tcolor: black;\n\n\n\n\n}\n\ntable{\n  font-family: \"arial\";\n  font-size: 14px;\n  background-color: white;\n  text-align: left;\n  border-collapse: collapse;\n  width: 100%;\n\n\n}\n\nth, td{\n\tpadding: 5px;\n}\n\nthead{\n\tbackground-color: #0064FF;\n\tborder-bottom: solid 5px #4c92ff;\n\tcolor: white;\n\n}\n\nth{\n\tbackground-color: rgb(0, 197, 245);\n}\n\n#subItemTipo1{\n\tpadding-left:10%;\n}\n\n/*tr:nth-child(even){\nbackground-color:  #ddd;\n}\n*/\n\n/*preguntar si se queda*/\n\ntr:hover td{\n\tbackground-color: #4c92ff;\n\tcolor: white;\n}\n\n\n"
+module.exports = "#main-containerCostos {\r\n\r\n  margin: 7px;\r\n  width: auto;\r\n  color: black;\r\n\r\n\r\n\r\n\r\n}\r\n\r\ntable {\r\n  font-family: \"arial\";\r\n  font-size: 14px;\r\n  background-color: white;\r\n  text-align: left;\r\n  border-collapse: collapse;\r\n  width: 100%;\r\n\r\n\r\n}\r\n\r\nth,\r\ntd {\r\n  padding: 5px;\r\n}\r\n\r\nthead {\r\n  background-color: #0064FF;\r\n  border-bottom: solid 5px #4c92ff;\r\n  color: white;\r\n\r\n}\r\n\r\nth {\r\n  background-color: rgb(0, 197, 245);\r\n}\r\n\r\n#subItemTipo1 {\r\n  padding-left: 10%;\r\n}\r\n\r\n/*tr:nth-child(even){\r\nbackground-color:  #ddd;\r\n}\r\n*/\r\n\r\n/*preguntar si se queda*/\r\n\r\ntr:hover td {\r\n  background-color: #4c92ff;\r\n  color: white;\r\n}\r\n"
 
 /***/ }),
 
@@ -8893,7 +9934,7 @@ module.exports = "#main-containerCostos{\n\n\tmargin: 7px;\n    width: auto;\n\t
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div id=\"main-containerCostos\">\n  <table>\n    <tbody>\n            <tr>\n                <th colspan=\"7\">MATERIA PRIMA</th>\n                <th>{{costosProduccion.materiaPrima | thousandPipe}}</th>\n            </tr>\n\n\n            <tr>\n              <td></td>\n              <td id=\"subItemTipo1\">Poleras basicas (35 la unidad)</td>\n              <td colspan=\"4\"></td>\n              <td>{{costosProduccion.materiaPrima | thousandPipe}}</td>\n              <td></td>\n\n            </tr>\n            <tr>\n                <th colspan=\"7\">MANO DE OBRA DIRECTA</th>\n                <th>{{8000 | thousandPipe}}</th>\n\n            </tr>\n\n            <tr>\n              <td></td>\n              <td id=\"subItemTipo1\">Sueldos</td>\n              <td colspan=\"4\"></td>\n              <td>{{6000 | thousandPipe}}</td>\n              <td></td>\n            </tr>\n\n            <tr>\n              <td></td>\n              <td id=\"subItemTipo1\">Beneficios sociales</td>\n              <td colspan=\"4\"></td>\n              <td>{{2000 | thousandPipe}}</td>\n              <td></td>\n\n            </tr>\n\n              <tr>\n              <th colspan=\"7\">COSTOS INDIRECTOS</th>\n              <th>{{22770 | thousandPipe}}</th>\n\n            </tr>\n\n            <tr>\n  \t\t\t      <td></td>\n              <td id=\"subItemTipo1\">Material indirecto</td>\n              <td colspan=\"4\"></td>\n              <td>{{5000 | thousandPipe}}</td>\n              <td></td>\n\n            </tr>\n\n\n            <tr>\n\n              <td colspan=\"2\"></td>\n              <td>  Insumos</td>\n              <td colspan=\"2\"></td>\n              <td>{{5000 | thousandPipe}}</td>\n              <td colspan=\"2\"></td>\n\n\n            </tr>\n\n\n            <tr>\n              <td></td>\n              <td id=\"subItemTipo1\">Mano de obra indirecto</td>\n              <td colspan=\"4\"></td>\n              <td>{{16120 | thousandPipe}}</td>\n              <td></td>\n\n            </tr>\n\n\n            <tr>\n              <td colspan=\"2\"></td>\n              <td>Sueldos</td>\n              <td colspan=\"2\"></td>\n              <td>{{12000 | thousandPipe}}</td>\n              <td colspan=\"2\"></td>\n\n            </tr>\n\n\n            <tr>\n\n              <td colspan=\"2\"></td>\n              <td>Beneficios sociales</td>\n              <td colspan=\"2\"></td>\n              <td>{{4120 | thousandPipe}}</td>\n              <td colspan=\"2\"></td>\n\n            </tr>\n\n\n            <tr>\n\n              <td></td>\n              <td id=\"subItemTipo1\">Depreciación maquinaria</td>\n              <td colspan=\"4\"></td>\n              <td>150</td>\n              <td></td>\n\n            </tr>\n\n            <tr>\n              <td></td>\n              <td id=\"subItemTipo1\">Servicios</td>\n              <td colspan=\"4\"></td>\n              <td>200</td>\n              <td></td>\n\n\n            </tr>\n\n            <tr>\n\n              <td></td>\n              <td id=\"subItemTipo1\">Alquiler</td>\n              <td colspan=\"4\"></td>\n              <td>{{1300 | thousandPipe}}</td>\n              <td></td>\n            </tr>\n\n            <tr>\n                <th colspan=\"7\">COSTO TOTAL</th>\n                <th>{{costosProduccion.costoTotal | thousandPipe}}</th>\n\n            </tr>\n            <tr>\n                <th colspan=\"7\">COSTO UNITARIO</th>\n                <th>{{costosProduccion.costoUnitario | thousandPipe}}</th>\n\n            </tr>\n          </tbody>\n        </table>\n      </div>\n"
+module.exports = "<div id=\"main-containerCostos\">\r\n  <table>\r\n    <tbody>\r\n      <tr>\r\n        <th colspan=\"7\">MATERIA PRIMA</th>\r\n        <th>{{costosProduccion.materiaPrima | thousandPipe}}</th>\r\n      </tr>\r\n\r\n\r\n      <tr>\r\n        <td></td>\r\n        <td id=\"subItemTipo1\">Poleras basicas (50 la unidad)</td>\r\n        <td colspan=\"4\"></td>\r\n        <td>{{costosProduccion.materiaPrima | thousandPipe}}</td>\r\n        <td></td>\r\n\r\n      </tr>\r\n      <tr>\r\n        <th colspan=\"7\">MANO DE OBRA DIRECTA</th>\r\n        <th>{{8000 | thousandPipe}}</th>\r\n\r\n      </tr>\r\n\r\n      <tr>\r\n        <td></td>\r\n        <td id=\"subItemTipo1\">Sueldos</td>\r\n        <td colspan=\"4\"></td>\r\n        <td>{{6000 | thousandPipe}}</td>\r\n        <td></td>\r\n      </tr>\r\n\r\n      <tr>\r\n        <td></td>\r\n        <td id=\"subItemTipo1\">Beneficios sociales</td>\r\n        <td colspan=\"4\"></td>\r\n        <td>{{2000 | thousandPipe}}</td>\r\n        <td></td>\r\n\r\n      </tr>\r\n\r\n      <tr>\r\n        <th colspan=\"7\">COSTOS INDIRECTOS</th>\r\n        <th>{{22770 | thousandPipe}}</th>\r\n\r\n      </tr>\r\n\r\n      <tr>\r\n        <td></td>\r\n        <td id=\"subItemTipo1\">Material indirecto</td>\r\n        <td colspan=\"4\"></td>\r\n        <td>{{5000 | thousandPipe}}</td>\r\n        <td></td>\r\n\r\n      </tr>\r\n\r\n\r\n      <tr>\r\n\r\n        <td colspan=\"2\"></td>\r\n        <td> Insumos</td>\r\n        <td colspan=\"2\"></td>\r\n        <td>{{5000 | thousandPipe}}</td>\r\n        <td colspan=\"2\"></td>\r\n\r\n\r\n      </tr>\r\n\r\n\r\n      <tr>\r\n        <td></td>\r\n        <td id=\"subItemTipo1\">Mano de obra indirecto</td>\r\n        <td colspan=\"4\"></td>\r\n        <td>{{16120 | thousandPipe}}</td>\r\n        <td></td>\r\n\r\n      </tr>\r\n\r\n\r\n      <tr>\r\n        <td colspan=\"2\"></td>\r\n        <td>Sueldos</td>\r\n        <td colspan=\"2\"></td>\r\n        <td>{{12000 | thousandPipe}}</td>\r\n        <td colspan=\"2\"></td>\r\n\r\n      </tr>\r\n\r\n\r\n      <tr>\r\n\r\n        <td colspan=\"2\"></td>\r\n        <td>Beneficios sociales</td>\r\n        <td colspan=\"2\"></td>\r\n        <td>{{4120 | thousandPipe}}</td>\r\n        <td colspan=\"2\"></td>\r\n\r\n      </tr>\r\n\r\n\r\n      <tr>\r\n\r\n        <td></td>\r\n        <td id=\"subItemTipo1\">Depreciación maquinaria</td>\r\n        <td colspan=\"4\"></td>\r\n        <td>150</td>\r\n        <td></td>\r\n\r\n      </tr>\r\n\r\n      <tr>\r\n        <td></td>\r\n        <td id=\"subItemTipo1\">Servicios</td>\r\n        <td colspan=\"4\"></td>\r\n        <td>200</td>\r\n        <td></td>\r\n\r\n\r\n      </tr>\r\n\r\n      <tr>\r\n\r\n        <td></td>\r\n        <td id=\"subItemTipo1\">Alquiler</td>\r\n        <td colspan=\"4\"></td>\r\n        <td>{{1300 | thousandPipe}}</td>\r\n        <td></td>\r\n      </tr>\r\n\r\n      <tr>\r\n        <th colspan=\"7\">COSTO TOTAL</th>\r\n        <th>{{costosProduccion.costoTotal | thousandPipe}}</th>\r\n\r\n      </tr>\r\n      <tr>\r\n        <th colspan=\"7\">COSTO UNITARIO</th>\r\n        <th>{{costosProduccion.costoUnitarioDecimal}}</th>\r\n\r\n      </tr>\r\n    </tbody>\r\n  </table>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -8951,7 +9992,7 @@ var TablCostosComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "#main-containerVentas{\n\t\n\tmargin: 7px;\n    width: calc(100% - 20px);\n\tcolor: black;\n}\n\ntable{\n\tfont-family: \"arial\";\n\tbackground-color: white;\n\ttext-align: left;\n\tborder-collapse: collapse;\n\twidth: 100%;\n\tfont-size: 14px;\n}\n\ntable,th {\n    border: 2px solid black;\n}\n\ntable td + td {\n\tborder-left:2px solid black;\n}\n\nth,td{\n\tpadding: 5px;\n}\n\n/*\nthead{\n\tbackground-color: #0064FF;\n\tborder-bottom: solid 5px #4c92ff;\n\tcolor: white;\n\n}\n*/\n\ntr:nth-child(even){\nbackground-color:  rgb(0, 197, 245);\n}\n\n/*esto no se pidio, preguntar si dejarlo*/\n\ntr:hover td{\n\tbackground-color: #4c92ff;\n\tcolor: white;\n}\n\nth{\n\ttext-align:center;\n\tfont-weight: bold;\n}"
+module.exports = "#main-containerVentas {\r\n\r\n  margin: 7px;\r\n  width: calc(100% - 20px);\r\n  color: black;\r\n}\r\n\r\ntable {\r\n  font-family: \"arial\";\r\n  background-color: white;\r\n  text-align: left;\r\n  border-collapse: collapse;\r\n  width: 100%;\r\n  font-size: 14px;\r\n}\r\n\r\ntable,\r\nth {\r\n  border: 2px solid black;\r\n}\r\n\r\ntable td+td {\r\n  border-left: 2px solid black;\r\n}\r\n\r\nth,\r\ntd {\r\n  padding: 5px;\r\n}\r\n\r\n/*\r\nthead{\r\n\tbackground-color: #0064FF;\r\n\tborder-bottom: solid 5px #4c92ff;\r\n\tcolor: white;\r\n\r\n}\r\n*/\r\n\r\ntr:nth-child(even) {\r\n  background-color: rgb(0, 197, 245);\r\n}\r\n\r\n/*esto no se pidio, preguntar si dejarlo*/\r\n\r\ntr:hover td {\r\n  background-color: #4c92ff;\r\n  color: white;\r\n}\r\n\r\nth {\r\n  text-align: center;\r\n  font-weight: bold;\r\n}\r\n"
 
 /***/ }),
 
@@ -8962,7 +10003,7 @@ module.exports = "#main-containerVentas{\n\t\n\tmargin: 7px;\n    width: calc(10
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div id=\"main-containerVentas\">\n  <table>\n          <thead>\n            <tr>\n                <th>DETALLE</th>\n                <th>UNIDADES</th>\n                <th>MONETARIO</th>\n\n            </tr>\n          </thead>\n\n          <tbody>\n            <tr>\n              <td>PRODUCIDO</td>\n              <td>{{ventas.producidoUnidades | thousandPipe}}</td>\n              <td>{{ventas.producidoMonetario | thousandPipe}}</td>\n\n            </tr>\n            <tr>\n              <td>VENTAS REALIZADAS</td>\n              <td>{{ventas.ventasRealizadasUnidades | thousandPipe}}</td>\n              <td>{{ventas.ventasRealizadasMonetario | thousandPipe}}</td>\n            </tr>\n            <tr>\n              <td>INVENTARIO</td>\n              <td>{{ventas.inventarioUnidades | thousandPipe}}</td>\n              <td>{{ventas.inventarioMonetario | thousandPipe}}</td>\n            </tr>\n            <tr>\n              <td>PEDIDOS NO ATENDIDOS</td>\n              <td>{{ventas.pedidosNoAtendidosUnidades | thousandPipe}}</td>\n              <td>{{ventas.pedidosNoAtendidosMonetario | thousandPipe}}</td>\n            </tr>\n          </tbody>\n        </table>\n</div>\n"
+module.exports = "<div id=\"main-containerVentas\">\r\n  <table>\r\n    <thead>\r\n      <tr>\r\n        <th>DETALLE</th>\r\n        <th>UNIDADES</th>\r\n        <th>MONETARIO</th>\r\n\r\n      </tr>\r\n    </thead>\r\n\r\n    <tbody>\r\n      <tr>\r\n        <td>PRODUCIDO</td>\r\n        <td>{{ventas.producidoUnidades | thousandPipe}}</td>\r\n        <td>{{ventas.producidoMonetario | thousandPipe}}</td>\r\n\r\n      </tr>\r\n      <tr>\r\n        <td>VENTAS REALIZADAS</td>\r\n        <td>{{ventas.ventasRealizadasUnidades | thousandPipe}}</td>\r\n        <td>{{ventas.ventasRealizadasMonetario | thousandPipe}}</td>\r\n      </tr>\r\n      <tr>\r\n        <td>INVENTARIO</td>\r\n        <td>{{ventas.inventarioUnidades | thousandPipe}}</td>\r\n        <td>{{ventas.inventarioMonetario | thousandPipe}}</td>\r\n      </tr>\r\n      <tr>\r\n        <td>PEDIDOS NO ATENDIDOS</td>\r\n        <td>{{ventas.pedidosNoAtendidosUnidades | thousandPipe}}</td>\r\n        <td>{{ventas.pedidosNoAtendidosMonetario | thousandPipe}}</td>\r\n      </tr>\r\n    </tbody>\r\n  </table>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -9497,6 +10538,10 @@ var HttpService = /** @class */ (function () {
         this.baseUrl = 'http://localhost:8080';
         this.contador = 0;
         console.log("servicio generado");
+        socket.on('disconnect', function () {
+            alert("desconectado del servidor");
+            window.location.reload();
+        });
         socket.on("connect", function (data) {
             console.log("servicio generado socket");
             _this.game = new Game(socket);
@@ -9581,23 +10626,43 @@ var Game = /** @class */ (function () {
                 var bimestre_uno_count = 0;
                 var bimestre_dos_count = 0;
                 var bimestre_tres_count = 0;
+                var bimestre_uno_activos = 0;
+                var bimestre_dos_activos = 0;
+                var bimestre_tres_activos = 0;
                 for (var _i = 0, _a = data.players; _i < _a.length; _i++) {
                     var i = _a[_i];
                     var tmp_player = new Player(i);
                     if (tmp_player.name == _this.name)
                         _this.player = tmp_player;
+                    console.log(i.activo_uno, "+++++++++++++++++++++ 1--> ", tmp_player.activo_uno);
+                    console.log(i.activo_dos, "+++++++++++++++++++++ 2--> ", tmp_player.activo_dos);
+                    console.log(i.activo_tres, "+++++++++++++++++++++ 3--> ", tmp_player.activo_tres);
+                    console.log("/\| ==>", i);
                     _this.players.push(tmp_player);
-                    if (tmp_player.bimestre_uno)
-                        bimestre_uno_count++;
-                    if (tmp_player.bimestre_dos)
-                        bimestre_dos_count++;
-                    if (tmp_player.bimestre_tres)
-                        bimestre_tres_count++;
+                    if (tmp_player.activo_uno == true) {
+                        console.log("entro uno");
+                        bimestre_uno_activos++;
+                        if (tmp_player.bimestre_uno)
+                            bimestre_uno_count++;
+                    }
+                    if (tmp_player.activo_dos == true) {
+                        console.log("entro dos");
+                        bimestre_dos_activos++;
+                        if (tmp_player.bimestre_dos)
+                            bimestre_dos_count++;
+                    }
+                    if (tmp_player.activo_tres == true) {
+                        console.log("entro tres");
+                        bimestre_tres_activos++;
+                        if (tmp_player.bimestre_tres)
+                            bimestre_tres_count++;
+                    }
                 }
+                console.log("CALCULO =>", bimestre_uno_activos, bimestre_dos_activos, bimestre_tres_activos, bimestre_uno_count, bimestre_dos_count, bimestre_tres_count);
                 _this.bimestre_inicial_c = data.size - _this.players.length;
-                _this.bimestre_uno_c = data.size - bimestre_uno_count;
-                _this.bimestre_dos_c = data.size - bimestre_dos_count;
-                _this.bimestre_tres_c = data.size - bimestre_tres_count;
+                _this.bimestre_uno_c = bimestre_uno_activos - bimestre_uno_count;
+                _this.bimestre_dos_c = bimestre_dos_activos - bimestre_dos_count;
+                _this.bimestre_tres_c = bimestre_tres_activos - bimestre_tres_count;
                 _this.cantidadTotalJugadores = data.size;
                 _this.moderator = _this.codigo;
                 console.log(_this.bimestre_inicial_c, _this.bimestre_uno_c, _this.bimestre_dos_c, _this.bimestre_tres_c);
@@ -9668,8 +10733,8 @@ var Game = /** @class */ (function () {
         console.log("getVentasIndustria", send_Data);
         this.socket.emit("getVentasIndustria", send_Data, callback);
     };
-    Game.prototype.getEstadoResultados = function (callback) {
-        var send_Data = { codigo: this.codigo, player_name: this.player.name };
+    Game.prototype.getEstadoResultados = function (data, callback) {
+        var send_Data = { numeroBimestre: data, codigo: this.codigo, player_name: this.player.name };
         console.log("v", send_Data);
         this.socket.emit("getEstadoResultados", send_Data, callback);
     };
@@ -9688,8 +10753,8 @@ var Game = /** @class */ (function () {
         console.log("getAllVentasIndustria", send_Data);
         this.socket.emit("getAllVentasIndustria", send_Data, callback);
     };
-    Game.prototype.getPromedioUtilidadNeta = function (callback) {
-        var send_Data = { codigo: this.codigo, player_name: this.player.name };
+    Game.prototype.getPromedioUtilidadNeta = function (data, callback) {
+        var send_Data = { numeroBimestre: data, codigo: this.codigo, player_name: this.player.name };
         console.log("getPromedioUtilidadNeta", send_Data);
         this.socket.emit("getPromedioUtilidadNeta", send_Data, callback);
     };
@@ -9703,11 +10768,26 @@ var Game = /** @class */ (function () {
         console.log("getPromedioPrecioUnitarios", send_Data);
         this.socket.emit("getPromedioPrecioUnitarios", send_Data, callback);
     };
+    Game.prototype.getProduccionTotalIndustriaBimestres = function (data, callback) {
+        var send_Data = { numeroBimestre: data, codigo: this.codigo, player_name: this.player.name };
+        console.log("getProduccionTotalIndustriaBimestres", send_Data);
+        this.socket.emit("getProduccionTotalIndustriaBimestres", send_Data, callback);
+    };
     Game.prototype.joinGameModerator = function (data, callback) {
         this.codigo = data;
         this.name = data;
         console.log("join game moderator", data);
         this.socket.emit("joinGameModerator", data, callback);
+    };
+    Game.prototype.getActivo = function (callback) {
+        var send_Data = { codigo: this.codigo, player_name: this.player.name };
+        console.log("getActivo", send_Data);
+        this.socket.emit("getActivo", send_Data, callback);
+    };
+    Game.prototype.retirarseJuego = function (data, callback) {
+        var send_Data = { numeroBimestre: data, codigo: this.codigo, player_name: this.player.name };
+        console.log("retirarseJuego", send_Data);
+        this.socket.emit("retirarseJuego", send_Data, callback);
     };
     return Game;
 }());
@@ -9730,6 +10810,9 @@ var Player = /** @class */ (function () {
             this.bimestre_tres = new Bimestre(data.bimestre_tres);
             this.bimestre_anterior = this.bimestre_tres;
         }
+        this.activo_uno = data.activo_uno;
+        this.activo_dos = data.activo_dos;
+        this.activo_tres = data.activo_tres;
     }
     return Player;
 }());
@@ -9754,7 +10837,7 @@ var Bimestre = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/samuelriotz/luz/SimulatorServer/angular/src/main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! D:\projects\test\SimulatorServer\angular\src\main.ts */"./src/main.ts");
 
 
 /***/ }),
