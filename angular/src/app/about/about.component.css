@@ -146,6 +146,8 @@ float: right;
       margin: 0;
       padding: 0;
       text-align: center;
+      display: flex;
+      justify-content:space-around;
   }
   .caja1
   {
