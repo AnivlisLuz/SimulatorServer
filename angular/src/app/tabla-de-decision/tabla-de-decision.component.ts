@@ -311,7 +311,6 @@ export class TablaDeDecisionComponent implements OnInit {
                 })
                 this.numeroBimestre = 3;
                 this.esFinCalculo=false;
-                alert("Se envio su decision")
                 if (this.http.game.bimestre_tres_c == 1) {
                   this.obtenerTodosLosDatos();
                 }
@@ -326,7 +325,6 @@ export class TablaDeDecisionComponent implements OnInit {
             })
             this.numeroBimestre = 2;
             this.esFinCalculo=false;
-            alert("Se envio su decision")
             if (this.http.game.bimestre_dos_c == 1) {
               this.obtenerTodosLosDatos();
             }
@@ -341,7 +339,6 @@ export class TablaDeDecisionComponent implements OnInit {
         })
         this.numeroBimestre = 1;
         this.esFinCalculo=false;
-        alert("Se envio su decision")
         if (this.http.game.bimestre_uno_c == 1) {
           this.obtenerTodosLosDatos();
         }
@@ -635,7 +632,7 @@ export class TablaDeDecisionComponent implements OnInit {
         console.log("----------------------------------- front", response)
         if(this.esFinCalculo==false)
         {
-          alert("Calculos finalizados. Ya puede acceder a las demás pestañas")
+          alert("Calculos finalizados para el bimestre "+this.numeroBimestre+". Ya puede acceder a las demás pestañas.")
         }
         this.esFinCalculo=true;
       }
