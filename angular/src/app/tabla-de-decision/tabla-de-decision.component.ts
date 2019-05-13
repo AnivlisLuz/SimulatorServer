@@ -467,7 +467,8 @@ export class TablaDeDecisionComponent implements OnInit {
     document.getElementById("numero-bimestre-siguiente").innerText = this.nombreBimestre;
     this.numeroBimestre = this.numeroBimestre + 1;
     this.bimestreActual.numero = this.numeroBimestre;
-    this.bimestreActual.jugador = this.nombreEmpresa;
+    this.bimestreActual.jugador = this.http.game.player.name;
+    this.nombreEmpresa = this.http.game.player.name;
     this.bimestreActual.codigo = this.codigo;
 
     let json = JSON.stringify(this.bimestreActual);
@@ -1753,7 +1754,8 @@ export class TablaDeDecisionComponent implements OnInit {
   }
   generarConsejo3(): boolean {
     for (let i = 0; i < this.visionGeneral.length; i++) {
-      if (this.visionGeneral[i].jugador === this.nombreEmpresa) {
+    this.nombreEmpresa=this.http.game.player.name;
+      if (this.visionGeneral[i].jugador == this.nombreEmpresa) {
         if (this.visionGeneral[i].porcentajeDeMercado < 5)
           return true;
       }
@@ -1770,6 +1772,22 @@ export class TablaDeDecisionComponent implements OnInit {
       return true;
     else
       return false;
+  }
+  generarConsejo5(): boolean{
+    if((this.numeroBimestre==0 && this.http.game.cantidadTotalJugadores!=this.http.game.bimestre_uno_c) || (this.numeroBimestre==1 && this.http.game.cantidadTotalJugadores!=this.http.game.bimestre_dos_c) || (this.numeroBimestre==2 && this.http.game.cantidadTotalJugadores!=this.http.game.bimestre_tres_c))
+    {
+      return true;
+    }
+    else
+      return false
+  }
+  generarConsejo6(): boolean{
+    if(!this.generarConsejo1()&&!this.generarConsejo2()&&!this.generarConsejo3()&&!this.generarConsejo4()&&!this.generarConsejo5()){
+      return true;
+    }
+    else
+      return false;
+
   }
   fin() {
     let numerito = this.numeroBimestre
