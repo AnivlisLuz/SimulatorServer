@@ -102,7 +102,9 @@ export class TablaDeDecisionComponent implements OnInit {
     this.ventas = new Ventas();
     this.estadoResultados = [];
     this.balanceGeneral = new BalanceGeneral();
-    this.numeroBimestre = 0;
+  
+          this.numeroBimestre=0;
+   
     this.produccionIndustria = new Produccion();
     this.ventasIndustria = new VentasIndustria();
     this.visionGeneral = [];
@@ -162,7 +164,19 @@ export class TablaDeDecisionComponent implements OnInit {
     this.subscription = timer(0, 7000).subscribe(result => this.cargarInforme());
     this.subscription = timer(0, 7000).subscribe(result => this.cargarTAnalisis());
     document.getElementById("puntajes").style.display = "none";
-
+    if(this.http.game.player.activo_tres)
+      this.numeroBimestre=3;
+    else{
+      if(this.http.game.player.activo_dos)
+         this.numeroBimestre=2;
+      else{
+        if(this.http.game.player.activo_uno)
+          this.numeroBimestre=1;
+        else
+          this.numeroBimestre=0;
+      }
+    }
+    console.log("MI BIMESTRE",this.numeroBimestre);
     // this.route.params.subscribe(params => {
     //   if (params['player_name'] != null && params['codigo'] != null) {
     //     this.nombreEmpresa = params['player_name'];
