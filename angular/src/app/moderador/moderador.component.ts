@@ -50,4 +50,8 @@ export class ModeradorComponent implements OnInit {
     })
 
   }
+  verPuntajes() {
+    
+    this.router.navigateByUrl('/ingresoPuntajes');
+  }
 }

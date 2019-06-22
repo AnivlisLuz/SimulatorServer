@@ -1,3 +1,4 @@
+import { VentanaModeradorComponent } from './ventana-moderador/ventana-moderador.component';
 import { HomeComponent } from './home/home.component';
 import { RouterModule, Routes } from '@angular/router';
 import { TablaDeDecisionComponent } from './tabla-de-decision/tabla-de-decision.component';
@@ -16,6 +17,8 @@ const APPROUTES: Routes = [
     { path: 'home', component: HomeComponent },
     { path: 'jugar', component: JugarComponent },
     { path: 'moderador', component: ModeradorComponent },
+    { path: 'ingresoPuntajes', component: VentanaModeradorComponent },
+
     { path: 'fin', component: FinJuegoComponent },
     { path: 'fin/:numeroBimestre', component: FinJuegoComponent },
     { path: '**', pathMatch: 'full', redirectTo: 'home' }
