@@ -32,7 +32,8 @@ import { ThousandsPipe } from './separador-de-miles/thousand.pipe';
 import { AppRoutingModule, routingComponents } from './app-routing.module';
 import { InViewportModule } from '@thisissoon/angular-inviewport';
 import { ScrollSpyModule } from './scroll-spy';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
 
 const config: SocketIoConfig = { url: 'localhost:8080', options: {} };
 @NgModule({
@@ -65,7 +66,11 @@ const config: SocketIoConfig = { url: 'localhost:8080', options: {} };
       ReactiveFormsModule,
       SocketIoModule.forRoot(config),
       AppRoutingModule,
-      InViewportModule, ScrollSpyModule.forRoot()
+      InViewportModule, ScrollSpyModule.forRoot(),
+      BrowserAnimationsModule,
+      ToastrModule.forRoot({
+         preventDuplicates: true
+       })
 
    ],
    providers: [AuthService],

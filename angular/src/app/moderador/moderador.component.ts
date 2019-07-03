@@ -5,6 +5,8 @@ import { HttpService } from './../../services/http.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 import { Http } from '@angular/http';
+import { ToastrService } from 'ngx-toastr';
+
 @Component({
   selector: 'app-moderador',
   templateUrl: './moderador.component.html',
@@ -15,7 +17,7 @@ export class ModeradorComponent implements OnInit {
   submitted = false;
   moderador: Moderador;
 
-  constructor(private http: HttpService, private formBuilder: FormBuilder, private router: Router) {
+  constructor(private http: HttpService, private formBuilder: FormBuilder, private router: Router,private toastr: ToastrService) {
     this.moderador = new Moderador();
   }
 
@@ -37,17 +39,26 @@ export class ModeradorComponent implements OnInit {
 
     this.http.game.createGame(this.moderador, (response) => {
       if (response.message && response.message == "ok") {
-        alert(`Creado correctamente, Codigo: ${response.token}`)
+        // alert(`Creado correctamente, Codigo: ${response.token}`)
         let codigo = response.token;
         this.http.game.joinGameModerator(codigo, (response) => {
           if (response.message && response.message == "ok") {
+            this.alertaBienvenidoModerador("Bienvenido al juego: " +this.moderador.nombreMercado)
             this.router.navigate(['/fin']);
           }
         });
       }
       else
-        alert(`Error: ${response}`)
+        // alert(`Error: ${response}`)
+        this.alertaError("Error: "+`${response}`)
     })
 
   }
+  alertaBienvenidoModerador(mensaje:string){
+    this.toastr.info(mensaje)
+  }
+
+  alertaError(mensaje:string){
+    this.toastr.error(mensaje)
+  
 }
