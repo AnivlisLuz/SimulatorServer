@@ -69,7 +69,8 @@ const config: SocketIoConfig = { url: 'localhost:8080', options: {} };
       InViewportModule, ScrollSpyModule.forRoot(),
       BrowserAnimationsModule,
       ToastrModule.forRoot({
-         preventDuplicates: true
+         preventDuplicates: true,
+         positionClass: "toast-top-center",
        })
 
    ],
