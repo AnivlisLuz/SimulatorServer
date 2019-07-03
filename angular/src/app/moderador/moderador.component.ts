@@ -60,5 +60,5 @@ export class ModeradorComponent implements OnInit {
 
   alertaError(mensaje:string){
     this.toastr.error(mensaje)
-  
+  }
 }
