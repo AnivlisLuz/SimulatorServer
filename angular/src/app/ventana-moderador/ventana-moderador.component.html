@@ -3,7 +3,7 @@
   <br>
   <br>
   <div class="form-group">
-    <label>Nombre del Juego</label>
+    <label>Código del Juego</label>
     <input type="text" formControlName="codigo" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.nombreMercado.errors }"
       placeholder="Código de tu juego" />
     <div *ngIf="submitted && f.codigo.errors" class="invalid-feedback">
