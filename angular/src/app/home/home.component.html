@@ -79,9 +79,27 @@
         <input type="submit" name="" value="Unirse a un juego" (click)="jugar()">
         <br>
         <input type="submit" name="" value="Crear un juego" (click)="moderador()">
+</form>
 <nav>
+    <div class="select-style">
+            <select name="descargar-manuales" onChange="window.open(this.value)">
+                <option value="" disabled>Descargar Manuales Y Guías</option>
+                <option value="manuales/Guia del jugador.pdf">Guia del jugador</option>
+                <option value="manuales/Guia del moderador.docx">Guia del moderador</option>
+                <option value="manuales/Manual de conceptos.pdf">Manual de conceptos</option>
+                <option value="manuales/Manual de funciones.docx">Manual de funciones</option>
+                <option value="manuales/Manual de programacion.pdf">Manual de programacion</option>
+                <option value="manuales/Manual de usuario.pdf">Manual de usuario</option>
+                <!-- <option value="manuales/" ></option> -->
+
+            </select>
+            <!-- onchange="if (this.value) window.location.href=this.value" -->
+            <!-- onchange="location = this.value;" -->
+        <!-- <a target="_self" href="manuales/Manual de programacion.pdf" download>download</a>
+        <a target="_self" href="manuales/Manual de programacion.pdf" open>open</a> -->
+    </div>
     <a [routerLink]="['/about']" routerLinkActive="router-link-active"  style="color: #fff">Acerca de nosotros</a>
 </nav>
-    </form>
+    
         </div>
 </div>
