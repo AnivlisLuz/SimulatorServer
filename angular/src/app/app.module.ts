@@ -34,6 +34,8 @@ import { InViewportModule } from '@thisissoon/angular-inviewport';
 import { ScrollSpyModule } from './scroll-spy';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
+import { VentanaModeradorComponent } from './ventana-moderador/ventana-moderador.component';
+
 
 const config: SocketIoConfig = { url: 'localhost:8080', options: {} };
 @NgModule({
@@ -54,7 +56,8 @@ const config: SocketIoConfig = { url: 'localhost:8080', options: {} };
       TablaVentasComponent,
       FinJuegoComponent,
       ThousandsPipe,
-      routingComponents
+      routingComponents,
+      VentanaModeradorComponent
    ],
    imports: [
       BrowserModule,

@@ -1,0 +1,17 @@
+<form class="formularioModerador" [formGroup]="registerForm" #form="ngForm">
+  <header>MODERADOR </header>
+  <br>
+  <br>
+  <div class="form-group">
+    <label>Código del Juego</label>
+    <input type="text" formControlName="codigo" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.nombreMercado.errors }"
+      placeholder="Código de tu juego" />
+    <div *ngIf="submitted && f.codigo.errors" class="invalid-feedback">
+      <div *ngIf="f.codigo.errors.required" style="color: red">Código del juego es requerido</div>
+    </div>
+  </div>
+  <br>
+
+  <button type="submit" (click)="onClickMe()">Hecho</button>
+
+</form>
