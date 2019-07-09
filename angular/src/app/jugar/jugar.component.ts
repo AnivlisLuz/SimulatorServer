@@ -5,6 +5,7 @@ import { RouterLink, Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { HttpService } from './../../services/http.service';
 
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-jugar',
@@ -21,7 +22,7 @@ export class JugarComponent implements OnInit {
   nombre_empresa: string;
   codigo: string;
 
-  constructor(private router: Router, private formBuilder: FormBuilder, private http: HttpService) {
+  constructor(private router: Router, private formBuilder: FormBuilder, private http: HttpService,private toastr: ToastrService) {
     this.jugador = new Jugador();
     this.empresa = new Empresa();
   }
@@ -45,12 +46,22 @@ export class JugarComponent implements OnInit {
     let body_send = { player_name: this.nombre_empresa.toUpperCase(), codigo: this.codigo }
     this.http.game.joinGame(body_send, (response) => {
       if (response.message && response.message == "ok") {
-        alert("Tu nombre de empresa sera:" + this.nombre_empresa);
+        // alert("Tu nombre de empresa sera:" + this.nombre_empresa);
+        this.alertaBienvenidoEmpresa("Damos la bienvenida a tu empresa: " +this.nombre_empresa);
         this.router.navigate(['/tabla']);
       }
       else
-        alert(`Error: ${response}`)
+        // alert(`Error: ${response}`)
+        this.alertaError("Error: "+`${response}`)
     })
 
+  }
+
+  alertaBienvenidoEmpresa(name:string){
+    this.toastr.info(name)
+  }
+
+  alertaError(mensaje:string){
+    this.toastr.error(mensaje)
   }
 }

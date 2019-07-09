@@ -21,6 +21,7 @@ import { Alert } from 'selenium-webdriver';
 import 'chartjs-plugin-labels';
 import 'chartjs-plugin-piechart-outlabels';
 import { Subscription, timer } from "rxjs";
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-tabla-de-decision',
@@ -94,7 +95,7 @@ export class TablaDeDecisionComponent implements OnInit {
   subscription: Subscription;
   esFinCalculo:boolean=false;
 
-  constructor(private http: HttpService, private route: ActivatedRoute, private router: Router) {
+  constructor(private http: HttpService, private route: ActivatedRoute, private router: Router,private toastr: ToastrService) {
     this.bimestreInicial = new Bimestre();
     this.bimestreActual = new Bimestre();
     this.bimestres = [];
@@ -102,7 +103,9 @@ export class TablaDeDecisionComponent implements OnInit {
     this.ventas = new Ventas();
     this.estadoResultados = [];
     this.balanceGeneral = new BalanceGeneral();
-    this.numeroBimestre = 0;
+  
+          this.numeroBimestre=0;
+   
     this.produccionIndustria = new Produccion();
     this.ventasIndustria = new VentasIndustria();
     this.visionGeneral = [];
@@ -162,7 +165,19 @@ export class TablaDeDecisionComponent implements OnInit {
     this.subscription = timer(0, 7000).subscribe(result => this.cargarInforme());
     this.subscription = timer(0, 7000).subscribe(result => this.cargarTAnalisis());
     document.getElementById("puntajes").style.display = "none";
-
+    if(this.http.game.player.activo_tres)
+      this.numeroBimestre=3;
+    else{
+      if(this.http.game.player.activo_dos)
+         this.numeroBimestre=2;
+      else{
+        if(this.http.game.player.activo_uno)
+          this.numeroBimestre=1;
+        else
+          this.numeroBimestre=0;
+      }
+    }
+    console.log("MI BIMESTRE",this.numeroBimestre);
     // this.route.params.subscribe(params => {
     //   if (params['player_name'] != null && params['codigo'] != null) {
     //     this.nombreEmpresa = params['player_name'];
@@ -320,7 +335,8 @@ export class TablaDeDecisionComponent implements OnInit {
                 this.bloquear();
               }
             } else {
-              alert("faltan completar el bimestre dos")
+              this.alertaCalculosNoFinalizadosOFaltanJugadores("Faltan completar el bimestre dos")
+              // alert("faltan completar el bimestre dos")
             }
           } else {
             this.http.game.addBimestreDos(data_bimestre, (response) => {
@@ -334,7 +350,8 @@ export class TablaDeDecisionComponent implements OnInit {
             console.log("numero Bimestre front => ", this.numeroBimestre)
           }
         } else {
-          alert("faltan completar el bimestre uno")
+          this.alertaCalculosNoFinalizadosOFaltanJugadores("Faltan completar el bimestre uno")
+          // alert("faltan completar el bimestre uno")
         }
       } else {
         this.http.game.addBimestreUno(data_bimestre, (response) => {
@@ -349,7 +366,8 @@ export class TablaDeDecisionComponent implements OnInit {
       }
     }
     else {
-      alert("aun faltan " + this.http.game.bimestre_inicial_c + " jugadores")
+      this.alertaCalculosNoFinalizadosOFaltanJugadores("aun faltan " + this.http.game.bimestre_inicial_c + " jugadores")
+      // alert("aun faltan " + this.http.game.bimestre_inicial_c + " jugadores")
     }
   }
   iniciarAfter() {
@@ -638,7 +656,8 @@ export class TablaDeDecisionComponent implements OnInit {
         console.log("----------------------------------- front", response)
         if(this.esFinCalculo==false)
         {
-          alert("Calculos finalizados para el bimestre "+this.numeroBimestre+". Ya puede acceder a las demás pestañas.")
+          this.alertaCalculosFinalizados()
+          // alert("Calculos finalizados para el bimestre "+this.numeroBimestre+". Ya puede acceder a las demás pestañas.")
         }
         this.esFinCalculo=true;
       }
@@ -653,7 +672,8 @@ export class TablaDeDecisionComponent implements OnInit {
       this.tap_position = 2
     }
     else{
-      alert("Aún falta calcular")
+      this.alertaCalculosNoFinalizadosOFaltanJugadores("Aún falta calcular")
+      // alert("Aún falta calcular")
     }
     this.cargarTAnalisis();
 
@@ -725,7 +745,8 @@ export class TablaDeDecisionComponent implements OnInit {
       this.tap_position = 3;
     }
     else{
-      alert("Aún falta calcular")
+      this.alertaCalculosNoFinalizadosOFaltanJugadores("Aún falta calcular")
+      // alert("Aún falta calcular")
     }
     this.cargarInforme();
 
@@ -878,7 +899,8 @@ export class TablaDeDecisionComponent implements OnInit {
     this.bloquear();
     }
     else{
-      alert("Aún falta calcular")
+      // alert("Aún falta calcular")
+      this.alertaCalculosNoFinalizadosOFaltanJugadores("Aún falta calcular")
     }
 
 
@@ -1800,5 +1822,14 @@ export class TablaDeDecisionComponent implements OnInit {
   }
     ngOnDestroy() {
     this.subscription.unsubscribe();
+  }
+
+  alertaCalculosFinalizados(){
+    this.toastr.success("Calculos finalizados para el bimestre "+this.numeroBimestre+". Ya puede acceder a las demás pestañas.")
+  }
+  alertaCalculosNoFinalizadosOFaltanJugadores(error:string){
+    this.toastr.error(error,'', {
+      timeOut: 3000
+    });
   }
 }

@@ -195,6 +195,7 @@ exports.setSocket = io => {
                 _mercado.getCostosProduccion(data).then(result => {
                     result.materiaPrima= Math.round(result.materiaPrima)
                     result.costoTotal= Math.round(result.costoTotal)
+                    result.costoUnitario=Math.round(result.costoUnitario)
                     client(result)
                     io.sockets.emit("getCostosProduccion(data)", result)
                 }).catch(error => {
