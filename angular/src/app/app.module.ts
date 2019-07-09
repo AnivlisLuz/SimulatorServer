@@ -37,7 +37,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { VentanaModeradorComponent } from './ventana-moderador/ventana-moderador.component';
 
 
-const config: SocketIoConfig = { url: 'localhost:8080', options: {} };
+const config: SocketIoConfig = { url: '204.48.27.202:8063', options: {} };
 @NgModule({
    declarations: [
       AppComponent,
