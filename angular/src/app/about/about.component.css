@@ -14,7 +14,7 @@
   }
     
   .nav {
-    background-color: #3061FF;
+    background-color: #092B3A;
     display: flex;
     left: 0;
     list-style: none;
@@ -39,7 +39,7 @@ float: right;
   }
   
   .nav-link.active {
-    background-color: #007bff;
+    background-color: #092B3A;
     color: blue;
   }
   .heading
@@ -59,7 +59,7 @@ float: right;
       content: "";
       width: 10rem;
       height: .8rem;
-      background-color:#3061FF;
+      background-color:#092B3A;
       position: absolute;
       bottom: -2rem;
       left: 50%;
